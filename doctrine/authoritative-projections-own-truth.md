@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Authoritative Projections Own Truth"
 topics: [projection-authority]
-refs: []
+refs: [state-is-materialized-projection.md, cursors-represent-projection-progress.md, truth-must-be-proven.md]
 ---
 
 # Authoritative Projections Own Truth

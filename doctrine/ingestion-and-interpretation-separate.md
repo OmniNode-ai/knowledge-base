@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Ingestion and Interpretation Are Separate"
 topics: [ingestion-boundaries]
-refs: []
+refs: [state-is-materialized-projection.md, deterministic-under-replay.md, contracts-define-reality.md]
 ---
 
 # Ingestion and Interpretation Are Separate

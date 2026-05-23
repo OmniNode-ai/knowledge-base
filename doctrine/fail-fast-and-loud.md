@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Fail Fast and Loud"
 topics: [failure-handling]
-refs: []
+refs: [degrade-safely.md, evidence-is-first-class-output.md, truth-must-be-proven.md]
 ---
 
 # Fail Fast and Loud

@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Runtime Complexity Must Be Isolated"
 topics: [runtime-isolation]
-refs: []
+refs: [evidence-is-first-class-output.md, truth-must-be-proven.md, ingestion-and-interpretation-separate.md]
 ---
 
 # Runtime Complexity Must Be Isolated

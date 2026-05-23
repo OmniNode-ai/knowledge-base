@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Evidence Is a First-Class Output"
 topics: [evidence-systems]
-refs: []
+refs: [truth-must-be-proven.md, fail-fast-and-loud.md, runtime-complexity-isolated.md]
 ---
 
 # Evidence Is a First-Class Output
