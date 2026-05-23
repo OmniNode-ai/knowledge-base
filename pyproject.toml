@@ -5,6 +5,7 @@ description = "OmniNode architectural provenance validation tools"
 requires-python = ">=3.12"
 dependencies = [
     "pyyaml>=6.0",
+    "pydantic>=2.0",
 ]
 
 [project.optional-dependencies]
