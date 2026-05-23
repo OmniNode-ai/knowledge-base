@@ -1,10 +1,16 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Evidence Is a First-Class Output"
 topics: [evidence-systems]
-refs: [truth-must-be-proven.md, fail-fast-and-loud.md, runtime-complexity-isolated.md]
+refs:
+  - doctrine/truth-must-be-proven.md
+  - doctrine/fail-fast-and-loud.md
+  - doctrine/runtime-complexity-isolated.md
+  - adrs/ADR-0002-data-verification-invocation.md
+  - adrs/ADR-0005-dispatch-lifecycle-canonical.md
+  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 ---
 
 # Evidence Is a First-Class Output

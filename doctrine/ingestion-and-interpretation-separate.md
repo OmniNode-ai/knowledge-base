@@ -1,10 +1,15 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Ingestion and Interpretation Are Separate"
 topics: [ingestion-boundaries]
-refs: [state-is-materialized-projection.md, deterministic-under-replay.md, contracts-define-reality.md]
+refs:
+  - doctrine/state-is-materialized-projection.md
+  - doctrine/deterministic-under-replay.md
+  - doctrine/contracts-define-reality.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
+  - deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md
 ---
 
 # Ingestion and Interpretation Are Separate

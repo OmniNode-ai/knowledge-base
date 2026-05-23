@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-03-28
+date: "2026-03-28"
 title: "Multi-Session Coordination: Building the Session Intelligence Stack End-to-End"
 period: "2026-03-25 to 2026-03-30"
 topics:
@@ -13,6 +13,8 @@ topics:
 refs:
   - doctrine/state-is-materialized-projection.md
   - doctrine/contracts-define-reality.md
+  - doctrine/ingestion-and-interpretation-separate.md
+  - doctrine/ordering-must-be-explicit.md
 ---
 
 # 2026-03-28: Multi-Session Coordination — Building the Session Intelligence Stack End-to-End

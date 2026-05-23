@@ -1,10 +1,17 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Authoritative Projections Own Truth"
 topics: [projection-authority]
-refs: [state-is-materialized-projection.md, cursors-represent-projection-progress.md, truth-must-be-proven.md]
+refs:
+  - doctrine/state-is-materialized-projection.md
+  - doctrine/cursors-represent-projection-progress.md
+  - doctrine/truth-must-be-proven.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
+  - adrs/ADR-0004-registry-owned-consumer-surface.md
+  - deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md
+  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Authoritative Projections Own Truth

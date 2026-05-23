@@ -1,11 +1,16 @@
 ---
 type: adr
 status: accepted
-date: 2026-04-28
+date: "2026-04-28"
 title: "ADR-0005: Dispatch Lifecycle Canonical Source"
 adr_id: ADR-0005
 topics: [dispatch, lifecycle, fsm, event-bus, canonical-model]
-refs: []
+refs:
+  - doctrine/truth-must-be-proven.md
+  - doctrine/canonical-reducers-win.md
+  - doctrine/deterministic-under-replay.md
+  - doctrine/evidence-is-first-class-output.md
+  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 supersedes: []
 superseded_by: []
 ---

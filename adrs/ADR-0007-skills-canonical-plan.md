@@ -1,11 +1,14 @@
 ---
 type: adr
 status: accepted
-date: 2026-04-28
+date: "2026-04-28"
 title: "ADR-0007: Canonical Skills Migration Plan"
 adr_id: ADR-0007
 topics: [skills, migration, planning, canonical-source]
-refs: []
+refs:
+  - doctrine/contracts-define-reality.md
+  - doctrine/truth-must-be-proven.md
+  - adrs/ADR-0005-dispatch-lifecycle-canonical.md
 supersedes: []
 superseded_by: []
 ---

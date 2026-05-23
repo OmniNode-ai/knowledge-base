@@ -1,10 +1,10 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Migration Must Be Staged and Recoverable"
 topics: [migration-safety]
-refs: [evidence-is-first-class-output.md, fail-fast-and-loud.md, deterministic-under-replay.md]
+refs: [doctrine/evidence-is-first-class-output.md, doctrine/fail-fast-and-loud.md, doctrine/deterministic-under-replay.md]
 ---
 
 # Migration Must Be Staged and Recoverable

@@ -1,10 +1,10 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Canonical Reducers Win"
 topics: [replay-correctness]
-refs: [reducers-define-state-progression.md, ordering-must-be-explicit.md, deterministic-under-replay.md]
+refs: [doctrine/reducers-define-state-progression.md, doctrine/ordering-must-be-explicit.md, doctrine/deterministic-under-replay.md]
 ---
 
 # Canonical Reducers Win

@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-02-04
+date: "2026-02-04"
 title: "Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection"
 period: "2026-01-28 to 2026-02-05"
 topics:
@@ -13,6 +13,8 @@ topics:
 refs:
   - doctrine/contracts-define-reality.md
   - doctrine/ingestion-and-interpretation-separate.md
+  - doctrine/fail-fast-and-loud.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
 ---
 
 # 2026-02-04: Zero-Code Runtime — Contract-Driven Handler Discovery and Dependency Injection
