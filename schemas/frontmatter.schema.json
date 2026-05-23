@@ -1,0 +1,451 @@
+{
+  "$defs": {
+    "ADRFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "adr",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "superseded",
+            "deprecated",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        },
+        "adr_id": {
+          "title": "Adr Id",
+          "type": "string"
+        },
+        "supersedes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Supersedes",
+          "type": "array"
+        },
+        "superseded_by": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Superseded By",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title",
+        "adr_id"
+      ],
+      "title": "ADRFrontmatter",
+      "type": "object"
+    },
+    "DeepDiveFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "deep-dive",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "public-curated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        },
+        "period": {
+          "title": "Period",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title",
+        "period"
+      ],
+      "title": "DeepDiveFrontmatter",
+      "type": "object"
+    },
+    "DoctrineFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "doctrine",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "accepted",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "DoctrineFrontmatter",
+      "type": "object"
+    },
+    "EvidenceFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "evidence",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "accepted",
+            "superseded"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "EvidenceFrontmatter",
+      "type": "object"
+    },
+    "ExperimentFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "experiment",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "active",
+            "completed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        },
+        "hypothesis": {
+          "title": "Hypothesis",
+          "type": "string"
+        },
+        "outcome": {
+          "anyOf": [
+            {
+              "enum": [
+                "confirmed",
+                "refuted",
+                "inconclusive"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Outcome"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title",
+        "hypothesis"
+      ],
+      "title": "ExperimentFrontmatter",
+      "type": "object"
+    },
+    "PivotFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "pivot",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "observed",
+            "emerging",
+            "accepted",
+            "historical",
+            "superseded"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        },
+        "observed_date": {
+          "title": "Observed Date",
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title",
+        "observed_date",
+        "confidence"
+      ],
+      "title": "PivotFrontmatter",
+      "type": "object"
+    },
+    "PlanFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "plan",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "active",
+            "completed",
+            "superseded"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "PlanFrontmatter",
+      "type": "object"
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ADRFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/DoctrineFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/PivotFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/DeepDiveFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/ExperimentFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/EvidenceFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/PlanFrontmatter"
+    }
+  ]
+}
