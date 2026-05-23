@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Ordering Must Be Explicit and Contracted"
 topics: [replay-correctness]
-refs: []
+refs: [deterministic-under-replay.md, contracts-define-reality.md]
 ---
 
 # Ordering Must Be Explicit and Contracted

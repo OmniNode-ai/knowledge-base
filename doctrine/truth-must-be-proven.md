@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Truth Must Be Proven, Not Claimed"
 topics: [truth-verification]
-refs: []
+refs: [evidence-is-first-class-output.md, authoritative-projections-own-truth.md]
 ---
 
 # Truth Must Be Proven, Not Claimed

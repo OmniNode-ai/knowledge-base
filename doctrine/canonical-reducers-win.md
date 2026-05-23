@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Canonical Reducers Win"
 topics: [replay-correctness]
-refs: []
+refs: [reducers-define-state-progression.md, ordering-must-be-explicit.md, deterministic-under-replay.md]
 ---
 
 # Canonical Reducers Win
