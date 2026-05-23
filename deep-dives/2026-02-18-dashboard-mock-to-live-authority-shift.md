@@ -11,9 +11,8 @@ topics:
   - event-sourcing
   - data-authority
 refs:
-  - adr/ADR-007-projection-authority.md
-  - doctrine/02-event-sourcing-as-truth.md
-  - doctrine/05-clients-render-truth.md
+  - doctrine/state-is-materialized-projection.md
+  - doctrine/authoritative-projections-own-truth.md
 ---
 
 # 2026-02-18: Dashboard Authority Shift — From Mock Data to Projection-Driven Truth

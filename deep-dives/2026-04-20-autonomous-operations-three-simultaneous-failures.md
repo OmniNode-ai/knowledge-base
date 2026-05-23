@@ -11,9 +11,9 @@ topics:
   - failure-modes
   - overnight-operations
 refs:
-  - adr/ADR-010-agent-autonomy-limits.md
-  - doctrine/01-deterministic-truth.md
-  - doctrine/12-verification-before-completion.md
+  - doctrine/truth-must-be-proven.md
+  - doctrine/evidence-is-first-class-output.md
+  - doctrine/deterministic-under-replay.md
 ---
 
 # 2026-04-20: Autonomous Operations Under Three Simultaneous Infrastructure Failures
