@@ -1,11 +1,15 @@
 ---
 type: adr
 status: accepted
-date: 2026-04-23
+date: "2026-04-23"
 title: "ADR-0002: Data Verification Node Invocation Policy"
 adr_id: ADR-0002
 topics: [data-verification, dod, kafka, receipts, evidence-gates]
-refs: []
+refs:
+  - doctrine/truth-must-be-proven.md
+  - doctrine/evidence-is-first-class-output.md
+  - doctrine/fail-fast-and-loud.md
+  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 supersedes: []
 superseded_by: []
 ---

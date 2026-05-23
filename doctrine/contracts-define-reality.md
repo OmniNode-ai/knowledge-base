@@ -1,10 +1,17 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Contracts Define Reality"
 topics: [contract-governance]
-refs: [ordering-must-be-explicit.md, cursors-represent-projection-progress.md, ingestion-and-interpretation-separate.md]
+refs:
+  - doctrine/ordering-must-be-explicit.md
+  - doctrine/cursors-represent-projection-progress.md
+  - doctrine/ingestion-and-interpretation-separate.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
+  - adrs/ADR-0006-skill-liveness-validator-home.md
+  - adrs/ADR-0007-skills-canonical-plan.md
+  - deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md
 ---
 
 # Contracts Define Reality

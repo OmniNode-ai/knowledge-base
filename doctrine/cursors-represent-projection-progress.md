@@ -1,10 +1,10 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Cursors Represent Projection Progress"
 topics: [projection-authority]
-refs: [authoritative-projections-own-truth.md, state-is-materialized-projection.md, contracts-define-reality.md]
+refs: [doctrine/authoritative-projections-own-truth.md, doctrine/state-is-materialized-projection.md, doctrine/contracts-define-reality.md]
 ---
 
 # Cursors Represent Projection Progress

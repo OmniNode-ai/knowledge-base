@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-02-18
+date: "2026-02-18"
 title: "Dashboard Authority Shift: From Mock Data to Projection-Driven Truth"
 period: "2026-01-15 to 2026-02-18"
 topics:
@@ -13,6 +13,9 @@ topics:
 refs:
   - doctrine/state-is-materialized-projection.md
   - doctrine/authoritative-projections-own-truth.md
+  - doctrine/ingestion-and-interpretation-separate.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
+  - adrs/ADR-0004-registry-owned-consumer-surface.md
 ---
 
 # 2026-02-18: Dashboard Authority Shift — From Mock Data to Projection-Driven Truth

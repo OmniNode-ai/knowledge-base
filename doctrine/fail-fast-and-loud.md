@@ -1,10 +1,16 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Fail Fast and Loud"
 topics: [failure-handling]
-refs: [degrade-safely.md, evidence-is-first-class-output.md, truth-must-be-proven.md]
+refs:
+  - doctrine/degrade-safely.md
+  - doctrine/evidence-is-first-class-output.md
+  - doctrine/truth-must-be-proven.md
+  - adrs/ADR-0006-skill-liveness-validator-home.md
+  - deep-dives/2026-02-27-kafka-connection-limit-outage.md
+  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Fail Fast and Loud

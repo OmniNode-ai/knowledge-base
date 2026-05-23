@@ -1,10 +1,16 @@
 ---
 type: doctrine
 status: accepted
-date: 2026-05-23
+date: "2026-05-23"
 title: "Systems Must Be Deterministic Under Replay"
 topics: [replay-correctness]
-refs: [ordering-must-be-explicit.md, reducers-define-state-progression.md, canonical-reducers-win.md]
+refs:
+  - doctrine/ordering-must-be-explicit.md
+  - doctrine/reducers-define-state-progression.md
+  - doctrine/canonical-reducers-win.md
+  - adrs/ADR-0005-dispatch-lifecycle-canonical.md
+  - deep-dives/2026-02-27-kafka-connection-limit-outage.md
+  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 ---
 
 # Systems Must Be Deterministic Under Replay

@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-04-20
+date: "2026-04-20"
 title: "Autonomous Operations Under Three Simultaneous Infrastructure Failures"
 period: "2026-04-19 to 2026-04-21"
 topics:
@@ -14,6 +14,9 @@ refs:
   - doctrine/truth-must-be-proven.md
   - doctrine/evidence-is-first-class-output.md
   - doctrine/deterministic-under-replay.md
+  - doctrine/fail-fast-and-loud.md
+  - adrs/ADR-0002-data-verification-invocation.md
+  - adrs/ADR-0005-dispatch-lifecycle-canonical.md
 ---
 
 # 2026-04-20: Autonomous Operations Under Three Simultaneous Infrastructure Failures

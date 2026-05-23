@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-04-14
+date: "2026-04-14"
 title: "Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap"
 period: "2026-04-10 to 2026-04-14"
 topics:
@@ -14,6 +14,9 @@ refs:
   - doctrine/fail-fast-and-loud.md
   - doctrine/truth-must-be-proven.md
   - doctrine/authoritative-projections-own-truth.md
+  - doctrine/contracts-define-reality.md
+  - adrs/ADR-0003-registration-runtime-registry-boundary.md
+  - adrs/ADR-0004-registry-owned-consumer-surface.md
 ---
 
 # 2026-04-14: Silent Projection Failure — The Auto-Wiring Engine's Database Injection Gap

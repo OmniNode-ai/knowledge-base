@@ -1,7 +1,7 @@
 ---
 type: deep-dive
 status: public-curated
-date: 2026-02-27
+date: "2026-02-27"
 title: "Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms"
 period: "2026-02-27"
 topics:
@@ -12,6 +12,8 @@ topics:
 refs:
   - doctrine/fail-fast-and-loud.md
   - doctrine/degrade-safely.md
+  - doctrine/deterministic-under-replay.md
+  - doctrine/migration-staged-recoverable.md
 ---
 
 # 2026-02-27: Kafka Connection Limit Outage — TCP Socket Leak Under Reconnect Storms
