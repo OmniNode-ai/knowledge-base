@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Systems Must Be Deterministic Under Replay"
 topics: [replay-correctness]
-refs: []
+refs: [ordering-must-be-explicit.md, reducers-define-state-progression.md, canonical-reducers-win.md]
 ---
 
 # Systems Must Be Deterministic Under Replay

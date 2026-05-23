@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Reducers Define State Progression"
 topics: [replay-correctness]
-refs: []
+refs: [deterministic-under-replay.md, canonical-reducers-win.md, state-is-materialized-projection.md]
 ---
 
 # Reducers Define State Progression

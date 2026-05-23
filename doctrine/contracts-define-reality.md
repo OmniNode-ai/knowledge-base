@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Contracts Define Reality"
 topics: [contract-governance]
-refs: []
+refs: [ordering-must-be-explicit.md, cursors-represent-projection-progress.md, ingestion-and-interpretation-separate.md]
 ---
 
 # Contracts Define Reality

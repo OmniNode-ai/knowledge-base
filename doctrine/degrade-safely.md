@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Degrade Safely"
 topics: [failure-handling]
-refs: []
+refs: [fail-fast-and-loud.md, authoritative-projections-own-truth.md]
 ---
 
 # Degrade Safely
