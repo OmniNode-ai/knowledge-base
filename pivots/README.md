@@ -129,6 +129,10 @@ Use `_template.md` as the starting point. Each section serves a specific purpose
 
 ## Current Pivots
 
-No pivots published yet. Foundational pivots are in preparation.
-
-As the pivot record grows, this section will index all pivots by status and topic. For now, use `_template.md` to author the first pivots.
+| ID | Title | Status | Date |
+|----|-------|--------|------|
+| [PIVOT-0001](PIVOT-0001-ingestion-is-not-interpretation.md) | Ingestion Is Not Interpretation | accepted | 2026-05-23 |
+| [PIVOT-0002](PIVOT-0002-dashboard-authority-collapse.md) | Dashboard Authority Collapse | accepted | 2026-05-23 |
+| [PIVOT-0003](PIVOT-0003-completion-requires-durable-evidence.md) | Completion Requires Durable Evidence | accepted | 2026-05-23 |
+| [PIVOT-0004](PIVOT-0004-reducers-own-state-progression.md) | Reducers Own State Progression | accepted | 2026-05-23 |
+| [PIVOT-0005](PIVOT-0005-event-streams-are-not-authoritative-state.md) | Event Streams Are Not Authoritative State | accepted | 2026-05-23 |
