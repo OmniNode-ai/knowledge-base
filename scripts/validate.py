@@ -239,12 +239,31 @@ def check_sanitization(root: Path) -> list[str]:
 
 
 def check_index_freshness(root: Path) -> list[str]:
-    """Verify committed indexes exist (full freshness check pending T15)."""
+    """Verify committed indexes match what generate_indexes.py would produce."""
+    import sys
+
+    scripts_dir = root / "scripts"
+    if str(scripts_dir) not in sys.path:
+        sys.path.insert(0, str(scripts_dir))
+
+    from generate_indexes import collect_artifacts, generate_by_topic, generate_by_type, generate_chronological
+
+    artifacts = collect_artifacts(root)
+    expected = {
+        "chronological.md": generate_chronological(artifacts),
+        "by-topic.md": generate_by_topic(artifacts),
+        "by-type.md": generate_by_type(artifacts),
+    }
+
     errors = []
-    for index_file in ["chronological.md", "by-topic.md", "by-type.md"]:
+    for index_file, expected_content in expected.items():
         path = root / "indexes" / index_file
         if not path.exists():
-            errors.append(f"Missing index file: indexes/{index_file}")
+            errors.append(f"Missing index file: indexes/{index_file} — run: uv run python scripts/generate_indexes.py")
+            continue
+        actual = path.read_text()
+        if actual != expected_content:
+            errors.append(f"Stale index: indexes/{index_file} — run: uv run python scripts/generate_indexes.py")
     return errors
 
 
@@ -303,7 +322,7 @@ def main() -> int:
     parser.add_argument(
         "--fix-indexes",
         action="store_true",
-        help="Regenerate index files (not yet implemented)",
+        help="Regenerate index files from artifact frontmatter",
     )
     args = parser.parse_args()
 
@@ -314,8 +333,14 @@ def main() -> int:
         return 0
 
     if args.fix_indexes:
-        print("--fix-indexes: not yet implemented (pending T15 generate_indexes.py)")
-        return 1
+        import sys
+
+        scripts_dir = repo_root / "scripts"
+        if str(scripts_dir) not in sys.path:
+            sys.path.insert(0, str(scripts_dir))
+        import generate_indexes
+
+        return generate_indexes.main()
 
     all_errors: list[str] = []
 
