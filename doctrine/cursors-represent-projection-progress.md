@@ -4,7 +4,7 @@ status: accepted
 date: 2026-05-23
 title: "Cursors Represent Projection Progress"
 topics: [projection-authority]
-refs: []
+refs: [authoritative-projections-own-truth.md, state-is-materialized-projection.md, contracts-define-reality.md]
 ---
 
 # Cursors Represent Projection Progress
