@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Knowledge Base
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --extra dev
+
+      - name: Lint scripts
+        run: |
+          uv run ruff check scripts/
+          uv run ruff format --check scripts/
+
+      - name: Validate frontmatter, cross-references, and sanitization
+        run: uv run python scripts/validate.py
+
+      - name: Verify JSON schema is up to date
+        run: |
+          uv run python scripts/validate.py --export-schema
+          git diff --exit-code schemas/frontmatter.schema.json || (echo "Schema out of date — run: uv run python scripts/validate.py --export-schema" && exit 1)
