@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Annotated, Literal
@@ -104,8 +105,21 @@ FrontmatterAdapter: TypeAdapter[AnyFrontmatter] = TypeAdapter(Annotated[AnyFront
 
 
 # ---------------------------------------------------------------------------
-# File-level validation
+# Helpers
 # ---------------------------------------------------------------------------
+
+
+def _find_artifact_files(root: Path) -> list[Path]:
+    """Return all artifact markdown files (excluding skipped names)."""
+    files = []
+    for dir_name in ARTIFACT_DIRS:
+        artifact_dir = root / dir_name
+        if not artifact_dir.is_dir():
+            continue
+        for md_file in sorted(artifact_dir.glob("*.md")):
+            if md_file.name not in SKIP_FILES:
+                files.append(md_file)
+    return files
 
 
 def _extract_frontmatter(text: str) -> dict | None:
@@ -117,6 +131,11 @@ def _extract_frontmatter(text: str) -> dict | None:
         return None
     raw = text[3:end].strip()
     return yaml.safe_load(raw)
+
+
+# ---------------------------------------------------------------------------
+# Frontmatter validation
+# ---------------------------------------------------------------------------
 
 
 def validate_frontmatter(file_path: Path) -> list[str]:
@@ -148,6 +167,113 @@ def validate_frontmatter(file_path: Path) -> list[str]:
     return []
 
 
+def check_all_frontmatter(root: Path) -> list[str]:
+    errors = []
+    for md_file in _find_artifact_files(root):
+        errors.extend(validate_frontmatter(md_file))
+    return errors
+
+
+# ---------------------------------------------------------------------------
+# Cross-reference integrity
+# ---------------------------------------------------------------------------
+
+
+def check_cross_references(root: Path) -> list[str]:
+    """For every refs: entry in frontmatter, verify the target file exists."""
+    errors = []
+    for md_file in _find_artifact_files(root):
+        text = md_file.read_text(encoding="utf-8")
+        fm = _extract_frontmatter(text)
+        if not isinstance(fm, dict):
+            continue
+        for ref in fm.get("refs", []):
+            target = root / ref
+            if not target.exists():
+                errors.append(f"{md_file}: broken ref '{ref}' — file does not exist")
+    return errors
+
+
+# ---------------------------------------------------------------------------
+# Sanitization guard
+# ---------------------------------------------------------------------------
+
+SANITIZATION_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (re.compile(r"OMN-\d+"), "Internal ticket reference"),
+    (re.compile(r"192\.168\.\d+\.\d+"), "Internal IP address"),
+    (re.compile(r"\.(200|201)\b"), "Internal host reference"),
+    (re.compile(r"github\.com/OmniNode-ai/(?!knowledge-base)"), "Private repo URL"),
+    (re.compile(r"infisical|INFISICAL"), "Internal secrets manager reference"),
+    (re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"), "Email address pattern"),
+]
+
+_ALLOWLIST_PATTERN = re.compile(r"#\s*sanitization-ok:\s*(.+)")
+
+
+def check_sanitization(root: Path) -> list[str]:
+    """Scan all artifact files for private content patterns."""
+    errors = []
+    for md_file in _find_artifact_files(root):
+        content = md_file.read_text(encoding="utf-8")
+        lines = content.splitlines()
+
+        # Collect allowlisted line numbers (1-indexed)
+        allowlisted_lines: set[int] = set()
+        for i, line in enumerate(lines, 1):
+            if _ALLOWLIST_PATTERN.search(line):
+                allowlisted_lines.add(i)
+
+        for i, line in enumerate(lines, 1):
+            if i in allowlisted_lines:
+                continue
+            for pattern, description in SANITIZATION_PATTERNS:
+                if pattern.search(line):
+                    errors.append(f"{md_file}:{i}: {description} — matches '{pattern.pattern}'")
+                    break  # one error per line
+    return errors
+
+
+# ---------------------------------------------------------------------------
+# Index freshness
+# ---------------------------------------------------------------------------
+
+
+def check_index_freshness(root: Path) -> list[str]:
+    """Verify committed indexes exist (full freshness check pending T15)."""
+    errors = []
+    for index_file in ["chronological.md", "by-topic.md", "by-type.md"]:
+        path = root / "indexes" / index_file
+        if not path.exists():
+            errors.append(f"Missing index file: indexes/{index_file}")
+    return errors
+
+
+# ---------------------------------------------------------------------------
+# Broken link detection
+# ---------------------------------------------------------------------------
+
+_LINK_PATTERN = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
+
+
+def check_broken_links(root: Path) -> list[str]:
+    """Check for broken relative markdown links within artifact files."""
+    errors = []
+    for md_file in _find_artifact_files(root):
+        content = md_file.read_text(encoding="utf-8")
+        for i, line in enumerate(content.splitlines(), 1):
+            for _text, href in _LINK_PATTERN.findall(line):
+                # Skip absolute URLs and anchors
+                if href.startswith(("http://", "https://", "mailto:", "#")):
+                    continue
+                path_part = href.split("#")[0]
+                if not path_part:
+                    continue
+                target = (md_file.parent / path_part).resolve()
+                if not target.exists():
+                    errors.append(f"{md_file}:{i}: broken link '{href}' — file does not exist")
+    return errors
+
+
 # ---------------------------------------------------------------------------
 # Schema export
 # ---------------------------------------------------------------------------
@@ -174,6 +300,11 @@ def main() -> int:
         const="schemas/frontmatter.schema.json",
         help="Write JSON schema to PATH (default: schemas/frontmatter.schema.json) and exit",
     )
+    parser.add_argument(
+        "--fix-indexes",
+        action="store_true",
+        help="Regenerate index files (not yet implemented)",
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).parent.parent
@@ -182,27 +313,34 @@ def main() -> int:
         export_schema(repo_root / args.export_schema)
         return 0
 
-    all_errors: list[str] = []
-    checked = 0
-
-    for dir_name in ARTIFACT_DIRS:
-        artifact_dir = repo_root / dir_name
-        if not artifact_dir.is_dir():
-            continue
-        for md_file in sorted(artifact_dir.glob("*.md")):
-            if md_file.name in SKIP_FILES:
-                continue
-            errors = validate_frontmatter(md_file)
-            all_errors.extend(errors)
-            checked += 1
-
-    if all_errors:
-        for err in all_errors:
-            print(f"ERROR: {err}", file=sys.stderr)
-        print(f"\n{len(all_errors)} error(s) in {checked} file(s)", file=sys.stderr)
+    if args.fix_indexes:
+        print("--fix-indexes: not yet implemented (pending T15 generate_indexes.py)")
         return 1
 
-    print(f"OK: {checked} artifact file(s) validated")
+    all_errors: list[str] = []
+
+    print("Validating frontmatter...")
+    all_errors.extend(check_all_frontmatter(repo_root))
+
+    print("Checking cross-references...")
+    all_errors.extend(check_cross_references(repo_root))
+
+    print("Running sanitization guard...")
+    all_errors.extend(check_sanitization(repo_root))
+
+    print("Checking index freshness...")
+    all_errors.extend(check_index_freshness(repo_root))
+
+    print("Checking for broken links...")
+    all_errors.extend(check_broken_links(repo_root))
+
+    if all_errors:
+        print(f"\n{len(all_errors)} validation error(s):")
+        for err in all_errors:
+            print(f"  x {err}")
+        return 1
+
+    print("All checks passed.")
     return 0
 
 
