@@ -11,8 +11,8 @@ topics:
   - plugin-architecture
   - auto-wiring
 refs:
-  - adr/ADR-004-contract-first-definitions.md
-  - doctrine/11-ingestion-interpretation-boundary.md
+  - doctrine/contracts-define-reality.md
+  - doctrine/ingestion-and-interpretation-separate.md
 ---
 
 # 2026-02-04: Zero-Code Runtime — Contract-Driven Handler Discovery and Dependency Injection

@@ -10,7 +10,8 @@ topics:
   - event-bus
   - connection-management
 refs:
-  - adr/ADR-006-event-bus-abstraction.md
+  - doctrine/fail-fast-and-loud.md
+  - doctrine/degrade-safely.md
 ---
 
 # 2026-02-27: Kafka Connection Limit Outage — TCP Socket Leak Under Reconnect Storms
