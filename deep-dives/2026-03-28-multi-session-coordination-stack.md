@@ -11,8 +11,8 @@ topics:
   - multi-agent
   - coordination
 refs:
-  - adr/ADR-009-multi-agent-coordination.md
-  - doctrine/09-semantic-continuity.md
+  - doctrine/state-is-materialized-projection.md
+  - doctrine/contracts-define-reality.md
 ---
 
 # 2026-03-28: Multi-Session Coordination — Building the Session Intelligence Stack End-to-End

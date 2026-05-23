@@ -11,9 +11,9 @@ topics:
   - observability
   - silent-failures
 refs:
-  - adr/ADR-004-contract-first-definitions.md
-  - adr/ADR-007-projection-authority.md
-  - doctrine/03-no-silent-failures.md
+  - doctrine/fail-fast-and-loud.md
+  - doctrine/truth-must-be-proven.md
+  - doctrine/authoritative-projections-own-truth.md
 ---
 
 # 2026-04-14: Silent Projection Failure — The Auto-Wiring Engine's Database Injection Gap
