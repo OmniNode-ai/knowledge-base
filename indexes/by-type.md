@@ -49,3 +49,9 @@ Knowledge base artifacts grouped by type.
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** — public-curated
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** — public-curated
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** — public-curated
+
+## Plan
+
+- **[Technical Design: CI and Full TDD Evidence Gates](plans/2026-05-31-ci-and-tdd-technical-design.md)** — active
+- **[Technical Design: Contract-Native Platform Architecture](plans/2026-05-31-contract-native-platform-technical-design.md)** — active
+- **[Technical Design: Self-Extending Agent](plans/2026-05-31-self-extending-agent-technical-design.md)** — active
