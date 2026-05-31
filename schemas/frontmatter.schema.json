@@ -74,6 +74,58 @@
       "title": "ADRFrontmatter",
       "type": "object"
     },
+    "ArchitectureFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "architecture",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "accepted",
+            "superseded",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "ArchitectureFrontmatter",
+      "type": "object"
+    },
     "DeepDiveFrontmatter": {
       "additionalProperties": false,
       "properties": {
@@ -446,6 +498,9 @@
     },
     {
       "$ref": "#/$defs/PlanFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/ArchitectureFrontmatter"
     }
   ]
 }

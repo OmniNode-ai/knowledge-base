@@ -12,7 +12,7 @@ from typing import Annotated, Literal
 import yaml
 from pydantic import BaseModel, ConfigDict, Discriminator, Tag, TypeAdapter, ValidationError
 
-ARTIFACT_DIRS = ["adrs", "doctrine", "pivots", "deep-dives", "experiments", "evidence", "plans"]
+ARTIFACT_DIRS = ["adrs", "architecture", "doctrine", "pivots", "deep-dives", "experiments", "evidence", "plans"]
 SKIP_FILES = {"_template.md", "README.md"}
 
 
@@ -24,7 +24,7 @@ SKIP_FILES = {"_template.md", "README.md"}
 class BaseFrontmatter(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    type: Literal["doctrine", "adr", "pivot", "deep-dive", "experiment", "evidence", "plan"]
+    type: Literal["doctrine", "adr", "architecture", "pivot", "deep-dive", "experiment", "evidence", "plan"]
     status: str
     date: str  # YYYY-MM-DD
     title: str
@@ -80,6 +80,11 @@ class PlanFrontmatter(BaseFrontmatter):
     status: Literal["draft", "active", "completed", "superseded"]
 
 
+class ArchitectureFrontmatter(BaseFrontmatter):
+    type: Literal["architecture"]
+    status: Literal["draft", "accepted", "superseded", "deprecated"]
+
+
 # ---------------------------------------------------------------------------
 # Discriminated union
 # ---------------------------------------------------------------------------
@@ -99,6 +104,7 @@ AnyFrontmatter = (
     | Annotated[ExperimentFrontmatter, Tag("experiment")]
     | Annotated[EvidenceFrontmatter, Tag("evidence")]
     | Annotated[PlanFrontmatter, Tag("plan")]
+    | Annotated[ArchitectureFrontmatter, Tag("architecture")]
 )
 
 FrontmatterAdapter: TypeAdapter[AnyFrontmatter] = TypeAdapter(Annotated[AnyFrontmatter, Discriminator(_discriminate)])
@@ -151,7 +157,7 @@ def validate_frontmatter(file_path: Path) -> list[str]:
     if not artifact_type:
         return [f"{file_path}: frontmatter missing 'type' field"]
 
-    valid_types = {"doctrine", "adr", "pivot", "deep-dive", "experiment", "evidence", "plan"}
+    valid_types = {"doctrine", "adr", "architecture", "pivot", "deep-dive", "experiment", "evidence", "plan"}
     if artifact_type not in valid_types:
         return [f"{file_path}: unknown type '{artifact_type}' — must be one of {sorted(valid_types)}"]
 

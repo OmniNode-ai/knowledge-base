@@ -1,6 +1,6 @@
 ---
-type: plan
-status: active
+type: architecture
+status: accepted
 date: "2026-05-31"
 title: "Technical Design: CI and Full TDD Evidence Gates"
 topics:
