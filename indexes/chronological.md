@@ -8,6 +8,7 @@ All knowledge base artifacts sorted by date.
 
 - **[Technical Design: CI and Full TDD Evidence Gates](architecture/2026-05-31-ci-and-tdd-technical-design.md)** (architecture) — 2026-05-31
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** (architecture) — 2026-05-31
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture) — 2026-05-31
 - **[Technical Design: Self-Extending Agent](architecture/2026-05-31-self-extending-agent-technical-design.md)** (architecture) — 2026-05-31
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive) — 2026-05-30
 - **[Authoritative Projections Own Truth](doctrine/authoritative-projections-own-truth.md)** (doctrine) — 2026-05-23

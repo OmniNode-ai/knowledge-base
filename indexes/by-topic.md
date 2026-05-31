@@ -11,6 +11,7 @@ Knowledge base artifacts grouped by topic.
 ## architecture
 
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** (architecture)
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 
 ## architecture-boundary
 
@@ -112,6 +113,7 @@ Knowledge base artifacts grouped by topic.
 ## dispatch
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 
 ## dod
 
@@ -129,6 +131,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** (architecture)
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 - **[Technical Design: Self-Extending Agent](architecture/2026-05-31-self-extending-agent-technical-design.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 
@@ -154,6 +157,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Evidence Is a First-Class Output](doctrine/evidence-is-first-class-output.md)** (doctrine)
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** (architecture)
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 - **[Technical Design: Self-Extending Agent](architecture/2026-05-31-self-extending-agent-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
@@ -169,6 +173,7 @@ Knowledge base artifacts grouped by topic.
 ## fsm
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 
 ## generated-nodes
 
@@ -245,6 +250,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
 
+## node-archetypes
+
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
+
 ## nodes
 
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** (architecture)
@@ -257,6 +266,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
+
+## orchestrator-nodes
+
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 
 ## ordering
 
@@ -318,6 +331,7 @@ Knowledge base artifacts grouped by topic.
 
 ## reducers
 
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
 ## registration
@@ -410,3 +424,7 @@ Knowledge base artifacts grouped by topic.
 ## verification
 
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
+
+## workflow
+
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** (architecture)

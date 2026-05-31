@@ -36,6 +36,7 @@ Knowledge base artifacts grouped by type.
 
 - **[Technical Design: CI and Full TDD Evidence Gates](architecture/2026-05-31-ci-and-tdd-technical-design.md)** — accepted
 - **[Technical Design: Contract-Native Platform Architecture](architecture/2026-05-31-contract-native-platform-technical-design.md)** — accepted
+- **[Technical Design: Orchestrator Nodes](architecture/2026-05-31-orchestrator-nodes-technical-design.md)** — accepted
 - **[Technical Design: Self-Extending Agent](architecture/2026-05-31-self-extending-agent-technical-design.md)** — accepted
 
 ## Pivot
