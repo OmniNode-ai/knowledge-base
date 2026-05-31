@@ -54,6 +54,4 @@ Keep a TDD focused on one subsystem or one cross-cutting concern. If background 
 
 | Date | Title | Status |
 |------|-------|--------|
-| [2026-05-31](2026-05-31-contract-native-platform-technical-design.md) | Technical Design: Contract-Native Platform Architecture | accepted |
-| [2026-05-31](2026-05-31-self-extending-agent-technical-design.md) | Technical Design: Self-Extending Agent | accepted |
-| [2026-05-31](2026-05-31-ci-and-tdd-technical-design.md) | Technical Design: CI and Full TDD Evidence Gates | accepted |
+| [2026-05-31](2026-05-31-omninode-architecture-technical-design.md) | Technical Design: OmniNode Platform Architecture | accepted |
