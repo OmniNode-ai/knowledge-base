@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-05
 
+- **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive) — 2026-05-30
 - **[Authoritative Projections Own Truth](doctrine/authoritative-projections-own-truth.md)** (doctrine) — 2026-05-23
 - **[Canonical Reducers Win](doctrine/canonical-reducers-win.md)** (doctrine) — 2026-05-23
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine) — 2026-05-23
@@ -21,6 +22,11 @@ All knowledge base artifacts sorted by date.
 - **[Runtime Complexity Must Be Isolated](doctrine/runtime-complexity-isolated.md)** (doctrine) — 2026-05-23
 - **[State Is a Materialized Projection](doctrine/state-is-materialized-projection.md)** (doctrine) — 2026-05-23
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine) — 2026-05-23
+- **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot) — 2026-05-23
+- **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot) — 2026-05-23
+- **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot) — 2026-05-23
+- **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot) — 2026-05-23
+- **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot) — 2026-05-23
 ## 2026-04
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr) — 2026-04-28

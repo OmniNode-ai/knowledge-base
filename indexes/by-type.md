@@ -32,6 +32,14 @@ Knowledge base artifacts grouped by type.
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** — accepted
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** — accepted
 
+## Pivot
+
+- **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** — accepted
+- **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** — accepted
+- **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** — accepted
+- **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** — accepted
+- **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** — accepted
+
 ## Deep Dive
 
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** — public-curated
@@ -40,3 +48,4 @@ Knowledge base artifacts grouped by type.
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** — public-curated
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** — public-curated
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** — public-curated
+- **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** — public-curated
