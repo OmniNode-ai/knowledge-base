@@ -8,6 +8,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
 
+## architecture
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+
 ## architecture-boundary
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
@@ -47,6 +51,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## client-state
@@ -71,6 +76,7 @@ Knowledge base artifacts grouped by topic.
 
 ## contracts
 
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 
 ## coordination
@@ -102,6 +108,7 @@ Knowledge base artifacts grouped by topic.
 ## dispatch
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
 ## dod
 
@@ -118,6 +125,7 @@ Knowledge base artifacts grouped by topic.
 ## event-bus
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 
 ## event-sourcing
@@ -140,6 +148,7 @@ Knowledge base artifacts grouped by topic.
 ## evidence-systems
 
 - **[Evidence Is a First-Class Output](doctrine/evidence-is-first-class-output.md)** (doctrine)
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## failure-handling
@@ -162,6 +171,10 @@ Knowledge base artifacts grouped by topic.
 ## governance
 
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
+
+## handlers
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
 ## infrastructure-resilience
 
@@ -208,9 +221,21 @@ Knowledge base artifacts grouped by topic.
 
 - **[Migration Must Be Staged and Recoverable](doctrine/migration-staged-recoverable.md)** (doctrine)
 
+## model-routing
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+
 ## multi-agent
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
+
+## node-archetypes
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+
+## nodes
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
 ## nondeterminism
 
@@ -221,9 +246,17 @@ Knowledge base artifacts grouped by topic.
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
 
+## orchestrator-nodes
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+
 ## ordering
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+
+## overlays
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
 ## overnight-operations
 
@@ -256,6 +289,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive)
@@ -272,6 +306,7 @@ Knowledge base artifacts grouped by topic.
 
 ## reducers
 
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
 ## registration
@@ -313,6 +348,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Runtime Complexity Must Be Isolated](doctrine/runtime-complexity-isolated.md)** (doctrine)
 
+## self-extending-agent
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+
 ## session-management
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
@@ -329,6 +368,10 @@ Knowledge base artifacts grouped by topic.
 ## state
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+
+## tdd
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
 ## truth
 

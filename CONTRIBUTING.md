@@ -13,6 +13,12 @@ This repository captures architectural provenance — the reasoning behind decis
 3. Write the Context, Decision, and Alternatives Considered sections before opening a PR
 4. Evidence and Consequences sections can be completed after the decision is implemented
 
+### Architecture Technical Designs
+
+1. Copy [`architecture/_template.md`](architecture/_template.md) to `architecture/YYYY-MM-DD-short-title.md`
+2. Status starts as `draft`; set to `accepted` once the design is ratified
+3. Capture Purpose, Scope, Non-Goals, Design Principles, and Acceptance Criteria; distinguish current vs. target state honestly
+
 ### Pivots
 
 1. Copy [`pivots/_template.md`](pivots/_template.md) to `pivots/PIVOT-NNNN-short-title.md`
@@ -36,7 +42,7 @@ Every artifact file must begin with valid YAML frontmatter:
 
 ```yaml
 ---
-type: adr | pivot | deep-dive | experiment | doctrine | evidence | plan
+type: adr | architecture | pivot | deep-dive | experiment | doctrine | evidence | plan
 status: <lifecycle status for the type>
 date: YYYY-MM-DD
 title: "Descriptive title"

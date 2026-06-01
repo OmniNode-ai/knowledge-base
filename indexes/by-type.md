@@ -32,6 +32,10 @@ Knowledge base artifacts grouped by type.
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** — accepted
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** — accepted
 
+## Architecture
+
+- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** — accepted
+
 ## Pivot
 
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** — accepted

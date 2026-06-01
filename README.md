@@ -1,10 +1,10 @@
 # OmniNode Knowledge Base
 
-This repository is the public architectural provenance record for OmniNode — the connective tissue between plans, architecture decision records, pivots, doctrine, experiments, and durable evidence. It exists so that the reasoning behind every significant architectural choice is inspectable, replayable, and honest about what was tried and why things changed.
+This repository is the public architectural provenance record for OmniNode — the connective tissue between plans, architecture technical designs, architecture decision records, pivots, doctrine, experiments, and durable evidence. It exists so that the reasoning behind every significant architectural choice is inspectable, replayable, and honest about what was tried and why things changed.
 
 ## What This Is
 
-The knowledge base connects plans, ADRs, pivots, doctrine, experiments, and evidence into an inspectable architectural history. Rather than architecture existing only in the heads of contributors or scattered across PR descriptions, this repository makes the full evolutionary arc visible: what was decided, what changed, and what the evidence was. Each artifact type captures a different kind of architectural truth, and together they form a provenance chain from initial assumption to current understanding.
+The knowledge base connects plans, architecture technical designs, ADRs, pivots, doctrine, experiments, and evidence into an inspectable architectural history. Rather than architecture existing only in the heads of contributors or scattered across PR descriptions, this repository makes the full evolutionary arc visible: what was decided, what changed, and what the evidence was. Each artifact type captures a different kind of architectural truth, and together they form a provenance chain from initial assumption to current understanding.
 
 ## Artifact Types
 
@@ -12,6 +12,7 @@ The knowledge base connects plans, ADRs, pivots, doctrine, experiments, and evid
 |-----------|-----------------|
 | [`doctrine/`](doctrine/README.md) | Stable platform principles that govern OmniNode's architecture |
 | [`adrs/`](adrs/README.md) | Architecture Decision Records — the formal decision ledger |
+| [`architecture/`](architecture/README.md) | Technical Design Documents (TDDs) describing platform architecture — primitives, boundaries, runtime flow, and proof requirements |
 | [`pivots/`](pivots/README.md) | Architectural pivots capturing fundamental changes in understanding |
 | [`deep-dives/`](deep-dives/README.md) | Curated narrative records of architectural evolution |
 | [`plans/`](plans/README.md) | Selected implementation plans showing intended work and proposed paths |

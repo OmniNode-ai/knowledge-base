@@ -11,7 +11,7 @@ from pathlib import Path
 
 import yaml
 
-ARTIFACT_DIRS = ["doctrine", "adrs", "pivots", "deep-dives", "experiments", "evidence", "plans"]
+ARTIFACT_DIRS = ["doctrine", "adrs", "architecture", "pivots", "deep-dives", "experiments", "evidence", "plans"]
 SKIP_FILES = {"README.md", "_template.md"}
 
 
@@ -131,7 +131,7 @@ def generate_by_type(artifacts: list[dict]) -> str:
         artifact_type = artifact.get("type", "unknown")
         type_map.setdefault(artifact_type, []).append(artifact)
 
-    type_order = ["doctrine", "adr", "pivot", "deep-dive", "experiment", "evidence", "plan"]
+    type_order = ["doctrine", "adr", "architecture", "pivot", "deep-dive", "experiment", "evidence", "plan"]
     for artifact_type in type_order:
         if artifact_type not in type_map:
             continue
