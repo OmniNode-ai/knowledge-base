@@ -30,6 +30,7 @@ Deep dives are the raw material from which other artifacts emerge:
 | [2026-03-28](2026-03-28-multi-session-coordination-stack.md) | Multi-Session Coordination: Building the Session Intelligence Stack End-to-End | session-management, knowledge-graph, embeddings, multi-agent, coordination |
 | [2026-04-14](2026-04-14-silent-projection-failure-autowiring-gap.md) | Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap | projections, auto-wiring, dependency-injection, observability, silent-failures |
 | [2026-04-20](2026-04-20-autonomous-operations-three-simultaneous-failures.md) | Autonomous Operations Under Three Simultaneous Infrastructure Failures | autonomous-agents, infrastructure-resilience, measurement-discipline, failure-modes |
+| [2026-05-30](2026-05-30-public-ci-validation-architecture.md) | Public CI and Validation Architecture | ci, validation, governance, release-gates, evidence-systems, replay-correctness |
 
 ## Cross-References to Doctrine
 
@@ -43,3 +44,4 @@ Each deep dive is grounded in one or more doctrine files. The table below shows 
 | [Multi-Session Coordination](2026-03-28-multi-session-coordination-stack.md) | [state-is-materialized-projection](../doctrine/state-is-materialized-projection.md), [contracts-define-reality](../doctrine/contracts-define-reality.md) |
 | [Silent Projection Failure](2026-04-14-silent-projection-failure-autowiring-gap.md) | [fail-fast-and-loud](../doctrine/fail-fast-and-loud.md), [truth-must-be-proven](../doctrine/truth-must-be-proven.md), [authoritative-projections-own-truth](../doctrine/authoritative-projections-own-truth.md) |
 | [Autonomous Operations](2026-04-20-autonomous-operations-three-simultaneous-failures.md) | [truth-must-be-proven](../doctrine/truth-must-be-proven.md), [evidence-is-first-class-output](../doctrine/evidence-is-first-class-output.md), [deterministic-under-replay](../doctrine/deterministic-under-replay.md) |
+| [Public CI and Validation Architecture](2026-05-30-public-ci-validation-architecture.md) | [truth-must-be-proven](../doctrine/truth-must-be-proven.md), [evidence-is-first-class-output](../doctrine/evidence-is-first-class-output.md), [contracts-define-reality](../doctrine/contracts-define-reality.md), [fail-fast-and-loud](../doctrine/fail-fast-and-loud.md), [deterministic-under-replay](../doctrine/deterministic-under-replay.md) |
