@@ -29,6 +29,7 @@ This repository captures architectural provenance — the reasoning behind decis
 
 1. Copy [`deep-dives/_template.md`](deep-dives/_template.md) to `deep-dives/YYYY-MM-DD-short-title.md`
 2. Deep dives are narrative records — they do not need to be exhaustive, but they should identify candidate ADRs and pivots that emerged
+3. After adding a new deep dive, update both the **Curated Deep Dives** table and the **Cross-References to Doctrine** table in [`deep-dives/README.md`](deep-dives/README.md). These tables are hand-maintained and are not updated by `generate_indexes.py`.
 
 ### Experiments
 
