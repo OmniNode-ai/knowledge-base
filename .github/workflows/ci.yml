@@ -3,6 +3,10 @@ name: CI
 on:
   pull_request:
     branches: [main]
+    # `edited` is included so a change to the PR title or body re-runs the
+    # sanitize-text gate — otherwise a leak edited into the body after open
+    # would never be re-scanned.
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 
