@@ -39,6 +39,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
 
+## bifrost
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
 ## canonical-model
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
@@ -62,6 +66,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 
+## complexity
+
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
+
+## config-authority
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
 ## connection-management
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
@@ -83,6 +95,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
 
+## cost-model
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
 ## dashboard
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -95,6 +111,11 @@ Knowledge base artifacts grouped by topic.
 ## data-verification
 
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr)
+
+## delegation
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
 
 ## dependabot
 
@@ -201,6 +222,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
+## learned-routing
+
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
+
 ## lifecycle
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
@@ -228,6 +253,10 @@ Knowledge base artifacts grouped by topic.
 ## multi-agent
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
+
+## multi-tenant
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
 ## node-archetypes
 
@@ -261,6 +290,10 @@ Knowledge base artifacts grouped by topic.
 ## overnight-operations
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
+
+## per-model-baselines
+
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
 
 ## planning
 
@@ -339,6 +372,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 
+## routing
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
+
 ## runtime
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
@@ -348,6 +386,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Runtime Complexity Must Be Isolated](doctrine/runtime-complexity-isolated.md)** (doctrine)
 
+## secrets
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
 ## self-extending-agent
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
@@ -355,6 +397,10 @@ Knowledge base artifacts grouped by topic.
 ## session-management
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
+
+## shadow-mode
+
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
 
 ## silent-failures
 

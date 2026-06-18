@@ -65,3 +65,5 @@ Some ADRs build directly on others:
 | [ADR-0005](ADR-0005-dispatch-lifecycle-canonical.md) | Dispatch Lifecycle Canonical Source | Accepted | 2026-04-28 | dispatch, lifecycle, fsm, event-bus, canonical-model |
 | [ADR-0006](ADR-0006-skill-liveness-validator-home.md) | Skill Liveness Validator Home | Accepted | 2026-04-28 | validators, skills, architecture-layers, pre-commit, ci |
 | [ADR-0007](ADR-0007-skills-canonical-plan.md) | Canonical Skills Migration Plan | Accepted | 2026-04-28 | skills, migration, planning, canonical-source |
+| [ADR-0008](ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md) | Delegation Config Authority and Budget-Aware Tier Cost | Proposed | 2026-06-18 | delegation, config-authority, cost-model |
+| [ADR-0009](ADR-0009-complexity-aware-delegation-routing.md) | Complexity-Aware Delegation Routing | Proposed | 2026-06-18 | delegation, routing, complexity, learned-routing |
