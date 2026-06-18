@@ -12,6 +12,19 @@ from typing import Annotated, Literal
 import yaml
 from pydantic import BaseModel, ConfigDict, Discriminator, Tag, TypeAdapter, ValidationError
 
+# Make the sibling sanitization module importable regardless of CWD / import path.
+_SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+
+from sanitization_patterns import (  # noqa: E402  (path setup must precede import)
+    SANITIZATION_PATTERNS,
+    scan_text,
+)
+
+# Re-exported so importers of validate continue to find these names.
+__all__ = ["SANITIZATION_PATTERNS", "scan_text"]
+
 ARTIFACT_DIRS = ["adrs", "architecture", "doctrine", "pivots", "deep-dives", "experiments", "evidence", "plans"]
 SKIP_FILES = {"_template.md", "README.md"}
 
@@ -203,17 +216,11 @@ def check_cross_references(root: Path) -> list[str]:
 # ---------------------------------------------------------------------------
 # Sanitization guard
 # ---------------------------------------------------------------------------
-
-SANITIZATION_PATTERNS: list[tuple[re.Pattern[str], str]] = [
-    (re.compile(r"OMN-\d+"), "Internal ticket reference"),
-    (re.compile(r"192\.168\.\d+\.\d+"), "Internal IP address"),
-    (re.compile(r"\.(200|201)\b"), "Internal host reference"),
-    (re.compile(r"github\.com/OmniNode-ai/(?!knowledge-base)"), "Private repo URL"),
-    (re.compile(r"infisical|INFISICAL"), "Internal secrets manager reference"),
-    (re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"), "Email address pattern"),
-]
-
-_ALLOWLIST_PATTERN = re.compile(r"#\s*sanitization-ok:\s*(.+)")
+#
+# The forbidden-pattern list and the text scanner live in the dependency-free
+# ``sanitization_patterns`` module so the commit-message / PR-text gate can
+# reuse the exact same patterns without pulling in pyyaml/pydantic. Re-exported
+# here for backward compatibility with anything importing from validate.
 
 
 def check_sanitization(root: Path) -> list[str]:
@@ -221,21 +228,7 @@ def check_sanitization(root: Path) -> list[str]:
     errors = []
     for md_file in _find_artifact_files(root):
         content = md_file.read_text(encoding="utf-8")
-        lines = content.splitlines()
-
-        # Collect allowlisted line numbers (1-indexed)
-        allowlisted_lines: set[int] = set()
-        for i, line in enumerate(lines, 1):
-            if _ALLOWLIST_PATTERN.search(line):
-                allowlisted_lines.add(i)
-
-        for i, line in enumerate(lines, 1):
-            if i in allowlisted_lines:
-                continue
-            for pattern, description in SANITIZATION_PATTERNS:
-                if pattern.search(line):
-                    errors.append(f"{md_file}:{i}: {description} — matches '{pattern.pattern}'")
-                    break  # one error per line
+        errors.extend(scan_text(content, label=str(md_file)))
     return errors
 
 

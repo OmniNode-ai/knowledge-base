@@ -3,6 +3,10 @@ name: CI
 on:
   pull_request:
     branches: [main]
+    # `edited` is included so a change to the PR title or body re-runs the
+    # sanitize-text gate — otherwise a leak edited into the body after open
+    # would never be re-scanned.
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 
@@ -39,3 +43,34 @@ jobs:
         run: |
           uv run python scripts/validate.py --export-schema
           git diff --exit-code schemas/frontmatter.schema.json || (echo "Schema out of date — run: uv run python scripts/validate.py --export-schema" && exit 1)
+
+  sanitize-text:
+    name: Sanitize Commit Messages and PR Text
+    runs-on: ubuntu-latest
+    # PR title/body are only available on pull_request events.
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Full history so the PR's own commit range (base..HEAD) resolves.
+          fetch-depth: 0
+          # This job only reads history; no git auth needed afterward.
+          persist-credentials: false
+
+      - name: Scan PR title, PR body, and the PR's own commit messages
+        env:
+          # Pass title/body via env, never interpolated into the shell, so PR
+          # text cannot break out of or inject into the command.
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          set -euo pipefail
+          # Ensure the base branch tip is present, then scan ONLY this PR's
+          # commits (base..HEAD) — never the full history of the base branch,
+          # which intentionally retains historical references.
+          git fetch --no-tags origin "$BASE_REF"
+          python scripts/check_text_sanitization.py \
+            --pr-title "$PR_TITLE" \
+            --pr-body "$PR_BODY" \
+            --commit-range "origin/${BASE_REF}..HEAD"

@@ -1,0 +1,22 @@
+# Pre-commit hooks for the public knowledge-base repo.
+#
+# Install the commit-msg hook locally with:
+#   pre-commit install --hook-type commit-msg
+# (Install the standard pre-commit hooks too, with a bare `pre-commit install`.)
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
+repos:
+  - repo: local
+    hooks:
+      - id: sanitize-commit-message
+        name: Reject private content in commit messages
+        description: >-
+          Forward-blocking sanitization gate. Rejects a commit MESSAGE that
+          contains internal ticket refs, internal IPs/hosts, private repo URLs,
+          secrets-manager references, or emails. Reuses the forbidden-pattern
+          list from scripts/validate.py.
+        entry: python scripts/check_text_sanitization.py --commit-msg-file
+        language: system
+        stages: [commit-msg]
