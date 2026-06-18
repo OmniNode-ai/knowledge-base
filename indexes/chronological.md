@@ -4,6 +4,10 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 All knowledge base artifacts sorted by date.
 
+## 2026-06
+
+- **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
+- **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
 ## 2026-05
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
