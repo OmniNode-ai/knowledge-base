@@ -34,7 +34,7 @@ The live data transition involved work across three layers:
 
 **Client rendering.** The dashboard client fetches data from the API and renders it. Crucially, the client retains a mock-data fallback pattern: if the API returns an empty result set, the client renders a clearly-labeled demo state rather than an error. This pattern allowed pages to ship before their projection handlers were complete and made it easy to verify that real data was flowing by observing the demo badges disappear.
 
-The Vault-to-Infisical migration also landed the same day, removing 11,416 lines of HashiCorp Vault configuration code and consolidating secrets management on a single backend. This was architecturally unrelated to the dashboard transition but removed a significant operational dependency.
+A secrets-management migration also landed the same day, removing 11,416 lines of legacy secrets-configuration code and consolidating secrets management on a single backend. This was architecturally unrelated to the dashboard transition but removed a significant operational dependency.
 
 ## Architectural Pressure
 

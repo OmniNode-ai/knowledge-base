@@ -50,10 +50,12 @@ jobs:
     # PR title/body are only available on pull_request events.
     if: github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # Full history so the PR's own commit range (base..HEAD) resolves.
           fetch-depth: 0
+          # This job only reads history; no git auth needed afterward.
+          persist-credentials: false
 
       - name: Scan PR title, PR body, and the PR's own commit messages
         env:

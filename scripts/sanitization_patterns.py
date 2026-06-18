@@ -18,7 +18,7 @@ SANITIZATION_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"192\.168\.\d+\.\d+"), "Internal IP address"),
     (re.compile(r"\.(200|201)\b"), "Internal host reference"),
     (re.compile(r"github\.com/OmniNode-ai/(?!knowledge-base)"), "Private repo URL"),
-    (re.compile(r"infisical|INFISICAL"), "Internal secrets manager reference"),
+    (re.compile(r"infisical", re.IGNORECASE), "Internal secrets manager reference"),
     (re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"), "Email address pattern"),
 ]
 
