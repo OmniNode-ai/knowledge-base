@@ -44,4 +44,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose new artifacts, the PR 
 uv run python scripts/validate.py
 ```
 
-This validates frontmatter, cross-references, and ensures no internal information is present in public content.
+`scripts/validate.py` runs five checks over every artifact file: frontmatter schema (a discriminated Pydantic union, one model per artifact type), `refs:` cross-reference integrity, sanitization (no internal information in public content), index freshness (committed `indexes/` match generated output), and broken relative markdown links. A separate gate, `scripts/check_text_sanitization.py`, scans commit messages and PR title/body against the same forbidden-pattern list — both share `scripts/sanitization_patterns.py` as the single source of patterns.
+
+<!-- verified against scripts/validate.py, scripts/check_text_sanitization.py, and scripts/sanitization_patterns.py on the 2026-06-21 refresh -->
