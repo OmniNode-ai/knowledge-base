@@ -2,9 +2,9 @@
 type: adr
 status: proposed
 date: "2026-07-10"
-title: "ADR-0010: Required-Context Parity Ratchet"
+title: "ADR-0010: Enforcement and Merge-Policy Parity Ratchet"
 adr_id: ADR-0010
-topics: [ci, branch-protection, enforcement, parity, governance, merge-gates, required-status-checks]
+topics: [ci, branch-protection, enforcement, parity, governance, merge-gates, required-status-checks, merge-queue, config-as-data]
 refs:
   - doctrine/truth-must-be-proven.md
   - doctrine/evidence-is-first-class-output.md
@@ -14,10 +14,11 @@ supersedes: []
 superseded_by: []
 ---
 
-# ADR-0010: Required-Context Parity Ratchet
+# ADR-0010: Enforcement and Merge-Policy Parity Ratchet
 
-(Mechanically assert that the load-bearing merge gates we CLAIM are enforced are
-actually required by live branch protection.)
+(Make the full per-repo branch-protection policy — the load-bearing gates we CLAIM
+are enforced AND the decided merge-queue/strict policy — deterministic config-as-data,
+mechanically asserted against live state by one parity ratchet.)
 
 ## Context
 
@@ -91,11 +92,35 @@ never mutate branch protection, never fail a build), and is flipped to a
 fail-closed required gate in a separate, deliberate step once the reported
 findings are remediated.
 
-**3. Express the claimed-enforced gate set as a single, declarative, machine-
-asserted manifest** — one `{repo → branch → load_bearing_gates[]}` file with a
-per-gate `coverage: direct | needs_child` — replacing the scattered,
-honor-system, per-repo prose manifests and the recurring human "re-verify branch
-protection after merges" ritual (with its perpetual staleness).
+**3. Express the FULL per-repo branch-protection policy as deterministic
+config-as-data — one manifest, two dimensions.** The same principle that governs
+the rest of the architecture (deterministic behavior is declared as data, not
+scattered across prose and human ritual) applies to branch protection. The single
+machine-asserted manifest is `{repo → branch → {load_bearing_gates[], merge_policy}}`:
+
+- **`load_bearing_gates[]`** — the safety gates (each `coverage: direct | needs_child`),
+  as in decision 1.
+- **`merge_policy: {queue: enabled|disabled, strict: bool}`** — the *decided* merge
+  policy. This records what the policy IS and lets the ratchet flag live drift from
+  it, exactly as it does for gates.
+
+This replaces the scattered, honor-system, per-repo prose manifests **and** the
+recurring human "re-verify branch protection after merges" ritual (with its
+perpetual staleness).
+
+**3a. The decided merge policy: dev merge queues OFF, `strict` as the lighter
+guard.** A merge queue's *only* unique value is the `merge_group` event's
+re-test-against-latest-base — and that is precisely what wedges a saturated
+self-hosted runner fleet (queue entries sit `AWAITING_CHECKS` while the fleet is
+busy, stalling all downstream merges). Crucially, the load-bearing required
+contexts fire on the `pull_request` event, **not** only on `merge_group`, so
+disabling the dev merge queue loses **no** enforcement — a precedent already
+established when a governance repo's dev queue was disabled with zero enforcement
+lost. The lighter, non-wedging replacement for combine-breakage protection is
+`strict` (require-branches-up-to-date), decided ON for the two dashboard repos.
+The manifest therefore declares `queue: disabled` on all dev branches and `strict`
+per the decision; the ratchet flags any live divergence (**QUEUE_DRIFT** /
+**STRICT_DRIFT**).
 
 **4. Host the enforcement on the correct architectural surface, not the
 nearest-named one.** The live probe reads external, mutable, network-fetched
@@ -137,6 +162,9 @@ enforcement surface.
 repos:
   <repo>:
     <branch>:
+      merge_policy:
+        queue: disabled           # enabled | disabled — decided policy
+        strict: false             # require-branches-up-to-date
       load_bearing_gates:
         - context: "deploy-gate / deploy-gate"   # or the repo's inline job name
           coverage: direct          # MUST appear literally in required_status_checks
@@ -150,7 +178,7 @@ repos:
 ```
 
 **Assertion logic (pure, unit-tested), extending the existing auditor library.**
-For each `repo → branch → gate`:
+For each `repo → branch`, the enforcement dimension checks each gate:
 
 - **`coverage: direct`** → assert the gate context is in the live
   `required_status_checks.contexts`, with **reusable-context normalization** — a
@@ -166,6 +194,14 @@ For each `repo → branch → gate`:
   aggregator — its job is never in the closure.)
 - A declared branch with **no protection object at all** yields an
   **UNPROTECTED** finding.
+
+And the **merge-policy dimension** checks the declared `merge_policy` against live
+branch protection (`strict`) and the live merge-queue state (a GraphQL
+`mergeQueue(branch:)` probe): a live queue where the policy says `disabled`
+(or vice versa) is a **QUEUE_DRIFT** finding; a live `strict` that differs from the
+declared value is a **STRICT_DRIFT** finding. Either key may be omitted to leave
+that dimension unasserted; an unresolvable live value is reported INDETERMINATE,
+never a false drift.
 
 **Two complementary run surfaces (neither alone is sufficient).**
 
@@ -266,6 +302,15 @@ report-only tool:
   gates (omnimarket + omniclaude deploy-gate and reject-skip), with
   omnibase_core / omnibase_infra clean and the omnimarket occ-preflight gate
   correctly reported COVERED via its aggregator's `needs:` closure.
+- **Merge-policy dimension:** a live `mergeQueue(branch:"dev")` probe found the
+  decided "dev merge queues disabled everywhere" policy already true for seven of
+  eight dev branches, but **surfaced one live QUEUE_DRIFT** — a repo whose `dev`
+  branch still had a live merge queue against the decided `queue: disabled` policy.
+  The `strict` decision (on for the two dashboards, recorded as-is elsewhere)
+  matched live on every branch. This is the merge-policy dimension proving its
+  value on first run: the config-as-data assertion caught a real divergence that
+  the informal "we disabled them all" belief had missed. (Remediating it is a
+  separate operator/admin branch-protection action; the ratchet does not mutate.)
 
 ## Supersedes
 

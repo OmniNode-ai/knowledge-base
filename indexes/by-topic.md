@@ -45,7 +45,7 @@ Knowledge base artifacts grouped by topic.
 
 ## branch-protection
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## canonical-model
 
@@ -59,7 +59,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
@@ -74,6 +74,10 @@ Knowledge base artifacts grouped by topic.
 ## complexity
 
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
+
+## config-as-data
+
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## config-authority
 
@@ -150,7 +154,7 @@ Knowledge base artifacts grouped by topic.
 
 ## enforcement
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## event-bus
 
@@ -200,7 +204,7 @@ Knowledge base artifacts grouped by topic.
 
 ## governance
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## handlers
@@ -250,7 +254,11 @@ Knowledge base artifacts grouped by topic.
 
 ## merge-gates
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
+## merge-queue
+
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## migration
 
@@ -307,7 +315,7 @@ Knowledge base artifacts grouped by topic.
 
 ## parity
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## per-model-baselines
 
@@ -388,7 +396,7 @@ Knowledge base artifacts grouped by topic.
 
 ## required-status-checks
 
-- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## resilience
 
