@@ -43,6 +43,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
+## branch-protection
+
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
 ## canonical-model
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
@@ -55,6 +59,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
@@ -143,6 +148,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
 
+## enforcement
+
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
 ## event-bus
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
@@ -191,6 +200,7 @@ Knowledge base artifacts grouped by topic.
 
 ## governance
 
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## handlers
@@ -237,6 +247,10 @@ Knowledge base artifacts grouped by topic.
 ## measurement-discipline
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
+
+## merge-gates
+
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## migration
 
@@ -290,6 +304,10 @@ Knowledge base artifacts grouped by topic.
 ## overnight-operations
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
+
+## parity
+
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## per-model-baselines
 
@@ -367,6 +385,10 @@ Knowledge base artifacts grouped by topic.
 - **[Ordering Must Be Explicit and Contracted](doctrine/ordering-must-be-explicit.md)** (doctrine)
 - **[Reducers Define State Progression](doctrine/reducers-define-state-progression.md)** (doctrine)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
+
+## required-status-checks
+
+- **[ADR-0010: Required-Context Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
 ## resilience
 
