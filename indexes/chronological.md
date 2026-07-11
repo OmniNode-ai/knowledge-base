@@ -4,6 +4,9 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 All knowledge base artifacts sorted by date.
 
+## 2026-07
+
+- **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr) — 2026-07-10
 ## 2026-06
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
