@@ -1,13 +1,13 @@
 ---
 type: adr
-status: accepted
+status: superseded
 date: "2026-07-29"
 title: "ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops"
 adr_id: ADR-0026
 topics: [multitenancy, database, rls, tenant-isolation, postgres, data-topology]
-refs: []
+refs: [adrs/ADR-0027-one-application-database-domain-separation.md]
 supersedes: []
-superseded_by: []
+superseded_by: [ADR-0027]
 ---
 
 # ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops
@@ -155,3 +155,11 @@ environment only. No DDL, no DML, no GRANT, no RLS state change.
 Implementation plan and full inventory: `omni_home/docs/plans/2026-07-29-two-database-tenant-vs-internal-split-plan.md`.
 
 ## Supersedes
+
+## Superseded By
+
+[ADR-0027](ADR-0027-one-application-database-domain-separation.md) supersedes the
+physical two-database topology in this decision. The inventory and failure analysis
+above remain valid historical evidence. The tenant/internal semantic distinction is
+retained, but it is enforced through typed schema classification, distinct workload
+roles, and row-level security inside one application database.

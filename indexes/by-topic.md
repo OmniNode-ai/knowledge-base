@@ -123,6 +123,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 
@@ -150,6 +151,7 @@ Knowledge base artifacts grouped by topic.
 ## data-topology
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## data-verification
 
@@ -158,6 +160,7 @@ Knowledge base artifacts grouped by topic.
 ## database
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## decomposition
 
@@ -407,6 +410,7 @@ Knowledge base artifacts grouped by topic.
 ## multitenancy
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## naming
 
@@ -485,6 +489,7 @@ Knowledge base artifacts grouped by topic.
 ## postgres
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## pre-commit
 
@@ -584,6 +589,7 @@ Knowledge base artifacts grouped by topic.
 ## rls
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## roadmap
 
@@ -686,6 +692,7 @@ Knowledge base artifacts grouped by topic.
 ## tenant-isolation
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
 ## throughput
 

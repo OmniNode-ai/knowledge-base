@@ -7,6 +7,7 @@ All knowledge base artifacts sorted by date.
 ## 2026-07
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr) — 2026-07-29
+- **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr) — 2026-07-29
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr) — 2026-07-10
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr) — 2026-07-07
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr) — 2026-07-07
