@@ -83,3 +83,5 @@ Some ADRs build directly on others:
 | [ADR-0023](ADR-0023-remove-occ-merge-queue.md) | Remove the onex_change_control Merge Queue | Proposed | 2026-07-07 | merge-queue, occ, ci, throughput, branch-protection |
 | [ADR-0024](ADR-0024-merge-stall-tooling-not-capacity.md) | Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock | Proposed | 2026-07-06 | merge-sweep, runners, ci-capacity, root-cause, runbook |
 | [ADR-0025](ADR-0025-occ-validator-redesign-option-a.md) | OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones) | Proposed | 2026-07-03 | occ, validator, evidence, receipts, supersession, dod-verify |
+| [ADR-0026](ADR-0026-two-databases-tenant-vs-internal.md) | Two Databases — Tenant-Facing vs Internal/Ops | Superseded | 2026-07-29 | multitenancy, database, rls, tenant-isolation, postgres, data-topology |
+| [ADR-0027](ADR-0027-one-application-database-domain-separation.md) | One Application Database with Contract-Classified Domains | Accepted | 2026-07-29 | multitenancy, database, rls, tenant-isolation, postgres, data-topology, contracts |
