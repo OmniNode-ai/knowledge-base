@@ -12,6 +12,14 @@
 # STATE: skeleton. Per-repository mappings only. Per-document rows are produced
 # during migration. Every repository is at cutover_state: not-started, and no
 # content has moved.
+#
+# ROW NESTING (drift-guard implementation decision, not yet exercised by any
+# real row): once a repository starts producing per-document rows, they nest
+# under that repository's entry in `repos:` as `rows: [<row_schema dict>, ...]`
+# — see scripts/docs_drift_guard.py. This mirrors the existing per-repo nesting
+# of bucket_a_candidates below rather than introducing a second top-level list.
+# Change this deliberately (update the guard's docstring in the same change)
+# if migration ends up needing a different shape.
 
 schema_version: 1
 status: skeleton
@@ -67,6 +75,18 @@ row_schema:
     description: >-
       The pointer line left behind in the thinned repo document, where one
       applies. Matched verbatim by the drift guard.
+  max_lines:
+    required: false
+    description: >-
+      Size budget for a bucket-B row, in lines of the thinned document
+      (blank-line-inclusive, matching a plain line count of the file as
+      checked out — not bytes, and not a delta against the row's value at
+      cutover). Only meaningful for bucket B; absent means the drift guard
+      does not size-check that row. Lines, not bytes, because a byte budget
+      moves under line-ending/encoding changes that carry no content
+      difference, and a delta-at-cutover budget would need a second stored
+      baseline this schema does not otherwise carry. Enforced by the drift
+      guard alongside pointer_redirect — see docs-taxonomy.md, "Bucket B".
   cutover_state:
     required: true
     one_of: [not-started, moved, pointer-live, verified-post-move]

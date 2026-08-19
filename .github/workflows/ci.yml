@@ -47,6 +47,9 @@ jobs:
           uv run python scripts/validate.py --export-schema
           git diff --exit-code schemas/frontmatter.schema.json || (echo "Schema out of date — run: uv run python scripts/validate.py --export-schema" && exit 1)
 
+      - name: Docs drift guard self-check (this repo has no rows yet — proves wiring, not enforcement)
+        run: uv run python scripts/docs_drift_guard.py --manifest-path migration-manifest.yaml --repo-root . --repo-name knowledge-base
+
   sanitize-text:
     name: Sanitize Commit Messages and PR Text
     runs-on: ubuntu-latest

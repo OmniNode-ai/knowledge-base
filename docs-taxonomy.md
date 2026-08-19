@@ -78,6 +78,8 @@ Full documentation → https://github.com/OmniNode-ai/knowledge-base
 
 Verbatim matters: a drift guard matches this string, so a reworded variant reads as a missing pointer.
 
+A bucket-B row may also declare `max_lines` in the migration manifest — a line-count budget for the thinned document. The drift guard fails a row that exceeds its declared budget, the same way it fails one that drops the pointer. `max_lines` is optional; a row without it is not size-checked.
+
 ---
 
 ## Bucket C — Restricted (private internal home)
@@ -124,7 +126,7 @@ Honest accounting, so nobody files a document into a section that cannot yet hol
 
 - **All eleven sections are live** and validated on every PR — the provenance sections plus `guides/`, `reference/`, and `runbooks/`. The validator recognizes all eleven artifact classes, discovers files recursively within every section, and fails closed on any `.md`/`.yaml`/`.yml` file outside a recognized location (a declared section, a generated-content directory, or the root-file allowlist) rather than silently skipping it.
 - **No content has migrated.** Every row of the migration manifest is at `cutover_state: not-started`.
-- **The drift guard is not built yet.** Nothing currently prevents a repository from re-growing a copy of a document that has moved here.
+- **The drift guard is built and fixture-proven, but not wired into any product repo yet.** `scripts/docs_drift_guard.py` in this repository enforces both rules — bucket-A re-growth and the bucket-B pointer/size budget — and `.github/workflows/docs-drift-guard-reusable.yml` packages it as one reusable workflow a product repo's own CI can call. No product repo calls it yet, and the manifest has no per-document rows yet either (see above), so today nothing actually stops a repository from re-growing a copy of a document that has moved here — the guard has code and tests, not live enforcement.
 
 ---
 
