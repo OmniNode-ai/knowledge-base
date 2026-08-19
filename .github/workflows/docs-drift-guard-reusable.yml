@@ -1,0 +1,61 @@
+name: Docs Drift Guard (reusable)
+
+# Consumed by a product repo's own CI via:
+#
+#   jobs:
+#     docs-drift-guard:
+#       uses: OmniNode-ai/knowledge-base/.github/workflows/docs-drift-guard-reusable.yml@main
+#       with:
+#         repo_name: <repo key as it appears in migration-manifest.yaml repos[].repo>
+#
+# One source, fetched fresh on every run, so 15 product repos never fork a
+# local copy of the guard script or the manifest — see the distribution
+# problem this ticket names against the leaked-literals gate. The manifest
+# and the script are pulled from knowledge-base@main (the second checkout
+# step below), never from the calling repo's own PR branch, so a product-repo
+# PR cannot weaken its own guard by editing either in the same change.
+#
+# Per-repo wiring (adding the `uses:` block above to each product repo's own
+# workflow file, and citing that repo/branch's live required-status-check
+# state) is tracked separately — this file only ships the callable guard.
+
+on:
+  workflow_call:
+    inputs:
+      repo_name:
+        description: Repo key as it appears in knowledge-base's migration-manifest.yaml repos[].repo
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  docs-drift-guard:
+    name: Docs Drift Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout calling repository
+        uses: actions/checkout@v4
+
+      - name: Checkout knowledge-base guard + manifest (main only, never a PR branch)
+        uses: actions/checkout@v4
+        with:
+          repository: OmniNode-ai/knowledge-base
+          ref: main
+          path: .docs-drift-guard-kb
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install guard dependencies
+        run: pip install pyyaml
+
+      - name: Run docs drift guard
+        run: |
+          python .docs-drift-guard-kb/scripts/docs_drift_guard.py \
+            --manifest-path .docs-drift-guard-kb/migration-manifest.yaml \
+            --repo-root . \
+            --repo-name "${{ inputs.repo_name }}"
