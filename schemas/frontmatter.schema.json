@@ -356,6 +356,58 @@
       "title": "ExperimentFrontmatter",
       "type": "object"
     },
+    "GuideFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "guide",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "current",
+            "stale",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "GuideFrontmatter",
+      "type": "object"
+    },
     "PivotFrontmatter": {
       "additionalProperties": false,
       "properties": {
@@ -475,6 +527,110 @@
       ],
       "title": "PlanFrontmatter",
       "type": "object"
+    },
+    "ReferenceFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "reference",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "current",
+            "stale",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "ReferenceFrontmatter",
+      "type": "object"
+    },
+    "RunbookFrontmatter": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "runbook",
+          "title": "Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "current",
+            "stale",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "topics": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "status",
+        "date",
+        "title"
+      ],
+      "title": "RunbookFrontmatter",
+      "type": "object"
     }
   },
   "oneOf": [
@@ -501,6 +657,15 @@
     },
     {
       "$ref": "#/$defs/ArchitectureFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/GuideFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/ReferenceFrontmatter"
+    },
+    {
+      "$ref": "#/$defs/RunbookFrontmatter"
     }
   ]
 }

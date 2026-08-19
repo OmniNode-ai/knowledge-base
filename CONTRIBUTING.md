@@ -8,10 +8,11 @@ This repository is the canonical home for OmniNode's external documentation, and
 
 Read **[docs-taxonomy.md](docs-taxonomy.md)** first. It carries the ordered decision rule that assigns every OmniNode document to exactly one home, and most "where does this go" questions are answered there. The short version: unless a document is a dated point-in-time artifact, is on the closed list of files that must ship beside code, or stays sensitive after scrubbing, it belongs here.
 
-Two constraints from the taxonomy bind contributions today:
+One constraint from the taxonomy binds contributions today:
 
-- **The `guides/`, `reference/`, and `runbooks/` sections are declared but not open.** Do not add files there, and do not nest artifacts inside subdirectories of the existing sections. The validator discovers files with a top-level glob over eight known artifact types, so a file in either location is silently skipped by every check rather than rejected — on a public repository, unscanned is worse than refused. Extending the tooling is a prerequisite tracked ahead of the first migration.
 - **No content has migrated yet.** [`migration-manifest.yaml`](migration-manifest.yaml) holds the planned per-repository mapping; every row is at `not-started`.
+
+The `guides/`, `reference/`, and `runbooks/` sections are now open: the validator recognizes all eleven artifact classes and discovers files recursively, so nested paths are validated rather than silently skipped. A file placed anywhere the validator doesn't recognize — a new top-level directory, an unexpected root file — fails the build instead of going unscanned.
 
 ## Proposing New Artifacts
 
@@ -46,13 +47,19 @@ Two constraints from the taxonomy bind contributions today:
 2. State the hypothesis clearly before running the experiment
 3. Record the actual result honestly — "refuted" is a valid and valuable outcome
 
+### Guides, Reference, and Runbooks
+
+1. Check [docs-taxonomy.md](docs-taxonomy.md) — the distinguishing test between the three sections is whether the reader is trying to *do* something (`guides/`), *look something up* (`reference/`), or *operate or recover* something (`runbooks/`)
+2. Frontmatter `status` for these three types is `draft | current | stale | deprecated` — there is no decision-ledger lifecycle to track
+3. Runbooks must be parameterized: use the placeholder tokens in [docs-taxonomy.md](docs-taxonomy.md) (`<onex-host>`, `<kafka-bootstrap-servers>`, `<runner-home>`, `<repo-root>`, `<cluster-ip>`) rather than a real address, hostname, or path
+
 ## Frontmatter Requirements
 
 Every artifact file must begin with valid YAML frontmatter:
 
 ```yaml
 ---
-type: adr | architecture | pivot | deep-dive | experiment | doctrine | evidence | plan
+type: adr | architecture | pivot | deep-dive | experiment | doctrine | evidence | plan | guide | reference | runbook
 status: <lifecycle status for the type>
 date: YYYY-MM-DD
 title: "Descriptive title"
@@ -66,9 +73,9 @@ Cross-references in `refs:` must point to files that exist in this repository. T
 ## PR Review Process
 
 1. Run `uv run python scripts/validate.py` locally — it must exit 0 before opening a PR
-2. Run `uv run ruff check scripts/ && uv run ruff format scripts/` if you modified Python files
+2. Run `uv run pytest tests/ -v` and `uv run ruff check scripts/ tests/ && uv run ruff format scripts/ tests/` if you modified Python files
 3. Open a PR with a description that explains what decision, pivot, or finding the artifact captures
-4. CI must be green: the `validate` job runs the five checks above, and the `sanitize-text` job scans the PR title, the PR body, and the PR's own commit messages
+4. CI must be green: the `validate` job runs the checks above (registered-location sweep, frontmatter, cross-references, sanitization, index freshness, broken links) plus the test suite, and the `sanitize-text` job scans the PR title, the PR body, and the PR's own commit messages
 5. Review is expected before merge but is not currently enforced by branch protection — treat it as a norm, not a mechanism
 
 ### Your PR text is scanned, not just your files
@@ -101,7 +108,10 @@ uv run python scripts/validate.py
 # Regenerate index files (run before committing if you added new artifacts)
 uv run python scripts/generate_indexes.py
 
+# Run the validator's own test suite
+uv run pytest tests/ -v
+
 # Lint and format Python scripts
-uv run ruff check scripts/
-uv run ruff format scripts/
+uv run ruff check scripts/ tests/
+uv run ruff format scripts/ tests/
 ```

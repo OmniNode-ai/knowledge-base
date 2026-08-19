@@ -33,11 +33,11 @@ The rule for deciding where any individual document belongs is written down, not
 | [`experiments/`](experiments/README.md) | Hypothesis-driven experiments with structured outcomes |
 | [`evidence/`](evidence/README.md) | Links between architectural claims and durable proof artifacts |
 | [`indexes/`](indexes/README.md) | Auto-generated indexes for browsing artifacts by date, topic, or type |
-| [`guides/`](guides/README.md) | Task-oriented how-to documentation — **declared, not yet open** |
-| [`reference/`](reference/README.md) | Cross-repository factual reference — **declared, not yet open** |
-| [`runbooks/`](runbooks/README.md) | Parameterized operational procedures — **declared, not yet open** |
+| [`guides/`](guides/README.md) | Task-oriented how-to documentation |
+| [`reference/`](reference/README.md) | Cross-repository factual reference |
+| [`runbooks/`](runbooks/README.md) | Parameterized operational procedures |
 
-The three consumer sections are declared by the charter but are **not yet accepting content**. The validation tooling does not recognize their artifact classes and does not discover files recursively, so a document placed there today would be silently unvalidated rather than rejected. Extending the tooling is a tracked prerequisite that lands before the first migration. Each section README states this at the point where someone would otherwise add a file.
+The three consumer sections are now open. The validation tooling recognizes their artifact classes, discovers files recursively within every section, and scans repository-root documents and checked-in YAML for sanitization — a document placed in an unrecognized location fails the build rather than going unvalidated.
 
 No documentation has migrated yet. [`migration-manifest.yaml`](migration-manifest.yaml) records the planned mapping; every row is at `not-started`.
 
@@ -65,8 +65,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose new artifacts, the PR 
 uv run python scripts/validate.py
 ```
 
-`scripts/validate.py` runs five checks over every artifact file: frontmatter schema (a discriminated Pydantic union, one model per artifact type), `refs:` cross-reference integrity, sanitization (no internal information in public content), index freshness (committed `indexes/` match generated output), and broken relative markdown links. A separate gate, `scripts/check_text_sanitization.py`, scans commit messages and PR title/body against the same forbidden-pattern list — both share `scripts/sanitization_patterns.py` as the single source of patterns.
+`scripts/validate.py` runs six checks: a registered-location sweep (every `.md`/`.yaml`/`.yml` file in the repository must live in a declared section, a generated-content directory, or the root-file allowlist, or the build fails closed), frontmatter schema (a discriminated Pydantic union, one model per artifact type, across all eleven sections), `refs:` cross-reference integrity, sanitization (no internal information in public content — every artifact file at any depth, the generated `indexes/`, and repository-root documents and checked-in YAML), index freshness (committed `indexes/` match generated output), and broken relative markdown links. Discovery is recursive throughout, so a document nested in a subdirectory of any section is checked rather than silently skipped. A separate gate, `scripts/check_text_sanitization.py`, scans commit messages and PR title/body against the same forbidden-pattern list — both share `scripts/sanitization_patterns.py` as the single source of patterns.
 
-Two coverage limits are worth knowing before relying on a green run: the checks cover the eight provenance sections only, discovered at their top level, so nested subdirectories and the three declared consumer sections are not scanned; and repository-root documents — this README, `CONTRIBUTING.md`, `CLAUDE.md`, the taxonomy, and the manifest — are outside the artifact scan entirely. The sanitization discipline applies to them regardless of whether a script checks it.
-
-<!-- verified against scripts/validate.py, scripts/check_text_sanitization.py, scripts/sanitization_patterns.py, and .github/workflows/ci.yml on the 2026-08-19 charter refresh -->
+<!-- verified against scripts/validate.py, scripts/check_text_sanitization.py, scripts/sanitization_patterns.py, and .github/workflows/ci.yml on the 2026-08-19 fail-closed-scanning refresh -->
