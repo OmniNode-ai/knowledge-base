@@ -360,6 +360,77 @@ def check_all_frontmatter(root: Path) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# ADR identifier uniqueness
+# ---------------------------------------------------------------------------
+
+# Known adr_id collisions already in the tree, each pending a decision-record
+# owner's sign-off on which file keeps the identifier — an ADR's adr_id is a
+# published public identifier, and renumbering it unilaterally risks breaking
+# inbound refs: entries and external links, so this check flags and indexes
+# the defect rather than picking a winner. Keyed by adr_id -> the *exact* set
+# of repo-relative paths currently claiming it. An entry is removed the
+# moment its collision is resolved; scoping to the exact path set (rather
+# than just the id) means an unrelated new file joining the same adr_id, or
+# a third path colliding on it, still fails the check below.
+_KNOWN_ADR_ID_COLLISIONS: dict[str, frozenset[str]] = {
+    "ADR-0010": frozenset(
+        {
+            "adrs/ADR-0010-adaptive-recursive-contract-bisection.md",
+            "adrs/ADR-0010-required-context-parity-ratchet.md",
+        }
+    ),
+}
+
+
+def _collect_adr_ids(root: Path) -> dict[str, list[Path]]:
+    """Group every discovered ADR file by its frontmatter ``adr_id``.
+
+    Pure grouping with no exemption applied — the raw detection
+    ``check_adr_id_uniqueness`` builds on, and independently provable
+    against real repo content regardless of any known-collision exemption
+    layered on top.
+    """
+    by_id: dict[str, list[Path]] = {}
+    for md_file in _find_artifact_files(root):
+        text = md_file.read_text(encoding="utf-8")
+        fm = _extract_frontmatter(text)
+        if not isinstance(fm, dict) or fm.get("type") != "adr":
+            continue
+        adr_id = fm.get("adr_id")
+        if not adr_id:
+            continue
+        by_id.setdefault(str(adr_id), []).append(md_file)
+    return by_id
+
+
+def check_adr_id_uniqueness(root: Path, *, known_collisions: dict[str, frozenset[str]] | None = None) -> list[str]:
+    """Fail on two or more ADRs sharing the same ``adr_id``.
+
+    ``ADRFrontmatter.adr_id`` is a bare ``str`` with no uniqueness
+    constraint, so nothing else in this module catches a collision — both
+    records validate individually and the generated indexes are keyed off
+    frontmatter, so they do not surface it either. A known, already-flagged
+    collision pending owner sign-off (``_KNOWN_ADR_ID_COLLISIONS`` by
+    default) is exempted by its *exact* claiming path set only; anything
+    else — a new file, a third colliding path, a different adr_id — still
+    fails, so the next batch add cannot silently reintroduce this defect.
+    """
+    if known_collisions is None:
+        known_collisions = _KNOWN_ADR_ID_COLLISIONS
+
+    errors = []
+    for adr_id, paths in sorted(_collect_adr_ids(root).items()):
+        if len(paths) <= 1:
+            continue
+        rel_paths = frozenset(str(p.relative_to(root)) for p in paths)
+        if rel_paths == known_collisions.get(adr_id):
+            continue
+        joined = ", ".join(str(p) for p in sorted(paths))
+        errors.append(f"duplicate adr_id '{adr_id}' claimed by {len(paths)} files: {joined}")
+    return errors
+
+
+# ---------------------------------------------------------------------------
 # Cross-reference integrity
 # ---------------------------------------------------------------------------
 
@@ -519,6 +590,9 @@ def main() -> int:
 
     print("Validating frontmatter...")
     all_errors.extend(check_all_frontmatter(repo_root))
+
+    print("Checking ADR identifier uniqueness...")
+    all_errors.extend(check_adr_id_uniqueness(repo_root))
 
     print("Checking cross-references...")
     all_errors.extend(check_cross_references(repo_root))

@@ -213,6 +213,85 @@ class TestUnregisteredLocationFailsClosed:
         assert validate.check_registered_locations(repo) == []
 
 
+class TestAdrIdUniqueness:
+    """RED-before/GREEN-after for the adr_id collision check.
+
+    ``ADRFrontmatter.adr_id`` is a bare ``str`` — nothing rejects two ADRs
+    claiming the same value; each validates individually. These tests prove
+    the new ``check_adr_id_uniqueness`` catches that class of defect, and
+    that the narrow, exact-path-set exemption for the one already-known,
+    owner-sign-off-pending collision does not silently widen to cover any
+    other collision (new file, third path, different id).
+    """
+
+    def test_two_distinct_adr_ids_pass(self, repo: Path) -> None:
+        _write(repo, "adrs/ADR-9001-first.md", ADR_FRONTMATTER)
+        second = ADR_FRONTMATTER.replace("ADR-9001", "ADR-9002").replace("Test ADR", "Second Test ADR")
+        _write(repo, "adrs/ADR-9002-second.md", second)
+        assert validate.check_adr_id_uniqueness(repo) == []
+
+    def test_two_files_sharing_an_adr_id_is_rejected(self, repo: Path) -> None:
+        _write(repo, "adrs/ADR-9001-first.md", ADR_FRONTMATTER)
+        dup = ADR_FRONTMATTER.replace("Test ADR", "Duplicate Test ADR")
+        _write(repo, "adrs/ADR-9001-second.md", dup)
+        errors = validate.check_adr_id_uniqueness(repo)
+        assert len(errors) == 1
+        assert "ADR-9001" in errors[0]
+        assert "ADR-9001-first.md" in errors[0]
+        assert "ADR-9001-second.md" in errors[0]
+
+    def test_three_files_sharing_an_adr_id_names_all_three(self, repo: Path) -> None:
+        _write(repo, "adrs/ADR-9001-a.md", ADR_FRONTMATTER)
+        _write(repo, "adrs/ADR-9001-b.md", ADR_FRONTMATTER.replace("Test ADR", "B"))
+        _write(repo, "adrs/ADR-9001-c.md", ADR_FRONTMATTER.replace("Test ADR", "C"))
+        errors = validate.check_adr_id_uniqueness(repo)
+        assert len(errors) == 1
+        assert all(name in errors[0] for name in ("ADR-9001-a.md", "ADR-9001-b.md", "ADR-9001-c.md"))
+
+    def test_non_adr_frontmatter_types_are_ignored(self, repo: Path) -> None:
+        _write(repo, "guides/test-guide.md", GUIDE_FRONTMATTER)
+        assert validate.check_adr_id_uniqueness(repo) == []
+
+    def test_known_collision_exact_path_set_is_exempted(self, repo: Path) -> None:
+        a = ADR_FRONTMATTER.replace("ADR-9001", "ADR-KNOWN")
+        b = ADR_FRONTMATTER.replace("ADR-9001", "ADR-KNOWN").replace("Test ADR", "B")
+        _write(repo, "adrs/known-a.md", a)
+        _write(repo, "adrs/known-b.md", b)
+        known = {"ADR-KNOWN": frozenset({"adrs/known-a.md", "adrs/known-b.md"})}
+        assert validate.check_adr_id_uniqueness(repo, known_collisions=known) == []
+
+    def test_known_collision_exemption_does_not_cover_a_third_file(self, repo: Path) -> None:
+        a = ADR_FRONTMATTER.replace("ADR-9001", "ADR-KNOWN")
+        b = ADR_FRONTMATTER.replace("ADR-9001", "ADR-KNOWN").replace("Test ADR", "B")
+        c = ADR_FRONTMATTER.replace("ADR-9001", "ADR-KNOWN").replace("Test ADR", "C")
+        _write(repo, "adrs/known-a.md", a)
+        _write(repo, "adrs/known-b.md", b)
+        _write(repo, "adrs/known-c.md", c)
+        known = {"ADR-KNOWN": frozenset({"adrs/known-a.md", "adrs/known-b.md"})}
+        errors = validate.check_adr_id_uniqueness(repo, known_collisions=known)
+        assert len(errors) == 1
+        assert "known-c.md" in errors[0]
+
+    def test_known_collisions_default_covers_the_live_adr_0010_pair(self) -> None:
+        # Proof against real repo content (AC1): the raw, un-exempted
+        # detection this check is built on genuinely finds today's live
+        # ADR-0010 collision, naming both real paths and the shared id —
+        # this is not only provable against synthetic fixtures.
+        live_root = Path(__file__).resolve().parent.parent
+        by_id = validate._collect_adr_ids(live_root)
+        colliding = by_id.get("ADR-0010", [])
+        names = {p.name for p in colliding}
+        assert names == {
+            "ADR-0010-adaptive-recursive-contract-bisection.md",
+            "ADR-0010-required-context-parity-ratchet.md",
+        }
+        # And it is exactly the pair the default allowlist exempts by path —
+        # proving the exemption is scoped to precisely this known defect,
+        # not a blanket suppression.
+        rel = frozenset(str(p.relative_to(live_root)) for p in colliding)
+        assert validate._KNOWN_ADR_ID_COLLISIONS["ADR-0010"] == rel
+
+
 class TestGenerateIndexesRecursiveAndNewClasses:
     def test_collect_artifacts_recursive(self, repo: Path) -> None:
         import generate_indexes
