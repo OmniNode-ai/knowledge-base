@@ -2,7 +2,7 @@
 
 This document is the spec that decides **where any OmniNode document lives**. Every documentation migration PR cites a row of it. It is the contract between this repository and the product repositories: the knowledge base is canonical for external documentation, and product repos keep only what must physically ship beside their code.
 
-Status: **adopted**, structure declared. Content migration has not started — see [Current state](#current-state-what-is-and-is-not-live-yet) before assuming a section is open.
+Status: **adopted**, all eleven sections open. Content migration has not started — see [Current state](#current-state-what-is-and-is-not-live-yet) for what that does and does not mean.
 
 ---
 
@@ -38,7 +38,7 @@ Anything an external reader or contributor consumes to understand *the platform*
 | `indexes/` | Generated browse-by-date/topic/type indexes |
 | `schemas/` | Generated frontmatter JSON schema |
 
-### Consumer sections (declared, not yet open)
+### Consumer sections
 
 | Section | What belongs there | Distinguishing test |
 |---|---|---|
@@ -122,13 +122,9 @@ Where a procedure needs a real value to be operable, the value belongs in a rest
 
 Honest accounting, so nobody files a document into a section that cannot yet hold it.
 
-- **The provenance sections are live** and validated on every PR.
-- **`guides/`, `reference/`, and `runbooks/` are declared but not open.** The validation tooling does not yet know these classes: it recognizes a closed set of eight artifact types, and it discovers files only at the top level of each section rather than recursively. A document placed in one of the new sections today — or in a nested subdirectory of any section — is silently invisible to frontmatter validation, cross-reference checking, the sanitization guard, index generation, and broken-link detection. It would not fail. It would simply not be checked, which is worse.
-- Extending the tooling to the new classes and to recursive discovery is a tracked prerequisite that must land **before** the first migration PR.
+- **All eleven sections are live** and validated on every PR — the provenance sections plus `guides/`, `reference/`, and `runbooks/`. The validator recognizes all eleven artifact classes, discovers files recursively within every section, and fails closed on any `.md`/`.yaml`/`.yml` file outside a recognized location (a declared section, a generated-content directory, or the root-file allowlist) rather than silently skipping it.
 - **No content has migrated.** Every row of the migration manifest is at `cutover_state: not-started`.
 - **The drift guard is not built yet.** Nothing currently prevents a repository from re-growing a copy of a document that has moved here.
-
-Until the tooling prerequisite lands, contributions continue to follow the existing provenance workflow in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

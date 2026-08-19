@@ -11,7 +11,19 @@ from pathlib import Path
 
 import yaml
 
-ARTIFACT_DIRS = ["doctrine", "adrs", "architecture", "pivots", "deep-dives", "experiments", "evidence", "plans"]
+ARTIFACT_DIRS = [
+    "doctrine",
+    "adrs",
+    "architecture",
+    "pivots",
+    "deep-dives",
+    "experiments",
+    "evidence",
+    "plans",
+    "guides",
+    "reference",
+    "runbooks",
+]
 SKIP_FILES = {"README.md", "_template.md"}
 
 
@@ -30,13 +42,17 @@ def parse_frontmatter(path: Path) -> dict | None:
 
 
 def collect_artifacts(root: Path) -> list[dict]:
-    """Collect all artifacts with their frontmatter and paths."""
+    """Collect all artifacts with their frontmatter and paths.
+
+    Discovery is recursive (``rglob``) so a document nested in a
+    subdirectory of any section is indexed rather than silently omitted.
+    """
     artifacts = []
     for dir_name in ARTIFACT_DIRS:
         dir_path = root / dir_name
         if not dir_path.exists():
             continue
-        for md_file in sorted(dir_path.glob("*.md")):
+        for md_file in sorted(dir_path.rglob("*.md")):
             if md_file.name in SKIP_FILES:
                 continue
             fm = parse_frontmatter(md_file)
@@ -131,7 +147,19 @@ def generate_by_type(artifacts: list[dict]) -> str:
         artifact_type = artifact.get("type", "unknown")
         type_map.setdefault(artifact_type, []).append(artifact)
 
-    type_order = ["doctrine", "adr", "architecture", "pivot", "deep-dive", "experiment", "evidence", "plan"]
+    type_order = [
+        "doctrine",
+        "adr",
+        "architecture",
+        "pivot",
+        "deep-dive",
+        "experiment",
+        "evidence",
+        "plan",
+        "guide",
+        "reference",
+        "runbook",
+    ]
     for artifact_type in type_order:
         if artifact_type not in type_map:
             continue

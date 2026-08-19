@@ -10,10 +10,6 @@ Where a procedure genuinely needs a real value to be operable, the value belongs
 
 Scrubbing is also not the whole test. A fully parameterized runbook can still disclose operational controls or failure-mode internals that are sensitive independent of any literal address. Those documents are restricted, and restricted documents are blocked from publication rather than routed here — see the taxonomy's ordered decision rule.
 
-## This section is declared but not yet open
+## This section is open
 
-Do not add documents here yet.
-
-The validation tooling recognizes a closed set of eight artifact types and discovers files with a top-level glob over the provenance sections. A markdown file placed here today is **silently skipped** by every check — including the sanitization guard, which is precisely the check this section most needs.
-
-Extending the tooling to this artifact class, and to recursive discovery, is a tracked prerequisite that lands before the first documentation migration.
+Frontmatter `type: runbook`, with `status: draft | current | stale | deprecated`. The validator discovers files recursively and the sanitization guard scans every runbook regardless of nesting depth — see [docs-taxonomy.md](../docs-taxonomy.md) for what belongs here, and [migration-manifest.yaml](../migration-manifest.yaml) for the planned mapping.

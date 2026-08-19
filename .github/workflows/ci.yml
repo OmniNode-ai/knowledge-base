@@ -33,8 +33,11 @@ jobs:
 
       - name: Lint scripts
         run: |
-          uv run ruff check scripts/
-          uv run ruff format --check scripts/
+          uv run ruff check scripts/ tests/
+          uv run ruff format --check scripts/ tests/
+
+      - name: Run tests
+        run: uv run pytest tests/ -v
 
       - name: Validate frontmatter, cross-references, and sanitization
         run: uv run python scripts/validate.py
