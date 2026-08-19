@@ -30,13 +30,17 @@ row_schema:
     one_of: [A, B, C, D]
     description: >-
       A = canonical, migrates to the knowledge base. B = repo-intrinsic, stays
-      in the repo thinned with a pointer. C = restricted, publication blocked
-      pending the open decisions. D = dated point-in-time artifact, stays put.
+      in the repo thinned with a pointer. C = restricted, never migrates to
+      this public knowledge base — routes to a private, teammate-accessible
+      internal documentation home instead (see open_decisions below). D =
+      dated point-in-time artifact, stays put.
   destination:
     required: true
     description: >-
       Knowledge-base path for bucket A; the literal "stays-in-repo" for buckets
-      B and D; "restricted-home-undecided" for bucket C.
+      B and D; the literal "private-internal-kb" for bucket C — the specific
+      private repository is tracked internally, not named in this public repo
+      (see open_decisions.restricted-content-home).
   owner:
     required: true
     description: >-
@@ -86,10 +90,12 @@ preconditions:
       it may appear in a generated index or a public entry point. Publishing a
       known-false document onto the authoritative surface is worse than leaving
       it scattered.
-  - id: restricted-is-blocked-not-routed
+  - id: restricted-routes-to-private-kb
     rule: >-
-      A row with sensitivity restricted stays put until the restricted-content
-      home and the publication-review gate are both decided.
+      A row with sensitivity restricted never migrates to this public
+      knowledge base. It is corrected/annotated in place or moved to the
+      private, teammate-accessible internal documentation home tracked
+      internally — see open_decisions.restricted-content-home (resolved).
   - id: tooling-prerequisite
     rule: >-
       No row may move into guides/, reference/, or runbooks/, or into any nested
@@ -105,13 +111,28 @@ open_decisions:
   - id: restricted-content-home
     blocks: rows with sensitivity restricted
     question: Where do documents that stay sensitive after scrubbing live?
-    state: undecided
+    state: decided
+    decision: >-
+      A private, teammate-accessible internal documentation repository,
+      separate from any individual's personal working repo. The specific
+      repository name/URL is tracked internally, not recorded in this public
+      repo, per the same "no private-repo references from public repos"
+      principle this repo's own sanitization gate already enforces on commit
+      messages, PR text, and artifact content.
   - id: publication-review-gate
     blocks: rows with sensitivity needs-review
     question: >-
       Is per-document sensitivity review with owner sign-off the gate for
       publication to the public knowledge base, replacing scrub-only?
-    state: undecided
+    state: decided
+    decision: >-
+      No new per-document human review process. The migration only ever
+      routes a row to this public knowledge base when it is classified
+      sensitivity: public. Enforcement is mechanical: the existing fail-closed
+      sanitization/scrub validation plus this manifest's sensitivity field. A
+      row at needs-review or restricted is corrected in place, held, or routed
+      to the private internal home (restricted-content-home, above) — it does
+      not migrate here pending a review step.
 
 # ---------------------------------------------------------------------------
 # Per-repository mapping

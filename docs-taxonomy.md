@@ -12,7 +12,7 @@ Exactly one bucket per document. Apply the tests in order and stop at the first 
 
 1. **Is it a dated point-in-time artifact?** An evidence bundle, an audit snapshot, a receipt, a run transcript — something whose value is that it records a specific moment. → **Bucket D.** It stays where it is. Updating it destroys the thing that made it worth keeping.
 2. **Is it on the closed Bucket-B list below?** The list is closed; being "important" or "frequently read" does not add a document to it. → **Bucket B.** Stays in the repo, trimmed to minimum, carries the pointer.
-3. **Is its content sensitive after scrubbing?** Not "does it contain an address" — that is fixed by scrubbing. This asks whether the *substance* discloses something that should not be public: security-scanner configuration, secret-handling flow, or a list of what bypasses a detection control. → **Bucket C.** Publication blocked pending the open decision below.
+3. **Is its content sensitive after scrubbing?** Not "does it contain an address" — that is fixed by scrubbing. This asks whether the *substance* discloses something that should not be public: security-scanner configuration, secret-handling flow, or a list of what bypasses a detection control. → **Bucket C.** Never migrates here — routes to a private, teammate-accessible internal documentation home instead.
 4. **Everything else** → **Bucket A.** The knowledge base. This is the default, not the exception.
 
 The common error is reaching for Bucket B because a document feels repo-specific. A guide to using one component is still Bucket A: it describes the platform, and a reader should not need to know which repository implements a thing in order to find out how to use it.
@@ -80,13 +80,13 @@ Verbatim matters: a drift guard matches this string, so a reworded variant reads
 
 ---
 
-## Bucket C — Restricted (home undecided)
+## Bucket C — Restricted (private internal home)
 
 Documents whose *content* is sensitive even after every address and path has been scrubbed. Scrubbing removes literals; it does not remove disclosure. A fully parameterized runbook can still describe operational controls or failure-mode internals, and a document listing what a detection control ignores is a map of exactly where to hide.
 
-**Bucket C is blocked, not routed.** No Bucket-C document is published here until two open decisions are settled: where restricted documents live, and whether per-document sensitivity review with owner sign-off is the publication gate. Until then, a document that reaches test 3 stays where it is and is recorded in the migration manifest as `sensitivity: restricted`, `cutover_state: not-started`.
+**Bucket C never publishes to this repository.** A document that reaches test 3 does not land here — it is corrected/annotated in place, or moved to a private, teammate-accessible internal documentation home maintained separately from this public repository (and separate from any individual's personal working repo). Consistent with this repo's own sanitization rule against referencing private repos from public content, the specific internal destination is tracked internally, not named here. Until a document is actually moved, it is recorded in the migration manifest as `sensitivity: restricted`, `destination: private-internal-kb`, `cutover_state: not-started`.
 
-Do not resolve this by scrubbing harder. Test 3 is about substance.
+This closes what was previously an open decision (where restricted documents live, and whether a new per-document human sensitivity-review step gates publication here): resolved as above — there is no new review step, because Bucket-C content structurally never targets this repository in the first place. Do not resolve Bucket C by scrubbing harder. Test 3 is about substance.
 
 ---
 
