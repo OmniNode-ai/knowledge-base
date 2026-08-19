@@ -56,6 +56,15 @@ Some ADRs build directly on others:
 
 ## Current ADRs
 
+> **Known identifier collision — `ADR-0010`.** Two records below both carry
+> `adr_id: ADR-0010` ("Adaptive Recursive Contract Bisection" and
+> "Enforcement and Merge-Policy Parity Ratchet"). An ADR identifier is a
+> published public reference, so renumbering it is a decision-record-owner
+> call, not a unilateral edit — this table flags and indexes both files
+> rather than picking a winner. `scripts/validate.py`'s `adr_id` uniqueness
+> check tracks this exact pair as a known, pending exception; any other
+> collision still fails validation.
+
 | ID | Title | Status | Date | Topics |
 |----|-------|--------|------|--------|
 | [ADR-0001](ADR-0001-dependabot-approval-manual.md) | Dependabot PR Approval Remains Manual | Accepted | 2026-03-25 | ci, dependabot, automation, github-actions |
@@ -68,6 +77,7 @@ Some ADRs build directly on others:
 | [ADR-0008](ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md) | Delegation Config Authority and Budget-Aware Tier Cost | Proposed | 2026-06-18 | delegation, config-authority, cost-model |
 | [ADR-0009](ADR-0009-complexity-aware-delegation-routing.md) | Complexity-Aware Delegation Routing | Proposed | 2026-06-18 | delegation, routing, complexity, learned-routing |
 | [ADR-0010](ADR-0010-adaptive-recursive-contract-bisection.md) | Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure) | Proposed | 2026-07-06 | rsd, decomposition, delegation, local-first, contracts, micro-factories |
+| [ADR-0010](ADR-0010-required-context-parity-ratchet.md) | Enforcement and Merge-Policy Parity Ratchet | Proposed | 2026-07-10 | ci, branch-protection, enforcement, parity, governance, merge-gates, required-status-checks, merge-queue, config-as-data |
 | [ADR-0011](ADR-0011-rsd-recursive-system-design-naming.md) | Name the Discipline RSD = Recursive System Design | Proposed | 2026-07-06 | rsd, naming, recursive-system-design, pipeline-fill |
 | [ADR-0012](ADR-0012-seams-first-class.md) | Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing | Proposed | 2026-07-06 | rsd, seams, tdd, tree-pr-composition, selective-testing, ws-t |
 | [ADR-0013](ADR-0013-deterministic-fsm-control-plane.md) | No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators | Proposed | 2026-07-06 | rsd, fsm, control-plane, determinism, gates, archetypes |
