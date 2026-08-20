@@ -1,17 +1,15 @@
 """Fixture tests for scripts/docs_drift_guard.py.
 
-The real migration-manifest.yaml has no per-document rows yet (every repo is
-still `cutover_state: not-started` at the per-repository level, and no
-`rows:` list exists on any entry) — the ticket that added this guard is
-explicit that it therefore *cannot* be proven by "CI is green against the
-real manifest". These tests build synthetic manifests with synthetic rows
-under ``tmp_path`` instead, and prove both directions for both rules: a
-violation is caught, and the same fixture at its declared post-move state is
-clean.
+These tests build synthetic manifests with synthetic rows under ``tmp_path``,
+and prove both directions for both rules: a violation is caught, and the
+same fixture at its declared post-move state is clean. This is the AC3 proof
+and does not depend on the real manifest's content.
 
-test_real_manifest_is_currently_inert (near the bottom) is a supplementary
-sanity check against the live manifest, not the AC3 proof — do not read it as
-substituting for the fixtures above it.
+test_real_manifest_is_inert_except_where_wave_2_has_landed_rows (near the
+bottom) is a supplementary sanity check that pins today's live manifest
+content — which repos have real rows and what those rows look like — so a
+future edit that silently empties or corrupts a repo's `rows:` list is
+caught here. It is not a substitute for the fixtures above it.
 """
 
 from __future__ import annotations
@@ -373,16 +371,33 @@ def test_pointer_string_matches_docs_taxonomy() -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_real_manifest_is_currently_inert() -> None:
-    """The live manifest has zero per-document rows on every repo today, so
-    the guard must currently be a true no-op for any repo. This is a
-    regression guard on today's real content, supplementary to the fixture
-    tests above — it does not exercise either rule's violation path, because
-    the real manifest cannot yet produce one (see the ticket this guard was
-    built for: proven by fixtures, not by the real manifest)."""
+def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
+    """Wave 2 migration PRs write real per-document rows as they land; the
+    guard must stay a true no-op for every repo that has none yet, and must
+    see exactly the rows a landed migration declared for the repos that do.
+    This is a regression guard on today's real content, supplementary to the
+    fixture tests above — it does not exercise either rule's violation path
+    on synthetic data (see the fixtures above for that); it pins what the
+    real manifest currently contains so a future edit that silently empties
+    or corrupts a repo's `rows:` list is caught here.
+
+    omnibase_core is the first repo with landed rows (first Wave 2 migration
+    PR). Every other repo must still be empty until its own migration PR
+    lands — do not add rows for a repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
-    for repo in manifest["repos"]:
-        rows = guard.find_repo_rows(manifest, repo["repo"])
-        assert rows == [], f"expected no per-document rows yet for {repo['repo']!r}, found {len(rows)}"
+    repos_with_rows = {
+        repo["repo"]: guard.find_repo_rows(manifest, repo["repo"])
+        for repo in manifest["repos"]
+        if guard.find_repo_rows(manifest, repo["repo"])
+    }
+
+    assert set(repos_with_rows) == {"omnibase_core"}, (
+        f"expected only omnibase_core to have landed rows today, found rows for: {sorted(repos_with_rows)}"
+    )
+    assert len(repos_with_rows["omnibase_core"]) == 4
+    for row in repos_with_rows["omnibase_core"]:
+        assert row["bucket"] == "A"
+        assert row["cutover_state"] == "moved"
+        assert row["source_path"].startswith("docs/decisions/")

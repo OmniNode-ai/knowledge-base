@@ -18,14 +18,13 @@ Fails closed: any manifest fetch/parse failure is a guard FAILURE (nonzero
 exit), never treated as "zero violations". An unreadable manifest is an
 UNKNOWN, and UNKNOWN is a failure, not a pass.
 
-Row nesting is a build-time decision, not yet fixed by the taxonomy: the
-landed manifest is still `STATE: skeleton` with per-repository entries only
-(no per-document rows exist yet — see migration-manifest.yaml's own header).
-This guard reads per-document rows from an optional `rows:` list nested
-under each `repos[]` entry, one dict per row matching `row_schema`. Until
-Wave 2 writes real rows, every repo's row list is empty and the guard is
-correctly a no-op — see tests/test_docs_drift_guard.py for the fixture proof
-this file cannot give on its own with today's manifest content.
+Row nesting: a repository's per-document rows nest under that repository's
+entry in `repos:` as an optional `rows:` list, one dict per row matching
+`row_schema` — see migration-manifest.yaml's own header. As Wave 2 lands
+migration PRs, each writes real rows for its repo; a repo with no `rows:`
+list yet is a correct no-op, not an error — see
+tests/test_docs_drift_guard.py for the fixture proof of both rules, and its
+live-manifest sanity check for which repos currently have rows.
 """
 
 from __future__ import annotations
