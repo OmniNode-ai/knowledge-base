@@ -9,20 +9,18 @@
 # placeholder convention all live in docs-taxonomy.md. This file records
 # decisions; it does not restate the rules behind them.
 #
-# STATE: skeleton. Per-repository mappings only. Per-document rows are produced
-# during migration. Every repository is at cutover_state: not-started, and no
-# content has moved.
+# STATE: migration in progress. omnibase_core carries the first real
+# per-document `rows:` (4 rows, docs/decisions/ subset); every other repo is
+# still at cutover_state: not-started with no `rows:` list, i.e. skeleton.
 #
-# ROW NESTING (drift-guard implementation decision, not yet exercised by any
-# real row): once a repository starts producing per-document rows, they nest
-# under that repository's entry in `repos:` as `rows: [<row_schema dict>, ...]`
-# — see scripts/docs_drift_guard.py. This mirrors the existing per-repo nesting
-# of bucket_a_candidates below rather than introducing a second top-level list.
-# Change this deliberately (update the guard's docstring in the same change)
-# if migration ends up needing a different shape.
+# ROW NESTING (drift-guard implementation decision, now exercised by
+# omnibase_core's rows): a repository's per-document rows nest under that
+# repository's entry in `repos:` as `rows: [<row_schema dict>, ...]` — see
+# scripts/docs_drift_guard.py. This mirrors the existing per-repo nesting of
+# bucket_a_candidates below rather than introducing a second top-level list.
 
 schema_version: 1
-status: skeleton
+status: migration-in-progress
 default_destination_repo: knowledge-base
 
 # ---------------------------------------------------------------------------
