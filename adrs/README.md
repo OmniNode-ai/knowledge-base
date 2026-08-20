@@ -95,3 +95,5 @@ Some ADRs build directly on others:
 | [ADR-0025](ADR-0025-occ-validator-redesign-option-a.md) | OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones) | Proposed | 2026-07-03 | occ, validator, evidence, receipts, supersession, dod-verify |
 | [ADR-0026](ADR-0026-two-databases-tenant-vs-internal.md) | Two Databases — Tenant-Facing vs Internal/Ops | Superseded | 2026-07-29 | multitenancy, database, rls, tenant-isolation, postgres, data-topology |
 | [ADR-0027](ADR-0027-one-application-database-domain-separation.md) | One Application Database with Contract-Classified Domains | Accepted | 2026-07-29 | multitenancy, database, rls, tenant-isolation, postgres, data-topology, contracts |
+| [ADR-0028](ADR-0028-receipt-type-consolidation.md) | Receipt Type Consolidation onto ModelDodReceipt | Accepted | 2026-04-27 | omnibase_core, receipts, dod-evidence, schema-consolidation |
+| [ADR-0029](ADR-0029-model-b-failing-rollup-validator-enforcement.md) | Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core) | Accepted | 2026-06-24 | omnibase_core, ci, branch-protection, validator-enforcement |

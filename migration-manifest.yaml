@@ -195,7 +195,72 @@ repos:
     cutover_state: not-started
     notes: >-
       Carries a duplicate decision-record identifier that needs owner sign-off
-      before renumbering; do not renumber as part of the move.
+      before renumbering; do not renumber as part of the move. A Wave 2 migration pass
+      migrated the first slice of docs/decisions/** (4 of 17 files) — see `rows`
+      below. The remaining docs/decisions/**, all of docs/standards/**, and
+      docs/troubleshooting/** are not yet enumerated as rows; cutover_state stays
+      not-started at the repo level until every candidate has a row.
+    rows:
+      - source_path: docs/decisions/ADR-006-receipt-consolidation.md
+        bucket: A
+        destination: adrs/ADR-0028-receipt-type-consolidation.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed src/omnibase_core/models/contracts/ticket/model_dod_receipt.py
+          on omnibase_core@dev carries both `branch: str | None` and
+          `working_dir: str | None` fields as the ADR describes (per the
+          field docstring's migration note).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/adr-2026-04-28-skill-liveness-validator-home.md
+        bucket: A
+        destination: adrs/ADR-0006-skill-liveness-validator-home.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          This document is a duplicate of content already migrated to the
+          knowledge base as ADR-0006 (byte-for-byte content match except
+          added refs/supersedes frontmatter), presumably by the earlier
+          earlier ADR-extraction pipeline, before the Wave-2 manifest
+          process existed. No new KB file created; this row reconciles the
+          manifest with what already happened. Confirmed
+          src/omnibase_core/validation/validator_skill_backing_node.py exists
+          on omnibase_core@dev.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/adr-2026-04-28-dispatch-lifecycle-canonical.md
+        bucket: A
+        destination: adrs/ADR-0005-dispatch-lifecycle-canonical.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          This document is a duplicate of content already migrated to the
+          knowledge base as ADR-0005 (byte-for-byte content match except
+          added refs/supersedes frontmatter), presumably by the earlier
+          earlier ADR-extraction pipeline. No new KB file created; this row
+          reconciles the manifest with what already happened. Confirmed
+          src/omnibase_core/models/dispatch/model_dispatch_lifecycle_event.py
+          and model_lifecycle_chain.py exist on omnibase_core@dev.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/adr-2026-06-24-model-b-failing-rollup-enforcement.md
+        bucket: A
+        destination: adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed src/omnibase_core/validation/validator_rollup_coverage.py
+          exists on omnibase_core@dev, consistent with the mechanism
+          described. Did not re-verify the "fleet rollout" forward-looking
+          claim — noted as historical intent in the migrated copy, not
+          re-asserted as current state.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
 
   - repo: omnibase_infra
     visibility: public
