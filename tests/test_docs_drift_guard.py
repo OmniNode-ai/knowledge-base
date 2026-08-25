@@ -382,8 +382,8 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     or corrupts a repo's `rows:` list is caught here.
 
     omnibase_core was the first repo with landed rows (first Wave 2 migration
-    PR); omniclaude is the second (its own Wave 2 migration PR, architecture/
-    guides/standards). Every other repo must still be empty until its own
+    PR); omniclaude and omnimemory are the second and third (their own Wave 2
+    migration PRs). Every other repo must still be empty until its own
     migration PR lands — do not add rows for a repo here without a matching
     migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
@@ -395,7 +395,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         if guard.find_repo_rows(manifest, repo["repo"])
     }
 
-    expected_repos = {"omnibase_core", "omniclaude"}
+    expected_repos = {"omnibase_core", "omniclaude", "omnimemory"}
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )
@@ -410,3 +410,12 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["bucket"] == "A"
         assert row["cutover_state"] == "moved"
         assert row["source_path"].startswith(("docs/architecture/", "docs/guides/", "docs/standards/"))
+
+    assert len(repos_with_rows["omnimemory"]) == 5
+    for row in repos_with_rows["omnimemory"]:
+        assert row["bucket"] == "A"
+        assert row["cutover_state"] == "moved"
+        assert row["correctness_status"] == "broken"
+        assert row["source_path"].startswith("docs/architecture/") or row["source_path"].startswith(
+            ("docs/runtime/", "docs/migrations/")
+        )

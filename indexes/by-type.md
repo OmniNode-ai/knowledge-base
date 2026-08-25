@@ -69,6 +69,8 @@ Knowledge base artifacts grouped by type.
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** — accepted
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** — accepted
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** — accepted
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** — accepted
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
 
 ## Pivot
@@ -95,6 +97,7 @@ Knowledge base artifacts grouped by type.
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** — current
 - **[Adding a Skill](guides/adding-a-skill.md)** — current
 - **[Adding an Agent](guides/adding-an-agent.md)** — current
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
 
 ## Reference
 
@@ -103,3 +106,5 @@ Knowledge base artifacts grouped by type.
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current

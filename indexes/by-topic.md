@@ -21,6 +21,8 @@ Knowledge base artifacts grouped by topic.
 ## architecture
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 
 ## architecture-boundary
 
@@ -171,6 +173,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** (architecture)
 
+## data-ownership
+
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+
 ## data-topology
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
@@ -272,6 +278,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 
 ## event-envelope
@@ -386,7 +393,9 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr)
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 
 ## knowledge-graph
 
@@ -438,6 +447,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
 
+## memgraph
+
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+
 ## merge-gates
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
@@ -458,6 +471,7 @@ Knowledge base artifacts grouped by topic.
 ## migration
 
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 
 ## migration-safety
 
@@ -487,10 +501,12 @@ Knowledge base artifacts grouped by topic.
 ## node-archetypes
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 
 ## nodes
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 
 ## non-determinism
 
@@ -548,6 +564,15 @@ Knowledge base artifacts grouped by topic.
 ## omnimarket
 
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+
+## omnimemory
+
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 
 ## onex
 
@@ -594,6 +619,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 
+## plugin-lifecycle
+
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+
 ## postgres
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
@@ -636,6 +665,10 @@ Knowledge base artifacts grouped by topic.
 ## proof-class
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
+
+## qdrant
+
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## raw-events
 
@@ -744,6 +777,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 
 ## runtime-isolation
 
@@ -868,6 +902,10 @@ Knowledge base artifacts grouped by topic.
 ## validators
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+
+## valkey
+
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## verification
 
