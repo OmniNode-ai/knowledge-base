@@ -285,7 +285,121 @@ repos:
       - {source_glob: "docs/migrations/**", destination: "guides/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md]
-    cutover_state: not-started
+    cutover_state: moved
+    notes: >-
+      All 5 rows below are the repo's full broken-count (5 of 22). Each was
+      re-verified directly against the live omnimemory source tree during
+      migration (not merely re-copied) and corrected before publication per
+      the broken-does-not-migrate-unchanged precondition. cutover_state here
+      reflects the KB-add PR; a follow-up bumps every row to pointer-live once
+      the omnimemory thin-out PR has also merged.
+    rows:
+      - source_path: docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/omnimemory-four-node-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          `git ls-files src/omnimemory/nodes/` against the live omnimemory
+          tree (2026-08-25) shows no `node_intent_event_consumer_effect`
+          directory; the source doc's EFFECT-node table and data-flow diagram
+          still listed it as live. Corrected in this migration (removed the
+          stale entry, added a decommission note, replaced the stale REDUCER
+          diagram entry with the live `node_navigation_history_reducer`).
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-four-node-architecture.md
+        cutover_state: moved
+      - source_path: docs/architecture/ARCH_002_KAFKA_ABSTRACTION.md
+        bucket: A
+        destination: architecture/omnimemory-arch-002-kafka-abstraction.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          The doc's illustrative `subscribe_topics` code example cited
+          `src/omnimemory/nodes/intent_event_consumer_effect/...` — a path
+          that both drops the `node_` prefix used by every real node
+          directory and names a node that no longer exists in the live tree
+          (same evidence as the four-node-architecture row). Corrected in
+          this migration by rewriting the example as an explicitly
+          illustrative, non-live path; the ARCH-002 rule and its CI
+          enforcement are unaffected.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-arch-002-kafka-abstraction.md
+        cutover_state: moved
+      - source_path: docs/runtime/RUNTIME_PLUGINS.md
+        bucket: A
+        destination: reference/omnimemory-runtime-plugins.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Three claims checked directly against `src/omnimemory/runtime/`
+          (2026-08-25): (1) the doc says the plugin activates only when
+          `OMNIMEMORY_ENABLED` is set; `plugin.py` checks
+          `OMNIMEMORY_MEMGRAPH_HOST` first with `OMNIMEMORY_ENABLED` as a
+          legacy fallback. (2) the doc's `_OMNIMEMORY_EVENT_BUS_NODE_PACKAGES`
+          example lists 6 unprefixed package paths including a deleted node;
+          `contract_topics.py` has 5 `node_`-prefixed entries with no such
+          node. (3) the doc's illustrated `contract.yaml` excerpt shows an
+          `event_bus_enabled: true` key that does not exist in the real
+          contract's `event_bus` block. All three corrected in this
+          migration; other specific counts in the document were not
+          independently re-verified and are flagged as such in the migrated
+          copy.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-runtime-plugins.md
+        cutover_state: moved
+      - source_path: docs/architecture/MEMORY_DATA_OWNERSHIP.md
+        bucket: A
+        destination: reference/omnimemory-memory-data-ownership.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Doc stated "15 with contract.yaml"; `git ls-files
+          src/omnimemory/nodes/` (2026-08-25) shows 13 directories with a
+          tracked `contract.yaml` plus one contract-less stub (14 total).
+          Also framed the omnimarket handoff as purely future
+          ("after the omnimarket node migration...") for Qdrant and Kreuzberg
+          access; a directory-name check against omnimarket's source tree
+          shows both nodes' omnimarket counterparts already exist. Node count
+          and future-only framing corrected in this migration.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-memory-data-ownership.md
+        cutover_state: moved
+      - source_path: docs/migrations/MARKET_MIGRATION_BOUNDARY.md
+        bucket: A
+        destination: guides/omnimemory-market-migration-boundary.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Doc framed a 15-node migration entirely as a future plan. Verified
+          2026-08-25: `omnimarket`'s `src/omnimarket/nodes/` already has a
+          directory for all 15 originally-targeted nodes (name match), and
+          `omnimarket/pyproject.toml` pins `omninode-memory==0.17.1` — the
+          "pre-work" dependency the source doc listed as blocking Wave 1 is
+          already satisfied. Two of the 15
+          (`node_filesystem_crawler_effect`, `node_intent_event_consumer_effect`)
+          are confirmed fully removed from omnimemory's git history as dead
+          duplicates once their omnimarket copies became canonical; the
+          other 13 are still present in omnimemory (git-tracked), so
+          per-node omnimemory-side cleanup status for those 13 was not
+          individually re-verified. Rewritten in this migration to describe
+          an in-progress migration with an explicit current-state table,
+          rather than a not-yet-started one; the per-node cleanup gap for
+          the unverified 13 is flagged in the migrated copy rather than
+          asserted either way.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-market-migration-boundary.md
+        cutover_state: moved
 
   - repo: omniclaude
     visibility: public
@@ -771,5 +885,5 @@ rollup:
     broken: 42
     hygiene-risk: 18
     placeholder: 4
-  rows_moved: 0
+  rows_moved: 30
   rows_verified_post_move: 0

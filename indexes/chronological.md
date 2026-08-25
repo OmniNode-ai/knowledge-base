@@ -6,8 +6,13 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture) — 2026-08-25
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture) — 2026-08-25
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture) — 2026-08-25
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide) — 2026-08-25
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide) — 2026-08-19
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide) — 2026-08-19
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide) — 2026-08-19
