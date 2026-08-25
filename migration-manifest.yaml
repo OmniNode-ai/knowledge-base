@@ -285,14 +285,15 @@ repos:
       - {source_glob: "docs/migrations/**", destination: "guides/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md]
-    cutover_state: moved
+    cutover_state: pointer-live
     notes: >-
       All 5 rows below are the repo's full broken-count (5 of 22). Each was
       re-verified directly against the live omnimemory source tree during
       migration (not merely re-copied) and corrected before publication per
-      the broken-does-not-migrate-unchanged precondition. cutover_state here
-      reflects the KB-add PR; a follow-up bumps every row to pointer-live once
-      the omnimemory thin-out PR has also merged.
+      the broken-does-not-migrate-unchanged precondition. cutover_state is
+      pointer-live: both the KB-add PR (knowledge-base#32) and the omnimemory
+      thin-out PR (omnimemory#442) are merged, and each thinned source file
+      carries the pointer_redirect line verbatim.
     rows:
       - source_path: docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md
         bucket: A
@@ -310,7 +311,7 @@ repos:
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-four-node-architecture.md
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/ARCH_002_KAFKA_ABSTRACTION.md
         bucket: A
         destination: architecture/omnimemory-arch-002-kafka-abstraction.md
@@ -329,7 +330,7 @@ repos:
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-arch-002-kafka-abstraction.md
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runtime/RUNTIME_PLUGINS.md
         bucket: A
         destination: reference/omnimemory-runtime-plugins.md
@@ -353,7 +354,7 @@ repos:
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-runtime-plugins.md
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/MEMORY_DATA_OWNERSHIP.md
         bucket: A
         destination: reference/omnimemory-memory-data-ownership.md
@@ -372,7 +373,7 @@ repos:
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-memory-data-ownership.md
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/migrations/MARKET_MIGRATION_BOUNDARY.md
         bucket: A
         destination: guides/omnimemory-market-migration-boundary.md
@@ -399,7 +400,7 @@ repos:
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-market-migration-boundary.md
-        cutover_state: moved
+        cutover_state: pointer-live
 
   - repo: omniclaude
     visibility: public

@@ -414,7 +414,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert len(repos_with_rows["omnimemory"]) == 5
     for row in repos_with_rows["omnimemory"]:
         assert row["bucket"] == "A"
-        assert row["cutover_state"] == "moved"
+        assert row["cutover_state"] == "pointer-live"
         assert row["correctness_status"] == "broken"
         assert row["source_path"].startswith("docs/architecture/") or row["source_path"].startswith(
             ("docs/runtime/", "docs/migrations/")
