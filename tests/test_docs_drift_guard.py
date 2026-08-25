@@ -382,10 +382,14 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     or corrupts a repo's `rows:` list is caught here.
 
     omnibase_core was the first repo with landed rows (first Wave 2 migration
-    PR); omniclaude, omnimemory, and omnibase_infra are the second, third,
-    and fourth (their own Wave 2 migration PRs). Every other repo must
-    still be empty until its own migration PR lands — do not add rows for a
-    repo here without a matching migration."""
+    PR) and, as of a second omnibase_core migration pass (2026-08-25), is
+    fully migrated: every docs/decisions/**, docs/standards/**, and
+    docs/troubleshooting/** candidate has a row (23 total — 4 from the first
+    pass plus 19 from the second). omniclaude, omnimemory, and
+    omnibase_infra are the second, third, and fourth repos with landed rows
+    (their own Wave 2 migration PRs). Every other repo must still be empty
+    until its own migration PR lands — do not add rows for a repo here
+    without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -399,11 +403,12 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )
-    assert len(repos_with_rows["omnibase_core"]) == 4
+    assert len(repos_with_rows["omnibase_core"]) == 23
+    core_prefixes = ("docs/decisions/", "docs/standards/", "docs/troubleshooting/")
     for row in repos_with_rows["omnibase_core"]:
         assert row["bucket"] == "A"
         assert row["cutover_state"] == "moved"
-        assert row["source_path"].startswith("docs/decisions/")
+        assert row["source_path"].startswith(core_prefixes)
 
     assert len(repos_with_rows["omniclaude"]) == 21
     for row in repos_with_rows["omniclaude"]:

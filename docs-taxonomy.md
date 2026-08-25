@@ -2,7 +2,7 @@
 
 This document is the spec that decides **where any OmniNode document lives**. Every documentation migration PR cites a row of it. It is the contract between this repository and the product repositories: the knowledge base is canonical for external documentation, and product repos keep only what must physically ship beside their code.
 
-Status: **adopted**, all eleven sections open. Content migration has not started — see [Current state](#current-state-what-is-and-is-not-live-yet) for what that does and does not mean.
+Status: **adopted**, all eleven sections open. Content migration is in progress, repo by repo — see [Current state](#current-state-what-is-and-is-not-live-yet) for what has and has not moved yet.
 
 ---
 
@@ -125,8 +125,8 @@ Where a procedure needs a real value to be operable, the value belongs in a rest
 Honest accounting, so nobody files a document into a section that cannot yet hold it.
 
 - **All eleven sections are live** and validated on every PR — the provenance sections plus `guides/`, `reference/`, and `runbooks/`. The validator recognizes all eleven artifact classes, discovers files recursively within every section, and fails closed on any `.md`/`.yaml`/`.yml` file outside a recognized location (a declared section, a generated-content directory, or the root-file allowlist) rather than silently skipping it.
-- **No content has migrated.** Every row of the migration manifest is at `cutover_state: not-started`.
-- **The drift guard is built and fixture-proven, but not wired into any product repo yet.** `scripts/docs_drift_guard.py` in this repository enforces both rules — bucket-A re-growth and the bucket-B pointer/size budget — and `.github/workflows/docs-drift-guard-reusable.yml` packages it as one reusable workflow a product repo's own CI can call. No product repo calls it yet, and the manifest has no per-document rows yet either (see above), so today nothing actually stops a repository from re-growing a copy of a document that has moved here — the guard has code and tests, not live enforcement.
+- **Content migration has begun, one repo at a time.** As of 2026-08-25, `omnibase_core` is the first repository with a fully-migrated `docs/decisions/**` + `docs/standards/**` + `docs/troubleshooting/**` set (38 ADRs, 6 reference documents, and 1 guide now trace to this repository across all contributing repos combined) — its manifest entry is at repo-level `cutover_state: moved` with a per-document row for every candidate. Every other repository's manifest entry is still at `cutover_state: not-started`.
+- **The drift guard is built and fixture-proven, but not wired into any product repo yet.** `scripts/docs_drift_guard.py` in this repository enforces both rules — bucket-A re-growth and the bucket-B pointer/size budget — and `.github/workflows/docs-drift-guard-reusable.yml` packages it as one reusable workflow a product repo's own CI can call. No product repo calls it yet, so today nothing actually stops a repository from re-growing a copy of a document that has moved here — the guard has code, tests, and (for `omnibase_core`) real manifest rows to check against, but not live enforcement.
 
 ---
 

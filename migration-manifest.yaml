@@ -190,14 +190,25 @@ repos:
       - {source_glob: "docs/troubleshooting/**", destination: "guides/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md, versioned-api-reference]
-    cutover_state: not-started
+    cutover_state: moved
     notes: >-
       Carries a duplicate decision-record identifier that needs owner sign-off
-      before renumbering; do not renumber as part of the move. A Wave 2 migration pass
-      migrated the first slice of docs/decisions/** (4 of 17 files) — see `rows`
-      below. The remaining docs/decisions/**, all of docs/standards/**, and
-      docs/troubleshooting/** are not yet enumerated as rows; cutover_state stays
-      not-started at the repo level until every candidate has a row.
+      before renumbering; did not renumber as part of the move. 2026-08-25: migration
+      completed — every docs/decisions/**, docs/standards/**, and
+      docs/troubleshooting/** file has a row below. Reconciled against live
+      omnibase_core@dev rather than the original catalog count: docs/decisions/
+      holds 15 files today (11 migrated by this pass + the 4 already moved),
+      not the 17 an earlier pass's note assumed — no files were deleted between
+      that note and this pass (git log shows no deletions under these three
+      subtrees since); the discrepancy is treated as an earlier miscount, not
+      new drift, and is not further investigated here. Several rows in this
+      batch required correct-before-publication fixes per the
+      broken-does-not-migrate precondition (stale file/script/workflow paths
+      in ADR-001/004/005/RISK-009; fabricated protocol/class names in
+      onex_terminology.md's HANDLER and RUNTIME sections; a v2-vs-live-v3
+      required-checks.yaml schema drift in CI_CD_STANDARDS.md; a dead
+      file-specific incident in ASYNC_HANG_DEBUGGING.md) — see each row's
+      verification_evidence for specifics.
     rows:
       - source_path: docs/decisions/ADR-006-receipt-consolidation.md
         bucket: A
@@ -257,6 +268,344 @@ repos:
           described. Did not re-verify the "fleet rollout" forward-looking
           claim — noted as historical intent in the migrated copy, not
           re-asserted as current state.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-001-protocol-based-di-architecture.md
+        bucket: A
+        destination: adrs/ADR-0030-protocol-based-di-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Two file-path claims were stale: `container/service_registry.py` is
+          now `container/container_service_registry.py`, and
+          `mixins/model_service_registry_entry.py` is now
+          `models/mixins/model_service_registry_entry.py` — both confirmed
+          renamed live on omnibase_core@dev. Corrected in the migrated copy
+          (correct-before-publication, not a mechanical move). All other
+          referenced files/classes (ServiceRegistry, ProtocolServiceRegistry,
+          business registries) verified present at their stated paths.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-002-field-limit-constants.md
+        bucket: A
+        destination: adrs/ADR-0031-centralized-field-limit-constants.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed src/omnibase_core/constants/constants_field_limits.py
+          exists on omnibase_core@dev with matching values for
+          MAX_IDENTIFIER_LENGTH (100), MAX_URL_LENGTH (2048), and
+          MAX_LOG_MESSAGE_LENGTH (4000). No drift found; migrated unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-003-reducer-output-exception-consistency.md
+        bucket: A
+        destination: adrs/ADR-0032-reducer-output-exception-consistency.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Content verified consistent with the live sentinel-value validator
+          pattern; de-linked a product-repo GitHub PR URL reference (PR #205)
+          per the knowledge base's own sanitization policy (its URL pattern
+          matches any product-repo GitHub link, not only private ones).
+          Condensed in the migrated copy to avoid
+          duplicating ADR-0037's fuller treatment of the same ModelOnexError
+          pattern; substance preserved.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-004-registration-trigger-architecture.md
+        bucket: A
+        destination: adrs/ADR-0033-registration-trigger-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          `src/omnibase_core/constants/event_types.py` is stale — renamed to
+          `constants/constants_event_types.py` (confirmed live). Corrected in
+          the migrated copy. Also replaced an email-shaped code-example
+          placeholder (matched the KB sanitization gate's email pattern) with
+          a non-email value. `ModelNodeIntrospectionEvent` and
+          `MixinIntrospectionPublisher` verified present at their stated
+          paths; the doc's "Planned/Reserved" implementation-status claims
+          (RegisterNodeRequested command, dedicated orchestrator) were not
+          re-verified and are flagged as historical intent in the migrated
+          copy, not re-asserted as current state.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-005-core-infra-dependency-boundary.md
+        bucket: A
+        destination: adrs/ADR-0034-core-infra-dependency-boundary.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          The CI workflow filename (`.github/workflows/test.yml`) is stale —
+          renamed to `ci.yml` (confirmed live). More substantively, the
+          enforcement scripts this decision named
+          (`scripts/validate-no-transport-imports.sh` for both CI and
+          pre-commit) have been superseded live: CI now runs the AST-based
+          `scripts/check_transport_imports.py`, and pre-commit now runs the
+          AST-based `scripts/validate_no_transport_imports.py` (its own
+          docstring: "Unlike the grep-based predecessor..."). The original
+          `.sh` script still exists and is referenced from one other
+          workflow, so it is not fully retired, but it is no longer the
+          primary path this decision describes. Both corrected in the
+          migrated copy with an explicit migration-note callout; the
+          underlying forbidden-import policy was not re-verified line-by-line
+          against the new AST scripts.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-006-status-taxonomy.md
+        bucket: A
+        destination: adrs/ADR-0035-status-taxonomy-and-categorical-organization.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          All nine referenced enum file paths (EnumExecutionStatus,
+          EnumOperationStatus, EnumWorkflowStatus, EnumHealthStatus,
+          EnumLifecycle, EnumRegistryEntryStatus, EnumSeverity,
+          EnumSeverityLevel, EnumImpactSeverity) confirmed present live on
+          omnibase_core@dev at their stated paths. No drift found; migrated
+          unchanged aside from noting the pre-commit warning-mode status of
+          checker_enum_governance.py was not re-verified.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-007-context-mutability-design-decision.md
+        bucket: A
+        destination: adrs/ADR-0036-context-mutability-design-decision.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed both model_workflow_state_snapshot.py and
+          model_fsm_state_snapshot.py exist live at their stated paths, the
+          `with_step_completed` method is defined, and
+          ModelWorkflowStateSnapshot is declared with frozen=True. No drift
+          found; migrated unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR-012-VALIDATOR-ERROR-HANDLING.md
+        bucket: A
+        destination: adrs/ADR-0037-validator-error-handling-modelonexerror.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed model_onex_error.py and enum_core_error_code.py exist
+          live at the paths this decision imports from. Migrated copy
+          condenses the original's extended worked examples and Pydantic-v3
+          contingency test listing while preserving the decision, rationale,
+          and fallback strategies in full.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/RISK-009-ci-workflow-modification-risk.md
+        bucket: A
+        destination: adrs/ADR-0038-ci-workflow-modification-risk.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Two claims were stale: the workflow filename
+          (`.github/workflows/test.yml` → live `ci.yml`) and the
+          protected-branch names in the example conditional (documented as
+          main/master; live branch check is main/develop — "master" is not a
+          live branch name in this check). Both corrected in the migrated
+          copy with an explicit note. The core risk assessment and its
+          CODEOWNERS-based mitigation were independently re-verified live
+          (`.github/CODEOWNERS` carries `/.github/workflows/
+          @OmniNode-ai/platform-team`; the workflow's inline comment
+          cross-referencing this record is still present in ci.yml). Migrated
+          as an ADR-shaped record (adr_id assigned) rather than a new
+          non-ADR risk-register section, consistent with this repository's
+          existing taxonomy having no separate risk-register class.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/ADR_BEST_PRACTICES.md
+        bucket: A
+        destination: adrs/README.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Superseded rather than migrated as a new file: this document's
+          practices (commit-SHA code references, an omnibase_core-local ADR
+          numbering scheme, an emoji status-indicator convention, a
+          "Document Metadata" table template) describe the pre-migration,
+          repo-local ADR-authoring workflow. The knowledge base's own
+          adrs/README.md already carries an equivalent, current "How to
+          Propose a New ADR" section written for the KB-first workflow (numbered
+          file, typed frontmatter, status lifecycle, PR review). No new KB
+          file created; reconciles the manifest with the existing canonical
+          guidance rather than publishing a second, now-obsolete how-to.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/decisions/README.md
+        bucket: A
+        destination: adrs/README.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          This is omnibase_core's local ADR index/README — superseded by the
+          knowledge base's own adrs/README.md, which now indexes every ADR
+          migrated from this repository (ADR-0028 through ADR-0038) alongside
+          every other repo's ADRs. No new KB file created; reconciles the
+          manifest with the existing canonical index rather than publishing a
+          second, now-partial one.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/AGENT_MD_TEMPLATE.md
+        bucket: A
+        destination: reference/agent-md-template.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Cross-repo template with no repo-specific code claims to verify;
+          migrated unchanged (removed only a `~/.claude/CLAUDE.md` path
+          reference, replaced with a repo-agnostic description, since the KB
+          sanitization gate treats literal local paths as out of scope for
+          this public repo).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/CI_CD_STANDARDS.md
+        bucket: A
+        destination: reference/ci-cd-standards.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Live omnibase_core@dev .github/required-checks.yaml is schema_version
+          3, not the v2 schema this document describes as current — and that
+          file's own header comment states the v2 model was already stale
+          drift before the v3 upgrade (live branch protection required 61
+          individual contexts, not the 3-gate "operational contract" v2
+          documented). Separately, the document's own "Example 1: omnibase_core"
+          section claims classification "library-core"; live
+          required-checks.yaml declares "toolchain" — a direct contradiction.
+          Corrected-before-publication per the broken-does-not-migrate
+          precondition: the migrated copy carries a prominent correction
+          note, fixes the classification example, and trims the detailed v2
+          schema/YAML examples rather than republishing a demonstrably
+          out-of-date operational contract as current. Marked status: stale
+          in the migrated copy's own frontmatter (not deprecated — the tier
+          concepts remain a reasonable design pattern).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/CI_VALIDATION_SETUP.md
+        bucket: A
+        destination: reference/ci-validation-setup.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed live: the `onex-validate-links` console-script entry
+          point in pyproject.toml, the pre-commit hook id,
+          .github/workflows/validate-docs.yml, and .markdown-link-check.json
+          all exist and match this document's description. No drift found;
+          migrated unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/MERGE_DEPENDENCY_GRAPH.md
+        bucket: A
+        destination: reference/merge-dependency-graph.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Process/ordering document, not a code-path claim; the seven repo
+          names in its dependency graph (omnibase_spi, omnibase_core,
+          omnibase_infra, omnimemory, omniintelligence, omniclaude, omnidash)
+          were cross-checked against the org repository registry — all real,
+          correctly classified. Migrated unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/onex_terminology.md
+        bucket: A
+        destination: reference/onex-terminology.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Sections 7 (HANDLER) and 9 (RUNTIME), plus the corresponding Quick
+          Reference Table rows and one Disambiguation Guide row, named
+          `ProtocolHandler` (protocols/runtime/protocol_handler.py),
+          `RuntimeMessageDispatch`, `RuntimeHandlerRegistry`, and
+          `ModelRuntimeNodeInstance` as canonical classes/protocols/paths.
+          None exist anywhere in omnibase_core@dev src/ (repo-wide search).
+          The live equivalent is `ProtocolMessageHandler`
+          (protocols/runtime/protocol_message_handler.py, envelope-in/
+          ModelHandlerOutput-out — a *different* pattern from the canonical
+          def-B COMPUTE-handler signature documented in this repo's own
+          CLAUDE.md, and not to be confused with it) and `RuntimeLocal`
+          (runtime/runtime_local.py) plus `ServiceHandlerRegistry`
+          (services/service_handler_registry.py). Corrected-before-publication:
+          both sections rewritten against verified live names; the RUNTIME
+          section's code example was removed rather than replaced with an
+          unverified guess at the real dispatch API. Sections 1-6 and 8
+          (EVENT, ACTION, INTENT, REDUCER, ORCHESTRATOR, EFFECT, PROJECTION)
+          were independently verified accurate — all referenced classes,
+          files, and node types exist live — and migrated unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/onex_topic_taxonomy.md
+        bucket: A
+        destination: reference/onex-topic-taxonomy.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Confirmed constants/constants_topic_taxonomy.py exists live with
+          the exported constants this document names (TOPIC_DISCOVERY_COMMANDS,
+          TOPIC_DISCOVERY_EVENTS, etc.). No drift found in the normative
+          taxonomy itself; the migrated copy trims the original's
+          legacy-topic "Migration Guide" section (a point-in-time cutover
+          list, not normative reference content) and its
+          omnibase_core-internal "Related Documentation" pointers.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
+        bucket: A
+        destination: reference/standard-doc-layout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          This document's own "Required Directories" table describes
+          docs/decisions/, docs/standards/, and docs/troubleshooting/ as
+          holding full content — a description this very migration makes
+          partly obsolete (those subtrees are now pointer stubs). Migrated
+          with a prominent note explaining the self-referential staleness and
+          flagging that a cross-repo reconciliation of this template (other
+          repos carry independently-diverged copies, per the consolidation
+          plan's C7 line item) is a separate, not-yet-executed piece of work.
+          Marked status: stale for that reason, not deprecated.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/troubleshooting/ASYNC_HANG_DEBUGGING.md
+        bucket: A
+        destination: guides/async-hang-debugging.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Matches the exact defect the consolidation plan (§8b, omnibase_core
+          Wave-3 table) predicted for this file: built on
+          src/omnibase_core/mixins/mixin_workflow_support.py, which does not
+          exist on omnibase_core@dev (confirmed by search — 0 matches).
+          Corrected-before-publication: the migrated copy removes the
+          file-specific "Anti-Pattern" line-number citation and the entire
+          "Historical Incidents" section (a dated incident against a file
+          that no longer exists cannot be independently verified), and
+          preserves the general async/sync interop debugging technique
+          (unawaited-coroutine detection and the fire-and-forget scheduling
+          fix), which remains directly applicable — this codebase's event-bus
+          protocols still expose a `publish_async` method a sync caller could
+          misuse the same way.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: moved
 
