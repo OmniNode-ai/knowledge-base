@@ -2240,9 +2240,20 @@ registry_reconciliation:
     Pick the installer manifest as the single canonical registry, since it is
     the one machine-read surface. Derive both the knowledge-base registry page
     and the organization profile table from it. Private repositories are
-    annotated in the canonical source and omitted from public renderings.
+    annotated (name + one-line purpose, no clone URL) rather than silently
+    omitted or silently exposed as public.
   destination: reference/
-  cutover_state: not-started
+  destination_file: reference/repository-registry.md
+  cutover_state: moved
+  resolved_note: >-
+    Landed reference/repository-registry.md, generated from
+    omnibase/repos.yaml (10 platform-component rows as of this cutover) plus
+    a supplementary "other public repositories" section (omnibase itself,
+    knowledge-base, omnigemini) and a "private repositories" section
+    (omninode_infra, omniweb — annotated, no URL). OmniNode-ai/.github
+    profile/README.md's Core Repositories table was regenerated from the
+    same rows in the same change, replacing its independently-maintained
+    descriptions.
 
 shared_layout_template:
   problem: >-

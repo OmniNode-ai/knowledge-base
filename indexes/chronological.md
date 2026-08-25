@@ -28,6 +28,7 @@ All knowledge base artifacts sorted by date.
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference) — 2026-08-25
+- **[Repository Registry](reference/repository-registry.md)** (reference) — 2026-08-25
 - **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference) — 2026-08-25
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference) — 2026-08-25
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24

@@ -151,6 +151,7 @@ Knowledge base artifacts grouped by type.
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
 - **[ONEX Core Terminology](reference/onex-terminology.md)** — current
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** — current
+- **[Repository Registry](reference/repository-registry.md)** — current
 - **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** — stale
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** — current
 

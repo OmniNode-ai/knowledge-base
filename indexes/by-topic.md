@@ -1074,6 +1074,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
+## org-registry
+
+- **[Repository Registry](reference/repository-registry.md)** (reference)
+
 ## overlays
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
@@ -1284,6 +1288,10 @@ Knowledge base artifacts grouped by topic.
 ## repo-boundaries
 
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** (architecture)
+
+## repositories
+
+- **[Repository Registry](reference/repository-registry.md)** (reference)
 
 ## repowise
 
