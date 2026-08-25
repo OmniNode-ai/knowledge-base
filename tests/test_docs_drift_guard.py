@@ -381,9 +381,11 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     real manifest currently contains so a future edit that silently empties
     or corrupts a repo's `rows:` list is caught here.
 
-    omnibase_core is the first repo with landed rows (first Wave 2 migration
-    PR). Every other repo must still be empty until its own migration PR
-    lands — do not add rows for a repo here without a matching migration."""
+    omnibase_core was the first repo with landed rows (first Wave 2 migration
+    PR); omniclaude is the second (its own Wave 2 migration PR, architecture/
+    guides/standards). Every other repo must still be empty until its own
+    migration PR lands — do not add rows for a repo here without a matching
+    migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -393,11 +395,18 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         if guard.find_repo_rows(manifest, repo["repo"])
     }
 
-    assert set(repos_with_rows) == {"omnibase_core"}, (
-        f"expected only omnibase_core to have landed rows today, found rows for: {sorted(repos_with_rows)}"
+    expected_repos = {"omnibase_core", "omniclaude"}
+    assert set(repos_with_rows) == expected_repos, (
+        f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )
     assert len(repos_with_rows["omnibase_core"]) == 4
     for row in repos_with_rows["omnibase_core"]:
         assert row["bucket"] == "A"
         assert row["cutover_state"] == "moved"
         assert row["source_path"].startswith("docs/decisions/")
+
+    assert len(repos_with_rows["omniclaude"]) == 21
+    for row in repos_with_rows["omniclaude"]:
+        assert row["bucket"] == "A"
+        assert row["cutover_state"] == "moved"
+        assert row["source_path"].startswith(("docs/architecture/", "docs/guides/", "docs/standards/"))

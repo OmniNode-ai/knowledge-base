@@ -297,10 +297,313 @@ repos:
       - {source_glob: "docs/standards/**", destination: "reference/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md]
-    cutover_state: not-started
+    cutover_state: moved
     notes: >-
       Largest assessed set and the largest absolute current count; the migration
-      cost here is volume, not repair.
+      cost here is volume, not repair. All 21 files across docs/architecture/**,
+      docs/guides/**, docs/standards/** migrated (see rows below) — this
+      accounts for the 3 bucket-A globs only; the wider 93-doc assessed count
+      includes files outside these globs (getting-started/, observability/,
+      security/, demo/, scripts/, consumers/, plugins/onex/skills/*/README.md)
+      that are out of this migration's scope. Reconciliation against the
+      2026-08-17 catalog: several rows the catalog marked broken/hygiene-risk
+      were already corrected upstream by the time this migration ran (the
+      catalog is a point-in-time snapshot, not a live state); each row below
+      records what was independently re-verified, not the catalog's original
+      classification.
+    rows:
+      - source_path: docs/architecture/AGENT_ROUTING_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/agent-routing-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Backtick-quoted file/path references in this document (hooks/lib
+          modules, config paths) checked against omniclaude@dev; all resolve.
+          No hygiene-class literals found (grep for LAN/Tailscale IPs,
+          /Volumes/, /Users/ — zero hits).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/charter.md
+        bucket: A
+        destination: architecture/omniclaude-repo-charter.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Short (29-line) ownership-boundary doc; no path/link claims to verify
+          beyond hygiene scan (clean).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/COMPLIANCE_ENFORCEMENT_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/compliance-enforcement-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Corrected during migration: `plugins/onex/hooks/lib/compliance_result_subscriber.py`
+          moved to `src/omniclaude/hooks/lib/compliance_result_subscriber.py`
+          (confirmed live path on omniclaude@dev); `delegation_orchestrator.py`
+          row confirmed deleted (no file of that name anywhere in the tree) and
+          replaced with a pointer to DELEGATION_ARCHITECTURE.md, which already
+          self-documents the removal.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/CONTEXT_ENRICHMENT_PIPELINE.md
+        bucket: A
+        destination: architecture/context-enrichment-pipeline.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Key file paths (context_enrichment_runner.py, enrichment_observability_emitter.py,
+          intelligence_event_client.py) confirmed present on omniclaude@dev.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/DELEGATION_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/delegation-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Document already self-corrects: its own "STATUS — bridge removed"
+          banner accurately describes that the UserPromptSubmit delegation
+          bridge and `handler_delegate_skill.py` were deleted, and that
+          delegation now runs only via the `/onex:delegate` skill dispatching
+          `node_delegate_skill_orchestrator` in omnimarket. Migrated verbatim;
+          frontmatter status set to deprecated (self-declared historical) rather
+          than accepted, since the doc documents a removed design.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/EMIT_DAEMON_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/emit-daemon-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Key file paths (emit_client_wrapper.py, secret_redactor.py,
+          session-start.sh) confirmed present under plugins/onex/hooks/ on
+          omniclaude@dev.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/EVENT_DRIVEN_ROUTING_PROPOSAL.md
+        bucket: A
+        destination: architecture/event-driven-routing-proposal.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Document already carries a self-declared SUPERSEDED banner (routing
+          migration it proposed is complete; current architecture is
+          AGENT_ROUTING_ARCHITECTURE.md). Corrected two dead `agents/lib/`
+          paths to their real location (`src/omniclaude/lib/core/`) and
+          removed a dead cross-link to an unmigrated omniclaude-only doc
+          (docs/observability/AGENT_TRACEABILITY.md) so the KB copy has no
+          broken links. Kept — it is referenced by
+          plugins/onex/skills/routing/request-agent-routing/SKILL.md.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/HOOK_DATA_FLOW.md
+        bucket: A
+        destination: architecture/hook-data-flow.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          `local_delegation_handler.py` and `delegation_orchestrator.py` do not
+          exist anywhere in omniclaude@dev (grep across src/ and plugins/ finds
+          neither); the doc described them as live sync-path modules. Corrected
+          in place before publication: both rows now point to
+          DELEGATION_ARCHITECTURE.md's documented removal, and
+          `compliance_result_subscriber.py`'s path corrected to its real
+          location under src/omniclaude/hooks/lib/.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/LLM_ROUTING_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/llm-routing-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Same dead-file class as HOOK_DATA_FLOW.md: `delegation_orchestrator.py`
+          does not exist. Corrected in place before publication to point at
+          DELEGATION_ARCHITECTURE.md's documented removal and the current
+          `/onex:delegate` → node_delegate_skill_orchestrator (omnimarket) path.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/ROUTING_ARCHITECTURE_COMPARISON.md
+        bucket: A
+        destination: architecture/routing-architecture-comparison.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Document already carries a self-declared HISTORICAL banner (documents
+          a completed migration; the "before" state no longer exists). Migrated
+          verbatim; frontmatter status set to superseded. Kept — referenced by
+          plugins/onex/skills/routing/request-agent-routing/SKILL.md.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/SERVICE-BOUNDARIES.md
+        bucket: A
+        destination: architecture/service-boundaries.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Verified against omniclaude@dev before publication: (1) "Last
+          Updated: 2025-11-05" banner was stale against the file's actual last
+          commit (2026-08-18) — corrected. (2) Four `agents/lib/*.py`
+          references: `manifest_injector.py` and `routing_event_client.py`
+          moved to `src/omniclaude/lib/core/` (corrected); `agent_execution_logger.py`
+          and `agent_history_browser.py` confirmed deleted with no successor
+          (flagged, diagnosis command rewritten). (3) Two dead doc links
+          (`MANIFEST_INTELLIGENCE_EVENT_ARCHITECTURE.md`,
+          `SECURITY_KEY_ROTATION.md`) confirmed nonexistent anywhere in the
+          repo — removed rather than left dead.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/skill-lifecycle.md
+        bucket: A
+        destination: architecture/omniclaude-skill-lifecycle.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Cross-repo link to omnimarket rewritten from a raw github.com URL to
+          plain text (sanitization guard: any OmniNode-ai/<repo> URL other than
+          knowledge-base itself is flagged); internal cross-links repointed to
+          this migration's actual KB filenames.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/ADDING_A_HOOK_HANDLER.md
+        bucket: A
+        destination: guides/adding-a-hook-handler.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Hook-event reference table describes Claude Code's platform hook
+          types generically (fire conditions), not omniclaude's registration
+          state, so it does not conflict with the live hooks.json (checked)
+          — the plan's 2026-08-17 finding against an earlier revision of this
+          file no longer applies. All file/path references confirmed live.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/ADDING_A_SKILL.md
+        bucket: A
+        destination: guides/adding-a-skill.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Removed an inline internal ticket reference (sanitize-text gate);
+          repointed two internal links to the migrated
+          architecture/omniclaude-skill-lifecycle.md filename.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/ADDING_AN_AGENT.md
+        bucket: A
+        destination: guides/adding-an-agent.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          All referenced paths (docs/reference/AGENT_YAML_SCHEMA.md,
+          docs/architecture/EVENT_DRIVEN_ROUTING_PROPOSAL.md,
+          docs/architecture/ROUTING_ARCHITECTURE_COMPARISON.md) confirmed to
+          exist on omniclaude@dev — the plan's 2026-08-17 finding (dead links
+          to deprecated docs) no longer applies to the current content.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/TESTING_GUIDE.md
+        bucket: A
+        destination: guides/omniclaude-testing-guide.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          No hygiene-class literals; no broken backtick-quoted path references
+          found.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/CI_CD_STANDARDS.md
+        bucket: A
+        destination: reference/omniclaude-ci-cd-standards.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Verified against live .github/workflows/ci.yml on omniclaude@dev:
+          the doc's "Triggers: push and pull_request on main and develop"
+          summary was wrong (live push trigger is [main, hotfix/**]; pull_request
+          is [main, dev]; there is no `develop` branch anywhere in the config)
+          — corrected. The `deploy-staging` job's `if:` gates on
+          `github.ref == 'refs/heads/develop'`, which is structurally
+          unreachable since the workflow never triggers on a develop/dev push
+          at all — annotated in place rather than silently left to mislead a
+          reader into thinking staging deploys work.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/EVENT_ENVELOPE_FIELD_NAMES.md
+        bucket: A
+        destination: reference/event-envelope-field-names.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Referenced omnibase_core/src/omnibase_core/models/events/model_event_envelope.py
+          confirmed to exist on omnibase_core@dev.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
+        bucket: A
+        destination: reference/omniclaude-standard-doc-layout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          A cross-repo shared-layout-template reconciliation is separately
+          tracked (this manifest's shared_layout_template entry / Wave-2 item
+          C7) — that item owns reconciling this doc's content
+          against other repos' copies into one canonical version. This row
+          migrates omniclaude's copy as-is (illustrative NEW_DOCUMENT.md link
+          in a code-fence example de-linked so the broken-link checker does
+          not flag placeholder text); C7 may revise it later.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/TEST_DISCIPLINE.md
+        bucket: A
+        destination: reference/omniclaude-test-discipline.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Doc's own note ("moved from plugins/onex/skills/test_discipline/SKILL.md
+          in an earlier refactor") is consistent with that path no longer
+          existing in the tree — correctly described as historical, not a live
+          reference.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/standards/VERIFICATION_DOCTRINE.md
+        bucket: A
+        destination: reference/omniclaude-verification-doctrine.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Referenced omni_home/docs/audits/2026-06-19-ratchet-enforcement-audit.md
+          and omni_home/docs/standards/OMNINODE_DETERMINISTIC_TRUTH_DOCTRINE.md
+          confirmed to exist; omnibase_infra/scripts/pull-all.sh confirmed to
+          exist.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+
 
   - repo: omniintelligence
     visibility: public

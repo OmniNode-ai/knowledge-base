@@ -4,6 +4,14 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 All knowledge base artifacts sorted by date.
 
+## 2026-08
+
+- **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture) — 2026-08-25
+- **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
+- **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide) — 2026-08-19
+- **[Adding a Skill](guides/adding-a-skill.md)** (guide) — 2026-08-19
+- **[Adding an Agent](guides/adding-an-agent.md)** (guide) — 2026-08-19
+- **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture) — 2026-08-18
 ## 2026-07
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr) — 2026-07-29
@@ -28,6 +36,18 @@ All knowledge base artifacts sorted by date.
 ## 2026-06
 
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr) — 2026-06-24
+- **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture) — 2026-06-24
+- **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture) — 2026-06-24
+- **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture) — 2026-06-24
+- **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture) — 2026-06-24
+- **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** (architecture) — 2026-06-24
+- **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture) — 2026-06-24
+- **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** (architecture) — 2026-06-24
+- **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture) — 2026-06-24
+- **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference) — 2026-06-24
+- **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference) — 2026-06-24
+- **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference) — 2026-06-24
+- **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture) — 2026-06-20
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
 ## 2026-05
@@ -72,5 +92,8 @@ All knowledge base artifacts sorted by date.
 ## 2026-02
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive) — 2026-02-27
+- **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
+- **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
+- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference) — 2026-02-20
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive) — 2026-02-18
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive) — 2026-02-04
