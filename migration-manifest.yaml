@@ -1768,7 +1768,157 @@ repos:
       - {source_glob: "docs/architecture/**", destination: "architecture/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md]
-    cutover_state: not-started
+    cutover_state: pointer-live
+    notes: >-
+      docs/reference/** and docs/architecture/** together are 6 files, not
+      part of the repo's original broken:3 count (that count is 3 other files
+      outside these two globs — src/omniintelligence/audit/README.md,
+      tests/audit/fixtures/README.md, docs/CONTRACT_VALIDATION_GUIDE.md —
+      untouched by this migration, still owed a Wave-3 pass). Of the 6 rows
+      below, 5 migrated (2 corrected before publication); 1
+      (DASH_INTEGRATION_TRUTH_BOUNDARY.md) was independently found broken
+      during this migration (not part of the original catalog's broken:3) and
+      is quarantined in-repo rather than published — see its row. cutover_state
+      is pointer-live for the 5 migrated rows: both the KB-add PR
+      (knowledge-base#38) and the omniintelligence thin-out PR
+      (omniintelligence#843) are merged, and each thinned source file carries
+      the pointer_redirect line verbatim.
+    rows:
+      - source_path: docs/reference/EVENT_SURFACE.md
+        bucket: A
+        destination: reference/omniintelligence-event-surface.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Two defects found against the live omniintelligence tree
+          (2026-08-25): (1) the Consumed Topics row for
+          onex.cmd.omniintelligence.quality-assessment.v1 described the
+          producer as "planned"; node_pattern_feedback_effect/contract.yaml
+          declares it in publish_topics and
+          handlers/handler_session_outcome.py actively publishes it after
+          effectiveness scoring — corrected, and the matching Produced Topics
+          row was added. (2) The intro linked a doc-standards file in a
+          private internal workspace repo (not publicly reachable, and the
+          cited standard has since been retired per this KB's own
+          consolidation record) — removed. Additionally, the
+          "Projected/Read-Model Events" and "Dashboard-Visible Events"
+          sections cite an omnidash consumer file
+          (omniintelligence-projections.ts) and SUFFIX_INTELLIGENCE_*
+          constants; grepping the current omnidash tree found neither the
+          file, the constants, nor any reference to the
+          pattern_learning_artifacts/routing_feedback_events/bloom_eval_results
+          tables anywhere in omnidash's source or migrations — omnidash's
+          server layer now exposes a generic GET /projection/:topic endpoint
+          instead. This is an omnidash-side question out of scope for an
+          omniintelligence-only migration, so those two sections were
+          flagged as unverified rather than rewritten from a guess.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omniintelligence-event-surface.md
+        cutover_state: pointer-live
+      - source_path: docs/reference/DASH_INTEGRATION_TRUTH_BOUNDARY.md
+        bucket: A
+        destination: "reference/ (not yet migrated — quarantined)"
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Found broken during this migration (independent of the repo's
+          original catalog, which did not flag this file). The doc's entire
+          premise is a specific omnidash-side consumer file
+          (omniintelligence-projections.ts), a shared/topics.ts constant
+          table (SUFFIX_INTELLIGENCE_*), and per-topic verification commands
+          against those paths. None of the three exists in the current
+          omnidash tree (grep of the full tree, 2026-08-25): no file by that
+          name, no such constants, and zero references to the
+          pattern_learning_artifacts / routing_feedback_events /
+          bloom_eval_results tables anywhere in omnidash's source or
+          migrations. omnidash's server layer now exposes a generic
+          GET /projection/:topic endpoint over onex.snapshot.projection.*
+          topics (server/routes.ts) instead of per-domain consumer files —
+          a different consumption model than the one this document assumes
+          throughout (Architecture Diagram, Topic Truth Matrix, and
+          Verification sections all cite the old model). Separately, its own
+          "Gap 4: no publisher yet" claim is also false — same finding as the
+          EVENT_SURFACE.md row above. Correcting this document accurately
+          would require omnidash-side archaeology to establish what the
+          current cross-repo wiring actually is, which is out of scope for
+          an omniintelligence-only migration pass; rewriting it from partial
+          evidence risks publishing a second wrong document onto the
+          canonical surface. Quarantined per the broken-does-not-migrate-
+          unchanged precondition — stays in the omniintelligence repo
+          unchanged, not thinned, pending a dedicated cross-repo pass
+          (needs an omnidash-side companion investigation).
+        cutover_state: not-started
+      - source_path: docs/reference/NODE_INVENTORY.md
+        bucket: A
+        destination: reference/omniintelligence-node-inventory.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Re-parsed pyproject.toml [project.entry-points."onex.nodes"]
+          directly (2026-08-25): 60 entries (24 compute / 31 effect /
+          2 reducer / 2 orchestrator + 1 audit), matching the source document
+          unchanged. Migrated mechanically with internal cross-reference
+          links repointed to their new KB paths.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omniintelligence-node-inventory.md
+        cutover_state: pointer-live
+      - source_path: docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/omniintelligence-four-node-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Node-type counts (60 total: 24/31/2/2 + 1 audit) and dispatch
+          handler/route counts cross-checked against the live
+          pyproject.toml and the document's own "Last Updated" derivation
+          note (2026-08-25) — matched unchanged. Migrated mechanically with
+          internal cross-reference links repointed to their new KB paths.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-four-node-architecture.md
+        cutover_state: pointer-live
+      - source_path: docs/architecture/CODE_PROJECTION_V2.md
+        bucket: A
+        destination: architecture/omniintelligence-code-projection-v2.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Dated dev-lab proof/evidence content describing a namespaced
+          canary feature; internally consistent, no contradicting live-code
+          evidence found. Migrated with an internal ticket reference and a
+          private omni_home path reference removed (sanitization); content
+          otherwise unchanged.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-code-projection-v2.md
+        cutover_state: pointer-live
+      - source_path: docs/architecture/contract-package-spec.md
+        bucket: A
+        destination: architecture/omniintelligence-contract-package-spec.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          The doc's Discovery Rules listed `event_bus_enabled: true` as a
+          required gate for contract auto-wiring. Live source
+          (contract_topics.py's _discover_effect_node_packages() /
+          _has_subscribe_topics()) does not check that key at all — the
+          real and sole gate is a non-empty event_bus.subscribe_topics list.
+          Confirmed only 2 of the repo's 60 contract.yaml files still carry
+          the vestigial event_bus_enabled key (both compute nodes with no
+          subscribe_topics, so the key is inert either way). Corrected in
+          this migration.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-contract-package-spec.md
+        cutover_state: pointer-live
 
   - repo: onex_change_control
     visibility: public
