@@ -19,7 +19,6 @@ All knowledge base artifacts sorted by date.
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference) — 2026-08-25
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference) — 2026-08-25
 - **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference) — 2026-08-25
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference) — 2026-08-25
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference) — 2026-08-25
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference) — 2026-08-25

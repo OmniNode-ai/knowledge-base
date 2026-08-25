@@ -398,10 +398,11 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     it still contributes a row. onex_change_control is the seventh, fully
     migrated in its own single pass (2026-08-25): every docs/standards/**,
     docs/policy/**, and docs/governance/** candidate has a row except
-    docs/standards/doctrine_clauses.yaml, reclassified bucket A -> B and
-    retained in-repo (see the repo's manifest notes). Every other repo must
-    still be empty until its own migration PR lands — do not add rows for a
-    repo here without a matching migration."""
+    docs/standards/doctrine_clauses.yaml and docs/standards/doctrine_coverage.md,
+    both reclassified bucket A -> B and retained in-repo unthinned as a
+    generator/generated-output pair (see the repo's manifest notes). Every
+    other repo must still be empty until its own migration PR lands — do
+    not add rows for a repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -480,12 +481,15 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["source_path"].startswith(("docs/architecture/delegation-", "docs/reference/node-catalog.md"))
 
     occ_rows = repos_with_rows["onex_change_control"]
-    assert len(occ_rows) == 6
+    assert len(occ_rows) == 5
     occ_prefixes = ("docs/standards/", "docs/policy/", "docs/governance/")
     for row in occ_rows:
         assert row["bucket"] == "A"
         assert row["cutover_state"] == "moved"
         assert row["source_path"].startswith(occ_prefixes)
-    # doctrine_clauses.yaml is deliberately absent — reclassified bucket B,
-    # stays in-repo as the generator source for doctrine_coverage.md.
-    assert "docs/standards/doctrine_clauses.yaml" not in {r["source_path"] for r in occ_rows}
+    # doctrine_clauses.yaml + doctrine_coverage.md are deliberately absent —
+    # reclassified bucket B, stay in-repo as the generator/generated-output
+    # pair (the repo's own CI dry-run-validates the registry on every PR).
+    occ_source_paths = {r["source_path"] for r in occ_rows}
+    assert "docs/standards/doctrine_clauses.yaml" not in occ_source_paths
+    assert "docs/standards/doctrine_coverage.md" not in occ_source_paths

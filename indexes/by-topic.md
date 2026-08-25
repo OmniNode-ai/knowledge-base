@@ -178,7 +178,6 @@ Knowledge base artifacts grouped by topic.
 
 ## ci-gates
 
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 - **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## client-state
@@ -272,10 +271,6 @@ Knowledge base artifacts grouped by topic.
 ## cost-model
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
-
-## coverage
-
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 
 ## cross-repo
 
@@ -411,7 +406,6 @@ Knowledge base artifacts grouped by topic.
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 
 ## documentation
 
@@ -1514,10 +1508,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
-
-## truth-doctrine
-
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 
 ## truth-verification
 

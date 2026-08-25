@@ -142,7 +142,6 @@ Knowledge base artifacts grouped by type.
 - **[AGENT.md Template](reference/agent-md-template.md)** — current
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** — current
 - **[DB Boundary Policy](reference/db-boundary-policy.md)** — current
-- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** — current
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** — current
