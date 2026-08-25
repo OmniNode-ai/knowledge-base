@@ -39,6 +39,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 
@@ -67,6 +68,7 @@ Knowledge base artifacts grouped by topic.
 
 ## auto-wiring
 
+- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
 
@@ -171,6 +173,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 
+## code-projection
+
+- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
+
 ## cold
 
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
@@ -226,6 +232,10 @@ Knowledge base artifacts grouped by topic.
 ## contract-governance
 
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine)
+
+## contract-yaml
+
+- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 
 ## contracts
 
@@ -455,6 +465,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
@@ -471,6 +482,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
+
+## event-surface
+
+- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 
 ## events
 
@@ -660,6 +675,7 @@ Knowledge base artifacts grouped by topic.
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
+- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
@@ -763,6 +779,7 @@ Knowledge base artifacts grouped by topic.
 
 ## memgraph
 
+- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## merge-gates
@@ -841,7 +858,12 @@ Knowledge base artifacts grouped by topic.
 ## node-archetypes
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
+
+## node-inventory
+
+- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 
 ## node-lifecycle
 
@@ -851,6 +873,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## non-determinism
@@ -955,7 +978,12 @@ Knowledge base artifacts grouped by topic.
 
 ## omniintelligence
 
+- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
+- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
+- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
+- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
+- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 
 ## omnimarket
 
@@ -1131,6 +1159,7 @@ Knowledge base artifacts grouped by topic.
 
 ## qdrant
 
+- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## raw-events

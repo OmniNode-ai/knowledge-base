@@ -390,8 +390,14 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     (their own Wave 2 migration PRs). omnimarket is the fifth: its two
     declared bucket_a_candidates globs (docs/architecture/delegation-*,
     docs/reference/node-catalog.md) resolve to 3 files, all landed
-    2026-08-25. Every other repo must still be empty until its own migration
-    PR lands — do not add rows for a repo here without a matching migration."""
+    2026-08-25. omniintelligence is the sixth: its two declared
+    bucket_a_candidates globs (docs/reference/**, docs/architecture/**)
+    resolve to 6 files; 5 landed 2026-08-25 (2 corrected before publication)
+    and 1 (DASH_INTEGRATION_TRUTH_BOUNDARY.md) is quarantined in-repo
+    (cutover_state: not-started) pending a cross-repo omnidash-side pass, so
+    it still contributes a row. Every other repo must still be empty until
+    its own migration PR lands — do not add rows for a repo here without a
+    matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -401,7 +407,14 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         if guard.find_repo_rows(manifest, repo["repo"])
     }
 
-    expected_repos = {"omnibase_core", "omniclaude", "omnimemory", "omnibase_infra", "omnimarket"}
+    expected_repos = {
+        "omnibase_core",
+        "omniclaude",
+        "omnimemory",
+        "omnibase_infra",
+        "omnimarket",
+        "omniintelligence",
+    }
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )

@@ -92,6 +92,9 @@ Knowledge base artifacts grouped by type.
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** — accepted
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** — accepted
+- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** — accepted
+- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** — accepted
+- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** — accepted
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** — accepted
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** — accepted
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
@@ -138,6 +141,8 @@ Knowledge base artifacts grouped by type.
 - **[AGENT.md Template](reference/agent-md-template.md)** — current
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
+- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** — current
+- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** — current
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
