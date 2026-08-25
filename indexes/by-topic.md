@@ -21,6 +21,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
 
+## append-only
+
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
+
 ## application
 
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
@@ -39,7 +43,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
-- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 
@@ -68,7 +71,6 @@ Knowledge base artifacts grouped by topic.
 
 ## auto-wiring
 
-- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
 
@@ -98,6 +100,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## bringup
 
@@ -141,6 +144,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
 
+## check-db-boundary
+
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+
 ## ci
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
@@ -169,13 +176,22 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
 
+## ci-gates
+
+- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
+
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 
-## code-projection
+## code-standards
 
-- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
+
+## coderabbit
+
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## cold
 
@@ -233,9 +249,9 @@ Knowledge base artifacts grouped by topic.
 
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine)
 
-## contract-yaml
+## contract-hashing
 
-- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## contracts
 
@@ -256,6 +272,10 @@ Knowledge base artifacts grouped by topic.
 ## cost-model
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
+## coverage
+
+- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 
 ## cross-repo
 
@@ -306,6 +326,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
 ## debugging
@@ -324,8 +345,6 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
-- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
-- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 
 ## dependabot
 
@@ -392,6 +411,7 @@ Knowledge base artifacts grouped by topic.
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
+- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
 
 ## documentation
 
@@ -405,6 +425,10 @@ Knowledge base artifacts grouped by topic.
 ## dod-evidence
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
+
+## dod-receipts
+
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## dod-verify
 
@@ -465,7 +489,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
-- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
@@ -482,10 +505,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
-
-## event-surface
-
-- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 
 ## events
 
@@ -590,6 +609,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 
+## golden-chain
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
 ## golden-fixtures
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
@@ -617,6 +640,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture)
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## hooks
 
@@ -665,6 +689,10 @@ Knowledge base artifacts grouped by topic.
 - **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 
+## integration-testing
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
 ## judge
 
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
@@ -675,7 +703,6 @@ Knowledge base artifacts grouped by topic.
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
-- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
@@ -737,8 +764,6 @@ Knowledge base artifacts grouped by topic.
 
 ## llm-routing
 
-- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
-- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture)
 
 ## local-first
@@ -779,7 +804,6 @@ Knowledge base artifacts grouped by topic.
 
 ## memgraph
 
-- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## merge-gates
@@ -858,12 +882,7 @@ Knowledge base artifacts grouped by topic.
 ## node-archetypes
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
-- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
-
-## node-inventory
-
-- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 
 ## node-lifecycle
 
@@ -873,8 +892,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
-- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
-- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## non-determinism
 
@@ -896,6 +913,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## omnibase-infra
 
@@ -978,20 +997,12 @@ Knowledge base artifacts grouped by topic.
 
 ## omniintelligence
 
-- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
-- **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
-- **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
-- **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
-- **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 
 ## omnimarket
 
-- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
-- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
-- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## omnimemory
 
@@ -1008,9 +1019,10 @@ Knowledge base artifacts grouped by topic.
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
-## onex-runtime
+## onex-exclude
 
-- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## operations
 
@@ -1144,6 +1156,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## pypi
 
@@ -1159,7 +1172,6 @@ Knowledge base artifacts grouped by topic.
 
 ## qdrant
 
-- **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## raw-events
@@ -1177,6 +1189,7 @@ Knowledge base artifacts grouped by topic.
 ## receipt-gate
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## receipts
 
@@ -1326,6 +1339,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 
+## seam-binding
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
 ## seams
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
@@ -1353,6 +1370,10 @@ Knowledge base artifacts grouped by topic.
 ## service-boundaries
 
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
+
+## service-boundary
+
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
 
 ## service-registry
 
@@ -1431,6 +1452,7 @@ Knowledge base artifacts grouped by topic.
 ## supersession
 
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## tdd
 
@@ -1457,6 +1479,7 @@ Knowledge base artifacts grouped by topic.
 ## testing
 
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 
 ## throughput
@@ -1492,6 +1515,10 @@ Knowledge base artifacts grouped by topic.
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 
+## truth-doctrine
+
+- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** (reference)
+
 ## truth-verification
 
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine)
@@ -1503,6 +1530,10 @@ Knowledge base artifacts grouped by topic.
 ## type-system
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+
+## typed-metadata
+
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## validation
 

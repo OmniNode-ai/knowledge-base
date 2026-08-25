@@ -135,11 +135,15 @@ Knowledge base artifacts grouped by type.
 - **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
 - **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** — current
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** — stale
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
 - **[AGENT.md Template](reference/agent-md-template.md)** — current
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** — current
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** — current
+- **[Doctrine Coverage Matrix](reference/doctrine-coverage-matrix.md)** — current
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** — current
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** — current
@@ -147,7 +151,9 @@ Knowledge base artifacts grouped by type.
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
 - **[ONEX Core Terminology](reference/onex-terminology.md)** — current
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** — current
 - **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** — stale
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** — current
 
 ## Runbook
 
