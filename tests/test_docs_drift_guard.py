@@ -382,10 +382,10 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     or corrupts a repo's `rows:` list is caught here.
 
     omnibase_core was the first repo with landed rows (first Wave 2 migration
-    PR); omniclaude and omnimemory are the second and third (their own Wave 2
-    migration PRs). Every other repo must still be empty until its own
-    migration PR lands — do not add rows for a repo here without a matching
-    migration."""
+    PR); omniclaude, omnimemory, and omnibase_infra are the second, third,
+    and fourth (their own Wave 2 migration PRs). Every other repo must
+    still be empty until its own migration PR lands — do not add rows for a
+    repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -395,7 +395,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         if guard.find_repo_rows(manifest, repo["repo"])
     }
 
-    expected_repos = {"omnibase_core", "omniclaude", "omnimemory"}
+    expected_repos = {"omnibase_core", "omniclaude", "omnimemory", "omnibase_infra"}
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )
@@ -419,3 +419,27 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["source_path"].startswith("docs/architecture/") or row["source_path"].startswith(
             ("docs/runtime/", "docs/migrations/")
         )
+
+    infra_rows = repos_with_rows["omnibase_infra"]
+    assert len(infra_rows) == 50
+    infra_prefixes = ("docs/architecture/", "docs/guides/", "docs/runbooks/")
+    for row in infra_rows:
+        assert row["bucket"] in {"A", "B"}
+        assert row["cutover_state"] in {"moved", "not-started", "pointer-live"}
+        assert row["source_path"].startswith(infra_prefixes)
+    moved = [r for r in infra_rows if r["cutover_state"] == "moved"]
+    not_started = [r for r in infra_rows if r["cutover_state"] == "not-started"]
+    assert len(moved) == 38
+    assert len(not_started) == 10
+    # Every not-started row is quarantined for a documented reason, never silently dropped.
+    for row in not_started:
+        assert row["sensitivity"] in {"needs-review", "public"}
+        assert row["verification_evidence"]
+    # The bucket-B seam manifest is the one not-started row that is public (it
+    # stays in the repo because it's executable tooling, not because it's
+    # under sensitivity review).
+    hygiene_risk_not_started = [r for r in not_started if r["bucket"] == "A"]
+    assert len(hygiene_risk_not_started) == 9
+    for row in hygiene_risk_not_started:
+        assert row["sensitivity"] == "needs-review"
+        assert row["correctness_status"] == "hygiene-risk"

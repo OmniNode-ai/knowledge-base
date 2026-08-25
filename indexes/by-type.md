@@ -68,6 +68,18 @@ Knowledge base artifacts grouped by type.
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** — accepted
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** — accepted
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** — accepted
+- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** — accepted
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** — accepted
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** — accepted
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** — accepted
+- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** — accepted
+- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** — accepted
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** — accepted
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** — accepted
+- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** — accepted
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** — accepted
+- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** — accepted
+- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** — accepted
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** — accepted
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** — accepted
@@ -94,6 +106,9 @@ Knowledge base artifacts grouped by type.
 ## Guide
 
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** — current
+- **[Handler Authoring Guide](guides/handler-authoring-guide.md)** — current
+- **[MCP Integration Guide](guides/mcp-integration-guide.md)** — current
+- **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** — current
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** — current
 - **[Adding a Skill](guides/adding-a-skill.md)** — current
 - **[Adding an Agent](guides/adding-an-agent.md)** — current
@@ -108,3 +123,29 @@ Knowledge base artifacts grouped by type.
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
+
+## Runbook
+
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** — current
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** — current
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** — current
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** — current
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** — current
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** — current
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** — current
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** — current
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** — current
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** — current
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** — current
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** — current
+- **[Apply Migrations Runbook](runbooks/apply-migrations.md)** — current
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** — current
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** — current
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** — current
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** — current
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** — current
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** — current
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** — current
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** — current
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** — current
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** — current

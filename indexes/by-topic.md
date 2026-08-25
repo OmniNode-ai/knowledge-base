@@ -4,6 +4,10 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 Knowledge base artifacts grouped by topic.
 
+## admission
+
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+
 ## agents
 
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
@@ -12,6 +16,15 @@ Knowledge base artifacts grouped by topic.
 ## api
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+
+## application
+
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook)
+
+## apply
+
+- **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook)
 
 ## archetypes
 
@@ -32,6 +45,10 @@ Knowledge base artifacts grouped by topic.
 ## architecture-layers
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+
+## authoring
+
+- **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 
 ## authority
 
@@ -69,9 +86,35 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 
+## bringup
+
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+
 ## build-efficiency
 
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
+
+## bulk
+
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
+
+## bus
+
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+
+## c2
+
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
+
+## cache
+
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
+
+## canary
+
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
 
 ## canonical-model
 
@@ -80,6 +123,10 @@ Knowledge base artifacts grouped by topic.
 ## canonical-source
 
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
+
+## catalog
+
+- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
 
 ## ci
 
@@ -104,6 +151,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 
+## cold
+
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+
 ## completion
 
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
@@ -115,6 +166,14 @@ Knowledge base artifacts grouped by topic.
 ## compliance
 
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
+
+## compose
+
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
+
+## config
+
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
 
 ## config-as-data
 
@@ -160,6 +219,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
+## current
+
+- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
+
+## cutover
+
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
+
 ## dashboard
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -190,6 +257,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
 ## decomposition
 
@@ -213,6 +281,14 @@ Knowledge base artifacts grouped by topic.
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
 
+## deploy
+
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook)
+
+## deployment
+
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
+
 ## determinism
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
@@ -221,10 +297,15 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 
+## disk
+
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+
 ## dispatch
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
 
 ## disposable-implementations
 
@@ -233,6 +314,15 @@ Knowledge base artifacts grouped by topic.
 ## distillation
 
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
+
+## dlq
+
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
+
+## dns
+
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
 
 ## doctrine
 
@@ -258,9 +348,18 @@ Knowledge base artifacts grouped by topic.
 
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 
+## drift
+
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
 ## economics
 
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
+
+## egress
+
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
 
 ## embeddings
 
@@ -273,6 +372,19 @@ Knowledge base artifacts grouped by topic.
 ## enforcement
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
+## engine
+
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+
+## enum
+
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+
+## event
+
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
 
 ## event-bus
 
@@ -319,6 +431,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
 
+## example
+
+- **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
+
 ## failure-handling
 
 - **[Degrade Safely](doctrine/degrade-safely.md)** (doctrine)
@@ -328,14 +444,50 @@ Knowledge base artifacts grouped by topic.
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
 
+## fault
+
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
+
+## fixture
+
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
+
+## fleet
+
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+
+## format
+
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+
+## freshness
+
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+
 ## fsm
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 
+## full
+
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+
+## gate
+
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+
 ## gates
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
+
+## gateway
+
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook)
+
+## git
+
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
 
 ## github-actions
 
@@ -353,6 +505,10 @@ Knowledge base artifacts grouped by topic.
 ## graded-eval
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
+
+## handler
+
+- **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 
 ## handlers
 
@@ -377,6 +533,10 @@ Knowledge base artifacts grouped by topic.
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
 
+## infrastructure
+
+- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
+
 ## infrastructure-resilience
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
@@ -388,6 +548,23 @@ Knowledge base artifacts grouped by topic.
 ## ingestion-boundaries
 
 - **[Ingestion and Interpretation Are Separate](doctrine/ingestion-and-interpretation-separate.md)** (doctrine)
+
+## inject
+
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
+
+## install
+
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
+
+## integration
+
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+- **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
+
+## judge
+
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
 
 ## kafka
 
@@ -401,9 +578,20 @@ Knowledge base artifacts grouped by topic.
 
 - **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive)
 
+## lane
+
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook)
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
 ## last-write-wins
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+
+## layer
+
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
 ## learned-routing
 
@@ -413,13 +601,26 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
 
+## ledger
+
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook)
+
 ## lifecycle
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 
+## listener
+
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+
+## liveness
+
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+
 ## llm
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
+- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
 
 ## llm-pilots
 
@@ -439,9 +640,23 @@ Knowledge base artifacts grouped by topic.
 
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 
+## managed
+
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
+
+## market
+
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
+
 ## materialization
 
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
+
+## mcp
+
+- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
+- **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 
 ## measurement-discipline
 
@@ -464,6 +679,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
 
+## message
+
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+
 ## micro-factories
 
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
@@ -472,10 +692,20 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook)
 
 ## migration-safety
 
 - **[Migration Must Be Staged and Recoverable](doctrine/migration-staged-recoverable.md)** (doctrine)
+
+## migrations
+
+- **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook)
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
+
+## mirror
+
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
 
 ## model-routing
 
@@ -497,6 +727,13 @@ Knowledge base artifacts grouped by topic.
 ## naming
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
+
+## node
+
+- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
 
 ## node-archetypes
 
@@ -528,6 +765,47 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+
+## omnibase-infra
+
+- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
+- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
+- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
+- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
+- **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
+- **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
+- **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook)
+- **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook)
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook)
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
 ## omnibase_core
 
@@ -576,7 +854,12 @@ Knowledge base artifacts grouped by topic.
 
 ## onex
 
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
+
+## operations
+
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
 
 ## orchestrator-nodes
 
@@ -593,6 +876,18 @@ Knowledge base artifacts grouped by topic.
 ## overnight-operations
 
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive)
+
+## overview
+
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
+
+## ownership
+
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+
+## package
+
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
 
 ## parity
 
@@ -627,6 +922,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
+
+## pr
+
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
 
 ## pre-commit
 
@@ -640,6 +940,10 @@ Knowledge base artifacts grouped by topic.
 ## prioritization
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
+
+## profile
+
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
 
 ## projection
 
@@ -666,6 +970,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 
+## publishing
+
+- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
+
+## pypi
+
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
+
 ## qdrant
 
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
@@ -673,6 +985,14 @@ Knowledge base artifacts grouped by topic.
 ## raw-events
 
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
+
+## reaper
+
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
+
+## receipt
+
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
 
 ## receipt-gate
 
@@ -684,6 +1004,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
 ## recursive-system-design
 
@@ -694,9 +1015,15 @@ Knowledge base artifacts grouped by topic.
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
+## refresh
+
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
+
 ## registration
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
+- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+- **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
 
 ## registry
 
@@ -724,9 +1051,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** (architecture)
 
+## repowise
+
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+
 ## required-status-checks
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
+## reseed
+
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
 
 ## resilience
 
@@ -740,6 +1075,11 @@ Knowledge base artifacts grouped by topic.
 ## roadmap
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
+
+## rollout
+
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
 
 ## root-cause
 
@@ -769,6 +1109,12 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
 
+## runner
+
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+
 ## runners
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
@@ -776,8 +1122,10 @@ Knowledge base artifacts grouped by topic.
 ## runtime
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
 
 ## runtime-isolation
 
@@ -803,6 +1151,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
+## service
+
+- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
+
 ## service-boundaries
 
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
@@ -815,6 +1167,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
 
+## shared
+
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+
 ## shift-left
 
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
@@ -823,12 +1179,30 @@ Knowledge base artifacts grouped by topic.
 
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
 
+## skill
+
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
+
 ## skills
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
+
+## snapshot
+
+- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
+
+## stability
+
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
+## staging
+
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
 
 ## standards
 
@@ -847,6 +1221,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
 
+## streaming
+
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+
 ## supersession
 
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
@@ -856,10 +1234,18 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
+## teardown
+
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
+
 ## tenant-isolation
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+
+## test
+
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
 
 ## testing
 
@@ -874,6 +1260,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
 
+## topic
+
+- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
+
+## topics
+
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+
 ## tree-pr-composition
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
@@ -886,6 +1280,10 @@ Knowledge base artifacts grouped by topic.
 ## truth-verification
 
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine)
+
+## two
+
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
 ## validation
 
@@ -907,12 +1305,28 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
+## vendored
+
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
+
 ## verification
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
+
+## volume
+
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## workflow
+
+- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+
+## worktree
+
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
 ## ws-b
 
