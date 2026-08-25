@@ -57,7 +57,17 @@ Knowledge base artifacts grouped by type.
 
 ## Architecture
 
+- **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** — superseded
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** — accepted
+- **[Delegation Architecture](architecture/delegation-architecture.md)** — deprecated
+- **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** — accepted
+- **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** — accepted
+- **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** — accepted
+- **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** — accepted
+- **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** — accepted
+- **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** — accepted
+- **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** — accepted
+- **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** — accepted
 - **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** — accepted
 - **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** — accepted
 - **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** — accepted
@@ -70,6 +80,10 @@ Knowledge base artifacts grouped by type.
 - **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** — accepted
 - **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** — accepted
 - **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** — accepted
+- **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
+- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** — accepted
+- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** — accepted
+- **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
 
 ## Pivot
 
@@ -91,9 +105,24 @@ Knowledge base artifacts grouped by type.
 
 ## Guide
 
+- **[Testing Guide](guides/omniclaude-testing-guide.md)** — current
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** — current
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** — current
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** — current
+- **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** — current
+- **[Adding a Skill](guides/adding-a-skill.md)** — current
+- **[Adding an Agent](guides/adding-an-agent.md)** — current
+- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
+
+## Reference
+
+- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** — current
+- **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
+- **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
+- **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
+- **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
+- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
+- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
 
 ## Runbook
 
