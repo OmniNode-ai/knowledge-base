@@ -29,7 +29,7 @@ All knowledge base artifacts sorted by date.
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference) — 2026-08-25
 - **[Repository Registry](reference/repository-registry.md)** (reference) — 2026-08-25
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference) — 2026-08-25
+- **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference) — 2026-08-25
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference) — 2026-08-25
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook) — 2026-08-24
@@ -157,7 +157,6 @@ All knowledge base artifacts sorted by date.
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference) — 2026-02-24
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference) — 2026-02-20
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive) — 2026-02-18
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference) — 2026-02-14
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive) — 2026-02-04

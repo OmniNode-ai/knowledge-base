@@ -291,7 +291,7 @@ Knowledge base artifacts grouped by topic.
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
+- **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
 ## current
 
@@ -413,7 +413,7 @@ Knowledge base artifacts grouped by topic.
 
 ## doc-layout
 
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
+- **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
 ## doctrine
 
@@ -421,8 +421,7 @@ Knowledge base artifacts grouped by topic.
 
 ## documentation
 
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference)
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
+- **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
 ## dod
 
@@ -992,7 +991,6 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
 
 ## omniclaude
 
@@ -1013,7 +1011,6 @@ Knowledge base artifacts grouped by topic.
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference)
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 
@@ -1470,7 +1467,6 @@ Knowledge base artifacts grouped by topic.
 ## standards
 
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 

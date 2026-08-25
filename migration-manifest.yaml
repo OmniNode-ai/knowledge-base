@@ -582,9 +582,17 @@ repos:
           with a prominent note explaining the self-referential staleness and
           flagging that a cross-repo reconciliation of this template (other
           repos carry independently-diverged copies, per the consolidation
-          plan's C7 line item) is a separate, not-yet-executed piece of work.
-          Marked status: stale for that reason, not deprecated.
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+          plan's C7 line item) was a separate, not-yet-executed piece of work
+          at that time. 2026-08-25 update: C7 (this manifest's
+          shared_layout_template entry) has since executed — this row's
+          destination file is now the single reconciled document merging
+          omnibase_core's content with omniclaude's, omnibase_infra's, and
+          omniintelligence's; the omnibase_core-specific "Required
+          Directories" content this row originally contributed was folded
+          into the reconciled document's directory-role table rather than
+          kept verbatim. Marked status: stale for the original reason, not
+          deprecated.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/standard-doc-layout.md"
         cutover_state: moved
       - source_path: docs/troubleshooting/ASYNC_HANG_DEBUGGING.md
         bucket: A
@@ -1311,6 +1319,21 @@ repos:
           duplicated. Rewritten in place to point at the KB.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
+      - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
+        bucket: A
+        destination: reference/standard-doc-layout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Not part of this repo's own docs/architecture+guides+runbooks
+          bucket_a_candidates batch — moved separately under Wave-2 item C7
+          (shared_layout_template), which reconciles this doc's content with
+          the independently-diverged omniclaude, omnibase_core, and
+          omniintelligence copies into one canonical document rather than
+          migrating omnibase_infra's copy unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/standard-doc-layout.md"
+        cutover_state: moved
 
 
 
@@ -1717,19 +1740,19 @@ repos:
         cutover_state: moved
       - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
         bucket: A
-        destination: reference/omniclaude-standard-doc-layout.md
+        destination: reference/standard-doc-layout.md
         owner: Jonah Gray
         sensitivity: public
         correctness_status: current
         verification_evidence: >-
-          A cross-repo shared-layout-template reconciliation is separately
-          tracked (this manifest's shared_layout_template entry / Wave-2 item
-          C7) — that item owns reconciling this doc's content
-          against other repos' copies into one canonical version. This row
-          migrates omniclaude's copy as-is (illustrative NEW_DOCUMENT.md link
-          in a code-fence example de-linked so the broken-link checker does
-          not flag placeholder text); C7 may revise it later.
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+          2026-08-25 (Wave-2 item C7, this manifest's shared_layout_template
+          entry): the cross-repo reconciliation this row previously deferred
+          is now done. omniclaude's copy (previously migrated as-is to a
+          separate reference/omniclaude-standard-doc-layout.md, now deleted)
+          was merged into the single reconciled reference/standard-doc-layout.md
+          together with omnibase_core's, omnibase_infra's, and
+          omniintelligence's copies — see that file's own reconciliation note.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/standard-doc-layout.md"
         cutover_state: moved
       - source_path: docs/standards/TEST_DISCIPLINE.md
         bucket: A
@@ -1919,6 +1942,21 @@ repos:
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-contract-package-spec.md
         cutover_state: pointer-live
+      - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
+        bucket: A
+        destination: reference/standard-doc-layout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Not part of this repo's own docs/reference+architecture
+          bucket_a_candidates batch — moved separately under Wave-2 item C7
+          (shared_layout_template), which reconciles this doc's content with
+          the independently-diverged omniclaude, omnibase_core, and
+          omnibase_infra copies into one canonical document rather than
+          migrating omniintelligence's copy unchanged.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/standard-doc-layout.md"
+        cutover_state: moved
 
   - repo: onex_change_control
     visibility: public
@@ -2262,8 +2300,15 @@ shared_layout_template:
   resolution: >-
     Reconcile to one canonical template here; repositories point at it rather
     than carrying a copy.
-  destination: reference/
-  cutover_state: not-started
+  destination: reference/standard-doc-layout.md
+  cutover_state: moved
+  notes: >-
+    2026-08-25 (Wave-2 item C7): reconciled four independently-
+    diverged copies (omniclaude, omnibase_core, omnibase_infra,
+    omniintelligence) into the single reference/standard-doc-layout.md.
+    Each source repo's docs/standards/STANDARD_DOC_LAYOUT.md is thinned to a
+    pointer stub at that path (per-repo rows above under each repo's `rows:`
+    list carry the individual verification evidence).
 
 # ---------------------------------------------------------------------------
 # Rollup — what the catalog pass found across every assessed repository

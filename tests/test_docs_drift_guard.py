@@ -400,7 +400,14 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     docs/policy/**, and docs/governance/** candidate has a row except
     docs/standards/doctrine_clauses.yaml and docs/standards/doctrine_coverage.md,
     both reclassified bucket A -> B and retained in-repo unthinned as a
-    generator/generated-output pair (see the repo's manifest notes). Every
+    generator/generated-output pair (see the repo's manifest notes).
+    omnibase_infra and omniintelligence each carry one further row beyond
+    their own bucket_a_candidates batch: docs/standards/STANDARD_DOC_LAYOUT.md,
+    landed separately under Wave 2 item C7 (shared_layout_template), which
+    reconciles that document's independently-diverged copies across
+    omniclaude, omnibase_core, omnibase_infra, and omniintelligence into one
+    canonical reference/standard-doc-layout.md — hence infra_prefixes
+    includes docs/standards/ and the infra row count is 51, not 50. Every
     other repo must still be empty until its own migration PR lands — do
     not add rows for a repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
@@ -447,8 +454,8 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         )
 
     infra_rows = repos_with_rows["omnibase_infra"]
-    assert len(infra_rows) == 50
-    infra_prefixes = ("docs/architecture/", "docs/guides/", "docs/runbooks/")
+    assert len(infra_rows) == 51
+    infra_prefixes = ("docs/architecture/", "docs/guides/", "docs/runbooks/", "docs/standards/")
     for row in infra_rows:
         assert row["bucket"] in {"A", "B"}
         assert row["cutover_state"] in {"moved", "not-started", "pointer-live"}
