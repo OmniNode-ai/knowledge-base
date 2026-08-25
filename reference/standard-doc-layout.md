@@ -22,6 +22,16 @@ this document states the shared rule once. Where they genuinely differed (which
 directories a repository needs) this document gives the union as a menu, not a
 mandate — a repository adopts the subset that matches what it actually has.
 
+**Scope**: the rules below govern a *repository's own* `docs/` tree. The knowledge
+base you are reading this in is a different, already-published surface with its own
+convention — lowercase-hyphenated filenames (this file is
+`reference/standard-doc-layout.md`, not `STANDARD_DOC_LAYOUT.md`) and absolute
+`github.com/OmniNode-ai/knowledge-base` URLs in the pointer stubs a repository leaves
+behind after migrating a document here, since a pointer's whole job is to link across
+repositories, where a relative path cannot reach. See this knowledge base's own
+`docs-taxonomy.md` for its layout rules; do not read the file-naming and relative-link
+rules below as applying to knowledge-base content itself.
+
 ---
 
 ## Directory Structure
