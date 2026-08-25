@@ -6,6 +6,8 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture) — 2026-08-25
+- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture) — 2026-08-25
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture) — 2026-08-25
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture) — 2026-08-25
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture) — 2026-08-25
@@ -14,6 +16,7 @@ All knowledge base artifacts sorted by date.
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference) — 2026-08-25
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference) — 2026-08-25
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-25
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25

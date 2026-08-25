@@ -314,6 +314,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
+- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
+- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 
 ## dependabot
 
@@ -719,6 +721,8 @@ Knowledge base artifacts grouped by topic.
 
 ## llm-routing
 
+- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
+- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture)
 
 ## local-first
@@ -847,6 +851,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## non-determinism
 
@@ -954,8 +959,11 @@ Knowledge base artifacts grouped by topic.
 
 ## omnimarket
 
+- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
+- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## omnimemory
 
@@ -971,6 +979,10 @@ Knowledge base artifacts grouped by topic.
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
+
+## onex-runtime
+
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
 
 ## operations
 
