@@ -57,7 +57,19 @@ Knowledge base artifacts grouped by type.
 
 ## Architecture
 
+- **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** — superseded
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** — accepted
+- **[Delegation Architecture](architecture/delegation-architecture.md)** — deprecated
+- **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** — accepted
+- **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** — accepted
+- **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** — accepted
+- **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** — accepted
+- **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** — accepted
+- **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** — accepted
+- **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** — accepted
+- **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** — accepted
+- **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
+- **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
 
 ## Pivot
 
@@ -76,3 +88,18 @@ Knowledge base artifacts grouped by type.
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** — public-curated
 - **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** — public-curated
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** — public-curated
+
+## Guide
+
+- **[Testing Guide](guides/omniclaude-testing-guide.md)** — current
+- **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** — current
+- **[Adding a Skill](guides/adding-a-skill.md)** — current
+- **[Adding an Agent](guides/adding-an-agent.md)** — current
+
+## Reference
+
+- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** — current
+- **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
+- **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
+- **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
+- **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
