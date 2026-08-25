@@ -133,7 +133,6 @@ Knowledge base artifacts grouped by type.
 
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** — current
 - **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** — current
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
 - **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** — stale
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
@@ -152,7 +151,7 @@ Knowledge base artifacts grouped by type.
 - **[ONEX Core Terminology](reference/onex-terminology.md)** — current
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** — current
 - **[Repository Registry](reference/repository-registry.md)** — current
-- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** — stale
+- **[Standard Documentation Layout](reference/standard-doc-layout.md)** — current
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** — current
 
 ## Runbook
