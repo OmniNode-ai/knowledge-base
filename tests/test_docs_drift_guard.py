@@ -387,9 +387,11 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     docs/troubleshooting/** candidate has a row (23 total — 4 from the first
     pass plus 19 from the second). omniclaude, omnimemory, and
     omnibase_infra are the second, third, and fourth repos with landed rows
-    (their own Wave 2 migration PRs). Every other repo must still be empty
-    until its own migration PR lands — do not add rows for a repo here
-    without a matching migration."""
+    (their own Wave 2 migration PRs). omnimarket is the fifth: its two
+    declared bucket_a_candidates globs (docs/architecture/delegation-*,
+    docs/reference/node-catalog.md) resolve to 3 files, all landed
+    2026-08-25. Every other repo must still be empty until its own migration
+    PR lands — do not add rows for a repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
     manifest = guard.load_manifest(manifest_path=str(manifest_path), manifest_url=guard.DEFAULT_MANIFEST_URL)
 
@@ -399,7 +401,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         if guard.find_repo_rows(manifest, repo["repo"])
     }
 
-    expected_repos = {"omnibase_core", "omniclaude", "omnimemory", "omnibase_infra"}
+    expected_repos = {"omnibase_core", "omniclaude", "omnimemory", "omnibase_infra", "omnimarket"}
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
     )
@@ -450,3 +452,11 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     for row in hygiene_risk_not_started:
         assert row["sensitivity"] == "needs-review"
         assert row["correctness_status"] == "hygiene-risk"
+
+    market_rows = repos_with_rows["omnimarket"]
+    assert len(market_rows) == 3
+    for row in market_rows:
+        assert row["bucket"] == "A"
+        assert row["cutover_state"] == "moved"
+        assert row["correctness_status"] == "broken"
+        assert row["source_path"].startswith(("docs/architecture/delegation-", "docs/reference/node-catalog.md"))

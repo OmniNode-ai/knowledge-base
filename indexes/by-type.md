@@ -90,6 +90,8 @@ Knowledge base artifacts grouped by type.
 - **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** — accepted
 - **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** — accepted
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
+- **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** — accepted
+- **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** — accepted
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** — accepted
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** — accepted
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
@@ -136,6 +138,7 @@ Knowledge base artifacts grouped by type.
 - **[AGENT.md Template](reference/agent-md-template.md)** — current
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
 - **[ONEX Core Terminology](reference/onex-terminology.md)** — current

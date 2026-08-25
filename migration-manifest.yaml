@@ -1789,17 +1789,94 @@ repos:
   - repo: omnimarket
     visibility: public
     assessed: 11
-    assessed_note: 11 assessed of ~60 enumerated; the tail is unassessed.
+    assessed_note: >-
+      11 assessed of ~60 enumerated; the ~49-document tail (mostly per-node
+      README.md files under src/omnimarket/nodes/) remains unassessed. The 3
+      files that make up this repository's declared bucket_a_candidates
+      (below) are now migrated; unassessed-tail status is unchanged by this
+      pass.
     correctness: {current: 2, stale: 7, broken: 2, hygiene-risk: 0, placeholder: 0}
     bucket_a_candidates:
       - {source_glob: "docs/architecture/delegation-*", destination: "architecture/"}
       - {source_glob: "docs/reference/node-catalog.md", destination: "reference/"}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md]
-    cutover_state: not-started
+    cutover_state: moved
     notes: >-
-      Assessment is partial. The unassessed tail must be enumerated before this
-      repository's rows can be called complete.
+      2026-08-25: the two declared bucket_a_candidates globs (3 files) are
+      migrated — see rows below. Both delegation-* documents were broken
+      (referenced two deleted Anthropic backends, cloud-sonnet/cloud-haiku,
+      and a stale 3-tier escalation ladder) and node-catalog.md was broken
+      (node/entry-point counts understated by ~27%, and its "every directory
+      has a metadata.yaml" claim no longer held) — all three corrected before
+      publication per the broken-does-not-migrate precondition rather than
+      moved unchanged. The assessment of the remaining ~49-document tail
+      (mostly per-node README.md files) is still open; this repository's
+      overall assessment is not complete, only its declared Bucket-A
+      candidates are.
+    rows:
+      - source_path: docs/architecture/delegation-dispatch.md
+        bucket: A
+        destination: architecture/delegation-dispatch.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Source document's "Escalation gate sequence" section named a
+          3-tier ladder (local / cheap_cloud / frontier_api) ending in
+          Claude Sonnet and Claude Haiku backends. Confirmed against
+          src/omnimarket/configs/routing_tiers.yaml (omnimarket@dev) that the
+          live ladder is 4 tiers (local, cheap_cloud, cheap_frontier, claude)
+          and that both Anthropic backends were removed — the org holds no
+          Anthropic API key (Claude Code access is OAuth-only), so
+          resolve_api_key('llm.anthropic.api_key') returns None in every
+          lane, per the file's own changelog comment recording the prior
+          Anthropic-backend removal. Corrected before publication.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/delegation-routing-contract.md
+        bucket: A
+        destination: architecture/delegation-routing-contract.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Same defect class as delegation-dispatch.md: the example backend
+          block cited backend_id cloud-sonnet/cloud-haiku, neither of which
+          exists in src/omnimarket/configs/bifrost_delegation.yaml
+          (omnimarket@dev) — confirmed via a grep of every backend_id in
+          that file. Replaced with live backend_id examples (local-coder,
+          cloud-gemini-pro, cloud-gemini-flash) and their real max_tokens
+          values read directly from the same file. The tier-escalation
+          section's 3-tier claim was corrected to match routing_tiers.yaml's
+          live 4-tier ladder, same evidence as the companion row.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/reference/node-catalog.md
+        bucket: A
+        destination: reference/omnimarket-node-catalog.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        verification_evidence: >-
+          Source document (and omnimarket's own README.md) claimed "302
+          contract-backed node entry points (as of v0.4.3)". Live counts
+          against omnimarket@dev: `pyproject.toml` version is 0.4.11 (not
+          v0.4.3); direct parse of the
+          `[project.entry-points."onex.nodes"]` table yields 384 entries;
+          `find src/omnimarket/nodes -mindepth 1 -maxdepth 1 -type d -name
+          'node_*'` yields 390 directories — a ~27% undercount consistent
+          with the drift the org's 2026-08-17 Wave-2 plan already flagged
+          for this file. Also corrected the "every direct node_*
+          directory has a metadata.yaml" claim: 387 of 390 directories have
+          one (3 do not — node_multi_agent_orchestrator,
+          node_dispatch_request_handler, node_doc_freshness_sweep, all
+          confirmed missing by direct file test). Node family table and
+          canary-node list were spot-checked (5 canary node directories, 7
+          related-node directories, 2 referenced scripts) and left
+          unchanged — no drift found there.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
 
   - repo: omnidash
     visibility: public
