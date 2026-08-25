@@ -273,7 +273,695 @@ repos:
     cutover_state: not-started
     notes: >-
       Densest hygiene concentration in the org. Every runbook row is gated on
-      scrubbed-before-move.
+      scrubbed-before-move. Reconciled against the live repository during a
+      Wave-2 migration pass: the catalog's assessed count (21) predates
+      substantial doc growth — the real on-disk candidate set across
+      docs/architecture/**, docs/guides/**, and docs/runbooks/** is 50 files
+      (48 content files + 2 directory-nav README.md indexes), not 21. Every
+      one of the 50 now has a row below: 38 moved to the knowledge base
+      (10 migrated byte-identical, 28 scrubbed — internal ticket references
+      to `<ticket>`, internal host references to `<onex-host>`, the
+      secrets-manager vendor name genericized where it appeared as prose
+      rather than a real code/CLI/compose identifier — plus one manifest-
+      flagged content correction, see the two MCP rows), 1 stays in-repo as
+      bucket B (`managed-staging-proof-kit/fields.yaml`, an executable seam
+      manifest, not prose), 2 directory README.md nav indexes were rewritten
+      in place to point at the new KB locations, and 9 rows are quarantined
+      (correctness_status hygiene-risk, cutover_state not-started) because
+      the secrets-manager vendor name or an internal ticket citation is
+      structurally load-bearing in that document (a real class/script/
+      compose-service name, or a seam-test-pinned template) rather than
+      redactable prose — each row's verification_evidence names the specific
+      blocker. No runbook moved while still hygiene-risk and unscrubbed, per
+      the scrubbed-before-move precondition.
+    rows:
+      - source_path: docs/architecture/CURRENT_NODE_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/2026-07-21-current-node-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/DLQ_MESSAGE_FORMAT.md
+        bucket: A
+        destination: architecture/2026-07-21-dlq-message-format.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/EVENT_BUS_INTEGRATION_GUIDE.md
+        bucket: A
+        destination: architecture/2026-07-21-event-bus-integration.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/EVENT_STREAMING_TOPICS.md
+        bucket: A
+        destination: architecture/2026-07-21-event-streaming-topics.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/LLM_INFRASTRUCTURE.md
+        bucket: A
+        destination: architecture/2026-07-21-llm-infrastructure.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/MESSAGE_DISPATCH_ENGINE.md
+        bucket: A
+        destination: architecture/2026-07-21-message-dispatch-engine.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/REGISTRATION_WORKFLOW.md
+        bucket: A
+        destination: architecture/2026-07-21-registration-workflow.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/SHARED_ENUM_OWNERSHIP.md
+        bucket: A
+        destination: architecture/2026-07-21-shared-enum-ownership.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/SNAPSHOT_PUBLISHING.md
+        bucket: A
+        destination: architecture/2026-07-21-snapshot-publishing.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/TOPIC_CATALOG_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/2026-07-21-topic-catalog-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/MCP_SERVICE_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/2026-07-21-mcp-service-architecture.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Secrets-manager vendor name genericized throughout (2 mentions;
+          sanitization guard forbids naming it). Also corrects a stale claim
+          the plan's catalog flagged: `invoke_tool()` no longer 'returns a
+          placeholder' — confirmed live at
+          src/omnibase_infra/handlers/mcp/adapter_onex_to_mcp.py:467-568, it
+          dispatches through `self._node_executor.execute()`
+          (AdapterONEXToolExecution.execute()) with full envelope build,
+          timeout, and circuit-breaker handling. Removed the now-false
+          'invoke_tool returns placeholder' row from the Current Limitations
+          table.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/overview.md
+        bucket: A
+        destination: architecture/2026-07-21-onex-runtime-overview.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Secrets-manager vendor name genericized throughout (12 mentions
+          across prose, an ASCII diagram box, and two Mermaid diagrams). The
+          Mermaid node id spelling out the vendor name was renamed to
+          `SECRETS` with label 'Secrets Manager' (renaming only the human
+          label would have left an invalid Mermaid identifier, since the
+          original id and label were the same string); the ASCII box width
+          was preserved so the diagram still aligns.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/registration-example.md
+        bucket: A
+        destination: guides/registration-example.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/HANDLER_AUTHORING_GUIDE.md
+        bucket: A
+        destination: guides/handler-authoring-guide.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          One bullet named a real handler file by its literal path, and that
+          filename spells out the secrets-manager vendor name; renaming only
+          the vendor-name segment would have produced a fabricated path, so
+          the bullet was reworded to describe the handler generically and
+          point at the real containing directory
+          (`src/omnibase_infra/handlers/`) instead of the specific file.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/guides/MCP_INTEGRATION_GUIDE.md
+        bucket: A
+        destination: guides/mcp-integration-guide.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Secrets-manager vendor name genericized in one inline comment.
+          Also corrects the same stale `invoke_tool()` 'placeholder' claim
+          addressed in the companion architecture doc (see that row) —
+          removed the limitations-table row and rewrote the 'Common
+          Mistakes' subsection describing it, since `invoke_tool()`
+          genuinely dispatches through `AdapterONEXToolExecution.execute()`
+          and is not a placeholder.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/repowise-freshness-receipt.md
+        bucket: A
+        destination: runbooks/repowise-freshness-receipt.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/vendored-node-migrations.md
+        bucket: A
+        destination: runbooks/vendored-node-migrations.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/worktree-reaper-two-layer-gc.md
+        bucket: A
+        destination: runbooks/worktree-reaper-two-layer-gc.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Migrated byte-identical (no content edits). Zero sanitization-
+          pattern hits on rescan.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/application-database-cutover-receipts.md
+        bucket: A
+        destination: runbooks/application-database-cutover-receipts.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/application-migration-ledger.md
+        bucket: A
+        destination: runbooks/application-migration-ledger.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/bulk-pr-operations.md
+        bucket: A
+        destination: runbooks/bulk-pr-operations.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/c2-git-mirror-egress-rollout.md
+        bucket: A
+        destination: runbooks/c2-git-mirror-egress-rollout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/cold-lane-full-bringup.md
+        bucket: A
+        destination: runbooks/cold-lane-full-bringup.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/pypi-cache-egress-rollout.md
+        bucket: A
+        destination: runbooks/pypi-cache-egress-rollout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/runner-dns-cache-rollout.md
+        bucket: A
+        destination: runbooks/runner-dns-cache-rollout.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/managed-staging-canary-teardown-rollback.md
+        bucket: A
+        destination: runbooks/managed-staging-canary-teardown-rollback.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/judge-compose-profile.md
+        bucket: A
+        destination: runbooks/judge-compose-profile.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Secrets-manager vendor name genericized (prose-only mentions, not
+          code/CLI identifiers).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/volume-config-drift-and-reseed.md
+        bucket: A
+        destination: runbooks/volume-config-drift-and-reseed.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Secrets-manager vendor name genericized (prose-only mentions, not
+          code/CLI identifiers).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/managed-staging-canary-postgres-provisioning.md
+        bucket: A
+        destination: runbooks/managed-staging-canary-postgres-provisioning.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token; secrets-manager vendor name genericized (prose-only
+          mentions, not code/CLI identifiers).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/stability-test-runtime-lane.md
+        bucket: A
+        destination: runbooks/stability-test-runtime-lane.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); secrets-
+          manager vendor name genericized (prose-only mentions, not code/CLI
+          identifiers).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/fault-inject-fixture-dlq-offset-withholding.md
+        bucket: A
+        destination: runbooks/fault-inject-fixture-dlq-offset-withholding.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/gateway-lane-deploy.md
+        bucket: A
+        destination: runbooks/gateway-lane-deploy.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/node-skill-package-install.md
+        bucket: A
+        destination: runbooks/node-skill-package-install.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged).
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/runner-disk-admission-gate.md
+        bucket: A
+        destination: runbooks/runner-disk-admission-gate.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/runner-fleet-listener-liveness.md
+        bucket: A
+        destination: runbooks/runner-fleet-listener-liveness.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/stability-lane-refresh.md
+        bucket: A
+        destination: runbooks/stability-lane-refresh.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Internal ticket citation(s) replaced with the `<ticket>`
+          placeholder (the sanitization guard forbids the literal
+          identifier; the parenthetical context next to each citation was
+          left intact so the substantive claim is unchanged); internal host
+          references replaced with the established `<onex-host>` placeholder
+          token.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/apply-migrations.md
+        bucket: A
+        destination: runbooks/apply-migrations.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          The secrets-bootstrap script was named by its literal filename
+          (which itself spells out the secrets-manager vendor name) in two
+          places; both were reworded to 'the secrets-bootstrap script'
+          rather than fabricating a renamed script path.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/runbooks/market-node-deployment.md
+        bucket: A
+        destination: runbooks/market-node-deployment.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          One step named a real seeding script by its literal filename
+          (which itself spells out the secrets-manager vendor name) —
+          reworded to 'the secrets-seeding script' rather than fabricating
+          a renamed path. Two private-repo git-clone URLs (an internal
+          product repository, cloned by pinned ref) were reworded to
+          describe the repository generically without the disallowed URL
+          form.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/CIRCUIT_BREAKER_THREAD_SAFETY.md
+        bucket: A
+        destination: architecture/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          12 secrets-manager-vendor-name hits, several are real code
+          identifiers (a handler class, its module filename, a transport-
+          type enum member, and its test module — all four spell out the
+          vendor name) used as a reference catalog of the actual circuit-
+          breaker-integrated handler. Renaming these would fabricate
+          non-existent class/file names; leaving them fails the
+          sanitization guard. Needs a deliberate rewrite (e.g. describing
+          the pattern generically without the specific handler as the
+          worked example) that this pass did not attempt.
+        cutover_state: not-started
+      - source_path: docs/architecture/CONFIG_DISCOVERY.md
+        bucket: A
+        destination: architecture/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          60 secrets-manager-vendor-name hits — this document's entire
+          subject is how config values are fetched from the org's secrets
+          backend, including real kwarg names, a real handler class, and a
+          real bootstrap env var, all of which spell out the vendor name.
+          Matches the taxonomy's own Bucket-C test-3 example ('secret-
+          handling flow') more than it matches a genericizable architecture
+          overview; a term-swap would misrepresent the real API. Recommend
+          classifying this row bucket C (private internal KB) rather than
+          attempting a public rewrite.
+        cutover_state: not-started
+      - source_path: docs/architecture/HANDLER_PROTOCOL_DRIVEN_ARCHITECTURE.md
+        bucket: A
+        destination: architecture/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          5 secrets-manager-vendor-name hits, two are rows in a handler
+          reference table naming the real class and its real module, both
+          of which spell out the vendor name — genericizing the table
+          defeats its purpose as a lookup of real handler names. Needs a
+          deliberate rewrite this pass did not attempt.
+        cutover_state: not-started
+      - source_path: docs/guides/INFISICAL_SECRETS_GUIDE.md  # sanitization-ok: real repo-relative filename, cited for drift-guard tracking of a quarantined row
+        bucket: A
+        destination: guides/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          97 secrets-manager-vendor-name hits; this document's entire
+          purpose is a how-to guide for that specific tool's secret-handling
+          flow — the taxonomy's own Bucket-C test-3 example verbatim
+          ('secret-handling flow'). Recommend classifying bucket C (private
+          internal KB), not a public-KB migration target.
+        cutover_state: not-started
+      - source_path: docs/runbooks/emergency-runtime-refresh.md
+        bucket: A
+        destination: runbooks/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          5 secrets-manager-vendor-name hits, three inside literal copy-
+          paste `docker ps` / `docker compose stop` / `docker compose up
+          --force-recreate` commands naming the real compose service.
+          Redacting the service name would make the copy-pasted recovery
+          command silently incomplete — exactly the failure mode this
+          emergency runbook exists to prevent. Needs a deliberate rewrite
+          (or bucket-C routing) this pass did not attempt.
+        cutover_state: not-started
+      - source_path: docs/runbooks/release-train-lab.md
+        bucket: A
+        destination: runbooks/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          38 internal-ticket-reference hits plus 2 private-repo-URL hits
+          across 545 lines of incident-forensics narrative (six-plus
+          distinct root-cause chains, each cited by ticket as evidentiary
+          backing) — the largest and most narratively-woven file in this
+          batch. A blind placeholder swap risks silently mangling a sentence
+          the size of this file without an individual per-line read;
+          deferred to a dedicated pass rather than rushed.
+        cutover_state: not-started
+      - source_path: docs/runbooks/managed-staging-aug5-readiness-rollback-packet.md
+        bucket: A
+        destination: runbooks/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          This is a fill-in-the-blanks GO/NO-GO packet template whose
+          header, field IDs, and evidence-source column are pinned field-by-
+          field against the seam manifest (`managed-staging-proof-
+          kit/fields.yaml`) and its own seam test — the ticket identifiers
+          are structural to the template, not incidental prose. A generic
+          rewrite decoupling the template from its specific ticket instance
+          is real editorial work this pass did not attempt; scrubbing the
+          identifiers alone would desync it from the seam it is tested
+          against.
+        cutover_state: not-started
+      - source_path: docs/runbooks/managed-staging-one-tenant-contract-freeze.md
+        bucket: A
+        destination: runbooks/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          Same seam-template coupling as the Aug-5 readiness packet row
+          above — pinned against `managed-staging-proof-kit/fields.yaml` and
+          its seam test. Deferred for the same reason.
+        cutover_state: not-started
+      - source_path: docs/runbooks/managed-staging-candidate-isolation-compatibility-proof.md
+        bucket: A
+        destination: runbooks/ (not yet migrated)
+        owner: Jonah Gray
+        sensitivity: needs-review
+        correctness_status: hygiene-risk
+        verification_evidence: >-
+          Same seam-template coupling as the Aug-5 readiness packet row
+          above — pinned against `managed-staging-proof-kit/fields.yaml` and
+          its seam test. Deferred for the same reason.
+        cutover_state: not-started
+      - source_path: docs/runbooks/managed-staging-proof-kit/fields.yaml
+        bucket: B
+        destination: stays-in-repo
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Machine-readable seam manifest read directly by
+          `tests/ci/test_managed_staging_proof_kit_seam.py` and the harness
+          in `scripts/proof/` — matches the taxonomy's closed Bucket-B line
+          item 'installer scripts and their manifests: executable, not
+          prose'. Stays in the repo unchanged.
+        cutover_state: not-started
+      - source_path: docs/architecture/README.md
+        bucket: B
+        destination: stays-in-repo (rewritten nav index)
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Directory nav index for a now-thinned directory; folded into the
+          KB's own generated architecture/README.md section index rather
+          than duplicated. Rewritten in place to point at the KB and list
+          the rows still quarantined in-repo.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: pointer-live
+      - source_path: docs/guides/README.md
+        bucket: B
+        destination: stays-in-repo (rewritten nav index)
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Directory nav index for a now-thinned directory; folded into the
+          KB's own generated guides/README.md section index rather than
+          duplicated. Rewritten in place to point at the KB.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: pointer-live
+
+
 
   - repo: omnimemory
     visibility: public

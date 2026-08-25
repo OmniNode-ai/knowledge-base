@@ -6,21 +6,48 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
-- **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture) — 2026-08-25
-- **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture) — 2026-08-25
-- **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture) — 2026-08-25
-- **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide) — 2026-08-25
-- **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
-- **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
-- **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
-- **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide) — 2026-08-19
-- **[Adding a Skill](guides/adding-a-skill.md)** (guide) — 2026-08-19
-- **[Adding an Agent](guides/adding-an-agent.md)** (guide) — 2026-08-19
-- **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture) — 2026-08-18
+- **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24
+- **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook) — 2026-08-24
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-08-22
+- **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook) — 2026-08-19
+- **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook) — 2026-08-19
+- **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook) — 2026-08-19
+- **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook) — 2026-08-19
+- **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook) — 2026-08-15
+- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook) — 2026-08-04
+- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook) — 2026-08-01
 ## 2026-07
 
+- **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook) — 2026-07-31
+- **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook) — 2026-07-31
+- **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook) — 2026-07-30
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr) — 2026-07-29
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr) — 2026-07-29
+- **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook) — 2026-07-27
+- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture) — 2026-07-21
+- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture) — 2026-07-21
+- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture) — 2026-07-21
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture) — 2026-07-21
+- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture) — 2026-07-21
+- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture) — 2026-07-21
+- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture) — 2026-07-21
+- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture) — 2026-07-21
+- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture) — 2026-07-21
+- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture) — 2026-07-21
+- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture) — 2026-07-21
+- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture) — 2026-07-21
+- **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide) — 2026-07-21
+- **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide) — 2026-07-21
+- **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide) — 2026-07-21
+- **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook) — 2026-07-21
+- **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook) — 2026-07-21
+- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook) — 2026-07-21
+- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook) — 2026-07-21
+- **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook) — 2026-07-21
+- **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook) — 2026-07-21
+- **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook) — 2026-07-21
+- **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook) — 2026-07-21
+- **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook) — 2026-07-21
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr) — 2026-07-10
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr) — 2026-07-07
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr) — 2026-07-07
@@ -41,18 +68,6 @@ All knowledge base artifacts sorted by date.
 ## 2026-06
 
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr) — 2026-06-24
-- **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture) — 2026-06-24
-- **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture) — 2026-06-24
-- **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture) — 2026-06-24
-- **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture) — 2026-06-24
-- **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** (architecture) — 2026-06-24
-- **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture) — 2026-06-24
-- **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** (architecture) — 2026-06-24
-- **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture) — 2026-06-24
-- **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference) — 2026-06-24
-- **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference) — 2026-06-24
-- **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference) — 2026-06-24
-- **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture) — 2026-06-20
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
 ## 2026-05
@@ -97,8 +112,5 @@ All knowledge base artifacts sorted by date.
 ## 2026-02
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive) — 2026-02-27
-- **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
-- **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
-- **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference) — 2026-02-20
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive) — 2026-02-18
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive) — 2026-02-04
