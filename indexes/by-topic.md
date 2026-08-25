@@ -21,6 +21,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
 
+## append-only
+
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
+
 ## application
 
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
@@ -98,6 +102,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## bringup
 
@@ -141,6 +146,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
 
+## check-db-boundary
+
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+
 ## ci
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
@@ -169,6 +178,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
 
+## ci-gates
+
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
+
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -176,6 +189,14 @@ Knowledge base artifacts grouped by topic.
 ## code-projection
 
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
+
+## code-standards
+
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
+
+## coderabbit
+
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## cold
 
@@ -232,6 +253,10 @@ Knowledge base artifacts grouped by topic.
 ## contract-governance
 
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine)
+
+## contract-hashing
+
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## contract-yaml
 
@@ -306,6 +331,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
 ## debugging
@@ -405,6 +431,10 @@ Knowledge base artifacts grouped by topic.
 ## dod-evidence
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
+
+## dod-receipts
+
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## dod-verify
 
@@ -590,6 +620,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 
+## golden-chain
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
 ## golden-fixtures
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
@@ -617,6 +651,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture)
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## hooks
 
@@ -664,6 +699,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
+
+## integration-testing
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 
 ## judge
 
@@ -896,6 +935,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## omnibase-infra
 
@@ -1007,6 +1048,11 @@ Knowledge base artifacts grouped by topic.
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
+
+## onex-exclude
+
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## onex-runtime
 
@@ -1144,6 +1190,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## pypi
 
@@ -1177,6 +1224,7 @@ Knowledge base artifacts grouped by topic.
 ## receipt-gate
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference)
 
 ## receipts
 
@@ -1326,6 +1374,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 
+## seam-binding
+
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
 ## seams
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
@@ -1353,6 +1405,10 @@ Knowledge base artifacts grouped by topic.
 ## service-boundaries
 
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
+
+## service-boundary
+
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
 
 ## service-registry
 
@@ -1431,6 +1487,7 @@ Knowledge base artifacts grouped by topic.
 ## supersession
 
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
 ## tdd
 
@@ -1457,6 +1514,7 @@ Knowledge base artifacts grouped by topic.
 ## testing
 
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 
 ## throughput
@@ -1503,6 +1561,10 @@ Knowledge base artifacts grouped by topic.
 ## type-system
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+
+## typed-metadata
+
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## validation
 

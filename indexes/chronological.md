@@ -18,6 +18,8 @@ All knowledge base artifacts sorted by date.
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide) — 2026-08-25
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference) — 2026-08-25
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference) — 2026-08-25
+- **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference) — 2026-08-25
+- **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference) — 2026-08-25
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference) — 2026-08-25
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference) — 2026-08-25
@@ -25,7 +27,9 @@ All knowledge base artifacts sorted by date.
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25
+- **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference) — 2026-08-25
 - **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference) — 2026-08-25
+- **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference) — 2026-08-25
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook) — 2026-08-24
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-08-22
@@ -135,6 +139,7 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr) — 2026-04-28
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr) — 2026-04-28
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr) — 2026-04-28
+- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference) — 2026-04-28
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr) — 2026-04-27
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr) — 2026-04-23
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr) — 2026-04-23
