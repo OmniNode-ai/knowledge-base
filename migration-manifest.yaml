@@ -627,7 +627,7 @@ repos:
       - {source_glob: "docs/runbooks/**", destination: "runbooks/", precondition: scrubbed-before-move}
     provenance: catalog
     bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md, AGENT.md]
-    cutover_state: not-started
+    cutover_state: pointer-live
     notes: >-
       Densest hygiene concentration in the org. Every runbook row is gated on
       scrubbed-before-move. Reconciled against the live repository during a
@@ -1803,7 +1803,7 @@ repos:
       during this migration (not part of the original catalog's broken:3) and
       is quarantined in-repo rather than published — see its row. cutover_state
       is pointer-live for the 5 migrated rows: both the KB-add PR
-      (knowledge-base#38) and the omniintelligence thin-out PR
+      (knowledge-base#39) and the omniintelligence thin-out PR
       (omniintelligence#843) are merged, and each thinned source file carries
       the pointer_redirect line verbatim.
     rows:
