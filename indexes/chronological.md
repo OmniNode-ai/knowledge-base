@@ -9,10 +9,15 @@ All knowledge base artifacts sorted by date.
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture) — 2026-08-25
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture) — 2026-08-25
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture) — 2026-08-25
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide) — 2026-08-25
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide) — 2026-08-25
+- **[AGENT.md Template](reference/agent-md-template.md)** (reference) — 2026-08-25
+- **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference) — 2026-08-25
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference) — 2026-08-25
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook) — 2026-08-24
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-08-22
@@ -135,8 +140,26 @@ All knowledge base artifacts sorted by date.
 ## 2026-02
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive) — 2026-02-27
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference) — 2026-02-24
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
 - **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference) — 2026-02-20
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive) — 2026-02-18
+- **[CI/CD Standards](reference/ci-cd-standards.md)** (reference) — 2026-02-14
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive) — 2026-02-04
+## 2026-01
+
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr) — 2026-01-18
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr) — 2026-01-12
+## 2025-12
+
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr) — 2025-12-27
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr) — 2025-12-26
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr) — 2025-12-19
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference) — 2025-12-19
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr) — 2025-12-16
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr) — 2025-12-15
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr) — 2025-12-10
+## 2025-10
+
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr) — 2025-10-30

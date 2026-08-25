@@ -97,3 +97,12 @@ Some ADRs build directly on others:
 | [ADR-0027](ADR-0027-one-application-database-domain-separation.md) | One Application Database with Contract-Classified Domains | Accepted | 2026-07-29 | multitenancy, database, rls, tenant-isolation, postgres, data-topology, contracts |
 | [ADR-0028](ADR-0028-receipt-type-consolidation.md) | Receipt Type Consolidation onto ModelDodReceipt | Accepted | 2026-04-27 | omnibase_core, receipts, dod-evidence, schema-consolidation |
 | [ADR-0029](ADR-0029-model-b-failing-rollup-validator-enforcement.md) | Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core) | Accepted | 2026-06-24 | omnibase_core, ci, branch-protection, validator-enforcement |
+| [ADR-0030](ADR-0030-protocol-based-di-architecture.md) | Protocol-Based Dependency Injection Architecture | Implemented | 2025-10-30 | omnibase_core, dependency-injection, protocols, service-registry, architecture |
+| [ADR-0031](ADR-0031-centralized-field-limit-constants.md) | Centralized Field Limit Constants | Accepted | 2025-12-27 | omnibase_core, pydantic, validation, constants |
+| [ADR-0032](ADR-0032-reducer-output-exception-consistency.md) | Reducer Output Exception Consistency | Implemented | 2025-12-16 | omnibase_core, reducers, error-handling, pydantic, sentinel-pattern |
+| [ADR-0033](ADR-0033-registration-trigger-architecture.md) | Registration Trigger Architecture | Accepted | 2025-12-19 | omnibase_core, registration, events, commands, orchestrator, node-lifecycle |
+| [ADR-0034](ADR-0034-core-infra-dependency-boundary.md) | Core-Infra Dependency Boundary | Implemented | 2025-12-26 | omnibase_core, dependency-inversion, architecture-boundary, ci-enforcement |
+| [ADR-0035](ADR-0035-status-taxonomy-and-categorical-organization.md) | Status Taxonomy and Categorical Organization | Accepted | 2026-01-12 | omnibase_core, enums, status-taxonomy, type-system, governance |
+| [ADR-0036](ADR-0036-context-mutability-design-decision.md) | Context Mutability Design Decision | Implemented | 2025-12-15 | omnibase_core, pydantic, immutability, workflow-state, fsm-snapshots |
+| [ADR-0037](ADR-0037-validator-error-handling-modelonexerror.md) | Validator Error Handling with ModelOnexError | Accepted | 2026-01-18 | omnibase_core, pydantic, error-handling, validators |
+| [ADR-0038](ADR-0038-ci-workflow-modification-risk.md) | CI Workflow Modification Risk (Transport Import Branch Protection) | Mitigated | 2025-12-10 | omnibase_core, ci, transport-imports, dependency-inversion, risk-mitigation |

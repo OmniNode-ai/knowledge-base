@@ -8,6 +8,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
 
+## agent-md
+
+- **[AGENT.md Template](reference/agent-md-template.md)** (reference)
+
 ## agents
 
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
@@ -33,6 +37,7 @@ Knowledge base artifacts grouped by topic.
 
 ## architecture
 
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
@@ -41,10 +46,15 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
 
 ## architecture-layers
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+
+## asyncio
+
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 
 ## authoring
 
@@ -85,6 +95,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
+- **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
 
 ## bringup
 
@@ -136,8 +147,13 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+- **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
+- **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
 
 ## ci-capacity
 
@@ -147,6 +163,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference)
 
+## ci-enforcement
+
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
+
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -154,6 +174,10 @@ Knowledge base artifacts grouped by topic.
 ## cold
 
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
+
+## commands
+
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 
 ## completion
 
@@ -187,6 +211,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 
+## constants
+
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
+
 ## consumer-surface
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
@@ -218,6 +246,17 @@ Knowledge base artifacts grouped by topic.
 ## cost-model
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
+## cross-repo
+
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
+
+## cross-repo-standard
+
+- **[AGENT.md Template](reference/agent-md-template.md)** (reference)
+- **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
+- **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
 
 ## current
 
@@ -259,6 +298,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
+## debugging
+
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+
 ## decomposition
 
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
@@ -278,8 +321,14 @@ Knowledge base artifacts grouped by topic.
 
 ## dependency-injection
 
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
+
+## dependency-inversion
+
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 
 ## deploy
 
@@ -324,6 +373,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
 
+## doc-layout
+
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
+
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
@@ -331,6 +384,7 @@ Knowledge base artifacts grouped by topic.
 ## documentation
 
 - **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** (reference)
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
 
 ## dod
 
@@ -381,6 +435,15 @@ Knowledge base artifacts grouped by topic.
 
 - **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
 
+## enums
+
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+
+## error-handling
+
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+
 ## event
 
 - **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
@@ -392,6 +455,7 @@ Knowledge base artifacts grouped by topic.
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
 ## event-envelope
 
@@ -405,6 +469,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
+
+## events
+
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 
 ## evidence
 
@@ -460,6 +528,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
 
+## four-node-architecture
+
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
+
 ## freshness
 
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
@@ -469,6 +541,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 
+## fsm-snapshots
+
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
+
 ## full
 
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
@@ -476,6 +552,10 @@ Knowledge base artifacts grouped by topic.
 ## gate
 
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
+
+## gate-check-contract
+
+- **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
 
 ## gates
 
@@ -500,6 +580,7 @@ Knowledge base artifacts grouped by topic.
 ## governance
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## graded-eval
@@ -513,6 +594,7 @@ Knowledge base artifacts grouped by topic.
 ## handlers
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## historical
 
@@ -532,6 +614,10 @@ Knowledge base artifacts grouped by topic.
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+
+## immutability
+
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 
 ## infrastructure
 
@@ -573,6 +659,7 @@ Knowledge base artifacts grouped by topic.
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
 ## knowledge-graph
 
@@ -622,6 +709,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
 - **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
 
+## llm-navigation
+
+- **[AGENT.md Template](reference/agent-md-template.md)** (reference)
+
 ## llm-pilots
 
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
@@ -644,6 +735,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook)
 - **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook)
+
+## markdown-link-check
+
+- **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
 
 ## market
 
@@ -669,6 +764,10 @@ Knowledge base artifacts grouped by topic.
 ## merge-gates
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+
+## merge-ordering
+
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
 
 ## merge-queue
 
@@ -739,6 +838,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
+
+## node-lifecycle
+
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 
 ## nodes
 
@@ -811,6 +914,16 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** (reference)
 
 ## omniclaude
 
@@ -856,10 +969,16 @@ Knowledge base artifacts grouped by topic.
 
 - **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 
 ## operations
 
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
+
+## orchestrator
+
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 
 ## orchestrator-nodes
 
@@ -965,18 +1084,38 @@ Knowledge base artifacts grouped by topic.
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 - **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive)
 - **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive)
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## proof-class
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 
+## protocols
+
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
+
 ## publishing
 
 - **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
 
+## pydantic
+
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+
 ## pypi
 
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
+
+## pytest
+
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+
+## python
+
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 
 ## qdrant
 
@@ -1012,6 +1151,7 @@ Knowledge base artifacts grouped by topic.
 
 ## reducers
 
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
@@ -1022,6 +1162,7 @@ Knowledge base artifacts grouped by topic.
 ## registration
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 - **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
 
@@ -1029,6 +1170,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+
+## release-coordination
+
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
 
 ## release-gates
 
@@ -1066,6 +1211,10 @@ Knowledge base artifacts grouped by topic.
 ## resilience
 
 - **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive)
+
+## risk-mitigation
+
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 
 ## rls
 
@@ -1125,6 +1274,7 @@ Knowledge base artifacts grouped by topic.
 - **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
 - **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
 
 ## runtime-isolation
@@ -1151,6 +1301,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 
+## sentinel-pattern
+
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
+
 ## service
 
 - **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
@@ -1158,6 +1312,10 @@ Knowledge base artifacts grouped by topic.
 ## service-boundaries
 
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
+
+## service-registry
+
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
 
 ## session-management
 
@@ -1215,6 +1373,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
+## status-taxonomy
+
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+
 ## steel-onslaught
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
@@ -1243,6 +1405,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 
+## terminology
+
+- **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
+
 ## test
 
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
@@ -1264,9 +1430,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
 
+## topic-naming
+
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
+
 ## topics
 
 - **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+
+## transport-imports
+
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 
 ## tree-pr-composition
 
@@ -1285,8 +1459,13 @@ Knowledge base artifacts grouped by topic.
 
 - **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
+## type-system
+
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+
 ## validation
 
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
 - **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive)
 
 ## validator
@@ -1300,6 +1479,7 @@ Knowledge base artifacts grouped by topic.
 ## validators
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 
 ## valkey
 
@@ -1323,6 +1503,10 @@ Knowledge base artifacts grouped by topic.
 ## workflow
 
 - **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+
+## workflow-state
+
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 
 ## worktree
 

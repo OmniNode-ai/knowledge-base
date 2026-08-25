@@ -24,6 +24,15 @@ Knowledge base artifacts grouped by type.
 
 ## Adr
 
+- **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** — accepted
+- **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** — accepted
+- **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** — accepted
+- **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** — accepted
+- **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** — accepted
+- **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** — accepted
+- **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** — accepted
+- **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** — accepted
+- **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** — accepted
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** — accepted
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** — accepted
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** — accepted
@@ -112,17 +121,25 @@ Knowledge base artifacts grouped by type.
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** — current
 - **[Adding a Skill](guides/adding-a-skill.md)** — current
 - **[Adding an Agent](guides/adding-an-agent.md)** — current
+- **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** — current
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
 
 ## Reference
 
+- **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** — current
+- **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
 - **[Standard Documentation Layout](reference/omniclaude-standard-doc-layout.md)** — current
+- **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
+- **[AGENT.md Template](reference/agent-md-template.md)** — current
+- **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** — current
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
+- **[ONEX Core Terminology](reference/onex-terminology.md)** — current
+- **[Standard Documentation Layout (omnibase_core)](reference/standard-doc-layout.md)** — stale
 
 ## Runbook
 
