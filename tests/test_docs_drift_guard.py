@@ -432,9 +432,11 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["bucket"] in {"A", "B"}
         assert row["cutover_state"] in {"moved", "not-started", "pointer-live"}
         assert row["source_path"].startswith(infra_prefixes)
-    moved = [r for r in infra_rows if r["cutover_state"] == "moved"]
+    pointer_live = [r for r in infra_rows if r["cutover_state"] == "pointer-live"]
     not_started = [r for r in infra_rows if r["cutover_state"] == "not-started"]
-    assert len(moved) == 38
+    # 38 migrated-content rows plus the 2 directory-nav README.md rewrites,
+    # both already pointer-live from the start.
+    assert len(pointer_live) == 40
     assert len(not_started) == 10
     # Every not-started row is quarantined for a documented reason, never silently dropped.
     for row in not_started:

@@ -627,7 +627,9 @@ repos:
       substantial doc growth — the real on-disk candidate set across
       docs/architecture/**, docs/guides/**, and docs/runbooks/** is 50 files
       (48 content files + 2 directory-nav README.md indexes), not 21. Every
-      one of the 50 now has a row below: 38 moved to the knowledge base
+      one of the 50 now has a row below: 38 are pointer-live (moved to the
+      knowledge base and the source repo's thin-out merged, live-verified via
+      the GitHub contents API against the merge commit)
       (10 migrated byte-identical, 28 scrubbed — internal ticket references
       to `<ticket>`, internal host references to `<onex-host>`, the
       secrets-manager vendor name genericized where it appeared as prose
@@ -654,7 +656,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/DLQ_MESSAGE_FORMAT.md
         bucket: A
         destination: architecture/2026-07-21-dlq-message-format.md
@@ -665,7 +667,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/EVENT_BUS_INTEGRATION_GUIDE.md
         bucket: A
         destination: architecture/2026-07-21-event-bus-integration.md
@@ -676,7 +678,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/EVENT_STREAMING_TOPICS.md
         bucket: A
         destination: architecture/2026-07-21-event-streaming-topics.md
@@ -687,7 +689,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/LLM_INFRASTRUCTURE.md
         bucket: A
         destination: architecture/2026-07-21-llm-infrastructure.md
@@ -698,7 +700,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/MESSAGE_DISPATCH_ENGINE.md
         bucket: A
         destination: architecture/2026-07-21-message-dispatch-engine.md
@@ -709,7 +711,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/REGISTRATION_WORKFLOW.md
         bucket: A
         destination: architecture/2026-07-21-registration-workflow.md
@@ -720,7 +722,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/SHARED_ENUM_OWNERSHIP.md
         bucket: A
         destination: architecture/2026-07-21-shared-enum-ownership.md
@@ -731,7 +733,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/SNAPSHOT_PUBLISHING.md
         bucket: A
         destination: architecture/2026-07-21-snapshot-publishing.md
@@ -742,7 +744,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/TOPIC_CATALOG_ARCHITECTURE.md
         bucket: A
         destination: architecture/2026-07-21-topic-catalog-architecture.md
@@ -753,7 +755,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/MCP_SERVICE_ARCHITECTURE.md
         bucket: A
         destination: architecture/2026-07-21-mcp-service-architecture.md
@@ -772,7 +774,7 @@ repos:
           'invoke_tool returns placeholder' row from the Current Limitations
           table.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/overview.md
         bucket: A
         destination: architecture/2026-07-21-onex-runtime-overview.md
@@ -788,7 +790,7 @@ repos:
           original id and label were the same string); the ASCII box width
           was preserved so the diagram still aligns.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/guides/registration-example.md
         bucket: A
         destination: guides/registration-example.md
@@ -799,7 +801,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/guides/HANDLER_AUTHORING_GUIDE.md
         bucket: A
         destination: guides/handler-authoring-guide.md
@@ -814,7 +816,7 @@ repos:
           point at the real containing directory
           (`src/omnibase_infra/handlers/`) instead of the specific file.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/guides/MCP_INTEGRATION_GUIDE.md
         bucket: A
         destination: guides/mcp-integration-guide.md
@@ -830,7 +832,7 @@ repos:
           genuinely dispatches through `AdapterONEXToolExecution.execute()`
           and is not a placeholder.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/repowise-freshness-receipt.md
         bucket: A
         destination: runbooks/repowise-freshness-receipt.md
@@ -841,7 +843,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/vendored-node-migrations.md
         bucket: A
         destination: runbooks/vendored-node-migrations.md
@@ -852,7 +854,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/worktree-reaper-two-layer-gc.md
         bucket: A
         destination: runbooks/worktree-reaper-two-layer-gc.md
@@ -863,7 +865,7 @@ repos:
           Migrated byte-identical (no content edits). Zero sanitization-
           pattern hits on rescan.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/application-database-cutover-receipts.md
         bucket: A
         destination: runbooks/application-database-cutover-receipts.md
@@ -876,7 +878,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/application-migration-ledger.md
         bucket: A
         destination: runbooks/application-migration-ledger.md
@@ -889,7 +891,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/bulk-pr-operations.md
         bucket: A
         destination: runbooks/bulk-pr-operations.md
@@ -902,7 +904,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/c2-git-mirror-egress-rollout.md
         bucket: A
         destination: runbooks/c2-git-mirror-egress-rollout.md
@@ -915,7 +917,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/cold-lane-full-bringup.md
         bucket: A
         destination: runbooks/cold-lane-full-bringup.md
@@ -928,7 +930,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/pypi-cache-egress-rollout.md
         bucket: A
         destination: runbooks/pypi-cache-egress-rollout.md
@@ -943,7 +945,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/runner-dns-cache-rollout.md
         bucket: A
         destination: runbooks/runner-dns-cache-rollout.md
@@ -958,7 +960,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/managed-staging-canary-teardown-rollback.md
         bucket: A
         destination: runbooks/managed-staging-canary-teardown-rollback.md
@@ -973,7 +975,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/judge-compose-profile.md
         bucket: A
         destination: runbooks/judge-compose-profile.md
@@ -984,7 +986,7 @@ repos:
           Secrets-manager vendor name genericized (prose-only mentions, not
           code/CLI identifiers).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/volume-config-drift-and-reseed.md
         bucket: A
         destination: runbooks/volume-config-drift-and-reseed.md
@@ -995,7 +997,7 @@ repos:
           Secrets-manager vendor name genericized (prose-only mentions, not
           code/CLI identifiers).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/managed-staging-canary-postgres-provisioning.md
         bucket: A
         destination: runbooks/managed-staging-canary-postgres-provisioning.md
@@ -1011,7 +1013,7 @@ repos:
           token; secrets-manager vendor name genericized (prose-only
           mentions, not code/CLI identifiers).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/stability-test-runtime-lane.md
         bucket: A
         destination: runbooks/stability-test-runtime-lane.md
@@ -1026,7 +1028,7 @@ repos:
           manager vendor name genericized (prose-only mentions, not code/CLI
           identifiers).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/fault-inject-fixture-dlq-offset-withholding.md
         bucket: A
         destination: runbooks/fault-inject-fixture-dlq-offset-withholding.md
@@ -1039,7 +1041,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/gateway-lane-deploy.md
         bucket: A
         destination: runbooks/gateway-lane-deploy.md
@@ -1054,7 +1056,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/node-skill-package-install.md
         bucket: A
         destination: runbooks/node-skill-package-install.md
@@ -1067,7 +1069,7 @@ repos:
           identifier; the parenthetical context next to each citation was
           left intact so the substantive claim is unchanged).
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/runner-disk-admission-gate.md
         bucket: A
         destination: runbooks/runner-disk-admission-gate.md
@@ -1082,7 +1084,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/runner-fleet-listener-liveness.md
         bucket: A
         destination: runbooks/runner-fleet-listener-liveness.md
@@ -1097,7 +1099,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/stability-lane-refresh.md
         bucket: A
         destination: runbooks/stability-lane-refresh.md
@@ -1112,7 +1114,7 @@ repos:
           references replaced with the established `<onex-host>` placeholder
           token.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/apply-migrations.md
         bucket: A
         destination: runbooks/apply-migrations.md
@@ -1125,7 +1127,7 @@ repos:
           places; both were reworded to 'the secrets-bootstrap script'
           rather than fabricating a renamed script path.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/market-node-deployment.md
         bucket: A
         destination: runbooks/market-node-deployment.md
@@ -1141,7 +1143,7 @@ repos:
           describe the repository generically without the disallowed URL
           form.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/CIRCUIT_BREAKER_THREAD_SAFETY.md
         bucket: A
         destination: architecture/ (not yet migrated)
