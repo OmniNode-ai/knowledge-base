@@ -157,7 +157,7 @@ The frame does not mediate component-to-component communication. Components subs
 
 **WebSocket removed:** The `/ws` path was permanently deleted. The deployed projection backend never registered a `/ws` route; the browser's upgrade request was rejected with 403 and no events were delivered. Raw browser WebSocket construction is blocked by the `local/no-projection-websocket` ESLint rule.
 
-**Route seam:** All `/api/` path literals in fetch and axios calls belong in `src/services/` or `src/data-source/`. This is a **convention, not an enforced ESLint rule** — there is no `local/no-api-literal` rule at HEAD, despite stale source comments that cite one. The rules actually registered in `eslint.config.js` are `local/no-typography-inline`, `local/no-projection-websocket`, and `local/no-untyped-empty-state`.
+**Route seam:** All `/api/` path literals in fetch and axios calls belong in `src/services/` or `src/data-source/`. This is a **convention, not an enforced ESLint rule** — there is no `local/no-api-literal` rule at HEAD, despite stale source comments that cite one. Several other `local/*` rules are registered and do enforce at `error`; `eslint.config.js` is the authority for which — read it there rather than trusting a list transcribed here, which is exactly how the `no-api-literal` claim went stale.
 
 ---
 
