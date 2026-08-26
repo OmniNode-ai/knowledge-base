@@ -176,7 +176,7 @@ onex node <node-name> --backend event_bus=kafka --backend kafka_bootstrap=<host:
 
 The flag is declared at `omnibase_infra/src/omnibase_infra/cli/cli_node.py:147`
 and parsed by `parse_backend_overrides`
-(`omnibase_core/src/omnibase_core/runtime/runtime_local.py:170`). Verified: it
+(`omnibase_core/src/omnibase_core/runtime/runtime_local.py:169`). Verified: it
 accepts `key=value` pairs and refuses anything else —
 
 ```
@@ -215,7 +215,16 @@ calls `probe_kafka`, which reads `KAFKA_BOOTSTRAP_SERVERS` from the environment
 when no bootstrap is passed
 (`omnibase_infra/src/omnibase_infra/backends/backend_probe.py:131`).
 
-Both branches verified on one machine, changing nothing but the environment:
+That probe has **three** outcomes, not two, and only the first is a pure function
+of your environment:
+
+| Environment | Probe state | Resolved bus |
+|---|---|---|
+| `KAFKA_BOOTSTRAP_SERVERS` unset | `DISCOVERED` — short-circuits with no network call | `inmemory` |
+| Set; broker healthy, a live consumer group bound to the delegation request topic | `AUTHORITATIVE` | `kafka` |
+| Set, but the broker answers weakly — TCP connects and the metadata call times out or the topic list fails | `REACHABLE` | `inmemory` |
+
+The first two, verified on one machine changing nothing but the environment:
 
 ```
 # KAFKA_BOOTSTRAP_SERVERS unset
@@ -224,11 +233,14 @@ reason      -> DISCOVERED: KAFKA_BOOTSTRAP_SERVERS not set
 
 # KAFKA_BOOTSTRAP_SERVERS set, broker up, a live consumer group bound
 resolved bus -> kafka
-reason      -> Kafka healthy; a Stable consumer group is bound to the delegation
-               request topic
+reason      -> Kafka healthy with <N> topics; a Stable consumer group is bound to
+               'onex.cmd.omnibase-infra.delegation-request.v1'
 ```
 
-Read that carefully, because it is the central hazard of a hybrid workstation:
+`<N>` stands in for the broker's topic count, which the real `reason` string
+carries as a number. It is the only value elided from that output.
+
+Read that carefully, because it is the first hazard of a hybrid workstation:
 **the same command, in the same directory, on the same machine, ran on two
 different transports — and the only difference was an environment variable.**
 
@@ -238,17 +250,52 @@ chapter is written for — the one where you also run a self-hosted stack, and
 therefore have `KAFKA_BOOTSTRAP_SERVERS` exported in your shell profile or
 sourced from an env file.
 
-The behaviour is deliberate, and the reasoning is sound: the flag's own help text
-says auto-resolution picks the bus "the rest of the system is configured with, so
-the delegation lands in the shared projection". That is the right default for
-operating a stack. It is the wrong default for a quick iteration you believed was
-local.
+### The third outcome: auto-resolution is not repeatable
+
+The `REACHABLE → inmemory` row is the one that turns a surprise into a real
+hazard, because reaching it does not require you to change anything at all.
+
+`probe_kafka` is a live network call with a timeout. Against a genuinely healthy
+broker it can still time out on the metadata request, and a timeout is not
+treated as an error — it degrades the probe to `REACHABLE`, which
+`resolve_default_bus` maps back to `DEFAULT_BUS`. Measured here by calling
+`resolve_default_bus()` twenty times in a row, unchanged environment, healthy
+broker:
+
+```
+counts: {'kafka': 14, 'inmemory': 6}
+  kafka:    Kafka healthy with <N> topics; a Stable consumer group is bound to
+            'onex.cmd.omnibase-infra.delegation-request.v1'
+  inmemory: REACHABLE: TCP reachable but topic list failed:
+            KafkaError{code=_TIMED_OUT,val=-185,str="Failed to get metadata: Local: Timed out"}
+```
+
+Six runs in twenty silently chose the in-process bus. Nothing about the
+environment differed between them. So the sharper statement of the hazard is not
+that an environment variable decides your transport — it is that **without an
+explicit flag, nothing decides your transport in a way you can repeat.** A
+delegation you believed landed on the broker may have run entirely in-process,
+and the only trace is a `reason` string you never looked at.
+
+The degradation is deliberate and defensible on its own terms: it stops `onex
+delegate` hanging against a broker that has gone away, and it degrades to the
+tier that always works. That is the right behaviour for a one-off interactive
+command. It is the wrong behaviour for anything whose result you intend to trust,
+and the exact ratio above is a property of one broker on one network — treat it
+as evidence that the outcome varies, not as a rate you can plan around.
+
+The auto-resolution default is likewise deliberate: the flag's own help text says
+omitting it resolves to "the SAME bus the rest of the system is configured with,
+so the delegation lands in the shared delegation_events projection". That is the
+right default for operating a stack. It is the wrong default for a quick
+iteration you believed was local.
 
 ### The fix, and a trap inside the fix
 
-**In a script, or anywhere the answer must be deterministic, pass the bus
+**In a script, or anywhere the answer must be repeatable, pass the bus
 explicitly.** `--bus inmemory` and `--backend event_bus=inmemory` are unambiguous
-and are not probed for.
+and are not probed for — which removes the ambient-environment hazard and the
+timing hazard together, since neither reaches `probe_kafka` at all.
 
 Do **not** reach for `ONEX_EVENT_BUS_TYPE` to pin it, because that variable does
 not cover both paths. It is read by `select_event_bus`
@@ -312,9 +359,17 @@ you are wiring this into your own stack rather than typing `curl`:
   constructing the model does not pick the key up; the calling code has to invoke
   the method. If you are embedding this, call it.
 - **`base_url` is required on the model.** It is declared `default=...` (same
-  file, line 34) — there is no in-model fallback to a public address. Guide 3's
-  statement about a default base URL describes the deployed API tooling, not this
-  model. Construct it with a base URL.
+  file, line 35) — Pydantic's marker for a required field, so there is no
+  in-model fallback to a public address. Nor is there one elsewhere in either
+  package: `https://api.omninode.ai` appears exactly once across
+  `omnibase_core/src` and `omnibase_infra/src`, as example text in the help for
+  `onex auth --base-url`
+  (`omnibase_infra/src/omnibase_infra/cli/cli_auth.py:103`), and that option is
+  itself `required=True`. Nothing in these two packages reads
+  `ONEX_API_BASE_URL` other than the mapping above. Whatever supplies the
+  default base URL guide 3 describes, it is not `omnibase-core` or
+  `omnibase-infra` — so if you are embedding this model, construct it with an
+  explicit base URL rather than expecting one.
 - **`timeout_seconds` and `max_retries` are parsed as integers, and a value that
   does not parse is skipped rather than raising** (same file, line 408). A typo in
   `ONEX_API_TIMEOUT_SECONDS` leaves the previous timeout in force silently. This
@@ -365,20 +420,37 @@ recomputable, and the function that computes it ships in `omnibase-infra`:
 `omnibase_infra/src/omnibase_infra/verification/workflow_receipt/receipt_hash.py`
 exposes `terminal_event_payload()` (line 30) and `sha256_of()` (line 26). The
 payload shape is five fields, and they are exactly five fields the receipt hands
-back to you:
+back to you. Run it yourself:
+
+```python
+from omnibase_infra.verification.workflow_receipt.receipt_hash import (
+    sha256_of,
+    terminal_event_payload,
+)
+
+payload = terminal_event_payload(
+    correlation_id="11111111-2222-3333-4444-555555555555",
+    status="completed",
+    terminal_model_used="a-model",
+    terminal_total_tokens=456,
+    terminal_latency_ms=1234,
+)
+print(list(payload))
+print(sha256_of(payload))
+```
 
 ```
-payload keys: ['correlation_id', 'status', 'terminal_latency_ms',
-               'terminal_model_used', 'terminal_total_tokens']
-hash:         d842f9e41c538c1d86ce219378ca616147125f8378d1f09fd43ba445f901edb1
-len:          64
-stable:       True
+['correlation_id', 'status', 'terminal_model_used', 'terminal_total_tokens', 'terminal_latency_ms']
+179e74b0877198fd9165181f801f364192e5b54fb0534aac375d9722489eabf5
 ```
 
-Verified by executing it locally on synthetic values, twice, confirming a
-64-character hex digest and byte-stability across runs. The encoding is
+Those exact inputs produce that exact digest — 64 hex characters, byte-stable
+across repeated runs, both confirmed here. Note that the payload's own key order
+is deliberately *not* the order that gets hashed: the encoding is
 `json.dumps(payload, sort_keys=True, default=str)` UTF-8 encoded, SHA-256
-hexdigest — the sorted keys are what make the hash independent of field order.
+hexdigest, so the keys are sorted on the way in. That is what makes the hash
+independent of field order — and it is why you can rebuild the payload out of a
+receipt's fields in whatever order you read them and still reproduce the digest.
 
 So the hybrid pattern is: **the hosted service executes the work and issues the
 receipt; your own machine independently recomputes the hash from the receipt's own
@@ -404,12 +476,18 @@ locally.
 ### What is live, and what is not
 
 Guide 3's availability table is the authority and this chapter does not restate
-it. The one thing to carry across into a hybrid design: as of that guide, the
-**workflow submit / poll / receipt routes are not advertised in the production
-OpenAPI document**, while the API-key routes and the health check are. Run guide
-3's unauthenticated `GET /openapi.json` check before you build a dependency on
-any route, and treat a `401` as evidence of nothing — authentication is refused
-ahead of routing, so every `/v1/` path returns `401` whether or not it exists.
+it. The one thing to carry across into a hybrid design: the **workflow submit /
+poll / receipt routes are not advertised in the production OpenAPI document**,
+while the API-key routes and the health check are. That was re-checked for this
+chapter, unauthenticated, and still held — but the point of the check is that it
+can change without warning, so run guide 3's `GET /openapi.json` yourself before
+you build a dependency on any route rather than trusting either page's snapshot
+of it.
+
+Treat a `401` as evidence of nothing. Authentication is refused ahead of routing,
+so every `/v1/` path returns `401` whether or not it exists — confirmed here by
+requesting a real route and a route invented for the test and getting the same
+`401` from both. The OpenAPI document is the only signal about what exists.
 
 ---
 
@@ -457,7 +535,7 @@ runtime reads. `onex new node --type compute` generates:
 
 ```yaml
 handler_routing:
-  default: proj.nodes.my_first_node.handlers.handler_my_first_node
+  default: my_onex_project.nodes.my_first_node.handlers.handler_my_first_node
 ```
 
 while `RuntimeLocal._resolve_default_handler()`
@@ -538,6 +616,7 @@ how you tell a working hybrid setup from a broken one.
 | `Invalid --backend format '...'. Expected key=value` | **Expected.** `--backend` takes `key=value`, e.g. `--backend event_bus=inmemory`. |
 | `--kafka-bootstrap is only valid with --bus kafka` | **Expected**, and a useful refusal — it catches the case where you would have run in-process while believing you were on the broker. Pick one. |
 | `onex delegate` ran on Kafka when you expected in-process | Auto-resolution probed and found a broker, because `KAFKA_BOOTSTRAP_SERVERS` is set in your environment. Pass `--bus inmemory` explicitly. |
+| `onex delegate` ran in-process even though `KAFKA_BOOTSTRAP_SERVERS` is set and the broker is up | The probe's metadata call timed out and degraded to `REACHABLE`, which resolves to the in-memory bus. This is not sticky and not reproducible — the next identical run may resolve to Kafka. Pass `--bus kafka` explicitly. See [auto-resolution is not repeatable](#the-third-outcome-auto-resolution-is-not-repeatable). |
 | You set `ONEX_EVENT_BUS_TYPE=inmemory` and `onex delegate` still used Kafka | Correct-but-surprising: that variable is read by the service-side selector, not by the delegate CLI's auto-resolution. Pass `--bus inmemory`. |
 | `auth`, `delegate`, `node`, `run`, `skill`, `kafka`, `occ` missing from `onex --help` | `omnibase-infra` is not installed in the interpreter answering `onex`. Confirm with `onex --verbose info`, which prints the interpreter path and the installed ONEX packages. |
 | A flipped run hangs against your self-hosted stack | Verify the stack on its own terms first — guide 2 step 5, gate before kernel. A flipped run cannot distinguish "broker unreachable" from "gate never went healthy". |
@@ -555,21 +634,35 @@ how you tell a working hybrid setup from a broken one.
 Same posture as the three guides it composes. Executed and proven here:
 
 - The tier-0 baseline from guide 1, in a clean virtual environment against the
-  package as published on the public index — `bus_impl: EventBusInmemory`,
+  packages as published on the public index — `bus_impl: EventBusInmemory`,
   three emitted topics, `terminal_status: success`, exit `0`.
 - The entry-point CLI composition, by installing `omnibase-core` then
-  `omnibase-infra` into one environment and diffing `onex --help`.
+  `omnibase-infra` into one clean environment and diffing `onex --help`: exactly
+  seven commands added, none replaced.
 - Every refusal quoted above: the missing-entry-point error, the unsupported-value
   error, the `--backend` format error, and the `--kafka-bootstrap` guardrail.
-- Both branches of bus auto-resolution, isolated by changing only the environment.
+- All three outcomes of bus auto-resolution — the two environment-driven branches
+  isolated by changing only the environment, and the timeout branch by repeating
+  one call twenty times against a live broker.
 - The `ONEX_EVENT_BUS_TYPE` asymmetry between the two selection paths.
-- Local recomputation of a receipt hash, for shape and stability.
+- Local recomputation of a receipt hash, for shape and stability, from the inputs
+  printed alongside it.
 - The scaffold, and the two distinct ways a scaffolded node fails to run.
+- Every source citation on this page, re-resolved line by line against both the
+  repository and the installed distributions — the cited `runtime_local.py` is
+  byte-identical between them.
+
+Read-only against the live production API, with no account and no credential:
+`GET /health` answered, `GET /openapi.json` was read for the current route list —
+the workflow submit/poll/receipt routes are still absent from it while the
+API-key routes and the health check are present — and the `401`-ahead-of-routing
+claim was confirmed directly, since a real `/v1/` route and a route invented for
+the test returned the same `401`.
 
 Marked unverified in place, with the reason: the `onex auth` network round trip
 (needs a waitlist-gated tenant credential), and recomputing a hash against a
 receipt issued by the production API (the workflow routes are not advertised
-there).
+there, so no live receipt was obtainable).
 
 Not exercised: Linux and Windows. Every command here was run on macOS.
 
