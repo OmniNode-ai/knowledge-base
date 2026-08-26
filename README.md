@@ -1,3 +1,5 @@
+<img src="docs/assets/omninode-banner.svg" alt="OmniNode — Deterministic infrastructure for autonomous systems" width="100%" />
+
 # OmniNode Knowledge Base
 
 The canonical home for OmniNode's external documentation — the single source of truth for how the platform works, how to use it, and why it is shaped the way it is.
