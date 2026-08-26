@@ -9,13 +9,18 @@ All knowledge base artifacts sorted by date.
 - **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture) — 2026-08-26
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture) — 2026-08-26
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide) — 2026-08-26
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide) — 2026-08-26
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide) — 2026-08-26
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference) — 2026-08-26
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference) — 2026-08-26
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference) — 2026-08-26
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference) — 2026-08-26
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference) — 2026-08-26
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference) — 2026-08-26
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook) — 2026-08-26
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook) — 2026-08-26
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook) — 2026-08-26
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture) — 2026-08-25
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture) — 2026-08-25
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture) — 2026-08-25

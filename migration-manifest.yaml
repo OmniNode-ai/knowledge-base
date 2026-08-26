@@ -1386,17 +1386,33 @@ repos:
       - {source_glob: "docs/architecture/**", destination: "architecture/"}
       - {source_glob: "docs/runtime/**", destination: "reference/"}
       - {source_glob: "docs/migrations/**", destination: "guides/"}
-    provenance: catalog
-    bucket_b_retained: [README.md, CONTRIBUTING.md]
+      - {source_glob: "docs/*.md", destination: "reference/ or guides/"}
+      - {source_glob: "docs/runbooks/**", destination: "runbooks/"}
+    provenance: catalog + full-sweep
+    bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md, SECURITY.md, CODE_OF_CONDUCT.md, LICENSE]
     cutover_state: pointer-live
     notes: >-
-      All 5 rows below are the repo's full broken-count (5 of 22). Each was
-      re-verified directly against the live omnimemory source tree during
-      migration (not merely re-copied) and corrected before publication per
-      the broken-does-not-migrate-unchanged precondition. cutover_state is
-      pointer-live: both the KB-add PR (knowledge-base#32) and the omnimemory
-      thin-out PR (omnimemory#442) are merged, and each thinned source file
-      carries the pointer_redirect line verbatim.
+      The first 5 rows are the curated catalog pass — the repo's full
+      broken-count (5 of 22). Each was re-verified directly against the live
+      omnimemory source tree during migration (not merely re-copied) and
+      corrected before publication per the broken-does-not-migrate-unchanged
+      precondition. Both the KB-add PR and the omnimemory thin-out PR for that
+      pass are merged, and each thinned source file carries the
+      pointer_redirect line verbatim.
+      The 8 rows after them come from the exhaustive per-file sweep, which
+      enumerated every doc path in the repo rather than a hand-picked
+      candidate set. Each carries a triage_verdict reached against live code
+      before any migration action. Five of the eight migrate and carry a
+      destination; three are DELETE rows at cutover_state `deleted`, which
+      record the judgment and its evidence rather than a move — two stale
+      agent-memory snapshots (a Poetry toolchain and a model count that no
+      longer hold) and the repo-local docs index the README's pointer index
+      supersedes. Four further files produced no row at all, left in place as
+      out of scope for the self-hoster's book: machine-synced agent config,
+      CI/contributor-process documentation, a point-in-time migration audit
+      trail, and an internal implementation-status tracker.
+      After this pass the repo's remaining doc surface is the root README plus
+      operational files and pointer stubs.
     rows:
       - source_path: docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md
         bucket: A
@@ -1504,6 +1520,207 @@ repos:
           Migrated to the OmniNode knowledge base:
           https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-market-migration-boundary.md
         cutover_state: pointer-live
+      # --- full-sweep pass: rows below come from the exhaustive per-file triage,
+      # --- not from the earlier curated catalog. Each carries a triage_verdict.
+      - source_path: docs/pii_handling.md
+        bucket: A
+        destination: guides/omnimemory-pii-handling.md
+        owner: Jonah Gray
+        triage_verdict: MIGRATE_AS_IS
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Checked against live source 2026-08-26 with no drift found.
+          `PIIDetector`, `ModelPIIDetectorConfig` and `ModelPIIDetectionResult`
+          are re-exported from `omnimemory.adapters` (confirmed in
+          `adapters/__init__.py`); the `PIIType` members documented
+          (EMAIL, PHONE, SSN, CREDIT_CARD, IP_ADDRESS, URL, API_KEY,
+          PASSWORD_HASH, PERSON_NAME, ADDRESS) match `model_pii_type.py`
+          exactly; the Not-Implemented status of URL / PERSON_NAME / ADDRESS
+          is confirmed by the TODO markers in `adapter_pii_detector.py`; and
+          every `ModelPIIDetectorConfig` field named in the document
+          (high_confidence, medium_confidence, low_confidence,
+          max_text_length, max_matches_per_type, enable_context_analysis)
+          exists in `model_pii_detector_config.py`. Only scrubbing was applied
+          on migration — literal example addresses replaced with placeholder
+          forms — which changes no behavioural claim.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-pii-handling.md
+        cutover_state: pointer-live
+      - source_path: docs/environment_variables.md
+        bucket: A
+        destination: reference/omnimemory-environment-variables.md
+        owner: Jonah Gray
+        triage_verdict: CORRECT_THEN_MIGRATE
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Verified field-by-field against `src/omnimemory/settings.py`
+          2026-08-26: field names, types, defaults and constraints for
+          `MemoryServiceSettings`, `PostgresSettings` and `QdrantSettings`,
+          plus the single-underscore `OMNIMEMORY_DB_URL` naming exception,
+          all matched the source. One correction applied on migration —
+          `OMNIMEMORY__QDRANT__URL` was documented with a default of
+          `http://localhost:6333`, but the live declaration is
+          `url: HttpUrl = Field(...)` with no default, making it required
+          whenever `qdrant_enabled` is true. The migrated copy records it as
+          REQUIRED. The same stale default is also asserted in the settings
+          module's own docstring, so the error was not unique to this doc.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-environment-variables.md
+        cutover_state: pointer-live
+      - source_path: docs/handler_reuse_matrix.md
+        bucket: A
+        destination: reference/omnimemory-handler-reuse-matrix.md
+        owner: Jonah Gray
+        triage_verdict: CORRECT_THEN_MIGRATE
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Verified 2026-08-26: all eight named memory nodes exist as `node_*`
+          directories in omnimemory, and nearly every cited omnibase_infra
+          handler class/module (HandlerDb, HandlerQdrant, HandlerFileSystem,
+          HandlerGraph, HandlerHttp, HandlerMcp, HandlerManifestPersistence,
+          the registration-storage and service-discovery handlers, the
+          runtime-tick/heartbeat handlers, the Postgres upsert/deactivate/
+          partial-retry handlers, and the registry/routing/contract-source
+          handlers) is present at the claimed path. One correction applied on
+          migration — the table listed a `HandlerVault` class in a
+          `handler_vault` module; no such class or module exists anywhere in
+          omnibase_infra. Secrets are fronted by a handler for the platform's
+          managed secret store exposing read-only operations only
+          (get_secret, list_secrets, get_secrets_batch). The row, the
+          security-posture row and the credential-management bullets were
+          rewritten against the capability rather than the vendor product,
+          both because the claim was false and because the public knowledge
+          base does not name the internal secret store. A scope note was
+          added — "Core 8" predates roughly ten further node directories —
+          recorded rather than patched, since the document never claimed
+          exhaustiveness. The repo-local Version History table was dropped:
+          it is source-repo release bookkeeping, and its top row documents a
+          Poetry install convention the repository no longer uses.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-handler-reuse-matrix.md
+        cutover_state: pointer-live
+      - source_path: docs/PERFORMANCE_TESTING.md
+        bucket: A
+        destination: guides/omnimemory-performance-testing.md
+        owner: Jonah Gray
+        triage_verdict: CORRECT_THEN_MIGRATE
+        sensitivity: public
+        correctness_status: stale
+        verification_evidence: >-
+          Structure verified 2026-08-26 against `tests/test_performance.py`:
+          every test class named in the document (TestSLAVerification,
+          TestVectorSearchPerformance, TestPIIDetectionOverhead,
+          TestStorageEfficiency, TestPIIDetectorPerformance,
+          TestModelSerializationPerformance, TestConcurrencyPerformance,
+          TestStressPerformance, TestBenchmarkSummary,
+          TestEndToEndPerformance) exists verbatim, and `benchmark` and
+          `slow` are both declared pytest markers in pyproject.toml.
+          Corrections applied on migration — all sixteen `poetry run pytest`
+          invocations became `uv run pytest`, since the project is built with
+          uv and hatchling (uv.lock present, no poetry.lock, zero Poetry
+          references in any workflow); and the CI example, which installed
+          Poetry pinned "to match POETRY_VERSION in
+          .github/workflows/test.yml", now uses astral-sh/setup-uv and
+          `uv sync --locked`, because no such workflow file exists and the
+          repository's real CI installs with setup-uv.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-performance-testing.md
+        cutover_state: pointer-live
+      - source_path: docs/runbooks/STARTING_MEMORY_SERVICES.md
+        bucket: A
+        destination: runbooks/omnimemory-starting-memory-services.md
+        owner: Jonah Gray
+        triage_verdict: GENERICIZE_THEN_MIGRATE
+        sensitivity: public
+        correctness_status: current
+        verification_evidence: >-
+          Procedure verified 2026-08-26 against the repository's
+          docker-compose.yml — all four container names
+          (omnimemory-qdrant, -memgraph, -valkey, -kreuzberg-parser) and
+          every port (6333, 6334, 7687, 7444, 6379, 8090) match, and each
+          service declares a healthcheck.
+          PARAMETERIZED ON MIGRATION: the in-house shell helpers `infra-up`,
+          `infra-status`, `infra-up-memory` and `infra-down` (which wrap a
+          private platform-infra compose project and its container names)
+          were replaced with a plain `docker compose` platform-infra step
+          plus an operator-supplied minimal broker+PostgreSQL compose
+          example; the operator-specific dotfile path holding the embedding
+          endpoint became a generic environment-file reference; and
+          `$OMNI_HOME/omnimemory` became the `<repo-root>` placeholder token.
+          One factual correction was folded in — the troubleshooting table
+          claimed the plugin activates on `OMNIMEMORY_ENABLED`, whereas the
+          runtime checks `OMNIMEMORY_MEMGRAPH_HOST` first and treats
+          `OMNIMEMORY_ENABLED` as a legacy fallback.
+          FOLLOWABILITY CHECK PERFORMED: the genericized runbook was re-read
+          end to end as an operator with none of this lab's infrastructure.
+          No remaining step depends on a shell function, a private compose
+          project, a named lab host, or a personal dotfile path. The single
+          step a self-hoster must supply themselves — their own Kafka and
+          PostgreSQL — is stated explicitly, with the two outputs OmniMemory
+          actually consumes (a broker bootstrap address and a PostgreSQL
+          connection URL) named, rather than assumed.
+        pointer_redirect: >-
+          Migrated to the OmniNode knowledge base:
+          https://github.com/OmniNode-ai/knowledge-base/blob/main/runbooks/omnimemory-starting-memory-services.md
+        cutover_state: pointer-live
+      - source_path: .serena/memories/project_overview.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A cached agent-tool memory snapshot, not documentation. Verified
+          wrong against live source 2026-08-26 on three independent counts:
+          it claims 26 Pydantic models where the tree carries 94
+          `class Model*` declarations under `src/omnimemory/models/`; it
+          describes a five-subdirectory model layout where the live tree has
+          seventeen; and it records a point-in-time "PR review phase with 10
+          remaining issues" status that has no current meaning. Deleted with
+          no destination page and no pointer stub.
+        cutover_state: deleted
+      - source_path: .serena/memories/suggested_commands.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: broken
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A cached agent-tool memory snapshot documenting a Poetry toolchain
+          (`poetry install`, `poetry run black/isort/flake8`) and helper
+          scripts that do not exist. Verified against pyproject.toml
+          2026-08-26: the build backend is hatchling, dependency management is
+          uv (uv.lock present, no poetry.lock), and lint/format is ruff — the
+          project's own configuration comment states ruff replaces black,
+          isort and flake8. Every command in the file is wrong. Deleted with
+          no destination page and no pointer stub.
+        cutover_state: deleted
+      - source_path: docs/INDEX.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A repository-local documentation navigation hub, superseded by the
+          root README's rebuilt pointer index in the same change that removes
+          it: every page it linked is now either a pointer stub or removed by
+          this pass, so it navigated to nothing of its own. Independently
+          confirmed unmaintained — its freshness badge asserts a 2026-06-21
+          verification of "16 dirs, 15 with contract.yaml", while the live
+          tree has 14 node directories and 13 contracts. Deleted with no
+          destination page and no pointer stub.
+        cutover_state: deleted
 
   - repo: omniclaude
     visibility: public
@@ -2699,6 +2916,6 @@ rollup:
   # (30) had gone stale as later repositories added rows without updating this
   # rollup. Measured by counting every row whose cutover_state is `moved` or
   # `pointer-live`, and every row whose cutover_state is `deleted`.
-  rows_moved: 101
-  rows_deleted_not_migrated: 1
+  rows_moved: 117
+  rows_deleted_not_migrated: 6
   rows_verified_post_move: 0

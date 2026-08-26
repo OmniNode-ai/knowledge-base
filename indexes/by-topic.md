@@ -89,6 +89,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
 
+## benchmarks
+
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
+
 ## beta-launch
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
@@ -235,6 +239,10 @@ Knowledge base artifacts grouped by topic.
 ## config-authority
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
+## configuration
+
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
 ## constants
 
@@ -425,6 +433,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
+## docker
+
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
+
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
@@ -491,6 +503,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
+
+## environment-variables
+
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
 ## error-handling
 
@@ -655,6 +671,7 @@ Knowledge base artifacts grouped by topic.
 ## handlers
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## historical
@@ -817,6 +834,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
+
+## memory-storage
+
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
 ## merge-gates
 
@@ -906,6 +928,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 
 ## non-determinism
 
@@ -1039,8 +1062,13 @@ Knowledge base artifacts grouped by topic.
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
 ## onex
 
@@ -1103,6 +1131,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
 
+## performance
+
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
+
+## pii
+
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
+
 ## pilot
 
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
@@ -1141,6 +1177,10 @@ Knowledge base artifacts grouped by topic.
 ## prioritization
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
+
+## privacy
+
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
 ## profile
 
@@ -1188,6 +1228,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
+## pydantic-settings
+
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
+
 ## pypi
 
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook)
@@ -1205,6 +1249,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
 ## raw-events
 
@@ -1309,6 +1354,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
+## reuse
+
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
+
 ## risk-mitigation
 
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
@@ -1358,6 +1407,7 @@ Knowledge base artifacts grouped by topic.
 ## runbook
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
 ## runner
 
@@ -1518,6 +1568,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 
