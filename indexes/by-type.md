@@ -125,6 +125,7 @@ Knowledge base artifacts grouped by type.
 - **[Adding an Agent](guides/adding-an-agent.md)** — current
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** — current
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** — current
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
 - **[Getting Started Locally](guides/getting-started-local.md)** — current
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** — current

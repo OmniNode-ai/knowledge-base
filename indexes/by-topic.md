@@ -187,6 +187,7 @@ Knowledge base artifacts grouped by topic.
 
 ## cloud
 
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## code-projection
@@ -251,6 +252,7 @@ Knowledge base artifacts grouped by topic.
 
 ## configuration
 
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
 ## constants
@@ -540,6 +542,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
@@ -653,6 +656,7 @@ Knowledge base artifacts grouped by topic.
 
 ## getting-started
 
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
@@ -824,6 +828,7 @@ Knowledge base artifacts grouped by topic.
 
 ## local
 
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## local-first
@@ -1448,6 +1453,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
@@ -1488,6 +1494,7 @@ Knowledge base artifacts grouped by topic.
 
 ## self-hosting
 
+- **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 
 ## sentinel-pattern
