@@ -1,7 +1,7 @@
 ---
 type: reference
 status: current
-date: "2026-08-25"
+date: "2026-08-26"
 title: "OmniMarket Node Catalog"
 topics:
   - omnimarket
@@ -12,16 +12,16 @@ refs: []
 
 # OmniMarket Node Catalog
 
-> **Last verified:** 2026-08-25, migrated from `omnimarket` to the knowledge base. The node/entry-point counts and the "every directory has a metadata.yaml" claim were corrected during migration against live source: the source document (and the repository's own `README.md`) claimed "302 nodes (v0.4.3)"; direct counts against `omnimarket@dev` (`pyproject.toml` at version `0.4.11`) show 384 registered `onex.nodes` entry points and 390 `node_*` package directories under `src/omnimarket/nodes/` — a ~27% undercount, consistent with the drift already flagged in the org's Wave-2 migration plan. 387 of the 390 directories carry a `metadata.yaml`; three do not (`node_multi_agent_orchestrator`, `node_dispatch_request_handler`, `node_doc_freshness_sweep`), so the prior "every directory has one" claim did not hold. These are counts, not a generator — see the inspection commands below to re-derive them at any point in time rather than trusting this snapshot as it ages further.
+> **Last verified:** 2026-08-26. Corrected against `omnimarket@dev` (`pyproject.toml` at version `0.4.11`): 384 registered `onex.nodes` entry points, statically counted from this package's own `[project.entry-points."onex.nodes"]` table (not the runtime `importlib.metadata.entry_points()` call, which over-counts in a dev venv because it also picks up entries registered by `omnibase_core`/`omnibase_infra` installed as dependencies in the same environment), and 387 `node_*` package directories under `src/omnimarket/nodes/`, all 387 carrying a `metadata.yaml`. This corrects the 2026-08-25 migration snapshot below, which claimed 390 directories with 3 missing `metadata.yaml` (`node_multi_agent_orchestrator`, `node_dispatch_request_handler`, `node_doc_freshness_sweep`) — that claim did not hold even on the day it was written: all three directories had already been deleted, in commits dated 2026-06-28, 2026-08-13, and 2026-08-20, all before the migration. These are counts, not a generator — see the inspection commands below to re-derive them at any point in time rather than trusting this snapshot as it ages further.
 
 The canonical entry-point list is
 `[project.entry-points."onex.nodes"]` in `pyproject.toml`.
 
-As of this migration the repository contains 390 node package directories
+As of this correction the repository contains 387 node package directories
 under `src/omnimarket/nodes/` and registers 384 `onex.nodes` entry points
 (some directories are deliberately deregistered — handler source retained,
 `contract.yaml` marked `lifecycle: deprecated`, superseded by a newer node —
-rather than deleted). 387 of the 390 directories have a `metadata.yaml`.
+rather than deleted). All 387 directories have a `metadata.yaml`.
 
 ## Inspect The Catalog
 

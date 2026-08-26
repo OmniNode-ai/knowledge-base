@@ -145,7 +145,6 @@ Knowledge base artifacts grouped by type.
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** — current
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** — current
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** — current
-- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** — current
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** — current
 - **[ONEX Core Terminology](reference/onex-terminology.md)** — current
@@ -153,6 +152,7 @@ Knowledge base artifacts grouped by type.
 - **[Repository Registry](reference/repository-registry.md)** — current
 - **[Standard Documentation Layout](reference/standard-doc-layout.md)** — current
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** — current
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 
 ## Runbook
 
