@@ -91,7 +91,14 @@ _NAMING_PATTERNS: dict[str, re.Pattern[str]] = {
 # Directories holding generated or hand-maintained content that is not an
 # artifact (no frontmatter, no cross-reference/broken-link semantics) but is
 # still public prose and must be sanitization-scanned and registered.
-GENERATED_CONTENT_DIRS = ["indexes"]
+#
+#   - "indexes"  — generated from artifact frontmatter by generate_indexes.py.
+#   - "docs"     — repository-support material rather than knowledge-base
+#                  artifacts: the brand asset set and its BRAND.md rules
+#                  summary. BRAND.md is hand-written public prose, so it is
+#                  registered here to be sanitization-scanned; it carries no
+#                  frontmatter and is not indexed.
+GENERATED_CONTENT_DIRS = ["indexes", "docs"]
 
 # Repository-root files that are content (public prose or checked-in data),
 # scanned for sanitization but exempt from frontmatter validation. Charter
