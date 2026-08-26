@@ -126,6 +126,8 @@ Knowledge base artifacts grouped by type.
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** — current
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
 - **[OmniDash Development Guide](guides/omnidash-development.md)** — current
+- **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** — current
+- **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** — current
 
 ## Reference
 
@@ -154,6 +156,8 @@ Knowledge base artifacts grouped by type.
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** — current
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** — current
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
+- **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** — current
+- **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** — current
 
 ## Runbook
 
@@ -178,3 +182,4 @@ Knowledge base artifacts grouped by type.
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** — current
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** — current
+- **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** — current

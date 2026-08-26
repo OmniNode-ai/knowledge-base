@@ -387,7 +387,10 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     docs/troubleshooting/** candidate has a row (23 total — 4 from the first
     pass plus 19 from the second). omniclaude, omnimemory, and
     omnibase_infra are the second, third, and fourth repos with landed rows
-    (their own Wave 2 migration PRs). omnimarket is the fifth: its two
+    (their own Wave 2 migration PRs); omnimemory has since had a second,
+    exhaustive per-file sweep land on top of its catalog pass, taking it from
+    5 rows to 10 (the 5 new ones carry a triage_verdict, the field the sweep
+    introduced). omnimarket is the fifth: its two
     declared bucket_a_candidates globs (docs/architecture/delegation-*,
     docs/reference/node-catalog.md) resolve to 3 files, all landed
     2026-08-25. omniintelligence is the sixth: its two declared
@@ -456,14 +459,38 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["cutover_state"] == "moved"
         assert row["source_path"].startswith(("docs/architecture/", "docs/guides/", "docs/standards/"))
 
-    assert len(repos_with_rows["omnimemory"]) == 5
-    for row in repos_with_rows["omnimemory"]:
+    # 5 rows from the curated catalog pass (all correctness_status "broken",
+    # the repo's full broken-count) plus 8 from the later exhaustive per-file
+    # sweep, which enumerated every doc path rather than a hand-picked
+    # candidate set: 5 migrated (reaching docs/*.md and docs/runbooks/**) and 3
+    # deleted rather than migrated. Sweep rows are distinguished by carrying a
+    # triage_verdict; catalog rows predate that field.
+    memory_rows = repos_with_rows["omnimemory"]
+    assert len(memory_rows) == 13
+    for row in memory_rows:
         assert row["bucket"] == "A"
-        assert row["cutover_state"] == "pointer-live"
+        assert row["cutover_state"] in {"pointer-live", "deleted"}
+    catalog_rows = [r for r in memory_rows if "triage_verdict" not in r]
+    sweep_rows = [r for r in memory_rows if "triage_verdict" in r]
+    assert len(catalog_rows) == 5
+    assert len(sweep_rows) == 8
+    for row in catalog_rows:
         assert row["correctness_status"] == "broken"
-        assert row["source_path"].startswith("docs/architecture/") or row["source_path"].startswith(
-            ("docs/runtime/", "docs/migrations/")
-        )
+        assert row["cutover_state"] == "pointer-live"
+        assert row["source_path"].startswith(("docs/architecture/", "docs/runtime/", "docs/migrations/"))
+    migrated_sweep = [r for r in sweep_rows if r["cutover_state"] == "pointer-live"]
+    deleted_sweep = [r for r in sweep_rows if r["cutover_state"] == "deleted"]
+    assert len(migrated_sweep) == 5
+    assert {r["triage_verdict"] for r in migrated_sweep} == {
+        "MIGRATE_AS_IS",
+        "CORRECT_THEN_MIGRATE",
+        "GENERICIZE_THEN_MIGRATE",
+    }
+    assert len(deleted_sweep) == 3
+    for row in deleted_sweep:
+        assert row["triage_verdict"] == "DELETE"
+        assert row["destination"] == "deleted-not-migrated"
+        assert "pointer_redirect" not in row
 
     infra_rows = repos_with_rows["omnibase_infra"]
     assert len(infra_rows) == 51
