@@ -76,7 +76,9 @@ The other two ways to run it, in the order you would reach for them:
 - [Self-hosting the full stack](guides/getting-started-self-hosted.md) — the scale-up chapter. A real broker, PostgreSQL, a cache, an identity provider, and the runtime services on top, on your own infrastructure.
 - [Connecting to the cloud](guides/connecting-to-the-cloud.md) — for consuming a hosted deployment instead of operating one. Optional; nothing in ONEX requires it.
 
-All three, plus the rest of the task-oriented documentation, are indexed in [`guides/`](guides/README.md).
+Most people end up running more than one of those at once — authoring on tier-0, keeping a self-hosted stack for integration proof, and perhaps talking to a hosted deployment as a client. [Combining deployment tiers](guides/combining-deployment-tiers.md) covers the seams: which knob moves you across a tier, what changes when you cross it, and what stays identical.
+
+All four, plus the rest of the task-oriented documentation, are indexed in [`guides/`](guides/README.md).
 
 **To understand why the platform is shaped the way it is,** start with [`doctrine/`](doctrine/README.md) — the stable principles that govern it. From there, decision records show specific choices that instantiate those principles, and pivots show where the principles themselves evolved.
 
