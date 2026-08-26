@@ -2,6 +2,7 @@
 name = "knowledge-base"
 version = "0.1.0"
 description = "OmniNode architectural provenance validation tools"
+license = { text = "MIT" }
 requires-python = ">=3.12"
 dependencies = [
     "pyyaml>=6.0",

@@ -1,4 +1,14 @@
+<img src="docs/assets/omninode-banner.svg" alt="OmniNode — Deterministic infrastructure for autonomous systems" width="100%" />
+
 # OmniNode Knowledge Base
+
+The canonical home for OmniNode's external documentation — the single source of truth for how the platform works, how to use it, and why it is shaped the way it is.
+
+[![CI](https://github.com/OmniNode-ai/knowledge-base/actions/workflows/ci.yml/badge.svg)](https://github.com/OmniNode-ai/knowledge-base/actions/workflows/ci.yml)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
 
 This repository is the canonical home for OmniNode's external documentation — the single source of truth for how the platform works, how to use it, and why it is shaped the way it is. Product repositories keep only what must physically ship beside their code, and point here for everything else.
 
