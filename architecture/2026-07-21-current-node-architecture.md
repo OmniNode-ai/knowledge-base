@@ -329,9 +329,9 @@ Pattern lifecycle management is handled by `node_pattern_lifecycle_effect` (docu
 | `node_validation_ledger_projection_compute` | COMPUTE | `ModelEventMessage` | `ModelValidationLedgerEntry` |
 | `node_validation_orchestrator` | ORCHESTRATOR | `ModelPatternCandidate` | `ModelValidationPlan` |
 
-**Total: 29 documented nodes** across 4 archetypes (a curated subset). The live repository contains 109 `node_<name>/` directories under `src/omnibase_infra/nodes/` with 107 `contract.yaml` files; the additional nodes (delegation, merge-sweep, coding-agent, RSD, scope, GitHub/Gmail effects, etc.) are not enumerated in the inventory sections above. Section 3 covers the primary canonical nodes; the full census is maintained by `scripts/validate.py contracts`.
+**Total: 29 documented nodes** across 4 archetypes (a curated subset). The live repository contains 123 `node_<name>/` directories under `src/omnibase_infra/nodes/` with 121 `contract.yaml` files; the additional nodes (delegation, merge-sweep, coding-agent, RSD, scope, GitHub/Gmail effects, etc.) are not enumerated in the inventory sections above. Section 3 covers the primary canonical nodes; the full census is maintained by `scripts/validate.py contracts`.
 
-> _Verified against code on this refresh: `ls -d src/omnibase_infra/nodes/node_* | wc -l` → 109; `find src/omnibase_infra/nodes -name contract.yaml | wc -l` → 107._
+> _Verified against code on this refresh: `ls -d src/omnibase_infra/nodes/node_* | wc -l` → 123; `find src/omnibase_infra/nodes -name contract.yaml | wc -l` → 121._
 
 ---
 
@@ -360,13 +360,13 @@ Pattern lifecycle management is handled by `node_pattern_lifecycle_effect` (docu
 
 | Type | Count |
 |------|-------|
-| **EFFECT** | 58 |
-| **COMPUTE** | 22 |
+| **EFFECT** | 66 |
+| **COMPUTE** | 27 |
 | **REDUCER** | 13 |
-| **ORCHESTRATOR** | 12 |
-| **Total** | 105 |
+| **ORCHESTRATOR** | 13 |
+| **Total** | 119 |
 
-> The whole-repo total counts contracts that declare `node_type`. Two of the 107 `contract.yaml` files are handler/aux contracts without a `node_type` field.
+> The whole-repo total counts contracts that declare `node_type`. Two of the 121 `contract.yaml` files are handler/aux contracts without a `node_type` field.
 
 ---
 
