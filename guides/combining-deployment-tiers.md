@@ -322,7 +322,7 @@ you are wiring this into your own stack rather than typing `curl`:
   refused, so check the value you set.
 
 The credential shapes themselves — `X-API-Key` versus `Authorization: Bearer` —
-are selected at `get_request_headers()` (same file, line 200), matching the two
+are selected at `get_request_headers()` (same file, line 223), matching the two
 header shapes guide 3 documents.
 
 ### The credential command guide 3 does not mention
@@ -344,7 +344,7 @@ Two properties worth stating because they change how you script around it:
   credential on a machine that cannot currently reach the gateway.
 
 `login` requires `--tenant-slug`, `--client-id`, `--token-endpoint` and
-`--base-url` (`omnibase_infra/src/omnibase_infra/cli/cli_auth.py:86`); none are
+`--base-url` (`omnibase_infra/src/omnibase_infra/cli/cli_auth.py:88`); none are
 defaulted.
 
 > **Unverified.** This chapter did not execute `onex auth login`, `status`,
