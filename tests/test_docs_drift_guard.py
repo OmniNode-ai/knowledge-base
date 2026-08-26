@@ -584,15 +584,19 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     # deleted as superseded. The deleted row is the first `deleted`
     # cutover_state in the manifest — it records a judgment, not a move, so
     # it has no destination page and deliberately carries no pointer_redirect.
+    # Both migrated rows are now `pointer-live`, not `moved`: the repo-side
+    # thin-out landed on the source repository's default branch and each of
+    # the two source files was read back from that branch carrying the
+    # pointer line verbatim.
     compat_rows = repos_with_rows["omnibase_compat"]
     assert len(compat_rows) == 3
     for row in compat_rows:
         assert row["bucket"] == "A"
         assert row["triage_verdict"] in {"MIGRATE_AS_IS", "CORRECT_THEN_MIGRATE", "DELETE"}
         assert row["verification_evidence"]
-    compat_moved = [r for r in compat_rows if r["cutover_state"] == "moved"]
-    assert len(compat_moved) == 2
-    for row in compat_moved:
+    compat_pointer_live = [r for r in compat_rows if r["cutover_state"] == "pointer-live"]
+    assert len(compat_pointer_live) == 2
+    for row in compat_pointer_live:
         assert row["destination"].startswith(("reference/", "runbooks/"))
         assert row["pointer_redirect"].strip() == guard.POINTER_STRING
     compat_deleted = [r for r in compat_rows if r["cutover_state"] == "deleted"]
@@ -604,7 +608,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
 
     # omnidash is the ninth repo with landed rows and the second full-tree
     # sweep. 25 candidates were triaged against live source before anything
-    # moved; 13 earned a row. The 11 moved rows spread across four sections
+    # moved; 13 earned a row. The 11 pointer-live rows spread across four sections
     # (five renumbered decision records, two architecture pages, one guide,
     # three reference pages) — the first repo in this manifest to land rows in
     # adrs/ and guides/ in the same batch. The 2 deleted rows are navigation
@@ -616,12 +620,12 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         assert row["bucket"] == "A"
         assert row["triage_verdict"] in {"MIGRATE_AS_IS", "CORRECT_THEN_MIGRATE", "DELETE"}
         assert row["verification_evidence"]
-    dash_moved = [r for r in dash_rows if r["cutover_state"] == "moved"]
-    assert len(dash_moved) == 11
-    for row in dash_moved:
+    dash_pointer_live = [r for r in dash_rows if r["cutover_state"] == "pointer-live"]
+    assert len(dash_pointer_live) == 11
+    for row in dash_pointer_live:
         assert row["destination"].startswith(("adrs/", "architecture/", "guides/", "reference/"))
         assert row["pointer_redirect"].strip() == guard.POINTER_STRING
-    assert len([r for r in dash_moved if r["triage_verdict"] == "CORRECT_THEN_MIGRATE"]) == 2
+    assert len([r for r in dash_pointer_live if r["triage_verdict"] == "CORRECT_THEN_MIGRATE"]) == 2
     dash_deleted = [r for r in dash_rows if r["cutover_state"] == "deleted"]
     assert len(dash_deleted) == 2
     assert {r["source_path"] for r in dash_deleted} == {"docs/INDEX.md", "docs/README.md"}
