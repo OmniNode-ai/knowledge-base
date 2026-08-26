@@ -85,12 +85,45 @@ row_schema:
       difference, and a delta-at-cutover budget would need a second stored
       baseline this schema does not otherwise carry. Enforced by the drift
       guard alongside pointer_redirect — see docs-taxonomy.md, "Bucket B".
+  triage_verdict:
+    required: false
+    one_of:
+      [
+        MIGRATE_AS_IS,
+        CORRECT_THEN_MIGRATE,
+        GENERICIZE_THEN_MIGRATE,
+        DELETE,
+        FOLD,
+        DO_NOT_MIGRATE,
+      ]
+    description: >-
+      The correctness-and-scope verdict reached by reading the source document
+      against the live code it describes, before anything moved. Optional
+      because rows written before the triage-first rule existed do not carry
+      one; required in practice for every row added under it. MIGRATE_AS_IS
+      means the claims were checked and held. CORRECT_THEN_MIGRATE means
+      drifted claims were found and fixed, with each fix verified against the
+      code rather than merely made plausible. GENERICIZE_THEN_MIGRATE means an
+      accurate procedure carried environment-specific values that were
+      parameterized out and then re-read as an outsider would follow them.
+      DELETE means the content was superseded, fabricated, or stale enough
+      that publishing it would be worse than losing it. FOLD means an existing
+      page already covers the substance, so destination names that page rather
+      than a new one. DO_NOT_MIGRATE means the content may be correct but is
+      out of scope for a public, self-hostable book — an operational journal,
+      an evidence artifact, or deployment detail specific to one operator's
+      own cloud.
   cutover_state:
     required: true
-    one_of: [not-started, moved, pointer-live, verified-post-move]
+    one_of: [not-started, moved, pointer-live, verified-post-move, deleted]
     description: >-
       Progress of this row. Only verified-post-move means the move was checked
-      after the fact rather than merely performed.
+      after the fact rather than merely performed. `deleted` is the terminal
+      state for a DELETE verdict — the source file was removed and no
+      destination page exists, so the row records the judgment and its
+      evidence rather than a move. Such a row's destination reads
+      `deleted-not-migrated`, and it carries no pointer_redirect: a pointer to
+      nothing is worse than no pointer.
 
 # ---------------------------------------------------------------------------
 # Migration preconditions — enforced per row, not per wave
@@ -2204,10 +2237,100 @@ repos:
     visibility: public
     assessed: 11
     correctness: {current: 7, stale: 4, broken: 0, hygiene-risk: 0, placeholder: 0}
-    bucket_a_candidates: []
-    provenance: not-enumerated
-    bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md]
-    cutover_state: not-started
+    bucket_a_candidates:
+      - {source_glob: "docs/README.md", destination: "reference/"}
+      - {source_glob: "docs/runbooks/**", destination: "runbooks/"}
+    provenance: census
+    bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md, AGENT.md, SECURITY.md, CHANGELOG.md]
+    cutover_state: moved
+    notes: >-
+      Full-sweep pass over this repository's entire documentation tree, not a
+      curated subset: it carries nine documentation files outside the root
+      README, of which three needed a disposition. Each of the three was
+      triaged against the live package source before any file moved — two
+      migrate (one unchanged, one corrected), one is deleted as superseded.
+      The remaining six are unchanged by this pass: five are convention or
+      agent-context files that must ship beside the code, and one is a dated
+      point-in-time note that stays put because updating a snapshot destroys
+      what made it worth keeping. cutover_state is `moved` (not
+      `pointer-live`) while the repository-side thin-out is still open; it
+      advances once each migrated source file carries the pointer line.
+    rows:
+      - source_path: docs/README.md
+        bucket: A
+        destination: reference/omnibase-compat-structural-inventory.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Verified line by line against the live package source on the
+          repository's default branch (2026-08-26). Every subpackage listed
+          (models, routing, telemetry, overseer, registration, concurrency,
+          env, adapters, metadata, protocols, tooling, config, learning,
+          enums) resolves to real modules; `EventEnvelopeV1Minimal`'s five
+          declared fields match `models/event_envelope.py` exactly; the
+          experimental registry's four required keys match
+          `experimental/_registry.py` exactly; the `contracts/` subdirectory
+          list matches the tree; the claim that the old delegation wire shim
+          was deleted was confirmed (no such path exists under `src/`); and
+          `types/` and `primitives/` were confirmed placeholder-only. No false
+          claim was found, so the content migrated without correction. Only
+          mechanical adaptations were applied on migration: repo-relative
+          links became plain code-path references (a knowledge-base page
+          cannot link into a product repository), and internal ticket
+          identifiers were removed per this repository's sanitization rule.
+        pointer_redirect: >-
+          Full documentation → https://github.com/OmniNode-ai/knowledge-base
+        cutover_state: moved
+      - source_path: docs/runbooks/release.md
+        bucket: A
+        destination: runbooks/omnibase-compat-release.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: CORRECT_THEN_MIGRATE
+        verification_evidence: >-
+          Checked against the live `Release` workflow (2026-08-26). Accurate
+          as written: tag/version-match failure, clean-tree-required failure,
+          wheel+sdist build, publish, checksum generation, GitHub Release
+          creation, and prerelease marking for `rc` tags. Two drifted
+          omissions were found and corrected before publication, each
+          confirmed as a real workflow step: (1) a PyPI dependency-pin
+          resolvability check that installs the just-built wheel into a bare
+          scratch venv and fails the release before publish if a declared pin
+          does not resolve against the real index; (2) an automatic
+          fast-forward of `main` to the released tag's commit on every
+          successful non-`rc` release, which retires the former separate
+          promotion pull request. Corrections applied: both guarantees added
+          to the guarantees list, a failure-handling row added for each, and a
+          precondition added stating that `main` advances automatically —
+          an outsider following the runbook would otherwise wait for a
+          promotion step that no longer exists.
+        pointer_redirect: >-
+          Full documentation → https://github.com/OmniNode-ai/knowledge-base
+        cutover_state: moved
+      - source_path: docs/plans/release-workflow.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A dated single-pull-request implementation plan for adding the
+          publish workflow, whose pull request was confirmed merged
+          2026-04-22. Its own definition-of-done checklist is stale — the
+          "review threads resolved" and "merged" boxes remain unchecked four
+          months after the merge. Both the repository's own documentation
+          index and its release runbook already state that this plan is
+          superseded by the stable runbook. It also fails the membership test
+          for this repository: it is not a decision record, doctrine, an
+          architecture reference, a distilled lesson, or a stack runbook — it
+          is a one-time execution log. Deleted with no destination page and no
+          pointer stub; the durable content already lives, corrected, in the
+          release runbook row above.
+        cutover_state: deleted
 
   - repo: omnibase
     visibility: public
@@ -2332,5 +2455,10 @@ rollup:
     broken: 42
     hygiene-risk: 18
     placeholder: 4
-  rows_moved: 30
+  # Recounted from the rows below rather than incremented: the previous value
+  # (30) had gone stale as later repositories added rows without updating this
+  # rollup. Measured by counting every row whose cutover_state is `moved` or
+  # `pointer-live`, and every row whose cutover_state is `deleted`.
+  rows_moved: 101
+  rows_deleted_not_migrated: 1
   rows_verified_post_move: 0

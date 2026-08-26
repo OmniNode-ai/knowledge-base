@@ -321,6 +321,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
 
+## dependency-boundary
+
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
+
 ## dependency-injection
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
@@ -433,6 +437,7 @@ Knowledge base artifacts grouped by topic.
 ## enums
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
 
 ## error-handling
 
@@ -844,6 +849,11 @@ Knowledge base artifacts grouped by topic.
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
 
+## omnibase-compat
+
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
+- **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook)
+
 ## omnibase-infra
 
 - **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
@@ -1088,6 +1098,7 @@ Knowledge base artifacts grouped by topic.
 
 ## pypi
 
+- **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook)
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
 
 ## pytest
@@ -1156,6 +1167,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+
+## release
+
+- **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook)
 
 ## release-coordination
 
@@ -1478,6 +1493,10 @@ Knowledge base artifacts grouped by topic.
 ## volume
 
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## wire-dtos
+
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
 
 ## workflow
 
