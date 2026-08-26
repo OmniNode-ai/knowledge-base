@@ -45,7 +45,7 @@ This document maps existing handlers from `omnibase_infra` to the Core 8 memory 
 | `HandlerFileSystem` | `handler_filesystem` | Secure file I/O | read_file, write_file, list_directory | MEDIUM - persistent storage |
 | `HandlerGraph` | `handler_graph` | Graph database (Neo4j/Memgraph) | execute_query, create_node, traverse | HIGH - relationship memory |
 | `HandlerHttp` | `handler_http` | HTTP REST client | GET, POST | MEDIUM - external LLM calls |
-| `HandlerSecrets` (managed secret store) | `handler_<secret-store>` | Secrets management | read-only: `get_secret`, `list_secrets`, `get_secrets_batch` | LOW - security only |
+| *(managed secret store handler — name withheld, see note above)* | *(vendor-specific module)* | Secrets management | read-only: `get_secret`, `list_secrets`, `get_secrets_batch` | LOW - security only |
 | `HandlerMcp` | `handler_mcp` | MCP protocol | MCP operations | LOW - agent communication |
 | `HandlerManifestPersistence` | `handler_manifest_persistence` | Manifest storage | persist manifests | LOW - specialized |
 
