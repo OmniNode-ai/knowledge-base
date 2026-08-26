@@ -412,6 +412,12 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     migrated under the full-tree sweep and the triage-first rule: 3 rows,
     each carrying an explicit triage_verdict, one of them the manifest's
     first `deleted` row (a superseded plan removed rather than published).
+    omnidash is the ninth, landed 2026-08-26 under the same full-tree sweep:
+    13 rows out of 25 triaged candidates — 11 moved (9 unchanged, 2 corrected
+    against live source) and 2 deleted as pure navigation indexes. The other
+    12 candidates carry a DO_NOT_MIGRATE verdict and deliberately have no row
+    at all, because that verdict is a scope exclusion that leaves the file
+    exactly where it already sits; the repo entry's notes field records them.
     Every other repo must still be empty until its own migration PR lands —
     do not add rows for a repo here without a matching migration."""
     manifest_path = Path(__file__).resolve().parent.parent / "migration-manifest.yaml"
@@ -432,6 +438,7 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
         "omniintelligence",
         "onex_change_control",
         "omnibase_compat",
+        "omnidash",
     }
     assert set(repos_with_rows) == expected_repos, (
         f"expected only {sorted(expected_repos)} to have landed rows today, found rows for: {sorted(repos_with_rows)}"
@@ -567,3 +574,31 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert compat_deleted[0]["triage_verdict"] == "DELETE"
     assert compat_deleted[0]["destination"] == "deleted-not-migrated"
     assert "pointer_redirect" not in compat_deleted[0]
+
+    # omnidash is the ninth repo with landed rows and the second full-tree
+    # sweep. 25 candidates were triaged against live source before anything
+    # moved; 13 earned a row. The 11 moved rows spread across four sections
+    # (five renumbered decision records, two architecture pages, one guide,
+    # three reference pages) — the first repo in this manifest to land rows in
+    # adrs/ and guides/ in the same batch. The 2 deleted rows are navigation
+    # indexes with no independent content, so like every deleted row they
+    # carry no destination page and no pointer_redirect.
+    dash_rows = repos_with_rows["omnidash"]
+    assert len(dash_rows) == 13
+    for row in dash_rows:
+        assert row["bucket"] == "A"
+        assert row["triage_verdict"] in {"MIGRATE_AS_IS", "CORRECT_THEN_MIGRATE", "DELETE"}
+        assert row["verification_evidence"]
+    dash_moved = [r for r in dash_rows if r["cutover_state"] == "moved"]
+    assert len(dash_moved) == 11
+    for row in dash_moved:
+        assert row["destination"].startswith(("adrs/", "architecture/", "guides/", "reference/"))
+        assert row["pointer_redirect"].strip() == guard.POINTER_STRING
+    assert len([r for r in dash_moved if r["triage_verdict"] == "CORRECT_THEN_MIGRATE"]) == 2
+    dash_deleted = [r for r in dash_rows if r["cutover_state"] == "deleted"]
+    assert len(dash_deleted) == 2
+    assert {r["source_path"] for r in dash_deleted} == {"docs/INDEX.md", "docs/README.md"}
+    for row in dash_deleted:
+        assert row["triage_verdict"] == "DELETE"
+        assert row["destination"] == "deleted-not-migrated"
+        assert "pointer_redirect" not in row

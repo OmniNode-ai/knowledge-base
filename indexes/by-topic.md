@@ -4,6 +4,14 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 Knowledge base artifacts grouped by topic.
 
+## abstraction-timing
+
+- **[ADR-0041: BaselinesROICard Stays Bespoke, Outside the Generic Widget Primitives](adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md)** (adr)
+
+## accessibility
+
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+
 ## admission
 
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
@@ -196,6 +204,22 @@ Knowledge base artifacts grouped by topic.
 
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
 
+## component-api
+
+- **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
+
+## component-manifest
+
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
+
+## component-primitives
+
+- **[ADR-0041: BaselinesROICard Stays Bespoke, Outside the Generic Widget Primitives](adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md)** (adr)
+
+## component-registry
+
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
+
 ## compose
 
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
@@ -223,6 +247,11 @@ Knowledge base artifacts grouped by topic.
 ## context-injection
 
 - **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture)
+
+## contract-driven-ui
+
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 
 ## contract-governance
 
@@ -272,7 +301,12 @@ Knowledge base artifacts grouped by topic.
 
 ## dashboard
 
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
+
+## dashboard-definition
+
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
 
 ## data-flow
 
@@ -281,6 +315,11 @@ Knowledge base artifacts grouped by topic.
 ## data-ownership
 
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
+
+## data-source
+
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 
 ## data-topology
 
@@ -338,6 +377,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
 
+## design-system
+
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
+- **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
+
 ## determinism
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
@@ -345,6 +389,10 @@ Knowledge base artifacts grouped by topic.
 ## dev-lane
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
+
+## development
+
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 
 ## disk
 
@@ -380,6 +428,7 @@ Knowledge base artifacts grouped by topic.
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture)
 
 ## documentation
 
@@ -422,6 +471,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
 
+## empty-state
+
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
+
 ## enforcement
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
@@ -443,6 +496,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+
+## eslint
+
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
 
 ## event
 
@@ -524,6 +582,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
 
+## forms
+
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
+
 ## four-node-architecture
 
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
@@ -531,6 +593,10 @@ Knowledge base artifacts grouped by topic.
 ## freshness
 
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+
+## frontend
+
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
 
 ## fsm
 
@@ -609,6 +675,7 @@ Knowledge base artifacts grouped by topic.
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 
 ## immutability
 
@@ -643,6 +710,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 
+## json-schema
+
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
+
 ## judge
 
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
@@ -670,6 +742,10 @@ Knowledge base artifacts grouped by topic.
 ## layer
 
 - **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
+
+## layout
+
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
 
 ## learned-routing
 
@@ -927,6 +1003,20 @@ Knowledge base artifacts grouped by topic.
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 
+## omnidash
+
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[ADR-0041: BaselinesROICard Stays Bespoke, Outside the Generic Widget Primitives](adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md)** (adr)
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture)
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
+- **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
+
 ## omniintelligence
 
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
@@ -1071,6 +1161,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
@@ -1094,6 +1185,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## pypi
@@ -1167,6 +1259,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
 
 ## release
 
@@ -1175,6 +1268,10 @@ Knowledge base artifacts grouped by topic.
 ## release-coordination
 
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
+
+## renderers
+
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
 
 ## replay
 
@@ -1215,6 +1312,10 @@ Knowledge base artifacts grouped by topic.
 ## risk-mitigation
 
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
+
+## rjsf
+
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 
 ## rls
 
@@ -1279,6 +1380,10 @@ Knowledge base artifacts grouped by topic.
 ## runtime-isolation
 
 - **[Runtime Complexity Must Be Isolated](doctrine/runtime-complexity-isolated.md)** (doctrine)
+
+## schema
+
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
 
 ## schema-consolidation
 
@@ -1376,6 +1481,12 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
 
+## storybook
+
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
+
 ## streaming
 
 - **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
@@ -1405,6 +1516,7 @@ Knowledge base artifacts grouped by topic.
 
 ## testing
 
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
@@ -1442,6 +1554,10 @@ Knowledge base artifacts grouped by topic.
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 
+## truth-boundary
+
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture)
+
 ## truth-verification
 
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine)
@@ -1457,6 +1573,11 @@ Knowledge base artifacts grouped by topic.
 ## typed-metadata
 
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
+
+## typography
+
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
+- **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
 
 ## validation
 
@@ -1493,6 +1614,16 @@ Knowledge base artifacts grouped by topic.
 ## volume
 
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## widgets
+
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[ADR-0041: BaselinesROICard Stays Bespoke, Outside the Generic Widget Primitives](adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md)** (adr)
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture)
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
 
 ## wire-dtos
 

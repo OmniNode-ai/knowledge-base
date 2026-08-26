@@ -2227,11 +2227,251 @@ repos:
     visibility: public
     assessed: 41
     correctness: {current: 33, stale: 7, broken: 0, hygiene-risk: 1, placeholder: 0}
-    bucket_a_candidates: []
-    provenance: not-enumerated
-    bucket_b_retained: [README.md, CONTRIBUTING.md]
-    cutover_state: not-started
-    notes: One catalog row aggregates a set of audit artifacts, which are bucket D.
+    bucket_a_candidates:
+      - {source_glob: "docs/adr/**", destination: "adrs/"}
+      - {source_glob: "docs/architecture/**", destination: "architecture/"}
+      - {source_glob: "docs/reference/**", destination: "reference/"}
+    provenance: full-sweep-triage
+    bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md]
+    cutover_state: moved
+    notes: >-
+      Full-sweep triage pass. 25 candidate files were triaged against the live
+      omnidash tree before any content moved; each carries a recorded verdict.
+      11 migrate (9 unchanged, 2 corrected) and are the rows below. 2 are
+      deleted with no destination and no pointer — `docs/INDEX.md` and
+      `docs/README.md`, both pure navigation indexes over children that are
+      themselves being stubbed or deleted, superseded by the rebuilt pointer
+      index in the root README; no independent content, so no row here. 12 are
+      out of scope for this book and stay exactly where they are with no stub
+      and no deletion: 4 document the project's own cloud deployment
+      (`db/README.md`, `deploy/keycloak/README.md`, `docs/beta-runbook.md`,
+      `server/onboarding/README.md`), 4 are operational journals
+      (`docs/diagnosis-fontsource-poppins.md`, `docs/implementation-status.md`,
+      `reference/README.md`, and the agent-config handshake file under
+      `.claude/`), and 4 are audit/evidence records
+      (`docs/requirements-audit.md`, `docs/ui-rebuild-traceability.md`,
+      `docs/ux-polish-checklist.md`, `docs/widget-config-audit.md`). The
+      handshake file is an operational agent-config artifact analogous to
+      CLAUDE.md rather than a journal, and is recorded here as the one
+      classification edge case in this repo's triage.
+    rows:
+      - source_path: docs/adr/001-typography-system.md
+        bucket: A
+        destination: adrs/ADR-0039-omnidash-typography-system.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Decision of record, verified against the live omnidash tree: the
+          `local/no-typography-inline` ESLint rule is registered at 'error'
+          severity in eslint.config.js, and the `<Text>`/`<Heading>` primitives
+          plus tokens.ts live under src/components/ui/typography/. Renumbered
+          from the repo-local "ADR 001" into the platform decision ledger;
+          content migrated unchanged apart from removing internal ticket and
+          commit-hash references per the sanitization precondition.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/adr/002-storybook-widget-coverage.md
+        bucket: A
+        destination: adrs/ADR-0040-omnidash-storybook-widget-coverage.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Decision of record, verified against the live omnidash tree:
+          src/storybook-coverage-compliance.test.ts exists and gates story
+          coverage, and the withDashboardContext decorator convention matches
+          the repo's own agent-context file description of the same mechanism.
+          Renumbered from the repo-local "ADR 002"; content migrated unchanged
+          apart from sanitization.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/adr/003-baselines-roi-card-stay-bespoke.md
+        bucket: A
+        destination: adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Decision of record, verified against the live omnidash tree:
+          BaselinesROICard.tsx still exists at src/components/dashboard/baselines/
+          and has not been migrated to a generic primitive, so the STAY-BESPOKE
+          decision still holds. Renumbered from the repo-local "ADR-003".
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/adr/004-cross-renderer-empty-state-gate.md
+        bucket: A
+        destination: adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Decision of record, verified against the live omnidash tree: the
+          `local/no-untyped-empty-state` ESLint rule is registered at 'error'
+          severity in eslint.config.js, and shared/types/empty-state-reason.ts
+          exists. Renumbered from the repo-local "ADR 004".
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/adr/005-rjsf-discriminator-union.md
+        bucket: A
+        destination: adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Decision of record (spike outcome), verified against the live omnidash
+          tree: @rjsf/core ^6.5.1 is still pinned in package.json and
+          src/components/dashboard/contract-inspector/ContractInspector.tsx
+          exists. Renumbered from the repo-local "ADR 005".
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/architecture/composable-frame.md
+        bucket: A
+        destination: architecture/omnidash-composable-frame.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: CORRECT_THEN_MIGRATE
+        verification_evidence: >-
+          Architecture reference. Independently re-verified against live code —
+          the src/App.tsx page-arm list, the four src/data-source/ modes, and the
+          contract-owned default mode all match. One drifted claim was found and
+          corrected before publication: the source asserted that a
+          `local/no-api-literal` ESLint rule "enforces this at error severity",
+          but grep of the live eslint.config.js shows no such rule — only
+          local/no-typography-inline, local/no-projection-websocket and
+          local/no-untyped-empty-state are registered. The migrated text now
+          reads "convention, not an enforced ESLint rule" and names the three
+          rules that do exist, matching the phrasing the repo's own agent-context
+          file and development guide already carry.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/development.md
+        bucket: A
+        destination: guides/omnidash-development.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Stack runbook for building, running and testing the dashboard. Every
+          npm script cited was checked against the live package.json scripts
+          block and matches exactly. The document already self-corrects the
+          `local/no-api-literal` claim and already uses an `<onex-host>`
+          placeholder rather than a real host, so no genericization step was
+          needed.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/reference/component-manifest.md
+        bucket: A
+        destination: reference/omnidash-component-manifest.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: CORRECT_THEN_MIGRATE
+        verification_evidence: >-
+          Reference schema doc, largely accurate but incomplete against the live
+          shared/types/component-manifest.ts: the documented ComponentManifest
+          interface omitted `projectionSchema`, `displayContract`, and
+          `emptyState.reasons`, all three present in the live type. Corrected
+          before publication — the interface block now carries all three fields,
+          and three new sections document the input contract (including
+          ProjectionOrderingAuthority), the output contract, and the per-reason
+          empty-state map, each transcribed from the live type's own doc
+          comments.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/reference/dashboard-definition.md
+        bucket: A
+        destination: reference/omnidash-dashboard-definition.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Reference schema doc. Verified field-for-field against the live
+          shared/types/dashboard.ts (DashboardDefinition, DashboardLayoutItem,
+          validateDashboardDefinition) — exact match, no drift.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: src/components/dashboard/README.md
+        bucket: A
+        destination: architecture/omnidash-component-truth-boundary.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Doctrine-adjacent architecture reference (the component truth-boundary
+          contract), cited from the repo's own agent-context file as the
+          component-local truth contract. Verified against the live tree:
+          useProjectionQuery, the src/data-source/ adapters,
+          DataSourceTestProvider (src/test-utils/dataSourceTestProvider.tsx) and
+          makeDashboardDecorator all exist. The one edit on migration replaces a
+          cross-repo link into a private repository with links to this
+          repository's own doctrine pages, per the no-private-repo-references
+          sanitization rule.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
+      - source_path: docs/INDEX.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A six-line navigation alias whose entire body says the canonical
+          entrypoint is docs/README.md — which is itself deleted in the same
+          change. It carries no content of its own, so there is nothing to
+          migrate and nothing for a pointer stub to point at. Its stated reason
+          for existing ("tooling that looks for docs/INDEX.md") was checked
+          against the repository's live CI: none of the workflows requires the
+          path — the structure-validation job's required-file list is
+          package.json, tsconfig.json, vite.config.ts and CLAUDE.md, and the
+          docs job is a markdown link validator with no required index. The
+          root README's rebuilt pointer index supersedes both files. Deleted
+          with no destination page and no pointer stub.
+        cutover_state: deleted
+      - source_path: docs/README.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          The docs/ navigation index. Every entry is a link to a child document
+          that this same change either migrates and stubs or deletes, so the
+          index is superseded by the root README's rebuilt pointer index. It
+          holds no independent content that fails to appear elsewhere: its
+          "Start Here", "Current Architecture", "Reference" and "Decisions"
+          sections are link lists; its "Testing and Validation" commands are
+          reproduced verbatim in the migrated development guide; and its
+          "Migrations" paragraph describes the repository's own cloud database
+          apply plan, which is out of scope for this book and stays documented
+          in db/README.md where it already lives. Deleted with no destination
+          page and no pointer stub.
+        cutover_state: deleted
+      - source_path: src/components/ui/typography/README.md
+        bucket: A
+        destination: reference/omnidash-typography-primitives.md
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: current
+        triage_verdict: MIGRATE_AS_IS
+        verification_evidence: >-
+          Component API reference for <Text>/<Heading>. Verified against the live
+          Text.tsx: every documented TextProps field (size, color, weight,
+          leading, family, transform, align, tabularNums, truncate) matches the
+          TextProps interface exactly.
+        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
+        cutover_state: moved
 
   - repo: omnibase_compat
     visibility: public

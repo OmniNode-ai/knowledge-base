@@ -6,7 +6,13 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture) — 2026-08-26
+- **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture) — 2026-08-26
+- **[OmniDash Development Guide](guides/omnidash-development.md)** (guide) — 2026-08-26
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference) — 2026-08-26
+- **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference) — 2026-08-26
+- **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference) — 2026-08-26
+- **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference) — 2026-08-26
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook) — 2026-08-26
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook) — 2026-08-26
@@ -107,9 +113,11 @@ All knowledge base artifacts sorted by date.
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference) — 2026-06-24
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference) — 2026-06-24
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference) — 2026-06-24
+- **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr) — 2026-06-20
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture) — 2026-06-20
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
+- **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr) — 2026-06-18
 ## 2026-05
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
@@ -135,10 +143,13 @@ All knowledge base artifacts sorted by date.
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot) — 2026-05-23
 ## 2026-04
 
+- **[ADR-0041: BaselinesROICard Stays Bespoke, Outside the Generic Widget Primitives](adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md)** (adr) — 2026-04-29
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr) — 2026-04-28
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr) — 2026-04-28
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr) — 2026-04-28
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr) — 2026-04-27
+- **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr) — 2026-04-24
+- **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr) — 2026-04-24
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr) — 2026-04-23
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr) — 2026-04-23
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr) — 2026-04-23
