@@ -2418,6 +2418,46 @@ repos:
           sanitization rule.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: moved
+      - source_path: docs/INDEX.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          A six-line navigation alias whose entire body says the canonical
+          entrypoint is docs/README.md — which is itself deleted in the same
+          change. It carries no content of its own, so there is nothing to
+          migrate and nothing for a pointer stub to point at. Its stated reason
+          for existing ("tooling that looks for docs/INDEX.md") was checked
+          against the repository's live CI: none of the workflows requires the
+          path — the structure-validation job's required-file list is
+          package.json, tsconfig.json, vite.config.ts and CLAUDE.md, and the
+          docs job is a markdown link validator with no required index. The
+          root README's rebuilt pointer index supersedes both files. Deleted
+          with no destination page and no pointer stub.
+        cutover_state: deleted
+      - source_path: docs/README.md
+        bucket: A
+        destination: deleted-not-migrated
+        owner: Jonah Gray
+        sensitivity: public
+        correctness_status: stale
+        triage_verdict: DELETE
+        verification_evidence: >-
+          The docs/ navigation index. Every entry is a link to a child document
+          that this same change either migrates and stubs or deletes, so the
+          index is superseded by the root README's rebuilt pointer index. It
+          holds no independent content that fails to appear elsewhere: its
+          "Start Here", "Current Architecture", "Reference" and "Decisions"
+          sections are link lists; its "Testing and Validation" commands are
+          reproduced verbatim in the migrated development guide; and its
+          "Migrations" paragraph describes the repository's own cloud database
+          apply plan, which is out of scope for this book and stays documented
+          in db/README.md where it already lives. Deleted with no destination
+          page and no pointer stub.
+        cutover_state: deleted
       - source_path: src/components/ui/typography/README.md
         bucket: A
         destination: reference/omnidash-typography-primitives.md
