@@ -457,17 +457,22 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert len(infra_rows) == 51
     infra_prefixes = ("docs/architecture/", "docs/guides/", "docs/runbooks/", "docs/standards/")
     for row in infra_rows:
-        assert row["bucket"] in {"A", "B", "C"}
+        assert row["bucket"] in {"A", "B", "C", "D"}
         assert row["cutover_state"] in {"moved", "not-started", "pointer-live"}
         assert row["source_path"].startswith(infra_prefixes)
     pointer_live = [r for r in infra_rows if r["cutover_state"] == "pointer-live"]
     not_started = [r for r in infra_rows if r["cutover_state"] == "not-started"]
     # 38 migrated-content rows plus the 2 directory-nav README.md rewrites
     # (both already pointer-live from the start), minus 4 reclassified
-    # bucket A -> C and dropped to not-started 2026-08-26 (self-hoster's-book
-    # scope ruling: application-migration-ledger.md, gateway-lane-deploy.md,
-    # and the two managed-staging-canary runbooks all documented our own
-    # cloud deployment topology or evidence-class content).
+    # (3x bucket A -> C, 1x bucket A -> D) and dropped to not-started
+    # 2026-08-26 (self-hoster's-book scope ruling: gateway-lane-deploy.md and
+    # the two managed-staging-canary runbooks documented our own cloud
+    # deployment topology (bucket C); application-migration-ledger.md is a
+    # dated point-in-time evidence record that hits taxonomy decision-rule
+    # test 1 / bucket D before it can reach test 3 / bucket C — corrected
+    # from an initial bucket-C classification to match its sibling row in
+    # the occ_rows section below and the taxonomy's own stop-at-first-match
+    # ordering).
     assert len(pointer_live) == 36
     assert len(not_started) == 14
     # Every not-started row is quarantined for a documented reason, never silently dropped.
@@ -482,13 +487,20 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     for row in hygiene_risk_not_started:
         assert row["sensitivity"] == "needs-review"
         assert row["correctness_status"] == "hygiene-risk"
-    # The 4 bucket-C reclassifications: restricted, cited-not-hosted, never
+    # The 3 bucket-C reclassifications: restricted, cited-not-hosted, never
     # a live candidate for this public repo.
     restricted_not_started = [r for r in not_started if r["bucket"] == "C"]
-    assert len(restricted_not_started) == 4
+    assert len(restricted_not_started) == 3
     for row in restricted_not_started:
         assert row["sensitivity"] == "restricted"
         assert row["destination"] == "private-internal-kb"
+    # The 1 bucket-D reclassification in this section: a dated point-in-time
+    # evidence record, stays where it is, OCC remains the sole evidence
+    # authority.
+    infra_d_rows = [r for r in not_started if r["bucket"] == "D"]
+    assert len(infra_d_rows) == 1
+    assert infra_d_rows[0]["source_path"] == "docs/runbooks/application-migration-ledger.md"
+    assert infra_d_rows[0]["sensitivity"] == "public"
 
     market_rows = repos_with_rows["omnimarket"]
     assert len(market_rows) == 3

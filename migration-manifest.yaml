@@ -888,20 +888,25 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
       - source_path: docs/runbooks/application-migration-ledger.md
-        bucket: C
-        destination: private-internal-kb
+        bucket: D
         owner: Jonah Gray
-        sensitivity: restricted
+        sensitivity: public
         correctness_status: current
         verification_evidence: >-
           Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
-          reclassified from bucket A to bucket C and removed from the public
-          knowledge base. Content is a point-in-time evidence record of one
-          schema-migration adoption decision — specific table names, live
-          row counts, an operator ruling with dated corroboration evidence —
-          not a generic, runnable stack runbook. Evidence of any kind is no
-          longer published here; OCC (onex_change_control) is the sole
-          evidence authority.
+          reclassified from bucket A to bucket D and removed from the public
+          knowledge base. This is a dated point-in-time evidence record of
+          one schema-migration adoption decision — specific table names,
+          live row counts, an operator ruling with dated corroboration
+          evidence — not a generic, runnable stack runbook. It should have
+          matched taxonomy decision-rule test 1 ("dated point-in-time
+          artifact... stays where it is," which explicitly routes every
+          DoD-receipt/evidence artifact to bucket D — apply the tests in
+          order and stop at first match, so an evidence artifact never
+          reaches test 3 / bucket C) at migration time and never reached
+          bucket A. It is evidence-class content: OCC (onex_change_control)
+          is the sole evidence authority; this repository cites outcomes,
+          it does not host receipts or evidence snapshots.
         cutover_state: not-started
       - source_path: docs/runbooks/bulk-pr-operations.md
         bucket: A

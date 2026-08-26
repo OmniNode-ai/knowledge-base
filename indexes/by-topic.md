@@ -451,6 +451,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
 ## event-envelope
 
@@ -649,6 +650,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
 ## lane
 
@@ -959,6 +961,7 @@ Knowledge base artifacts grouped by topic.
 ## operations
 
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
 ## orchestrator
 
@@ -1124,6 +1127,10 @@ Knowledge base artifacts grouped by topic.
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
+## reconnect
+
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
+
 ## recursive-system-design
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
@@ -1185,6 +1192,10 @@ Knowledge base artifacts grouped by topic.
 ## reseed
 
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## resilience
+
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
 ## risk-mitigation
 

@@ -1,6 +1,6 @@
 # OmniNode Knowledge Base
 
-This repository is the canonical home for OmniNode's external documentation — the single source of truth for how the platform works, how to use it, and why it is shaped the way it is. Product repositories keep only what must physically ship beside their code, and point here for everything else.
+Product repositories keep only what must physically ship beside their code, and point here for everything else — see **[The charter](#the-charter)** below for exactly what that scope includes and deliberately excludes.
 
 ## What This Is
 

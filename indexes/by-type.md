@@ -164,3 +164,4 @@ Knowledge base artifacts grouped by type.
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** — current
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** — current
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** — current
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
