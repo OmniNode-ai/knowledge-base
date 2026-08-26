@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture) — 2026-08-25
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture) — 2026-08-25
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture) — 2026-08-25
@@ -23,7 +24,6 @@ All knowledge base artifacts sorted by date.
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference) — 2026-08-25
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference) — 2026-08-25
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference) — 2026-08-25
-- **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-25
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference) — 2026-08-25
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference) — 2026-08-25
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference) — 2026-08-25
