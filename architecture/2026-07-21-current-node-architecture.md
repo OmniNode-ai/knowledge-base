@@ -356,17 +356,17 @@ Pattern lifecycle management is handled by `node_pattern_lifecycle_effect` (docu
 | **ORCHESTRATOR** | 2 |
 | **Total** | 29 |
 
-**Live whole-repo distribution** (all `contract.yaml` under `src/omnibase_infra/nodes/`, verified on this refresh via `grep -rh '^node_type:' src/omnibase_infra/nodes/*/contract.yaml | sort | uniq -c`):
+**Live whole-repo distribution** (all `contract.yaml` under `src/omnibase_infra/nodes/`, verified on this refresh via `find src/omnibase_infra/nodes -name contract.yaml -exec grep -h '^node_type:' {} \; | sort | uniq -c`):
 
 | Type | Count |
 |------|-------|
 | **EFFECT** | 66 |
-| **COMPUTE** | 27 |
+| **COMPUTE** | 29 |
 | **REDUCER** | 13 |
 | **ORCHESTRATOR** | 13 |
-| **Total** | 119 |
+| **Total** | 121 |
 
-> The whole-repo total counts contracts that declare `node_type`. Two of the 121 `contract.yaml` files are handler/aux contracts without a `node_type` field.
+> All 121 `contract.yaml` files declare a `node_type` field.
 
 ---
 
