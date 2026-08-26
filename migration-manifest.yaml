@@ -2450,7 +2450,7 @@ repos:
       - {source_glob: "docs/reference/**", destination: "reference/"}
     provenance: full-sweep-triage
     bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md]
-    cutover_state: moved
+    cutover_state: pointer-live
     notes: >-
       Full-sweep triage pass. 25 candidate files were triaged against the live
       omnidash tree before any content moved; each carries a recorded verdict.
@@ -2470,7 +2470,13 @@ repos:
       `docs/ux-polish-checklist.md`, `docs/widget-config-audit.md`). The
       handshake file is an operational agent-config artifact analogous to
       CLAUDE.md rather than a journal, and is recorded here as the one
-      classification edge case in this repo's triage.
+      classification edge case in this repo's triage. cutover_state advanced
+      from `moved` to `pointer-live` once the repository-side thin-out landed
+      on the source repository's default branch: all eleven migrated source
+      files were read back from that branch and each carries this row's
+      `pointer_redirect` line verbatim, and neither of the two DELETE rows'
+      source paths resolves there any longer. All eleven destination pages
+      were confirmed present on this repository's `main` in the same pass.
     rows:
       - source_path: docs/adr/001-typography-system.md
         bucket: A
@@ -2488,7 +2494,7 @@ repos:
           content migrated unchanged apart from removing internal ticket and
           commit-hash references per the sanitization precondition.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/adr/002-storybook-widget-coverage.md
         bucket: A
         destination: adrs/ADR-0040-omnidash-storybook-widget-coverage.md
@@ -2504,7 +2510,7 @@ repos:
           Renumbered from the repo-local "ADR 002"; content migrated unchanged
           apart from sanitization.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/adr/003-baselines-roi-card-stay-bespoke.md
         bucket: A
         destination: adrs/ADR-0041-omnidash-baselines-roi-card-stays-bespoke.md
@@ -2518,7 +2524,7 @@ repos:
           and has not been migrated to a generic primitive, so the STAY-BESPOKE
           decision still holds. Renumbered from the repo-local "ADR-003".
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/adr/004-cross-renderer-empty-state-gate.md
         bucket: A
         destination: adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md
@@ -2532,7 +2538,7 @@ repos:
           severity in eslint.config.js, and shared/types/empty-state-reason.ts
           exists. Renumbered from the repo-local "ADR 004".
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/adr/005-rjsf-discriminator-union.md
         bucket: A
         destination: adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md
@@ -2546,7 +2552,7 @@ repos:
           src/components/dashboard/contract-inspector/ContractInspector.tsx
           exists. Renumbered from the repo-local "ADR 005".
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/architecture/composable-frame.md
         bucket: A
         destination: architecture/omnidash-composable-frame.md
@@ -2567,7 +2573,7 @@ repos:
           rules that do exist, matching the phrasing the repo's own agent-context
           file and development guide already carry.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/development.md
         bucket: A
         destination: guides/omnidash-development.md
@@ -2583,7 +2589,7 @@ repos:
           placeholder rather than a real host, so no genericization step was
           needed.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/reference/component-manifest.md
         bucket: A
         destination: reference/omnidash-component-manifest.md
@@ -2602,7 +2608,7 @@ repos:
           empty-state map, each transcribed from the live type's own doc
           comments.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/reference/dashboard-definition.md
         bucket: A
         destination: reference/omnidash-dashboard-definition.md
@@ -2615,7 +2621,7 @@ repos:
           shared/types/dashboard.ts (DashboardDefinition, DashboardLayoutItem,
           validateDashboardDefinition) — exact match, no drift.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: src/components/dashboard/README.md
         bucket: A
         destination: architecture/omnidash-component-truth-boundary.md
@@ -2634,7 +2640,7 @@ repos:
           repository's own doctrine pages, per the no-private-repo-references
           sanitization rule.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/INDEX.md
         bucket: A
         destination: deleted-not-migrated
@@ -2688,7 +2694,7 @@ repos:
           leading, family, transform, align, tabularNums, truncate) matches the
           TextProps interface exactly.
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+        cutover_state: pointer-live
 
   - repo: omnibase_compat
     visibility: public
@@ -2699,7 +2705,7 @@ repos:
       - {source_glob: "docs/runbooks/**", destination: "runbooks/"}
     provenance: census
     bucket_b_retained: [README.md, CONTRIBUTING.md, CLAUDE.md, AGENT.md, SECURITY.md, CHANGELOG.md]
-    cutover_state: moved
+    cutover_state: pointer-live
     notes: >-
       Full-sweep pass over this repository's entire documentation tree, not a
       curated subset: it carries nine documentation files outside the root
@@ -2709,9 +2715,13 @@ repos:
       The remaining six are unchanged by this pass: five are convention or
       agent-context files that must ship beside the code, and one is a dated
       point-in-time note that stays put because updating a snapshot destroys
-      what made it worth keeping. cutover_state is `moved` (not
-      `pointer-live`) while the repository-side thin-out is still open; it
-      advances once each migrated source file carries the pointer line.
+      what made it worth keeping. cutover_state advanced from `moved` to
+      `pointer-live` once the repository-side thin-out landed on the source
+      repository's default branch: both migrated source files were read back
+      from that branch and each carries this row's `pointer_redirect` line
+      verbatim, and the DELETE row's source path no longer resolves there.
+      Both destination pages were confirmed present on this repository's
+      `main` in the same pass.
     rows:
       - source_path: docs/README.md
         bucket: A
@@ -2739,7 +2749,7 @@ repos:
           identifiers were removed per this repository's sanitization rule.
         pointer_redirect: >-
           Full documentation → https://github.com/OmniNode-ai/knowledge-base
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/runbooks/release.md
         bucket: A
         destination: runbooks/omnibase-compat-release.md
@@ -2766,7 +2776,7 @@ repos:
           promotion step that no longer exists.
         pointer_redirect: >-
           Full documentation → https://github.com/OmniNode-ai/knowledge-base
-        cutover_state: moved
+        cutover_state: pointer-live
       - source_path: docs/plans/release-workflow.md
         bucket: A
         destination: deleted-not-migrated
