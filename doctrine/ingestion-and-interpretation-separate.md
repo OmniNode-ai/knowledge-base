@@ -9,7 +9,6 @@ refs:
   - doctrine/deterministic-under-replay.md
   - doctrine/contracts-define-reality.md
   - adrs/ADR-0003-registration-runtime-registry-boundary.md
-  - deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md
 ---
 
 # Ingestion and Interpretation Are Separate

@@ -18,11 +18,10 @@ A TDD describes a target shape precisely enough that drift from it is detectable
 The knowledge base uses several artifact types that work together. Architecture TDDs sit alongside them but answer a different question:
 
 - **ADRs** record a *single decision* — the context that forced it, the alternatives, and the consequences. A TDD may embody many ADRs, but it is not itself a decision; it is the standing design those decisions add up to.
-- **Deep dives** are *narrative discovery records* — what happened during a work period, what assumptions failed, how understanding changed. A deep dive explains how the team arrived at an idea; a TDD states the resulting design as a stable reference.
 - **Plans** are *intended implementation paths* — proposed sequences of work with expected evidence. A plan says how to build toward a target; a TDD defines the target itself.
 - **Doctrine** are the principles and invariants every artifact must respect. A TDD must not contradict doctrine; when it appears to, the doctrine is reconciled first.
 
-The typical flow: deep dives and ADRs surface and ratify the pieces → a TDD consolidates them into the standing technical design of a subsystem → plans describe the path to implement it → evidence proves the implementation matches the design.
+The typical flow: operational pressure and ADRs surface and ratify the pieces → a TDD consolidates them into the standing technical design of a subsystem → plans describe the path to implement it → a cited outcome (a PR, a CI run) proves the implementation matches the design.
 
 ## Lifecycle
 
@@ -48,7 +47,7 @@ A TDD moves from `draft` to `accepted` via PR review. When a later TDD renders a
 4. Open a PR for review.
 5. On approval, change `status` to `accepted` and update any TDD this one supersedes.
 
-Keep a TDD focused on one subsystem or one cross-cutting concern. If background explanation grows long, put it in a deep dive and reference it from the TDD.
+Keep a TDD focused on one subsystem or one cross-cutting concern. If background explanation grows long, trim it rather than folding it in — a TDD is the stable reference, not the narrative of how the team got there.
 
 ## Current Architecture Designs
 

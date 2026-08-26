@@ -9,8 +9,6 @@ refs:
   - doctrine/evidence-is-first-class-output.md
   - doctrine/truth-must-be-proven.md
   - adrs/ADR-0006-skill-liveness-validator-home.md
-  - deep-dives/2026-02-27-kafka-connection-limit-outage.md
-  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Fail Fast and Loud
@@ -40,3 +38,7 @@ Unacceptable:
 - incorrect state
 - silent regression
 - hidden inconsistency
+
+## Corollary: error boundaries must not manufacture success
+
+An error boundary is permitted to catch an exception and stop it from propagating. It is not permitted to then report success without having logged what it caught. A boundary that swallows an exception and returns a normal-looking result converts a real failure (a missing dependency, a failed write) into a false positive that every downstream observer — health checks, dashboards, orchestration logic — now treats as evidence the operation worked. If a boundary catches an error, it must emit a structured error signal before it returns; catching is allowed, silencing is not.

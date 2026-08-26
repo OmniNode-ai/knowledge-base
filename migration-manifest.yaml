@@ -888,18 +888,26 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
       - source_path: docs/runbooks/application-migration-ledger.md
-        bucket: A
-        destination: runbooks/application-migration-ledger.md
+        bucket: D
         owner: Jonah Gray
         sensitivity: public
         correctness_status: current
         verification_evidence: >-
-          Internal ticket citation(s) replaced with the `<ticket>`
-          placeholder (the sanitization guard forbids the literal
-          identifier; the parenthetical context next to each citation was
-          left intact so the substantive claim is unchanged).
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: pointer-live
+          Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
+          reclassified from bucket A to bucket D and removed from the public
+          knowledge base. This is a dated point-in-time evidence record of
+          one schema-migration adoption decision — specific table names,
+          live row counts, an operator ruling with dated corroboration
+          evidence — not a generic, runnable stack runbook. It should have
+          matched taxonomy decision-rule test 1 ("dated point-in-time
+          artifact... stays where it is," which explicitly routes every
+          DoD-receipt/evidence artifact to bucket D — apply the tests in
+          order and stop at first match, so an evidence artifact never
+          reaches test 3 / bucket C) at migration time and never reached
+          bucket A. It is evidence-class content: OCC (onex_change_control)
+          is the sole evidence authority; this repository cites outcomes,
+          it does not host receipts or evidence snapshots.
+        cutover_state: not-started
       - source_path: docs/runbooks/bulk-pr-operations.md
         bucket: A
         destination: runbooks/bulk-pr-operations.md
@@ -970,20 +978,20 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
       - source_path: docs/runbooks/managed-staging-canary-teardown-rollback.md
-        bucket: A
-        destination: runbooks/managed-staging-canary-teardown-rollback.md
+        bucket: C
+        destination: private-internal-kb
         owner: Jonah Gray
-        sensitivity: public
+        sensitivity: restricted
         correctness_status: current
         verification_evidence: >-
-          Internal ticket citation(s) replaced with the `<ticket>`
-          placeholder (the sanitization guard forbids the literal
-          identifier; the parenthetical context next to each citation was
-          left intact so the substantive claim is unchanged); internal host
-          references replaced with the established `<onex-host>` placeholder
-          token.
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: pointer-live
+          Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
+          reclassified from bucket A to bucket C and removed from the public
+          knowledge base. Content names our AWS account ID, region, MSK
+          cluster, RDS instance, and security-group identifiers verbatim —
+          this documents OmniNode's own cloud deployment topology, which the
+          ruling excludes even though the procedure itself was already
+          `<ticket>`/`<onex-host>` parameterized.
+        cutover_state: not-started
       - source_path: docs/runbooks/judge-compose-profile.md
         bucket: A
         destination: runbooks/judge-compose-profile.md
@@ -1007,21 +1015,20 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
       - source_path: docs/runbooks/managed-staging-canary-postgres-provisioning.md
-        bucket: A
-        destination: runbooks/managed-staging-canary-postgres-provisioning.md
+        bucket: C
+        destination: private-internal-kb
         owner: Jonah Gray
-        sensitivity: public
+        sensitivity: restricted
         correctness_status: current
         verification_evidence: >-
-          Internal ticket citation(s) replaced with the `<ticket>`
-          placeholder (the sanitization guard forbids the literal
-          identifier; the parenthetical context next to each citation was
-          left intact so the substantive claim is unchanged); internal host
-          references replaced with the established `<onex-host>` placeholder
-          token; secrets-manager vendor name genericized (prose-only
-          mentions, not code/CLI identifiers).
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: pointer-live
+          Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
+          reclassified from bucket A to bucket C and removed from the public
+          knowledge base. Content names our AWS account ID, region, and RDS
+          instance identifiers verbatim — this documents OmniNode's own
+          cloud deployment topology, which the ruling excludes even though
+          the procedure itself was already `<ticket>`/`<onex-host>`
+          parameterized.
+        cutover_state: not-started
       - source_path: docs/runbooks/stability-test-runtime-lane.md
         bucket: A
         destination: runbooks/stability-test-runtime-lane.md
@@ -1051,20 +1058,21 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: pointer-live
       - source_path: docs/runbooks/gateway-lane-deploy.md
-        bucket: A
-        destination: runbooks/gateway-lane-deploy.md
+        bucket: C
+        destination: private-internal-kb
         owner: Jonah Gray
-        sensitivity: public
+        sensitivity: restricted
         correctness_status: current
         verification_evidence: >-
-          Internal ticket citation(s) replaced with the `<ticket>`
-          placeholder (the sanitization guard forbids the literal
-          identifier; the parenthetical context next to each citation was
-          left intact so the substantive claim is unchanged); internal host
-          references replaced with the established `<onex-host>` placeholder
-          token.
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: pointer-live
+          Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
+          reclassified from bucket A to bucket C and removed from the public
+          knowledge base. Content is a deploy-pipeline runbook for
+          OmniNode's own cloud-to-on-prem hybrid gateway lane (bridges our
+          cloud MSK bus to a local broker) — a deploy pipeline over our own
+          cloud deployment, which the ruling excludes even though the
+          procedure itself was already `<ticket>`/`<onex-host>`
+          parameterized.
+        cutover_state: not-started
       - source_path: docs/runbooks/node-skill-package-install.md
         bucket: A
         destination: runbooks/node-skill-package-install.md
@@ -2072,22 +2080,23 @@ repos:
         pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
         cutover_state: moved
       - source_path: docs/governance/2026-04-27-required-gates-rollout.md
-        bucket: A
-        destination: reference/required-gates-rollout-2026-04-27.md
+        bucket: D
         owner: Jonah Gray
         sensitivity: public
         correctness_status: stale
         verification_evidence: >-
-          Dated point-in-time rollout record (3 required contexts for
-          onex_change_control at the time) sitting beside current live
-          policy. Verified live via the repo's branch protection API: 23
-          required contexts today, a materially different set. Migrated as
-          status: stale with an explicit superseded-snapshot banner rather
-          than corrected in place — updating the historical table would
-          destroy its record value; the banner points readers at live branch
-          protection as the current authority instead.
-        pointer_redirect: "Full documentation → https://github.com/OmniNode-ai/knowledge-base"
-        cutover_state: moved
+          Operator ruling, 2026-08-26 (self-hoster's-book scope removal):
+          removed from the public knowledge base and reclassified bucket A
+          -> bucket D. This is a dated point-in-time rollout record (a
+          historical enrollment action, its own per-repo coverage table, and
+          "hostile-review acknowledgements" from the original rollout) — it
+          should have matched taxonomy decision-rule test 1 ("dated
+          point-in-time artifact... stays where it is") at migration time
+          and never reached bucket A. It is evidence-class content: OCC
+          (onex_change_control) is the sole evidence authority; this
+          repository cites outcomes, it does not host receipts or rollout
+          snapshots.
+        cutover_state: not-started
 
   - repo: omnimarket
     visibility: public

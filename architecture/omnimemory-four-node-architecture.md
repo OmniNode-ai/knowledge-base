@@ -171,6 +171,14 @@ They do not perform I/O directly — they delegate to EFFECT nodes.
 
 ---
 
+## Lessons: Semantic Index and Multi-Store Query Latency
+
+**Embed the semantic unit that captures a conclusion, not an activity.** When `node_semantic_analyzer_compute` generates embeddings for the semantic index, what gets embedded determines what similarity search returns. Embedding decisions — what was concluded — returns more actionable results for a "find similar prior work" query than embedding tasks — what was attempted. A task description and its outcome can diverge; the outcome is usually what a later search is actually looking for.
+
+**Multi-store synthesis is latency-sensitive.** `node_memory_retrieval_effect` queries Qdrant, PostgreSQL, and Memgraph as three independent backends — each serves a distinct query pattern (semantic similarity, point/range lookup, graph traversal) that the others don't serve efficiently. Querying them sequentially sums their individual latencies; querying them in parallel with a timeout keeps end-to-end retrieval latency bounded by the slowest backend instead of the total, and prevents one slow backend from blocking a retrieval that needs a bounded response time.
+
+---
+
 ## Naming Convention
 
 All nodes follow the pattern `Node<Name><Type>` mapped to files named

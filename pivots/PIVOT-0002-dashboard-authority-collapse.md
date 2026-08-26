@@ -89,7 +89,7 @@ The truth-must-be-proven doctrine reinforces the verification implication: dashb
 - `adrs/ADR-0003-registration-runtime-registry-boundary.md` — establishes the registry projection as the canonical truth surface, explicitly rejecting runtime memory and legacy compatibility views as read authority
 - `adrs/ADR-0004-registry-owned-consumer-surface.md` — names the canonical registry projection surface that downstream consumers including the dashboard must read from
 
-## Related Deep Dives
+## Related Incident Analysis
 
 The registration system was the most concentrated demonstration of this problem. Multiple surfaces — runtime in-memory state, projection tables, legacy compatibility views — each represented "the truth" about node registration state to different consumers. The ADRs establishing the registry boundary were direct products of this pivot's analysis applied to the registration domain.
 

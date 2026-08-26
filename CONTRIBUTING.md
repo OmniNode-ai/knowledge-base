@@ -12,7 +12,7 @@ One constraint from the taxonomy binds contributions today:
 
 - **No content has migrated yet.** [`migration-manifest.yaml`](migration-manifest.yaml) holds the planned per-repository mapping; every row is at `not-started`.
 
-The `guides/`, `reference/`, and `runbooks/` sections are now open: the validator recognizes all eleven artifact classes and discovers files recursively, so nested paths are validated rather than silently skipped. A file placed anywhere the validator doesn't recognize — a new top-level directory, an unexpected root file — fails the build instead of going unscanned.
+The `guides/`, `reference/`, and `runbooks/` sections are now open: the validator recognizes all nine artifact classes and discovers files recursively, so nested paths are validated rather than silently skipped. A file placed anywhere the validator doesn't recognize — a new top-level directory, an unexpected root file — fails the build instead of going unscanned.
 
 ## Proposing New Artifacts
 
@@ -35,12 +35,6 @@ The `guides/`, `reference/`, and `runbooks/` sections are now open: the validato
 2. Status starts as `emerging` until operational evidence confirms the new model
 3. The "Original Assumption" and "Failure Modes Observed" sections are required — these are the most valuable parts
 
-### Deep Dives
-
-1. Copy [`deep-dives/_template.md`](deep-dives/_template.md) to `deep-dives/YYYY-MM-DD-short-title.md`
-2. Deep dives are narrative records — they do not need to be exhaustive, but they should identify candidate ADRs and pivots that emerged
-3. After adding a new deep dive, update both the **Curated Deep Dives** table and the **Cross-References to Doctrine** table in [`deep-dives/README.md`](deep-dives/README.md). These tables are hand-maintained and are not updated by `generate_indexes.py`.
-
 ### Experiments
 
 1. Copy [`experiments/_template.md`](experiments/_template.md) to `experiments/YYYY-MM-DD-short-title.md`
@@ -59,7 +53,7 @@ Every artifact file must begin with valid YAML frontmatter:
 
 ```yaml
 ---
-type: adr | architecture | pivot | deep-dive | experiment | doctrine | evidence | plan | guide | reference | runbook
+type: adr | architecture | pivot | experiment | doctrine | plan | guide | reference | runbook
 status: <lifecycle status for the type>
 date: YYYY-MM-DD
 title: "Descriptive title"

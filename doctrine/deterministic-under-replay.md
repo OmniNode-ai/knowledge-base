@@ -9,8 +9,6 @@ refs:
   - doctrine/reducers-define-state-progression.md
   - doctrine/canonical-reducers-win.md
   - adrs/ADR-0005-dispatch-lifecycle-canonical.md
-  - deep-dives/2026-02-27-kafka-connection-limit-outage.md
-  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 ---
 
 # Systems Must Be Deterministic Under Replay

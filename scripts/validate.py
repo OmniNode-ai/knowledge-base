@@ -26,18 +26,21 @@ from sanitization_patterns import (  # noqa: E402  (path setup must precede impo
 # Re-exported so importers of validate continue to find these names.
 __all__ = ["SANITIZATION_PATTERNS", "scan_text"]
 
-# The eight provenance sections (frontmatter-validated, dated artifact types)
+# The six provenance sections (frontmatter-validated, dated artifact types)
 # plus the three consumer sections opened by this module (guides, reference,
 # runbooks — task-oriented, factual, and operational documentation with their
-# own frontmatter models but no decision-ledger semantics).
+# own frontmatter models but no decision-ledger semantics). `deep-dives` and
+# `evidence` were removed 2026-08-26 (self-hoster's-book scope ruling):
+# operational journals never migrate here (durable insight is promoted into
+# doctrine/ADR pages instead), and OCC (onex_change_control) is the sole
+# evidence authority — this repository cites outcomes, it does not host
+# receipts.
 ARTIFACT_DIRS = [
     "adrs",
     "architecture",
     "doctrine",
     "pivots",
-    "deep-dives",
     "experiments",
-    "evidence",
     "plans",
     "guides",
     "reference",
@@ -82,9 +85,7 @@ class BaseFrontmatter(BaseModel):
         "adr",
         "architecture",
         "pivot",
-        "deep-dive",
         "experiment",
-        "evidence",
         "plan",
         "guide",
         "reference",
@@ -122,22 +123,11 @@ class PivotFrontmatter(BaseFrontmatter):
     confidence: Literal["low", "medium", "high"]
 
 
-class DeepDiveFrontmatter(BaseFrontmatter):
-    type: Literal["deep-dive"]
-    status: Literal["draft", "public-curated"]
-    period: str
-
-
 class ExperimentFrontmatter(BaseFrontmatter):
     type: Literal["experiment"]
     status: Literal["proposed", "active", "completed"]
     hypothesis: str
     outcome: Literal["confirmed", "refuted", "inconclusive"] | None = None
-
-
-class EvidenceFrontmatter(BaseFrontmatter):
-    type: Literal["evidence"]
-    status: Literal["draft", "accepted", "superseded"]
 
 
 class PlanFrontmatter(BaseFrontmatter):
@@ -186,9 +176,7 @@ AnyFrontmatter = (
     Annotated[ADRFrontmatter, Tag("adr")]
     | Annotated[DoctrineFrontmatter, Tag("doctrine")]
     | Annotated[PivotFrontmatter, Tag("pivot")]
-    | Annotated[DeepDiveFrontmatter, Tag("deep-dive")]
     | Annotated[ExperimentFrontmatter, Tag("experiment")]
-    | Annotated[EvidenceFrontmatter, Tag("evidence")]
     | Annotated[PlanFrontmatter, Tag("plan")]
     | Annotated[ArchitectureFrontmatter, Tag("architecture")]
     | Annotated[GuideFrontmatter, Tag("guide")]

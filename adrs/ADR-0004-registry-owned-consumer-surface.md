@@ -10,8 +10,6 @@ refs:
   - doctrine/state-is-materialized-projection.md
   - doctrine/ingestion-and-interpretation-separate.md
   - adrs/ADR-0003-registration-runtime-registry-boundary.md
-  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
-  - deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md
 supersedes: []
 superseded_by: []
 ---

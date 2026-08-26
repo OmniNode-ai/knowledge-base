@@ -149,9 +149,9 @@ Node announces current capabilities.
   },
   "metadata": {
     "environment": "production",
-    "region": "us-east-1"
+    "region": "<deployment-region>"
   },
-  "network_id": "onex-prod",
+  "network_id": "<deployment-network-id>",
   "deployment_id": "deploy-abc123",
   "epoch": 1
 }

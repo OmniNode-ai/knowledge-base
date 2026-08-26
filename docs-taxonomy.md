@@ -2,7 +2,9 @@
 
 This document is the spec that decides **where any OmniNode document lives**. Every documentation migration PR cites a row of it. It is the contract between this repository and the product repositories: the knowledge base is canonical for external documentation, and product repos keep only what must physically ship beside their code.
 
-Status: **adopted**, all eleven sections open. Content migration is in progress, repo by repo — see [Current state](#current-state-what-is-and-is-not-live-yet) for what has and has not moved yet.
+Status: **adopted**, all nine sections open. Content migration is in progress, repo by repo — see [Current state](#current-state-what-is-and-is-not-live-yet) for what has and has not moved yet.
+
+**This repository is the self-hoster's book.** The goal is that everything needed to run the ONEX platform independently — its principles, its decisions, its architecture, its operational procedures — is documented here, generically and reproducibly. Two things are deliberately excluded even though they would otherwise pass the tests below: **OmniNode's own cloud deployment topology** (AWS account/region/resource identifiers, `onex-prod`/`onex-dev` cluster internals, deploy pipelines for our specific hybrid infrastructure) and **the public web properties** (`omniweb` internals). Neither is platform architecture a self-hoster needs; both are product-specific operational detail. A document that is otherwise Bucket A but discloses either is not published here — see the note under Bucket C.
 
 ---
 
@@ -10,9 +12,9 @@ Status: **adopted**, all eleven sections open. Content migration is in progress,
 
 Exactly one bucket per document. Apply the tests in order and stop at the first match — the ordering is the rule, not a suggestion, because several documents match more than one description.
 
-1. **Is it a dated point-in-time artifact?** An evidence bundle, an audit snapshot, a receipt, a run transcript — something whose value is that it records a specific moment. → **Bucket D.** It stays where it is. Updating it destroys the thing that made it worth keeping.
+1. **Is it a dated point-in-time artifact?** An evidence bundle, an audit snapshot, a receipt, a run transcript — something whose value is that it records a specific moment. → **Bucket D.** It stays where it is. Updating it destroys the thing that made it worth keeping. **This includes every operational journal (a "deep dive" in this repository's prior taxonomy) and every DoD-receipt/evidence artifact of any kind — OCC (`onex_change_control`) is the sole evidence authority; this repository cites outcomes in its decision records, it never hosts the receipts.** When a journal or evidence document also carries a durable, generalizable insight, that insight is promoted into a doctrine or ADR page (small, faithful extraction) and the journal itself still does not migrate.
 2. **Is it on the closed Bucket-B list below?** The list is closed; being "important" or "frequently read" does not add a document to it. → **Bucket B.** Stays in the repo, trimmed to minimum, carries the pointer.
-3. **Is its content sensitive after scrubbing?** Not "does it contain an address" — that is fixed by scrubbing. This asks whether the *substance* discloses something that should not be public: security-scanner configuration, secret-handling flow, or a list of what bypasses a detection control. → **Bucket C.** Never migrates here — routes to a private, teammate-accessible internal documentation home instead.
+3. **Is its content sensitive after scrubbing?** Not "does it contain an address" — that is fixed by scrubbing. This asks whether the *substance* discloses something that should not be public: security-scanner configuration, secret-handling flow, a list of what bypasses a detection control, **OmniNode's own cloud deployment topology (AWS/`onex-prod`/`onex-dev` internals, deploy pipelines for our specific infrastructure), or web-property internals (`omniweb`)**. → **Bucket C.** Never migrates here — routes to a private, teammate-accessible internal documentation home instead.
 4. **Everything else** → **Bucket A.** The knowledge base. This is the default, not the exception.
 
 The common error is reaching for Bucket B because a document feels repo-specific. A guide to using one component is still Bucket A: it describes the platform, and a reader should not need to know which repository implements a thing in order to find out how to use it.
@@ -31,9 +33,7 @@ Anything an external reader or contributor consumes to understand *the platform*
 | `adrs/` | Architecture Decision Records — the formal decision ledger |
 | `architecture/` | Technical Design Documents — primitives, boundaries, runtime flow, proof requirements |
 | `pivots/` | Fundamental changes in understanding, with the assumption that failed |
-| `deep-dives/` | Curated narrative records of architectural evolution |
 | `experiments/` | Hypothesis-driven experiments with structured outcomes |
-| `evidence/` | Links between architectural claims and durable proof artifacts |
 | `plans/` | Selected implementation plans showing intended work and proposed paths |
 | `indexes/` | Generated browse-by-date/topic/type indexes |
 | `schemas/` | Generated frontmatter JSON schema |
@@ -124,7 +124,7 @@ Where a procedure needs a real value to be operable, the value belongs in a rest
 
 Honest accounting, so nobody files a document into a section that cannot yet hold it.
 
-- **All eleven sections are live** and validated on every PR — the provenance sections plus `guides/`, `reference/`, and `runbooks/`. The validator recognizes all eleven artifact classes, discovers files recursively within every section, and fails closed on any `.md`/`.yaml`/`.yml` file outside a recognized location (a declared section, a generated-content directory, or the root-file allowlist) rather than silently skipping it.
+- **All nine sections are live** and validated on every PR — the provenance sections plus `guides/`, `reference/`, and `runbooks/`. The validator recognizes all nine artifact classes, discovers files recursively within every section, and fails closed on any `.md`/`.yaml`/`.yml` file outside a recognized location (a declared section, a generated-content directory, or the root-file allowlist) rather than silently skipping it. (`deep-dives/` and `evidence/` were live sections through 2026-08-25 and were removed 2026-08-26 under the self-hoster's-book scope ruling — see test 1 above.)
 - **Content migration has begun, one repo at a time.** As of 2026-08-25, this section was stale even before this edit — it named only the first migrated repository while four more had already landed. Corrected: five repositories now have manifest entries at repo-level `cutover_state: moved` with a per-document row for every Bucket-A candidate — `omnibase_core` (`docs/decisions/**` + `docs/standards/**` + `docs/troubleshooting/**`), `omniclaude` (`docs/architecture/**` + `docs/guides/**` + `docs/standards/**`), `omnimemory` (`docs/architecture/**` + `docs/runtime/**` + `docs/migrations/**`, every row already bumped to `cutover_state: pointer-live`), `omnibase_infra` (`docs/architecture/**` + `docs/guides/**` + `docs/runbooks/**`, most rows `pointer-live`), and `onex_change_control` (`docs/standards/**` + `docs/policy/**` + `docs/governance/**`, one bucket-B exception retained in-repo). Every other repository's manifest entry is still at `cutover_state: not-started`.
 - **The drift guard is built and fixture-proven, but not wired into any product repo yet.** `scripts/docs_drift_guard.py` in this repository enforces both rules — bucket-A re-growth and the bucket-B pointer/size budget — and `.github/workflows/docs-drift-guard-reusable.yml` packages it as one reusable workflow a product repo's own CI can call. No product repo calls it yet, so today nothing actually stops a repository from re-growing a copy of a document that has moved here — the guard has code, tests, and (for `omnibase_core`) real manifest rows to check against, but not live enforcement.
 

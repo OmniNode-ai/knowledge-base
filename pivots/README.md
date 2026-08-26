@@ -13,7 +13,7 @@ Pivots exist because architectures do not fail suddenly. They accumulate pressur
 Key properties:
 - A pivot is about **understanding**, not output. The codebase may or may not change when a pivot is accepted; what always changes is the mental model used to reason about the system.
 - Pivots are **durable**. Once accepted, a pivot remains in the record even if later superseded. The history of understanding is part of the system's history.
-- Pivots are **evidenced**. A pivot without evidence artifacts (deep dives, incident records, test failures) is a hypothesis, not a pivot. Evidence anchors the pivot to observable system behavior.
+- Pivots are **evidenced**. A pivot without a traceable outcome behind it (an incident record, a test failure, a cited PR or OCC receipt) is a hypothesis, not a pivot. Evidence anchors the pivot to observable system behavior — cited, not hosted here; OCC (`onex_change_control`) is the sole evidence authority.
 
 ---
 
@@ -105,9 +105,9 @@ Use `_template.md` as the starting point. Each section serves a specific purpose
 
 **`Related ADRs`** — ADRs that were triggered by or informed this pivot. Include ADRs that were *invalidated* by the pivot, not just new ones.
 
-**`Related Deep Dives`** — Evidence artifacts that document the pressure events, incident analyses, or session records that support this pivot.
+**`Related Incident Analysis`** — A summary, in this pivot's own words, of the pressure events or incident analyses that support it. Cite tickets or outcomes by reference (not internal identifiers); do not host the incident write-up itself here.
 
-**`Evidence`** — Specific, traceable proof that the new model holds. This may include: test results, system metrics, integration verification receipts, incident resolution records, or architectural diagrams. Evidence should be verifiable — not "we believe the new model is better" but "these artifacts demonstrate the new model is correct."
+**`Evidence`** — Specific, traceable proof that the new model holds, cited by reference: a PR, a CI run, an OCC receipt, a system metric. Evidence should be verifiable — not "we believe the new model is better" but "this cited outcome demonstrates the new model is correct." This section links to proof; it does not reproduce it.
 
 **`Consequences`** — What the accepted pivot implies going forward. What work is now required? What previous work may need revisiting? What new constraints apply?
 
@@ -119,9 +119,9 @@ Use `_template.md` as the starting point. Each section serves a specific purpose
 
 **ADRs.** Pivots explain *why* the context for decisions changed. ADRs record the specific decisions made under the new context. A cluster of ADRs that all cite the same new constraint is often evidence that a pivot is needed to capture the root cause of that constraint.
 
-**Deep Dives.** Deep dive documents are the primary evidence source for pivots. A deep dive that concludes "our previous model was wrong about X" is a direct pivot candidate. When a deep dive is promoted to pivot evidence, reference it in the `Related Deep Dives` section.
+**Operational incidents.** An internal postmortem or work session that concludes "our previous model was wrong about X" is a direct pivot candidate. That narrative record stays internal (this repository does not host operational journals); the pivot itself is the durable, public distillation of what changed and why, referenced in the `Related Incident Analysis` section.
 
-**Evidence artifacts.** Integration verification receipts, DoD evidence records, and incident postmortems all serve as pivot evidence. The `Evidence` section of a pivot should link to these artifacts, not summarize them.
+**Evidence artifacts.** Integration verification receipts, DoD evidence records, and incident postmortems all serve as pivot evidence, held in OCC (`onex_change_control`) — the sole evidence authority. The `Evidence` section of a pivot should cite these artifacts by reference, not host or reproduce them.
 
 **Tickets.** A pivot at `Emerging` or `Accepted` status typically has one or more associated tickets: doctrine updates, ADR authoring, code changes that follow from the new model. Reference these in `Consequences`.
 

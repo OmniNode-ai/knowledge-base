@@ -10,7 +10,6 @@ refs:
   - doctrine/canonical-reducers-win.md
   - doctrine/deterministic-under-replay.md
   - doctrine/evidence-is-first-class-output.md
-  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 supersedes: []
 superseded_by: []
 ---

@@ -41,7 +41,7 @@ Which doctrine changed or emerged.
 
 ## Related ADRs
 
-## Related Deep Dives
+## Related Incident Analysis
 
 ## Evidence
 

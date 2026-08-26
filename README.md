@@ -10,7 +10,7 @@ The canonical home for OmniNode's external documentation — the single source o
 
 ---
 
-This repository is the canonical home for OmniNode's external documentation — the single source of truth for how the platform works, how to use it, and why it is shaped the way it is. Product repositories keep only what must physically ship beside their code, and point here for everything else.
+Product repositories keep only what must physically ship beside their code, and point here for everything else — see **[The charter](#the-charter)** below for exactly what that scope includes and deliberately excludes.
 
 ## What This Is
 
@@ -18,11 +18,13 @@ Two kinds of documentation live here, and telling them apart is what makes the c
 
 **Consumer documentation** answers *how do I use this*: guides, cross-repository reference, and operational runbooks. It is written for someone building against OmniNode, and it is deliberately independent of any single repository's release tag — so that finding out how something works never requires first knowing which repository implements it.
 
-**Architectural provenance** answers *why is it like this*: plans, technical designs, decision records, pivots, doctrine, experiments, and durable evidence. Rather than architecture existing only in the heads of contributors or scattered across pull request descriptions, this repository makes the full evolutionary arc visible — what was decided, what changed, and what the evidence was.
+**Architectural provenance** answers *why is it like this*: plans, technical designs, decision records, pivots, doctrine, and experiments. Rather than architecture existing only in the heads of contributors or scattered across pull request descriptions, this repository makes the full evolutionary arc visible — what was decided, what changed, and what the evidence was.
 
 ## The charter
 
-The knowledge base is canonical for all external product, platform, architecture, and how-to documentation.
+This is the **self-hoster's book**: everything needed to run the ONEX platform independently — its principles, its decisions, its architecture, and how to operate it — is documented here, generically and reproducibly. Two things are deliberately excluded: **OmniNode's own cloud deployment topology** (AWS account/cluster internals, deploy pipelines for our specific hybrid infrastructure) and **the public web properties**. Neither is platform architecture; both are our own product operations. Operational journals (narrative work logs) and evidence/receipt artifacts also stay out — a journal's durable insight is promoted into a doctrine or ADR page instead of the journal migrating, and OCC (`onex_change_control`) is the sole evidence authority, so this repository cites outcomes rather than hosting receipts. See [docs-taxonomy.md](docs-taxonomy.md) for the full decision rule.
+
+The knowledge base is canonical for all external product, platform, architecture, and how-to documentation within that scope.
 
 A product repository keeps a closed set of documents that cannot meaningfully live anywhere else: its landing README, its contribution guide, its executable installers, its versioned API reference tied to a release tag, its agent operating context, and the platform-convention files expected at fixed paths. Each of those is trimmed to the minimum that serves its purpose and carries a pointer here. Everything else is canonical, lives here, and exists in exactly one place.
 
@@ -38,10 +40,8 @@ The rule for deciding where any individual document belongs is written down, not
 | [`adrs/`](adrs/README.md) | Architecture Decision Records — the formal decision ledger |
 | [`architecture/`](architecture/README.md) | Technical Design Documents describing platform architecture — primitives, boundaries, runtime flow, and proof requirements |
 | [`pivots/`](pivots/README.md) | Architectural pivots capturing fundamental changes in understanding |
-| [`deep-dives/`](deep-dives/README.md) | Curated narrative records of architectural evolution |
 | [`plans/`](plans/README.md) | Selected implementation plans showing intended work and proposed paths |
 | [`experiments/`](experiments/README.md) | Hypothesis-driven experiments with structured outcomes |
-| [`evidence/`](evidence/README.md) | Links between architectural claims and durable proof artifacts |
 | [`indexes/`](indexes/README.md) | Auto-generated indexes for browsing artifacts by date, topic, or type |
 | [`guides/`](guides/README.md) | Task-oriented how-to documentation |
 | [`reference/`](reference/README.md) | Cross-repository factual reference |
@@ -75,6 +75,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose new artifacts, the PR 
 uv run python scripts/validate.py
 ```
 
-`scripts/validate.py` runs seven checks: a registered-location sweep (every `.md`/`.yaml`/`.yml` file in the repository must live in a declared section, a generated-content directory, or the root-file allowlist, or the build fails closed), frontmatter schema (a discriminated Pydantic union, one model per artifact type, across all eleven sections), ADR identifier uniqueness (two ADRs must never share an `adr_id`; a narrow, exact-path-scoped exemption covers only the one already-known collision pending decision-record-owner sign-off — see `adrs/README.md`), `refs:` cross-reference integrity, sanitization (no internal information in public content — every artifact file at any depth, the generated `indexes/`, and repository-root documents and checked-in YAML), index freshness (committed `indexes/` match generated output), and broken relative markdown links. Discovery is recursive throughout, so a document nested in a subdirectory of any section is checked rather than silently skipped. A separate gate, `scripts/check_text_sanitization.py`, scans commit messages and PR title/body against the same forbidden-pattern list — both share `scripts/sanitization_patterns.py` as the single source of patterns.
+`scripts/validate.py` runs seven checks: a registered-location sweep (every `.md`/`.yaml`/`.yml` file in the repository must live in a declared section, a generated-content directory, or the root-file allowlist, or the build fails closed), frontmatter schema (a discriminated Pydantic union, one model per artifact type, across all nine sections), ADR identifier uniqueness (two ADRs must never share an `adr_id`; a narrow, exact-path-scoped exemption covers only the one already-known collision pending decision-record-owner sign-off — see `adrs/README.md`), `refs:` cross-reference integrity, sanitization (no internal information in public content — every artifact file at any depth, the generated `indexes/`, and repository-root documents and checked-in YAML), index freshness (committed `indexes/` match generated output), and broken relative markdown links. Discovery is recursive throughout, so a document nested in a subdirectory of any section is checked rather than silently skipped. A separate gate, `scripts/check_text_sanitization.py`, scans commit messages and PR title/body against the same forbidden-pattern list — both share `scripts/sanitization_patterns.py` as the single source of patterns.
 
 <!-- verified against scripts/validate.py, scripts/check_text_sanitization.py, scripts/sanitization_patterns.py, and .github/workflows/ci.yml on the 2026-08-19 adr_id-uniqueness refresh -->

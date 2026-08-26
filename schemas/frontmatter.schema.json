@@ -126,61 +126,6 @@
       "title": "ArchitectureFrontmatter",
       "type": "object"
     },
-    "DeepDiveFrontmatter": {
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "const": "deep-dive",
-          "title": "Type",
-          "type": "string"
-        },
-        "status": {
-          "enum": [
-            "draft",
-            "public-curated"
-          ],
-          "title": "Status",
-          "type": "string"
-        },
-        "date": {
-          "title": "Date",
-          "type": "string"
-        },
-        "title": {
-          "title": "Title",
-          "type": "string"
-        },
-        "topics": {
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "title": "Topics",
-          "type": "array"
-        },
-        "refs": {
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "title": "Refs",
-          "type": "array"
-        },
-        "period": {
-          "title": "Period",
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "status",
-        "date",
-        "title",
-        "period"
-      ],
-      "title": "DeepDiveFrontmatter",
-      "type": "object"
-    },
     "DoctrineFrontmatter": {
       "additionalProperties": false,
       "properties": {
@@ -230,57 +175,6 @@
         "title"
       ],
       "title": "DoctrineFrontmatter",
-      "type": "object"
-    },
-    "EvidenceFrontmatter": {
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "const": "evidence",
-          "title": "Type",
-          "type": "string"
-        },
-        "status": {
-          "enum": [
-            "draft",
-            "accepted",
-            "superseded"
-          ],
-          "title": "Status",
-          "type": "string"
-        },
-        "date": {
-          "title": "Date",
-          "type": "string"
-        },
-        "title": {
-          "title": "Title",
-          "type": "string"
-        },
-        "topics": {
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "title": "Topics",
-          "type": "array"
-        },
-        "refs": {
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "title": "Refs",
-          "type": "array"
-        }
-      },
-      "required": [
-        "type",
-        "status",
-        "date",
-        "title"
-      ],
-      "title": "EvidenceFrontmatter",
       "type": "object"
     },
     "ExperimentFrontmatter": {
@@ -644,13 +538,7 @@
       "$ref": "#/$defs/PivotFrontmatter"
     },
     {
-      "$ref": "#/$defs/DeepDiveFrontmatter"
-    },
-    {
       "$ref": "#/$defs/ExperimentFrontmatter"
-    },
-    {
-      "$ref": "#/$defs/EvidenceFrontmatter"
     },
     {
       "$ref": "#/$defs/PlanFrontmatter"

@@ -89,5 +89,5 @@ Principle 1 — truth requires durable, observable evidence.
 
 - Doctrine constrains **ADRs** — decisions must be compatible with active doctrine
 - Doctrine emerges from **Pivots** — fundamental understanding shifts produce new principles
-- Doctrine is validated by **Evidence** — runtime behavior proves principles hold
-- Doctrine is explored in **Deep Dives** — narrative records surface doctrine pressure
+- Doctrine is validated by outcomes — runtime behavior proves principles hold, cited (a PR, a CI run, an OCC receipt) rather than hosted here; OCC (`onex_change_control`) is the sole evidence authority
+- Doctrine is tested by operational pressure — recurring incidents and friction are what surface a candidate Pivot or ADR in the first place

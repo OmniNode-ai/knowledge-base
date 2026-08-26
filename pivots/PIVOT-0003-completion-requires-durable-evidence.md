@@ -98,7 +98,7 @@ The data verification invocation ADR is a direct application: it defines the exa
 
 - `adrs/ADR-0002-data-verification-invocation.md` — defines the canonical evidence format and blocking semantics for data verification receipts, explicitly rejecting advisory-only modes
 
-## Related Deep Dives
+## Related Incident Analysis
 
 The pressure that crystallized this pivot was the investigation following the platform registry incident: a feature marked Done after multiple PRs and passing CI, discovered broken in production when the dashboard still showed stale data. The root cause was an integration test that checked `count > 0` against a projection populated with stub data, passing silently while real node registration events were not reaching the projection.
 

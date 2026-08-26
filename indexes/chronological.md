@@ -7,6 +7,7 @@ All knowledge base artifacts sorted by date.
 ## 2026-08
 
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
+- **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook) — 2026-08-26
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture) — 2026-08-25
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture) — 2026-08-25
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture) — 2026-08-25
@@ -43,8 +44,6 @@ All knowledge base artifacts sorted by date.
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook) — 2026-08-19
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture) — 2026-08-18
 - **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook) — 2026-08-15
-- **[Application migration ledger](runbooks/application-migration-ledger.md)** (runbook) — 2026-08-04
-- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** (runbook) — 2026-08-01
 ## 2026-07
 
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook) — 2026-07-31
@@ -70,8 +69,6 @@ All knowledge base artifacts sorted by date.
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide) — 2026-07-21
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook) — 2026-07-21
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook) — 2026-07-21
-- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** (runbook) — 2026-07-21
-- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** (runbook) — 2026-07-21
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook) — 2026-07-21
 - **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook) — 2026-07-21
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook) — 2026-07-21
@@ -114,7 +111,6 @@ All knowledge base artifacts sorted by date.
 ## 2026-05
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
-- **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** (deep-dive) — 2026-05-30
 - **[Authoritative Projections Own Truth](doctrine/authoritative-projections-own-truth.md)** (doctrine) — 2026-05-23
 - **[Canonical Reducers Win](doctrine/canonical-reducers-win.md)** (doctrine) — 2026-05-23
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine) — 2026-05-23
@@ -140,26 +136,19 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr) — 2026-04-28
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr) — 2026-04-28
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr) — 2026-04-28
-- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** (reference) — 2026-04-28
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr) — 2026-04-27
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr) — 2026-04-23
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr) — 2026-04-23
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr) — 2026-04-23
-- **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** (deep-dive) — 2026-04-20
-- **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** (deep-dive) — 2026-04-14
 ## 2026-03
 
-- **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** (deep-dive) — 2026-03-28
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr) — 2026-03-25
 ## 2026-02
 
-- **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** (deep-dive) — 2026-02-27
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference) — 2026-02-24
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
-- **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** (deep-dive) — 2026-02-18
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference) — 2026-02-14
-- **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** (deep-dive) — 2026-02-04
 ## 2026-01
 
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr) — 2026-01-18
