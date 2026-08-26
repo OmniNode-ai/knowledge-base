@@ -14,6 +14,18 @@ One constraint from the taxonomy binds contributions today:
 
 The `guides/`, `reference/`, and `runbooks/` sections are now open: the validator recognizes all nine artifact classes and discovers files recursively, so nested paths are validated rather than silently skipped. A file placed anywhere the validator doesn't recognize — a new top-level directory, an unexpected root file — fails the build instead of going unscanned.
 
+## File Naming Convention
+
+Every artifact filename is lowercase kebab-case (`[a-z0-9]+(-[a-z0-9]+)*`), with the prefix determined by what kind of record the section holds. `scripts/validate.py` enforces this (`check_naming_convention`); `README.md` and `_template.md` are exempt everywhere.
+
+| Shape | Sections | Example |
+|---|---|---|
+| `ID-NNNN-kebab-title.md` | `adrs/` (`ADR-`), `pivots/` (`PIVOT-`) | `adrs/ADR-0038-ci-workflow-modification-risk.md` |
+| `YYYY-MM-DD-kebab-title.md` | `experiments/`, `plans/` | `experiments/2026-08-19-cache-warm-latency.md` |
+| `kebab-title.md` (no date) | `doctrine/`, `architecture/`, `guides/`, `reference/`, `runbooks/` | `architecture/message-dispatch-engine.md` |
+
+The numbered-id sections are decision-ledger records — the id matches the record's own `adr_id` (or pivot equivalent) in frontmatter and never changes once assigned. The dated sections are point-in-time records: written once, not revised afterward, so the date is load-bearing identity. The undated sections are living reference documents revised in place over a `draft` → `accepted` → `superseded`/`deprecated` lifecycle; every section still carries a required `date:` frontmatter field (it drives `indexes/chronological.md`), it is simply not duplicated into the filename — a filename date on a document that gets revised goes stale the moment the document is next edited, which is exactly what happened to `architecture/` before this convention was enforced.
+
 ## Proposing New Artifacts
 
 ### Architecture Decision Records (ADRs)
@@ -25,7 +37,7 @@ The `guides/`, `reference/`, and `runbooks/` sections are now open: the validato
 
 ### Architecture Technical Designs
 
-1. Copy [`architecture/_template.md`](architecture/_template.md) to `architecture/YYYY-MM-DD-short-title.md`
+1. Copy [`architecture/_template.md`](architecture/_template.md) to `architecture/short-title.md` — **no date in the filename.** A TDD is a living reference document, revised in place over its lifecycle (`draft` → `accepted` → `superseded`/`deprecated`); the authoring date belongs in the `date:` frontmatter field only, the same field `indexes/chronological.md` is generated from. A dated filename on a document that gets revised goes stale the moment it is next edited.
 2. Status starts as `draft`; set to `accepted` once the design is ratified
 3. Capture Purpose, Scope, Non-Goals, Design Principles, and Acceptance Criteria; distinguish current vs. target state honestly
 
@@ -40,6 +52,12 @@ The `guides/`, `reference/`, and `runbooks/` sections are now open: the validato
 1. Copy [`experiments/_template.md`](experiments/_template.md) to `experiments/YYYY-MM-DD-short-title.md`
 2. State the hypothesis clearly before running the experiment
 3. Record the actual result honestly — "refuted" is a valid and valuable outcome
+
+### Plans
+
+1. Add `plans/YYYY-MM-DD-short-title.md` — a plan is a point-in-time record of an intended implementation path, not updated after the work is done (see [`plans/README.md`](plans/README.md)), so it carries the same date-prefixed shape as an experiment
+2. Only plans that capture architectural intent worth preserving belong here — one that shaped how the system was built, was significantly revised, or contains reasoning about alternatives
+3. Once the work is done, capture what actually happened in an ADR or pivot instead of updating the plan
 
 ### Guides, Reference, and Runbooks
 

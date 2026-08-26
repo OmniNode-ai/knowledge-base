@@ -41,7 +41,7 @@ A TDD moves from `draft` to `accepted` via PR review. When a later TDD renders a
 
 ## How to Propose a New Architecture TDD
 
-1. Copy `_template.md` to `architecture/YYYY-MM-DD-short-title.md` (date the design was authored).
+1. Copy `_template.md` to `architecture/short-title.md` — no date in the filename; a TDD is a living reference revised in place, so the authoring date lives in the `date:` frontmatter field only (see [CONTRIBUTING.md](../CONTRIBUTING.md#file-naming-convention)).
 2. Fill in the frontmatter: `status: draft`, the `title` (prefixed `Technical Design:`), `date`, and the `topics` / `refs` lists.
 3. Write the body sections: Purpose, Scope, Non-Goals, Design Principles, the subsystem-specific design sections, Current Versus Target State, and Acceptance Criteria.
 4. Open a PR for review.
@@ -53,4 +53,4 @@ Keep a TDD focused on one subsystem or one cross-cutting concern. If background 
 
 | Date | Title | Status |
 |------|-------|--------|
-| [2026-05-31](2026-05-31-omninode-architecture-technical-design.md) | Technical Design: OmniNode Platform Architecture | accepted |
+| [2026-05-31](omninode-architecture-technical-design.md) | Technical Design: OmniNode Platform Architecture | accepted |

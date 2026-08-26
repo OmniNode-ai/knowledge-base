@@ -48,6 +48,46 @@ ARTIFACT_DIRS = [
 ]
 SKIP_FILES = {"_template.md", "README.md"}
 
+# Filename-shape convention. Every section falls into exactly one of three
+# shapes (derived from the live tree + docs-taxonomy.md's dated-artifact
+# test, not invented independently of it):
+#   - "ADR-NNNN-kebab-title.md" / "PIVOT-NNNN-kebab-title.md" — a numbered
+#     decision-ledger identifier, never a date, matching the record's own
+#     adr_id (or pivot id) already carried in frontmatter.
+#   - "YYYY-MM-DD-kebab-title.md" — a point-in-time record, frozen once
+#     written; the date is load-bearing identity, not incidental metadata
+#     (experiments/, plans/ — see their README.md files: neither is updated
+#     after the fact).
+#   - "kebab-title.md", no date, no numbered id — a standing reference
+#     document that is revised in place (doctrine/, architecture/, guides/,
+#     reference/, runbooks/). Its date lives in frontmatter only:
+#     generate_indexes.py reads frontmatter exclusively and never parses the
+#     filename, so a filename date on a living doc is pure duplication that
+#     goes stale the moment the doc is next revised — the defect this rule
+#     closes (architecture/ carried 13 dated filenames before this pass).
+# README.md / _template.md are exempt (SKIP_FILES, checked by _find_artifact_files
+# before this pattern is ever consulted) — fixed conventional names, not
+# content-word filenames.
+_KEBAB_WORD = r"[a-z0-9]+(?:-[a-z0-9]+)*"
+# A living-section name must not itself look date-prefixed — digits are
+# otherwise legal kebab characters (e.g. "omnimemory-arch-002-kafka-
+# abstraction.md"), so a bare _KEBAB_WORD match alone would silently accept
+# "2026-07-21-first-subsystem.md" too. The negative lookahead rejects
+# specifically a leading YYYY-MM-DD- run without disallowing digits elsewhere
+# in the name.
+_LIVING = re.compile(rf"^(?!\d{{4}}-\d{{2}}-\d{{2}}-){_KEBAB_WORD}\.md$")
+_NAMING_PATTERNS: dict[str, re.Pattern[str]] = {
+    "adrs": re.compile(rf"^ADR-\d{{4}}-{_KEBAB_WORD}\.md$"),
+    "pivots": re.compile(rf"^PIVOT-\d{{4}}-{_KEBAB_WORD}\.md$"),
+    "experiments": re.compile(rf"^\d{{4}}-\d{{2}}-\d{{2}}-{_KEBAB_WORD}\.md$"),
+    "plans": re.compile(rf"^\d{{4}}-\d{{2}}-\d{{2}}-{_KEBAB_WORD}\.md$"),
+    "doctrine": _LIVING,
+    "architecture": _LIVING,
+    "guides": _LIVING,
+    "reference": _LIVING,
+    "runbooks": _LIVING,
+}
+
 # Directories holding generated or hand-maintained content that is not an
 # artifact (no frontmatter, no cross-reference/broken-link semantics) but is
 # still public prose and must be sanitization-scanned and registered.
@@ -348,6 +388,35 @@ def check_all_frontmatter(root: Path) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Filename naming convention
+# ---------------------------------------------------------------------------
+
+
+def check_naming_convention(root: Path) -> list[str]:
+    """Fail on any artifact filename that does not match its section's shape.
+
+    ``_find_artifact_files`` already excludes ``SKIP_FILES`` (README.md,
+    _template.md), so those never reach this check. Every other artifact
+    file's basename must match the pattern declared in ``_NAMING_PATTERNS``
+    for its top-level section — see the shape docstring above
+    ``_NAMING_PATTERNS`` for what each of the three shapes is and why each
+    section is classed the way it is.
+    """
+    errors = []
+    for md_file in _find_artifact_files(root):
+        section = md_file.relative_to(root).parts[0]
+        pattern = _NAMING_PATTERNS.get(section)
+        if pattern is None:
+            continue
+        if not pattern.match(md_file.name):
+            errors.append(
+                f"{md_file}: filename does not match the {section}/ naming convention "
+                f"(expected shape: {pattern.pattern!r}) — see CONTRIBUTING.md"
+            )
+    return errors
+
+
+# ---------------------------------------------------------------------------
 # ADR identifier uniqueness
 # ---------------------------------------------------------------------------
 
@@ -578,6 +647,9 @@ def main() -> int:
 
     print("Validating frontmatter...")
     all_errors.extend(check_all_frontmatter(repo_root))
+
+    print("Checking filename naming convention...")
+    all_errors.extend(check_naming_convention(repo_root))
 
     print("Checking ADR identifier uniqueness...")
     all_errors.extend(check_adr_id_uniqueness(repo_root))

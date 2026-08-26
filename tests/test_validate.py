@@ -292,6 +292,87 @@ class TestAdrIdUniqueness:
         assert validate._KNOWN_ADR_ID_COLLISIONS["ADR-0010"] == rel
 
 
+class TestNamingConvention:
+    """Coverage for ``check_naming_convention`` — the three filename shapes.
+
+    ``check_naming_convention`` only looks at the path (via
+    ``_find_artifact_files``), never frontmatter, so these fixtures use
+    minimal placeholder bodies rather than full valid frontmatter.
+    """
+
+    _BODY = "placeholder body\n"
+
+    def test_id_shaped_sections_accept_the_numbered_prefix(self, repo: Path) -> None:
+        _write(repo, "adrs/ADR-9001-first-decision.md", self._BODY)
+        _write(repo, "pivots/PIVOT-9001-first-pivot.md", self._BODY)
+        assert validate.check_naming_convention(repo) == []
+
+    def test_id_shaped_sections_reject_a_date_prefix(self, repo: Path) -> None:
+        _write(repo, "adrs/2026-08-19-first-decision.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "adrs/2026-08-19-first-decision.md" in errors[0]
+
+    def test_id_shaped_sections_reject_a_bare_kebab_name(self, repo: Path) -> None:
+        _write(repo, "pivots/first-pivot.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "pivots/first-pivot.md" in errors[0]
+
+    def test_dated_sections_accept_the_date_prefix(self, repo: Path) -> None:
+        _write(repo, "experiments/2026-08-19-first-experiment.md", self._BODY)
+        _write(repo, "plans/2026-08-19-first-plan.md", self._BODY)
+        assert validate.check_naming_convention(repo) == []
+
+    def test_dated_sections_reject_an_undated_kebab_name(self, repo: Path) -> None:
+        _write(repo, "plans/first-plan.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "plans/first-plan.md" in errors[0]
+
+    def test_dated_sections_reject_a_numbered_id_prefix(self, repo: Path) -> None:
+        _write(repo, "experiments/ADR-9001-first-experiment.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "experiments/ADR-9001-first-experiment.md" in errors[0]
+
+    def test_living_sections_accept_a_bare_kebab_name(self, repo: Path) -> None:
+        _write(repo, "doctrine/first-principle.md", self._BODY)
+        _write(repo, "architecture/first-subsystem.md", self._BODY)
+        _write(repo, "guides/first-guide.md", self._BODY)
+        _write(repo, "reference/first-reference.md", self._BODY)
+        _write(repo, "runbooks/first-runbook.md", self._BODY)
+        assert validate.check_naming_convention(repo) == []
+
+    def test_living_sections_reject_a_date_prefix(self, repo: Path) -> None:
+        # The exact defect this rule closes: architecture/ carried 13
+        # dated filenames before this pass even though it is a living,
+        # revised-in-place section.
+        _write(repo, "architecture/2026-07-21-first-subsystem.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "architecture/2026-07-21-first-subsystem.md" in errors[0]
+
+    def test_living_sections_reject_an_uppercase_or_underscored_name(self, repo: Path) -> None:
+        _write(repo, "doctrine/First_Principle.md", self._BODY)
+        errors = validate.check_naming_convention(repo)
+        assert len(errors) == 1
+        assert "doctrine/First_Principle.md" in errors[0]
+
+    def test_readme_and_template_are_exempt_in_every_section(self, repo: Path) -> None:
+        for section in validate.ARTIFACT_DIRS:
+            _write(repo, f"{section}/README.md", self._BODY)
+            _write(repo, f"{section}/_template.md", self._BODY)
+        assert validate.check_naming_convention(repo) == []
+
+    def test_live_repo_tree_is_fully_conforming(self) -> None:
+        # Proof against real repo content, not only synthetic fixtures —
+        # the rename sweep that shipped alongside this rule brought every
+        # existing file into conformance rather than grandfathering it.
+        live_root = Path(__file__).resolve().parent.parent
+        assert validate.check_naming_convention(live_root) == []
+
+
 class TestGenerateIndexesRecursiveAndNewClasses:
     def test_collect_artifacts_recursive(self, repo: Path) -> None:
         import generate_indexes

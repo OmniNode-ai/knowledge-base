@@ -396,12 +396,12 @@ See the vendored-node-migrations runbook for the full procedure.
 
 | Topic | Document |
 |-------|----------|
-| Architecture overview and four-phase processing | [overview.md](2026-07-21-onex-runtime-overview.md) |
+| Architecture overview and four-phase processing | [overview.md](onex-runtime-overview.md) |
 | Handler plugin system | ../patterns/handler_plugin_loader.md |
 | Error handling patterns | ../patterns/error_handling_patterns.md |
 | Circuit breaker implementation | ../patterns/circuit_breaker_implementation.md |
 | Dispatcher resilience | ../patterns/dispatcher_resilience.md |
 | Registration walkthrough | ../guides/registration-example.md |
-| Message dispatch engine | [MESSAGE_DISPATCH_ENGINE.md](2026-07-21-message-dispatch-engine.md) |
+| Message dispatch engine | [MESSAGE_DISPATCH_ENGINE.md](message-dispatch-engine.md) |
 | Vendored node migrations | ../runbooks/vendored-node-migrations.md |
 | Coding standards (authoritative) | ../../CLAUDE.md |

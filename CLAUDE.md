@@ -7,7 +7,7 @@ Canonical home for OmniNode's external documentation, and the public architectur
 The charter is in [README.md](README.md); the rule deciding where any document belongs is in [docs-taxonomy.md](docs-taxonomy.md); the planned per-repository mapping is in [migration-manifest.yaml](migration-manifest.yaml). Read the taxonomy before adding a document — most "where does this go" questions are already answered there, and the answer is usually "here."
 
 ## Commands
-- `uv run python scripts/validate.py` — run all seven checks: registered-location fail-closed sweep, frontmatter schema, ADR `adr_id` uniqueness, `refs:` cross-references, sanitization, index freshness, and broken relative links
+- `uv run python scripts/validate.py` — run all eight checks: registered-location fail-closed sweep, frontmatter schema, filename naming convention, ADR `adr_id` uniqueness, `refs:` cross-references, sanitization, index freshness, and broken relative links
 - `uv run python scripts/validate.py --export-schema [PATH]` — write the frontmatter JSON schema (default `schemas/frontmatter.schema.json`); CI fails if `schemas/frontmatter.schema.json` is out of date
 - `uv run python scripts/validate.py --fix-indexes` — regenerate indexes (delegates to `generate_indexes.py`)
 - `uv run python scripts/generate_indexes.py` — regenerate `indexes/{chronological,by-topic,by-type}.md` from frontmatter
@@ -27,5 +27,6 @@ The charter is in [README.md](README.md); the rule deciding where any document b
 - Indexes must match generated output (run generate_indexes.py before committing)
 - Every `.md`/`.yaml`/`.yml` file in the repository must live in a recognized location (an `ARTIFACT_DIRS` section, a generated-content dir, or the root-file allowlist in `scripts/validate.py`) or the registered-location check fails closed — a new top-level section or an unexpected root file is a build error, not a silent skip. Adding a genuinely new section means updating `ARTIFACT_DIRS`/`GENERATED_CONTENT_DIRS`/`ROOT_SANITIZED_FILES` deliberately.
 - `validate.py` checks ADR `adr_id` uniqueness across `adrs/`. One known collision (`ADR-0010`, two files) is exempted by its exact claiming-path set, pending decision-record-owner sign-off on which file keeps the identifier — see the callout in `adrs/README.md`. Any other collision, or a change to this pair's file set, fails the build.
+- Every artifact filename must match its section's naming convention (`validate.py` `_NAMING_PATTERNS`, documented in `CONTRIBUTING.md`): `adrs/ADR-NNNN-kebab-title.md` and `pivots/PIVOT-NNNN-kebab-title.md` carry a numbered decision-ledger id, never a date; `experiments/` and `plans/` carry a `YYYY-MM-DD-kebab-title.md` date prefix (point-in-time, frozen records); `doctrine/`, `architecture/`, `guides/`, `reference/`, and `runbooks/` carry no date in the filename at all (living reference docs revised in place — the date lives in frontmatter only, since `generate_indexes.py` reads frontmatter, never the filename). `README.md`/`_template.md` are exempt.
 
 <!-- verified against scripts/, .pre-commit-config.yaml, and .github/workflows/ci.yml on the 2026-08-19 charter refresh -->

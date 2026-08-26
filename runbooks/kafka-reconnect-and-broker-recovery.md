@@ -11,7 +11,7 @@ refs: []
 
 ## Applicability
 
-This runbook applies only to the **Kafka-backed production event bus** (`EventBusKafka` / `aiokafka`). It does not apply to the **in-memory development event bus** (`InMemoryEventBus`), which has no broker, no sockets, and no reconnect behavior — see [Event Bus Integration Guide](../architecture/2026-07-21-event-bus-integration.md) for the two implementations. A self-hoster running only the in-memory bus can skip this document; it becomes relevant the moment a real Kafka or Kafka-compatible (e.g. Redpanda) broker is introduced.
+This runbook applies only to the **Kafka-backed production event bus** (`EventBusKafka` / `aiokafka`). It does not apply to the **in-memory development event bus** (`InMemoryEventBus`), which has no broker, no sockets, and no reconnect behavior — see [Event Bus Integration Guide](../architecture/event-bus-integration.md) for the two implementations. A self-hoster running only the in-memory bus can skip this document; it becomes relevant the moment a real Kafka or Kafka-compatible (e.g. Redpanda) broker is introduced.
 
 ## Problem
 

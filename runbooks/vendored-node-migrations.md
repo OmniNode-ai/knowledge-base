@@ -183,4 +183,4 @@ A previous manual deployment created the table outside the migration runner. Opt
 - `.github/workflows/node-migration-sync.yml` — CI gate
 - `docker/migrations/forward/` — migration directory
 - CI Test Strategy — node-migration-sync gate
-- [Current Node Architecture — vendored migration pattern](../architecture/2026-07-21-current-node-architecture.md#vendored-node-migration-pattern)
+- [Current Node Architecture — vendored migration pattern](../architecture/current-node-architecture.md#vendored-node-migration-pattern)

@@ -1097,5 +1097,5 @@ The 2-way registration flow demonstrates ONEX's key principles:
 | Node archetypes | Node Archetypes Reference |
 | Contract format | Contract.yaml Reference |
 | Capability naming | Capability Naming Convention |
-| Architecture | [Architecture Overview](../architecture/2026-07-21-onex-runtime-overview.md) |
+| Architecture | [Architecture Overview](../architecture/onex-runtime-overview.md) |
 | All patterns | Pattern Documentation |

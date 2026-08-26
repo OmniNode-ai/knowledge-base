@@ -730,7 +730,7 @@ flowchart TB
 
 ## Node Families
 
-`omnibase_infra` ships 109 node directories (107 `contract.yaml` files) under `src/omnibase_infra/nodes/`, verified against code on this refresh. The table below summarizes the **primary documented families** — a curated subset of 29 nodes detailed in [CURRENT_NODE_ARCHITECTURE.md](2026-07-21-current-node-architecture.md). Additional node families not enumerated here include delegation/routing, merge-sweep, coding-agent, RSD scoring, scope extraction, and GitHub/Gmail effect integrations. Each family follows the EFFECT → COMPUTE → REDUCER → ORCHESTRATOR flow where applicable.
+`omnibase_infra` ships 109 node directories (107 `contract.yaml` files) under `src/omnibase_infra/nodes/`, verified against code on this refresh. The table below summarizes the **primary documented families** — a curated subset of 29 nodes detailed in [CURRENT_NODE_ARCHITECTURE.md](current-node-architecture.md). Additional node families not enumerated here include delegation/routing, merge-sweep, coding-agent, RSD scoring, scope extraction, and GitHub/Gmail effect integrations. Each family follows the EFFECT → COMPUTE → REDUCER → ORCHESTRATOR flow where applicable.
 
 | Family | Node Count | Purpose |
 |--------|-----------|---------|
@@ -743,7 +743,7 @@ flowchart TB
 | **RRH** | 3 | Release readiness: environment collection, 13-rule validation, artifact persistence |
 | **Auxiliary** | 1 | Slack alerting for infrastructure events |
 
-See [CURRENT_NODE_ARCHITECTURE.md](2026-07-21-current-node-architecture.md) for the documented per-node inventory with input/output models and the live whole-repo node-type distribution.
+See [CURRENT_NODE_ARCHITECTURE.md](current-node-architecture.md) for the documented per-node inventory with input/output models and the live whole-repo node-type distribution.
 
 ## `src/omnibase_infra/` Package Structure
 
@@ -864,13 +864,13 @@ flowchart TB
 | Topic | Document |
 |-------|----------|
 | **Coding standards** | CLAUDE.md - **authoritative source** for all rules |
-| **Current node inventory** | [CURRENT_NODE_ARCHITECTURE.md](2026-07-21-current-node-architecture.md) - documented node subset with types/models plus the live whole-repo node-type distribution |
+| **Current node inventory** | [CURRENT_NODE_ARCHITECTURE.md](current-node-architecture.md) - documented node subset with types/models plus the live whole-repo node-type distribution |
 | Quick start | Getting Started |
 | Node archetypes | Node Archetypes Reference |
 | Contract format | Contract.yaml Reference |
 | **Runtime phases (detailed)** | 2-Way Registration Walkthrough - complete code examples for all 4 phases |
-| Message dispatch | [Message Dispatch Engine](2026-07-21-message-dispatch-engine.md) |
-| Registration orchestrator | [Registration Workflow](2026-07-21-registration-workflow.md) |
+| Message dispatch | [Message Dispatch Engine](message-dispatch-engine.md) |
+| Registration orchestrator | [Registration Workflow](registration-workflow.md) |
 | Implementation patterns | Pattern Documentation |
 | Handler protocol | Handler Plugin Loader |
 

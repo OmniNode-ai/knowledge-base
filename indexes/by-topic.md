@@ -41,10 +41,10 @@ Knowledge base artifacts grouped by topic.
 ## architecture
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## architecture-boundary
 
@@ -110,7 +110,7 @@ Knowledge base artifacts grouped by topic.
 
 ## bus
 
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
 
 ## c2
 
@@ -131,7 +131,7 @@ Knowledge base artifacts grouped by topic.
 
 ## catalog
 
-- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
+- **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
 
 ## check-db-boundary
 
@@ -146,7 +146,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
@@ -241,7 +241,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## control-plane
 
@@ -264,7 +264,7 @@ Knowledge base artifacts grouped by topic.
 
 ## current
 
-- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
+- **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
 
 ## cutover
 
@@ -349,8 +349,8 @@ Knowledge base artifacts grouped by topic.
 ## dispatch
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## disposable-implementations
 
@@ -362,7 +362,7 @@ Knowledge base artifacts grouped by topic.
 
 ## dlq
 
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
 
 ## dns
@@ -424,11 +424,11 @@ Knowledge base artifacts grouped by topic.
 
 ## engine
 
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 
 ## enum
 
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+- **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
 
 ## enums
 
@@ -441,15 +441,15 @@ Knowledge base artifacts grouped by topic.
 
 ## event
 
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
 
 ## event-bus
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
@@ -488,7 +488,7 @@ Knowledge base artifacts grouped by topic.
 ## evidence-systems
 
 - **[Evidence Is a First-Class Output](doctrine/evidence-is-first-class-output.md)** (doctrine)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## evolutionary-search
 
@@ -517,7 +517,7 @@ Knowledge base artifacts grouped by topic.
 
 ## format
 
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
 
 ## four-node-architecture
 
@@ -583,7 +583,7 @@ Knowledge base artifacts grouped by topic.
 
 ## handlers
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## historical
@@ -611,7 +611,7 @@ Knowledge base artifacts grouped by topic.
 
 ## infrastructure
 
-- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
+- **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture)
 
 ## ingestion
 
@@ -631,7 +631,7 @@ Knowledge base artifacts grouped by topic.
 
 ## integration
 
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 
 ## integration-testing
@@ -689,7 +689,7 @@ Knowledge base artifacts grouped by topic.
 ## llm
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
-- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
+- **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture)
 
 ## llm-navigation
 
@@ -729,7 +729,7 @@ Knowledge base artifacts grouped by topic.
 
 ## mcp
 
-- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
+- **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 
 ## memgraph
@@ -756,8 +756,8 @@ Knowledge base artifacts grouped by topic.
 
 ## message
 
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 
 ## micro-factories
 
@@ -783,7 +783,7 @@ Knowledge base artifacts grouped by topic.
 
 ## model-routing
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## multi-tenant
 
@@ -800,16 +800,16 @@ Knowledge base artifacts grouped by topic.
 
 ## node
 
-- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
+- **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
 - **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
 
 ## node-archetypes
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## node-inventory
 
@@ -821,7 +821,7 @@ Knowledge base artifacts grouped by topic.
 
 ## nodes
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
@@ -846,18 +846,18 @@ Knowledge base artifacts grouped by topic.
 
 ## omnibase-infra
 
-- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture)
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture)
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture)
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
-- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture)
-- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture)
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
-- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
-- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
-- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
+- **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
+- **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture)
+- **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture)
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
+- **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
+- **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
+- **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
+- **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
@@ -944,7 +944,7 @@ Knowledge base artifacts grouped by topic.
 
 ## onex
 
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
@@ -969,7 +969,7 @@ Knowledge base artifacts grouped by topic.
 
 ## orchestrator-nodes
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## ordering
 
@@ -981,15 +981,15 @@ Knowledge base artifacts grouped by topic.
 
 ## overlays
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## overview
 
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 
 ## ownership
 
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+- **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
 
 ## package
 
@@ -1061,7 +1061,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
@@ -1076,7 +1076,7 @@ Knowledge base artifacts grouped by topic.
 
 ## publishing
 
-- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
+- **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
 
 ## pydantic
 
@@ -1138,7 +1138,7 @@ Knowledge base artifacts grouped by topic.
 ## reducers
 
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 
 ## refresh
@@ -1149,7 +1149,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
-- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+- **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
 
 ## registry
@@ -1256,7 +1256,7 @@ Knowledge base artifacts grouped by topic.
 ## runtime
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture)
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
@@ -1287,7 +1287,7 @@ Knowledge base artifacts grouped by topic.
 
 ## self-extending-agent
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## sentinel-pattern
 
@@ -1295,7 +1295,7 @@ Knowledge base artifacts grouped by topic.
 
 ## service
 
-- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture)
+- **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture)
 
 ## service-boundaries
 
@@ -1315,7 +1315,7 @@ Knowledge base artifacts grouped by topic.
 
 ## shared
 
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture)
+- **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
 
 ## shift-left
 
@@ -1334,7 +1334,7 @@ Knowledge base artifacts grouped by topic.
 
 ## snapshot
 
-- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture)
+- **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
 
 ## stability
 
@@ -1363,7 +1363,7 @@ Knowledge base artifacts grouped by topic.
 
 ## streaming
 
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
 
 ## supersession
 
@@ -1373,7 +1373,7 @@ Knowledge base artifacts grouped by topic.
 ## tdd
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture)
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
 ## tenant-isolation
 
@@ -1404,7 +1404,7 @@ Knowledge base artifacts grouped by topic.
 
 ## topic
 
-- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture)
+- **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
 
 ## topic-naming
 
@@ -1412,7 +1412,7 @@ Knowledge base artifacts grouped by topic.
 
 ## topics
 
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture)
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
 
 ## transport-imports
 
@@ -1481,7 +1481,7 @@ Knowledge base artifacts grouped by topic.
 
 ## workflow
 
-- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture)
+- **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
 
 ## workflow-state
 

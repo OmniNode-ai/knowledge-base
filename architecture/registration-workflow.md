@@ -714,10 +714,10 @@ Two-layer environment loading applies to E2E tests:
 
 ## Related Documentation
 
-- [Architecture Overview](2026-07-21-onex-runtime-overview.md) — High-level system architecture
+- [Architecture Overview](onex-runtime-overview.md) — High-level system architecture
 - Handler Protocol-Driven Architecture — Handler system design
-- [Snapshot Publishing](2026-07-21-snapshot-publishing.md) — Snapshot publication patterns
-- [Event Bus Integration Guide](2026-07-21-event-bus-integration.md) — Kafka event streaming
+- [Snapshot Publishing](snapshot-publishing.md) — Snapshot publication patterns
+- [Event Bus Integration Guide](event-bus-integration.md) — Kafka event streaming
 - 2-Way Registration Walkthrough — Code examples for all 4 phases
 - Error Handling Patterns — Error hierarchy and sanitization
 - Circuit Breaker Implementation — Circuit breaker details
