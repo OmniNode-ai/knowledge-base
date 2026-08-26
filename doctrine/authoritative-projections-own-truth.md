@@ -10,8 +10,6 @@ refs:
   - doctrine/truth-must-be-proven.md
   - adrs/ADR-0003-registration-runtime-registry-boundary.md
   - adrs/ADR-0004-registry-owned-consumer-surface.md
-  - deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md
-  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Authoritative Projections Own Truth

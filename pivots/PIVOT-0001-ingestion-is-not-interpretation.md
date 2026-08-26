@@ -96,7 +96,7 @@ The `state-is-materialized-projection` doctrine article captures the consequence
 
 - `adrs/ADR-0002-data-verification-invocation.md` — the data verification pipeline separates the ingestion of verification commands from their interpretation, applying this same boundary
 
-## Related Deep Dives
+## Related Incident Analysis
 
 The pressure that made this pivot necessary was first documented during investigations into inconsistent aggregate counts between consumer instances, and later reinforced when replay runs for debugging purposes produced different state than the original ingestion runs.
 

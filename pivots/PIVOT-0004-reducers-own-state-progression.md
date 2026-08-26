@@ -96,7 +96,7 @@ The `canonical-reducers-win` doctrine addresses the "latest wins" fallacy direct
 
 None of the current ADRs address the reducer contract pattern directly, but the registration boundary ADRs demonstrate its application: the registration orchestrator's contract explicitly defines which lifecycle facts represent valid state transitions and which ordering authority governs their sequence.
 
-## Related Deep Dives
+## Related Incident Analysis
 
 The pressure that made this pivot necessary was observed first in aggregate projection discrepancies, where replay runs produced different totals than original ingestion runs. The root cause in every investigated case was a reducer that relied on arrival order rather than declared sequencing semantics.
 

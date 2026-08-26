@@ -9,8 +9,6 @@ refs:
   - doctrine/authoritative-projections-own-truth.md
   - adrs/ADR-0002-data-verification-invocation.md
   - adrs/ADR-0005-dispatch-lifecycle-canonical.md
-  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
-  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Truth Must Be Proven, Not Claimed

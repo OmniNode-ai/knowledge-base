@@ -11,7 +11,6 @@ refs:
   - adrs/ADR-0003-registration-runtime-registry-boundary.md
   - adrs/ADR-0006-skill-liveness-validator-home.md
   - adrs/ADR-0007-skills-canonical-plan.md
-  - deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md
 ---
 
 # Contracts Define Reality

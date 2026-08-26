@@ -30,10 +30,9 @@ OmniNode uses four artifact types that work together:
 
 - **Doctrine** — the principles and invariants that constrain all decisions. ADRs must not contradict doctrine; when they appear to, the doctrine must be updated first with explicit rationale.
 - **Pivots** — explain why understanding changed, often triggering the need for a new ADR. A pivot identifies the insight; an ADR records the decision that follows from it.
-- **Deep dives** — surface candidate decisions through narrative exploration of a system or problem. They are inputs to ADR authoring, not decisions themselves.
-- **Evidence** — validates that decisions produce their intended consequences. DoD receipts, integration test results, and projection snapshots live here and are referenced by the ADRs they validate.
+- **Evidence** — validates that decisions produce their intended consequences. DoD receipts, integration test results, and projection snapshots live in OCC (`onex_change_control`), the sole evidence authority; an ADR cites the outcome (a PR, a CI run, an OCC receipt) rather than hosting it here.
 
-The typical flow: a deep dive or incident surfaces a gap → a pivot records the insight shift → an ADR formalizes the decision → evidence proves the decision had the intended effect.
+The typical flow: an incident or operational pressure surfaces a gap → a pivot records the insight shift → an ADR formalizes the decision → a cited outcome proves the decision had the intended effect.
 
 ## How to Propose a New ADR
 
@@ -44,7 +43,7 @@ The typical flow: a deep dive or incident surfaces a gap → a pivot records the
 5. Open a PR for review; link the relevant Linear ticket in the PR body
 6. On approval, change `status` to `accepted` and update any superseded ADRs
 
-Keep ADRs narrow — one decision per ADR. If the decision requires background explanation that would exceed ~400 words, put the background in a deep dive and reference it.
+Keep ADRs narrow — one decision per ADR. If the decision requires background explanation that would exceed ~400 words, trim it to what the decision needs — this repository does not carry a narrative-journal section to defer background into.
 
 ## Cross-References
 

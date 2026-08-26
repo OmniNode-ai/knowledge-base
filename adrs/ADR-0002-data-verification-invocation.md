@@ -9,7 +9,6 @@ refs:
   - doctrine/truth-must-be-proven.md
   - doctrine/evidence-is-first-class-output.md
   - doctrine/fail-fast-and-loud.md
-  - deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md
 supersedes: []
 superseded_by: []
 ---

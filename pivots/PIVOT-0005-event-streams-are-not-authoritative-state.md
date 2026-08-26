@@ -105,7 +105,7 @@ The `truth-must-be-proven` doctrine enforces the consequence: because truth is o
 - `adrs/ADR-0003-registration-runtime-registry-boundary.md` — establishes that registry projections (not runtime memory or raw event stream observation) are the canonical truth for node registration state
 - `adrs/ADR-0004-registry-owned-consumer-surface.md` — names the specific projection surface that is canonical, explicitly rejecting runtime in-memory state and raw stream subscriptions as truth sources
 
-## Related Deep Dives
+## Related Incident Analysis
 
 The registration system provided the most sustained evidence for this pivot. The initial implementation used runtime in-memory state and raw event stream subscriptions to track node registration. Multiple consumers subscribed to the same topic and each maintained independent state. They diverged. The ADRs establishing the registry boundary were the direct product of applying this pivot's conclusion to the most visible broken case.
 

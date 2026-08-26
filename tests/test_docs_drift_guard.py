@@ -457,18 +457,22 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert len(infra_rows) == 51
     infra_prefixes = ("docs/architecture/", "docs/guides/", "docs/runbooks/", "docs/standards/")
     for row in infra_rows:
-        assert row["bucket"] in {"A", "B"}
+        assert row["bucket"] in {"A", "B", "C"}
         assert row["cutover_state"] in {"moved", "not-started", "pointer-live"}
         assert row["source_path"].startswith(infra_prefixes)
     pointer_live = [r for r in infra_rows if r["cutover_state"] == "pointer-live"]
     not_started = [r for r in infra_rows if r["cutover_state"] == "not-started"]
-    # 38 migrated-content rows plus the 2 directory-nav README.md rewrites,
-    # both already pointer-live from the start.
-    assert len(pointer_live) == 40
-    assert len(not_started) == 10
+    # 38 migrated-content rows plus the 2 directory-nav README.md rewrites
+    # (both already pointer-live from the start), minus 4 reclassified
+    # bucket A -> C and dropped to not-started 2026-08-26 (self-hoster's-book
+    # scope ruling: application-migration-ledger.md, gateway-lane-deploy.md,
+    # and the two managed-staging-canary runbooks all documented our own
+    # cloud deployment topology or evidence-class content).
+    assert len(pointer_live) == 36
+    assert len(not_started) == 14
     # Every not-started row is quarantined for a documented reason, never silently dropped.
     for row in not_started:
-        assert row["sensitivity"] in {"needs-review", "public"}
+        assert row["sensitivity"] in {"needs-review", "public", "restricted"}
         assert row["verification_evidence"]
     # The bucket-B seam manifest is the one not-started row that is public (it
     # stays in the repo because it's executable tooling, not because it's
@@ -478,6 +482,13 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     for row in hygiene_risk_not_started:
         assert row["sensitivity"] == "needs-review"
         assert row["correctness_status"] == "hygiene-risk"
+    # The 4 bucket-C reclassifications: restricted, cited-not-hosted, never
+    # a live candidate for this public repo.
+    restricted_not_started = [r for r in not_started if r["bucket"] == "C"]
+    assert len(restricted_not_started) == 4
+    for row in restricted_not_started:
+        assert row["sensitivity"] == "restricted"
+        assert row["destination"] == "private-internal-kb"
 
     market_rows = repos_with_rows["omnimarket"]
     assert len(market_rows) == 3
@@ -491,9 +502,22 @@ def test_real_manifest_is_inert_except_where_wave_2_has_landed_rows() -> None:
     assert len(occ_rows) == 5
     occ_prefixes = ("docs/standards/", "docs/policy/", "docs/governance/")
     for row in occ_rows:
-        assert row["bucket"] == "A"
-        assert row["cutover_state"] == "moved"
+        assert row["bucket"] in {"A", "D"}
         assert row["source_path"].startswith(occ_prefixes)
+    # 2026-04-27-required-gates-rollout.md is the one bucket-D row: reclassified
+    # from bucket A 2026-08-26 (self-hoster's-book scope ruling) — a dated
+    # point-in-time rollout snapshot that should have matched taxonomy decision
+    # rule test 1 at migration time and never reached bucket A. Dropped to
+    # not-started; OCC remains the sole evidence authority for point-in-time
+    # rollout/evidence records, this repository does not host them.
+    occ_a_rows = [r for r in occ_rows if r["bucket"] == "A"]
+    assert len(occ_a_rows) == 4
+    for row in occ_a_rows:
+        assert row["cutover_state"] == "moved"
+    occ_d_rows = [r for r in occ_rows if r["bucket"] == "D"]
+    assert len(occ_d_rows) == 1
+    assert occ_d_rows[0]["source_path"] == "docs/governance/2026-04-27-required-gates-rollout.md"
+    assert occ_d_rows[0]["cutover_state"] == "not-started"
     # doctrine_clauses.yaml + doctrine_coverage.md are deliberately absent —
     # reclassified bucket B, stay in-repo as the generator/generated-output
     # pair (the repo's own CI dry-run-validates the registry on every PR).

@@ -30,7 +30,7 @@ The family therefore could not satisfy the RLS program, and could not be honestl
 from it either, because "table in the tenant database with no `tenant_id`" is
 indistinguishable from an unclosed isolation gap.
 
-A live read-only census of the RDS instance on 2026-07-29 sharpened the picture. Of 317
+A live read-only census of the database instance on 2026-07-29 sharpened the picture. Of 317
 application tables across eight databases, **18 carry `tenant_id`** — 10 in the tenant
 control plane, 7 in the analytics warehouse, 1 in the runtime database. The overwhelming
 majority of the analytics database is internal dev-loop telemetry: agent actions, pattern
@@ -124,8 +124,8 @@ This ADR records an operator ruling. A search of every durable decision surface 
 prior written record of it: Linear (three targeted sweeps, ~75 issues inspected — the
 nearest match, the February 2026 `[Epic] DB-Per-Repo Split`, is a per-service split), the
 ADR corpus, the workspace decisions directory, the rolling work ledger, and the
-`decision_store` table itself (which returns **zero rows** on the RDS instance and on both
-local lanes — the surface exists but has never been written to). The ruling is therefore
+`decision_store` table itself (which returns **zero rows** on the target deployment and on
+both local lanes — the surface exists but has never been written to). The ruling is therefore
 recorded here as the decision of record rather than cited to an earlier artifact.
 
 ## Related Pivots
@@ -138,9 +138,10 @@ Operator ruling, 2026-07-29.
 
 ## Evidence
 
-Live read-only census of the development RDS instance, 2026-07-29, via SSM port forwarding,
-connected as the master role with the credential resolved from Secrets Manager into process
-environment only. No DDL, no DML, no GRANT, no RLS state change.
+Live read-only census of the target deployment's database instance, 2026-07-29, connected
+as the master role via the deployment's standard admin access path, with the credential
+resolved into process environment only (never inlined). No DDL, no DML, no GRANT, no RLS
+state change.
 
 - 317 application tables across eight databases; 18 carry `tenant_id`.
 - Tenant control plane: 16 tables, 10 tenant-stamped, `tenant_id` typed `uuid`.
@@ -152,7 +153,8 @@ environment only. No DDL, no DML, no GRANT, no RLS state change.
 - `pg_database.datacl` NULL on all nine non-system databases; all seven application login
   roles hold `CONNECT` on every database.
 
-Implementation plan and full inventory: `omni_home/docs/plans/2026-07-29-two-database-tenant-vs-internal-split-plan.md`.
+Full inventory retained internally against the source deployment; this ADR records the
+decision and its corroborating counts, not the underlying deployment's cloud topology.
 
 ## Supersedes
 

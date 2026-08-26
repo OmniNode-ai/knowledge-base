@@ -107,16 +107,6 @@ Knowledge base artifacts grouped by type.
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** — accepted
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** — accepted
 
-## Deep Dive
-
-- **[Zero-Code Runtime: Contract-Driven Handler Discovery and Dependency Injection](deep-dives/2026-02-04-zero-code-runtime-contract-driven-autowiring.md)** — public-curated
-- **[Dashboard Authority Shift: From Mock Data to Projection-Driven Truth](deep-dives/2026-02-18-dashboard-mock-to-live-authority-shift.md)** — public-curated
-- **[Kafka Connection Limit Outage: TCP Socket Leak Under Reconnect Storms](deep-dives/2026-02-27-kafka-connection-limit-outage.md)** — public-curated
-- **[Multi-Session Coordination: Building the Session Intelligence Stack End-to-End](deep-dives/2026-03-28-multi-session-coordination-stack.md)** — public-curated
-- **[Silent Projection Failure: The Auto-Wiring Engine's Database Injection Gap](deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md)** — public-curated
-- **[Autonomous Operations Under Three Simultaneous Infrastructure Failures](deep-dives/2026-04-20-autonomous-operations-three-simultaneous-failures.md)** — public-curated
-- **[Public CI and Validation Architecture](deep-dives/2026-05-30-public-ci-validation-architecture.md)** — public-curated
-
 ## Guide
 
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** — current
@@ -134,7 +124,6 @@ Knowledge base artifacts grouped by type.
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** — current
 - **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
-- **[Required-Gates Rollout — April 2026 Snapshot](reference/required-gates-rollout-2026-04-27.md)** — stale
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
@@ -158,8 +147,6 @@ Knowledge base artifacts grouped by type.
 
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** — current
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** — current
-- **[Managed-staging one-tenant canary — Postgres surface provisioning (bring-up)](runbooks/managed-staging-canary-postgres-provisioning.md)** — current
-- **[Managed-staging one-tenant canary — teardown / abort / rollback](runbooks/managed-staging-canary-teardown-rollback.md)** — current
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** — current
 - **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** — current
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** — current
@@ -169,8 +156,6 @@ Knowledge base artifacts grouped by type.
 - **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** — current
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** — current
 - **[Apply Migrations Runbook](runbooks/apply-migrations.md)** — current
-- **[Gateway lane deploy (`omninode-gateway` compose project on `<onex-host>`)](runbooks/gateway-lane-deploy.md)** — current
-- **[Application migration ledger](runbooks/application-migration-ledger.md)** — current
 - **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** — current
 - **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** — current
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** — current

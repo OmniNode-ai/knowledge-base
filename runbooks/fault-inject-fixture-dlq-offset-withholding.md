@@ -37,9 +37,10 @@ private `dead_letter_topic` override that is deliberately left unprovisioned.
 1. Publish `ModelFaultInjectFixtureCommand` to
    `onex.cmd.omnibase-infra.fault-inject-fixture.v1` with `inflate_result_bytes`
    tuned past the live broker's `message.max.bytes` / producer
-   `max_request_size`. <ticket> measured ~1,048,588 bytes live on onex-dev —
-   **re-probe this value before reuse**, it is a live broker-config fact, not
-   a constant (see the <ticket> comment thread for the binary-search method).
+   `max_request_size`. <ticket> measured ~1,048,588 bytes live on the dev
+   lane — **re-probe this value before reuse**, it is a live broker-config
+   fact, not a constant (see the <ticket> comment thread for the
+   binary-search method).
 2. `HandlerFaultInjectFixture.handle()` returns a result whose `padding`
    field is exactly `inflate_result_bytes` bytes (unit-proven in
    `tests/unit/nodes/test_node_fault_inject_fixture_compute/test_handler_fault_inject_fixture.py`).
@@ -117,7 +118,7 @@ onex up runtime fault-injection             # or the lane-appropriate equivalent
    `docker compose ps` for the `fault-inject-fixture` service on the target
    lane).
 2. Re-probe the live broker's effective size ceiling for that lane (do not
-   assume the <ticket> onex-dev value still holds, or holds on a different
+   assume the <ticket> dev-lane value still holds, or holds on a different
    lane).
 3. Publish `ModelFaultInjectFixtureCommand` with `inflate_result_bytes` set
    just past that ceiling to `onex.cmd.omnibase-infra.fault-inject-fixture.v1`.

@@ -9,8 +9,6 @@ refs:
   - doctrine/evidence-is-first-class-output.md
   - doctrine/truth-must-be-proven.md
   - adrs/ADR-0006-skill-liveness-validator-home.md
-  - deep-dives/2026-02-27-kafka-connection-limit-outage.md
-  - deep-dives/2026-04-14-silent-projection-failure-autowiring-gap.md
 ---
 
 # Fail Fast and Loud
