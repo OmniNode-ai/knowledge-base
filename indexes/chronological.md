@@ -6,8 +6,10 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference) — 2026-08-26
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook) — 2026-08-26
+- **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook) — 2026-08-26
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture) — 2026-08-25
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture) — 2026-08-25
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture) — 2026-08-25

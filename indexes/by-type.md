@@ -141,6 +141,7 @@ Knowledge base artifacts grouped by type.
 - **[Repository Registry](reference/repository-registry.md)** — current
 - **[Standard Documentation Layout](reference/standard-doc-layout.md)** — current
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** — current
+- **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** — current
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 
 ## Runbook
@@ -165,3 +166,4 @@ Knowledge base artifacts grouped by type.
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** — current
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** — current
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
+- **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** — current
