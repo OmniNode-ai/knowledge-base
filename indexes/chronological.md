@@ -52,18 +52,18 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr) — 2026-07-29
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr) — 2026-07-29
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook) — 2026-07-27
-- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** (architecture) — 2026-07-21
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** (architecture) — 2026-07-21
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** (architecture) — 2026-07-21
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** (architecture) — 2026-07-21
-- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** (architecture) — 2026-07-21
-- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** (architecture) — 2026-07-21
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** (architecture) — 2026-07-21
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** (architecture) — 2026-07-21
-- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** (architecture) — 2026-07-21
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** (architecture) — 2026-07-21
-- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** (architecture) — 2026-07-21
-- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** (architecture) — 2026-07-21
+- **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture) — 2026-07-21
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture) — 2026-07-21
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture) — 2026-07-21
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture) — 2026-07-21
+- **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture) — 2026-07-21
+- **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture) — 2026-07-21
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture) — 2026-07-21
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture) — 2026-07-21
+- **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture) — 2026-07-21
+- **[Untitled](architecture/shared-enum-ownership.md)** (architecture) — 2026-07-21
+- **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture) — 2026-07-21
+- **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture) — 2026-07-21
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide) — 2026-07-21
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide) — 2026-07-21
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide) — 2026-07-21
@@ -110,7 +110,7 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
 ## 2026-05
 
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
 - **[Authoritative Projections Own Truth](doctrine/authoritative-projections-own-truth.md)** (doctrine) — 2026-05-23
 - **[Canonical Reducers Win](doctrine/canonical-reducers-win.md)** (doctrine) — 2026-05-23
 - **[Contracts Define Reality](doctrine/contracts-define-reality.md)** (doctrine) — 2026-05-23

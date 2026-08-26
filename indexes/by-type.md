@@ -67,7 +67,7 @@ Knowledge base artifacts grouped by type.
 ## Architecture
 
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** — superseded
-- **[Technical Design: OmniNode Platform Architecture](architecture/2026-05-31-omninode-architecture-technical-design.md)** — accepted
+- **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** — accepted
 - **[Delegation Architecture](architecture/delegation-architecture.md)** — deprecated
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** — accepted
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** — accepted
@@ -77,18 +77,18 @@ Knowledge base artifacts grouped by type.
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** — accepted
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** — accepted
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** — accepted
-- **[ONEX Current Node Architecture](architecture/2026-07-21-current-node-architecture.md)** — accepted
-- **[Dead Letter Queue (DLQ) Message Format](architecture/2026-07-21-dlq-message-format.md)** — accepted
-- **[Event Bus Integration Guide](architecture/2026-07-21-event-bus-integration.md)** — accepted
-- **[ONEX Event Streaming Topics - Specification (v1)](architecture/2026-07-21-event-streaming-topics.md)** — accepted
-- **[LLM Infrastructure Architecture](architecture/2026-07-21-llm-infrastructure.md)** — accepted
-- **[MCP Service Architecture](architecture/2026-07-21-mcp-service-architecture.md)** — accepted
-- **[Message Dispatch Engine Architecture](architecture/2026-07-21-message-dispatch-engine.md)** — accepted
-- **[ONEX Architecture Overview](architecture/2026-07-21-onex-runtime-overview.md)** — accepted
-- **[REGISTRATION WORKFLOW](architecture/2026-07-21-registration-workflow.md)** — accepted
-- **[Untitled](architecture/2026-07-21-shared-enum-ownership.md)** — accepted
-- **[Snapshot Publishing Architecture](architecture/2026-07-21-snapshot-publishing.md)** — accepted
-- **[Topic Catalog Architecture](architecture/2026-07-21-topic-catalog-architecture.md)** — accepted
+- **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** — accepted
+- **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** — accepted
+- **[Event Bus Integration Guide](architecture/event-bus-integration.md)** — accepted
+- **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** — accepted
+- **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** — accepted
+- **[MCP Service Architecture](architecture/mcp-service-architecture.md)** — accepted
+- **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** — accepted
+- **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** — accepted
+- **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** — accepted
+- **[Untitled](architecture/shared-enum-ownership.md)** — accepted
+- **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** — accepted
+- **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** — accepted
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** — superseded
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** — accepted
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** — accepted
