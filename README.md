@@ -69,7 +69,16 @@ No documentation has migrated yet. [`migration-manifest.yaml`](migration-manifes
 
 ## Getting Started
 
-The best entry point is [`doctrine/`](doctrine/README.md) — the stable principles that govern the platform. From there, decision records show specific choices that instantiate those principles, and pivots show where the principles themselves evolved.
+**To run the platform, start with [Getting started locally](guides/getting-started-local.md).** It is the shortest complete path to a working ONEX system: one package, one command, and a real event chain you can read back out of a local database file — no broker, no database server, no container runtime, no account, and nothing to configure. That configuration is the first-class entry path, not a demo mode, and most single-machine work stays there.
+
+The other two ways to run it, in the order you would reach for them:
+
+- [Self-hosting the full stack](guides/getting-started-self-hosted.md) — the scale-up chapter. A real broker, PostgreSQL, a cache, an identity provider, and the runtime services on top, on your own infrastructure.
+- [Connecting to the cloud](guides/connecting-to-the-cloud.md) — for consuming a hosted deployment instead of operating one. Optional; nothing in ONEX requires it.
+
+All three, plus the rest of the task-oriented documentation, are indexed in [`guides/`](guides/README.md).
+
+**To understand why the platform is shaped the way it is,** start with [`doctrine/`](doctrine/README.md) — the stable principles that govern it. From there, decision records show specific choices that instantiate those principles, and pivots show where the principles themselves evolved.
 
 ## Contributing
 

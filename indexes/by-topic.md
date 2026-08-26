@@ -28,6 +28,7 @@ Knowledge base artifacts grouped by topic.
 ## api
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## append-only
 
@@ -67,6 +68,10 @@ Knowledge base artifacts grouped by topic.
 ## asyncio
 
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+
+## authentication
+
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## authoring
 
@@ -179,6 +184,10 @@ Knowledge base artifacts grouped by topic.
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
+
+## cloud
+
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## code-projection
 
@@ -363,6 +372,7 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## dependabot
 
@@ -435,6 +445,7 @@ Knowledge base artifacts grouped by topic.
 
 ## docker
 
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
 ## doctrine
@@ -529,6 +540,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
@@ -639,6 +651,12 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 
+## getting-started
+
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
+
 ## git
 
 - **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
@@ -741,6 +759,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr)
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
@@ -802,6 +821,10 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture)
+
+## local
+
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## local-first
 
@@ -1160,6 +1183,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 
 ## pr
 
@@ -1190,6 +1214,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## projection-authority
 
@@ -1423,6 +1448,8 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
@@ -1458,6 +1485,10 @@ Knowledge base artifacts grouped by topic.
 ## self-extending-agent
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+
+## self-hosting
+
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 
 ## sentinel-pattern
 
@@ -1505,6 +1536,10 @@ Knowledge base artifacts grouped by topic.
 ## snapshot
 
 - **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
+
+## sqlite
+
+- **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## stability
 
@@ -1649,6 +1684,7 @@ Knowledge base artifacts grouped by topic.
 
 ## valkey
 
+- **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 
 ## vendored
@@ -1687,6 +1723,10 @@ Knowledge base artifacts grouped by topic.
 ## workflow-state
 
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
+
+## workflows
+
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## worktree
 
