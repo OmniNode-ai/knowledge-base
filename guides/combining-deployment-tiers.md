@@ -210,19 +210,21 @@ surprise you, and it is the reason this section exists.
 ### The ambient-environment hazard
 
 Omit `--bus` on `onex delegate` and the bus is **probed for, not defaulted**.
-`resolve_default_bus` (`omnibase_infra/src/omnibase_infra/cli/cli_delegate.py:184`)
-calls `probe_kafka`, which reads `KAFKA_BOOTSTRAP_SERVERS` from the environment
-when no bootstrap is passed
+`resolve_default_bus` (`omnibase_infra/src/omnibase_infra/cli/cli_delegate.py:194`)
+calls the shared resolver `resolve_bus_type`
+(`omnibase_infra/src/omnibase_infra/backends/auto_configure.py:116`), whose last
+tier is `probe_kafka` — which reads `KAFKA_BOOTSTRAP_SERVERS` from the
+environment when no bootstrap is passed
 (`omnibase_infra/src/omnibase_infra/backends/backend_probe.py:131`).
 
-That probe has **three** outcomes, not two, and only the first is a pure function
-of your environment:
+That probe has **three** outcomes, not two, and only two of them resolve a bus at
+all:
 
 | Environment | Probe state | Resolved bus |
 |---|---|---|
 | `KAFKA_BOOTSTRAP_SERVERS` unset | `DISCOVERED` — short-circuits with no network call | `inmemory` |
 | Set; broker healthy, a live consumer group bound to the delegation request topic | `AUTHORITATIVE` | `kafka` |
-| Set, but the broker answers weakly — TCP connects and the metadata call times out or the topic list fails | `REACHABLE` | `inmemory` |
+| Set, but the broker answers weakly — TCP connects and the metadata call times out or the topic list fails | `REACHABLE` | **none — the command refuses** |
 
 The first two, verified on one machine changing nothing but the environment:
 
@@ -250,17 +252,16 @@ chapter is written for — the one where you also run a self-hosted stack, and
 therefore have `KAFKA_BOOTSTRAP_SERVERS` exported in your shell profile or
 sourced from an env file.
 
-### The third outcome: auto-resolution is not repeatable
+### The third outcome: an indeterminate probe refuses instead of guessing
 
-The `REACHABLE → inmemory` row is the one that turns a surprise into a real
-hazard, because reaching it does not require you to change anything at all.
+The `REACHABLE` row is the one that turns a surprise into a real hazard, because
+reaching it does not require you to change anything at all.
 
 `probe_kafka` is a live network call with a timeout. Against a genuinely healthy
-broker it can still time out on the metadata request, and a timeout is not
-treated as an error — it degrades the probe to `REACHABLE`, which
-`resolve_default_bus` maps back to `DEFAULT_BUS`. Measured here by calling
-`resolve_default_bus()` twenty times in a row, unchanged environment, healthy
-broker:
+broker it can still time out on the metadata request, and that timeout is not an
+answer — it means TCP connected but the broker's serving state was never
+established. Measured here by probing one healthy broker twenty times in a row
+with the environment unchanged, the probe itself did not agree with itself:
 
 ```
 counts: {'kafka': 14, 'inmemory': 6}
@@ -270,47 +271,54 @@ counts: {'kafka': 14, 'inmemory': 6}
             KafkaError{code=_TIMED_OUT,val=-185,str="Failed to get metadata: Local: Timed out"}
 ```
 
-Six runs in twenty silently chose the in-process bus. Nothing about the
-environment differed between them. So the sharper statement of the hazard is not
-that an environment variable decides your transport — it is that **without an
-explicit flag, nothing decides your transport in a way you can repeat.** A
-delegation you believed landed on the broker may have run entirely in-process,
-and the only trace is a `reason` string you never looked at.
+Fourteen of twenty calls resolved the broker; six timed out. Nothing about the
+environment differed between them, and the exact ratio is a property of one
+broker on one network — treat it as evidence that the probe's outcome varies, not
+as a rate you can plan around.
 
-The degradation is deliberate and defensible on its own terms: it stops `onex
-delegate` hanging against a broker that has gone away, and it degrades to the
-tier that always works. That is the right behaviour for a one-off interactive
-command. It is the wrong behaviour for anything whose result you intend to trust,
-and the exact ratio above is a property of one broker on one network — treat it
-as evidence that the outcome varies, not as a rate you can plan around.
+Because that variation is real, the resolver does not translate it into a
+transport. A `REACHABLE` probe is **indeterminate**, and `resolve_bus_type`
+refuses rather than picking a bus from an unknown state:
 
-The auto-resolution default is likewise deliberate: the flag's own help text says
+```
+Error: Kafka probe returned REACHABLE (TCP reachable but topic list failed: ...);
+the broker accepted a TCP connection but its serving state could not be
+established, so the transport cannot be resolved repeatably. Select one
+explicitly: pass the bus argument (e.g. '--bus kafka' / '--bus inmemory') or set
+ONEX_EVENT_BUS_TYPE=kafka|inmemory.
+```
+
+This is the deliberate trade. Degrading a timeout to the in-process bus would
+keep the command running, and for a one-off interactive call that is defensible —
+but it means a delegation you believed landed on the broker may have run entirely
+in-process, with no trace but a `reason` string you never looked at. Refusing
+costs you a re-run and one decision; guessing costs you a result you cannot
+trust. Only the two conclusive outcomes still resolve on their own: a broker that
+answered, and a broker that is definitively not there.
+
+The auto-resolution default is deliberate too: the flag's own help text says
 omitting it resolves to "the SAME bus the rest of the system is configured with,
 so the delegation lands in the shared delegation_events projection". That is the
 right default for operating a stack. It is the wrong default for a quick
 iteration you believed was local.
 
-### The fix, and a trap inside the fix
+### The fix
 
-**In a script, or anywhere the answer must be repeatable, pass the bus
-explicitly.** `--bus inmemory` and `--backend event_bus=inmemory` are unambiguous
-and are not probed for — which removes the ambient-environment hazard and the
-timing hazard together, since neither reaches `probe_kafka` at all.
+Both paths — the delegate CLI and the service-side selector — resolve through one
+authority, in one order:
 
-Do **not** reach for `ONEX_EVENT_BUS_TYPE` to pin it, because that variable does
-not cover both paths. It is read by `select_event_bus`
-(`omnibase_infra/src/omnibase_infra/backends/auto_configure.py:100`) — the
-service-side selector — and is **not** consulted by `resolve_default_bus` at all.
-Verified, with `ONEX_EVENT_BUS_TYPE=inmemory` set and a healthy broker reachable:
+1. **An explicit bus** — `--bus inmemory`, `--backend event_bus=inmemory`, or the
+   in-process `bus_type=` argument. Never second-guessed, and never probed for.
+2. **`ONEX_EVENT_BUS_TYPE`** — `inmemory`, `kafka`, or `cloud`, case-insensitive.
+   Read once, in `auto_configure.py:192`, and honoured by both paths. An
+   unrecognised value is an error, not a shrug.
+3. **The probe**, with the three outcomes above.
 
-```
-resolve_default_bus  ->  kafka           # the override was ignored
-select_event_bus     ->  EventBusInmemory # the override was honoured
-```
-
-So `ONEX_EVENT_BUS_TYPE=inmemory` pins the service-side selection and silently
-does nothing for `onex delegate`. If you set it and assume you are pinned, you are
-not. Use the flag.
+**In a script, or anywhere the answer must be repeatable, use tier 1 or tier 2.**
+Both remove the ambient-environment hazard and the timing hazard together, since
+neither reaches `probe_kafka` at all. Tier 1 is the right choice for a single
+command; tier 2 is the right choice for a whole shell session or a container,
+where you want every ONEX process on that machine pinned to the same transport.
 
 ### Crossing back: what your self-hosted stack must already be
 
@@ -616,8 +624,8 @@ how you tell a working hybrid setup from a broken one.
 | `Invalid --backend format '...'. Expected key=value` | **Expected.** `--backend` takes `key=value`, e.g. `--backend event_bus=inmemory`. |
 | `--kafka-bootstrap is only valid with --bus kafka` | **Expected**, and a useful refusal — it catches the case where you would have run in-process while believing you were on the broker. Pick one. |
 | `onex delegate` ran on Kafka when you expected in-process | Auto-resolution probed and found a broker, because `KAFKA_BOOTSTRAP_SERVERS` is set in your environment. Pass `--bus inmemory` explicitly. |
-| `onex delegate` ran in-process even though `KAFKA_BOOTSTRAP_SERVERS` is set and the broker is up | The probe's metadata call timed out and degraded to `REACHABLE`, which resolves to the in-memory bus. This is not sticky and not reproducible — the next identical run may resolve to Kafka. Pass `--bus kafka` explicitly. See [auto-resolution is not repeatable](#the-third-outcome-auto-resolution-is-not-repeatable). |
-| You set `ONEX_EVENT_BUS_TYPE=inmemory` and `onex delegate` still used Kafka | Correct-but-surprising: that variable is read by the service-side selector, not by the delegate CLI's auto-resolution. Pass `--bus inmemory`. |
+| `Kafka probe returned REACHABLE ...; the transport cannot be resolved repeatably` | **Expected**, and the most useful refusal on this page. `KAFKA_BOOTSTRAP_SERVERS` is set and TCP connects, but the metadata call timed out, so the broker's serving state is unknown — and it is not sticky, since the next identical run may resolve cleanly. Decide it yourself: `--bus kafka` or `--bus inmemory`. See [an indeterminate probe refuses](#the-third-outcome-an-indeterminate-probe-refuses-instead-of-guessing). |
+| You set `ONEX_EVENT_BUS_TYPE` and want to know whether it applies here | It does, on both paths, and it outranks the probe. An explicit `--bus` still outranks it. |
 | `auth`, `delegate`, `node`, `run`, `skill`, `kafka`, `occ` missing from `onex --help` | `omnibase-infra` is not installed in the interpreter answering `onex`. Confirm with `onex --verbose info`, which prints the interpreter path and the installed ONEX packages. |
 | A flipped run hangs against your self-hosted stack | Verify the stack on its own terms first — guide 2 step 5, gate before kernel. A flipped run cannot distinguish "broker unreachable" from "gate never went healthy". |
 | External client connects, then fails on the next call | The broker's advertised address, per guide 2. Presents identically whether the client is a flipped local run or anything else. |
@@ -644,7 +652,12 @@ Same posture as the three guides it composes. Executed and proven here:
 - All three outcomes of bus auto-resolution — the two environment-driven branches
   isolated by changing only the environment, and the timeout branch by repeating
   one call twenty times against a live broker.
-- The `ONEX_EVENT_BUS_TYPE` asymmetry between the two selection paths.
+- The resolution order and the refusal on an indeterminate probe, against the
+  `omnibase_infra` unit suite that pins them, with the probe mocked so each tier
+  and each probe state is exercised in isolation. The refusal message quoted above
+  is the one the resolver raises; it was not re-measured against a live broker,
+  because reproducing the timeout branch on demand is exactly what this section
+  says you cannot do.
 - Local recomputation of a receipt hash, for shape and stability, from the inputs
   printed alongside it.
 - The scaffold, and the two distinct ways a scaffolded node fails to run.
