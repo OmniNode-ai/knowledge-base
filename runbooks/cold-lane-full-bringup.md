@@ -19,12 +19,19 @@ warm path.
 Ticket: **<ticket>** (parent epic <ticket>).
 Evidence baseline: `.onex_state/runtime-e2e-2026-06-21/02-dev-deploy/`.
 
-> Scope: this is the **dev** lane procedure (compose project `omnibase-infra`,
-> the fully mutable test platform). Prod / judge / stability-test lanes are
-> separate compose projects and are **not** brought up this way — a cold lane
-> build is a workspace (non-main-lineage) image that the prod-promotion gate
-> refuses. Promote a clean-main release to prod via the gated node path
-> (`node_redeploy_orchestrator`), never via `--cold`.
+> **Scope (corrected — see "Partially cold governed lanes" below).**
+> `--cold` is available on the **dev** lane (compose project `omnibase-infra`,
+> the fully mutable test platform) and on the **stability-test** lane. It is
+> **refused** for **prod** — a cold build is a workspace (non-main-lineage) image
+> that the prod-promotion gate rejects, so promote a clean-main release via the
+> gated node path (`node_redeploy_orchestrator`), never via `--cold` — and for
+> **judge**, which the lane map declares read-only / not authorized for mutation.
+> Both refusals are enforced in `guard_cold_bringup_lane_scope()`, keyed on the
+> **resolved** lane rather than on flags.
+>
+> An earlier revision of this runbook scoped `--cold` to dev alone and grouped
+> stability-test with prod. That was wrong, and it cost a month of lane rot —
+> see the section below.
 
 ---
 
@@ -153,6 +160,87 @@ curl -fsS "http://${INFRA_HOST}:8085/health"
 docker inspect omninode-runtime \
   --format='{{index .Config.Labels "com.omninode.build_source"}}'   # -> workspace
 ```
+
+---
+
+## Partially cold governed lanes (the repair path)
+
+A lane is not only ever "fully warm" or "fully cold". It can be **partially
+cold**: its deps (postgres / broker / valkey / keycloak) are up and healthy while
+some of its runtime services have no container record at all.
+
+Neither documented path covers that state, and the failure is silent:
+
+- **Warm (`--restart`) refuses.** The stability refresh captures pre-state by
+  resolving a *running image id* per core service, so it can roll back. An absent
+  container has no running image id, and the script exits `64` with
+  `Could not resolve running image ID for <container>. Is the lane up?` — before
+  the rollback tag and before the checkout. A degraded lane is unrefreshable by
+  design.
+- **Cold (`--cold`) used to be scoped away** from governed lanes by the older
+  version of this runbook's scope note.
+
+That left the only remaining mechanisms as the forbidden raw-mutation signatures
+(`docker tag`, `docker compose -p <governed-project> … up -d --force-recreate`,
+both rejected by the raw-bypass CI gate) or a preflight bypass. All prohibited.
+So a partially-cold governed lane had **no sanctioned recovery path at all**, and
+one sat degraded for a month with every refresh attempt failing closed.
+
+### Why stability-test is allowed and prod is not
+
+The old scope note gave one rationale for excluding all three governed lanes: a
+cold build produces a workspace, non-main-lineage image the prod-promotion gate
+refuses. That rationale is **correct for prod and does not transfer to
+stability-test**. The stability lane is built in workspace mode *by design* — its
+own sanctioned refresh script sets `BUILD_SOURCE=workspace` against the merged-dev
+ref. A workspace image is precisely what the candidate-proving lane is supposed to
+run; that is the lane's whole purpose. Judge stays excluded on separate grounds
+(declared read-only).
+
+### What the repair path does *not* weaken
+
+- The **lane-deploy attribution + live-grant interlock** runs unchanged. A
+  mandatory reason is still required on governed lanes, and live unconsumed
+  prod-promotion grants still refuse the deploy unless each `grant_id` is
+  explicitly acknowledged.
+- The **hot-patch ledger preflight** runs unchanged. Its `--cold-start` carve-out
+  is **per-container skip-not-fail**: containers that *do* exist on a partially
+  cold lane are still fully tripwire-probed. Only a container that does not exist
+  is skipped, and a container that does not exist cannot carry a live hot-patch.
+- The migration preflight, deploy readback, and rollback-on-failure are unchanged.
+
+### Procedure
+
+Run from the lane host (or the deploy runner) against the governed lane's compose
+project:
+
+```bash
+ONEX_DEPLOY_REASON="<ticket>: repair partially-cold stability lane — <what is missing>" \
+OMNI_HOME="$OMNI_HOME" \
+OMNIBASE_INFRA_COMPOSE_PROJECT=omnibase-infra-stability-test \
+BUILD_SOURCE=workspace \
+DEPLOY_REF=origin/dev \
+RUNTIME_BUILD_SERVICES_OVERRIDE="omninode-runtime runtime-effects runtime-worker projection-api" \
+  ./scripts/deploy-runtime.sh --execute --force --cold
+```
+
+`RUNTIME_BUILD_SERVICES_OVERRIDE` is **required** on this lane. Without it,
+`build_images()` fans out over the full runtime service set, four of which still
+fail a workspace-mode build under the open `BUILD_SOURCE` selector-mismatch
+defect. Those same four are disabled on this lane by a compose profile override,
+so they are not part of the `--profile runtime` fan-out either — scoping the build
+to the four core services matches what the lane actually runs.
+
+Preview first with the same environment and no `--execute`; the attribution
+verdict and the lane-scope decision both print in dry-run.
+
+### After the repair
+
+Once every service in the lane's active profile has a container again, the normal
+warm refresh works — pre-state capture can resolve a running image id for each
+core service — so re-run the standard stability refresh to land the intended ref
+and get a `SUCCESS` receipt. Then regenerate the lane block in the workspace
+`CLAUDE.md` from a fresh census, since the counts it carries are generated.
 
 ---
 
