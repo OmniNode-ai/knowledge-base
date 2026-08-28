@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-08
 
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture) — 2026-08-28
 - **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture) — 2026-08-26
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture) — 2026-08-26
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide) — 2026-08-26

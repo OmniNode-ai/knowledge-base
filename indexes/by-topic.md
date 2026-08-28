@@ -978,8 +978,13 @@ Knowledge base artifacts grouped by topic.
 
 ## omnibase-compat
 
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** (runbook)
+
+## omnibase-core
+
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 
 ## omnibase-infra
 
@@ -992,6 +997,7 @@ Knowledge base artifacts grouped by topic.
 - **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 - **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
 - **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
 - **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
@@ -1017,6 +1023,10 @@ Knowledge base artifacts grouped by topic.
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
 - **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
+
+## omnibase-spi
+
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 
 ## omnibase_core
 
@@ -1142,6 +1152,7 @@ Knowledge base artifacts grouped by topic.
 ## overview
 
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 
 ## ownership
 
@@ -1453,6 +1464,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
