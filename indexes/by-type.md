@@ -105,6 +105,7 @@ Knowledge base artifacts grouped by type.
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** — accepted
 - **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** — accepted
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** — accepted
+- **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** — accepted
 
 ## Pivot
 

@@ -80,6 +80,8 @@ Most people end up running more than one of those at once — authoring on tier-
 
 All four, plus the rest of the task-oriented documentation, are indexed in [`guides/`](guides/README.md).
 
+**To understand how the repositories fit together,** read [Repository map and runtime concepts](architecture/repository-map-and-runtime-concepts.md). It is the orientation layer above the per-repository designs: what each repository owns, why the build-time import staircase and the runtime message graph look nothing alike, and the five runtime concepts — the three primitives, the four node archetypes, the canonical handler shape, the bus as transport, and projected truth — that explain how code in separate repositories becomes one running system.
+
 **To understand why the platform is shaped the way it is,** start with [`doctrine/`](doctrine/README.md) — the stable principles that govern it. From there, decision records show specific choices that instantiate those principles, and pivots show where the principles themselves evolved.
 
 ## Contributing
