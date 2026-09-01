@@ -78,6 +78,8 @@ Domain-specific wire DTOs live under `src/omnibase_compat/contracts/`:
   route-time `pricing_manifest_version`; unrouted records are failed terminals
   with a closed no-route reason and no backend or manifest fields. Consumers
   import this surface from `omnibase_compat.contracts.delegation.terminal_v2`.
+  The retained `model_used` and `endpoint_url` fields are producer diagnostics,
+  never sources from which consumers may derive `backend_ref`.
 - `contracts/evidence/` — contract evidence proof, spec, and provenance models.
 - `contracts/evidence_pipeline/wire/` — evidence pipeline wire DTOs: dashboard
   events, pipeline commands, evidence bundles, correlation traces, gap reports,
