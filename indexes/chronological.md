@@ -19,6 +19,15 @@ All knowledge base artifacts sorted by date.
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture) — 2026-09-01
+- **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture) — 2026-09-01
+- **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture) — 2026-09-01
+- **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture) — 2026-09-01
+- **[OmniMarket Event Registry](architecture/omnimarket-event-registry.md)** (architecture) — 2026-09-01
+- **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** (architecture) — 2026-09-01
+- **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture) — 2026-09-01
+- **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture) — 2026-09-01
+- **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture) — 2026-09-01
+- **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide) — 2026-09-01
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide) — 2026-09-01
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide) — 2026-09-01
@@ -29,9 +38,13 @@ All knowledge base artifacts sorted by date.
 - **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide) — 2026-09-01
 - **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide) — 2026-09-01
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide) — 2026-09-01
+- **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide) — 2026-09-01
+- **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide) — 2026-09-01
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference) — 2026-09-01
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference) — 2026-09-01
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference) — 2026-09-01
+- **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference) — 2026-09-01
+- **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** (reference) — 2026-09-01
 ## 2026-08
 
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture) — 2026-08-28

@@ -131,6 +131,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 
+## build-loop
+
+- **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
+
 ## bulk
 
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
@@ -374,7 +378,9 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
+- **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture)
 - **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+- **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** (reference)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 
 ## debugging
@@ -399,11 +405,16 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
+- **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 
 ## dependabot
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
+
+## dependencies
+
+- **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture)
 
 ## dependency-boundary
 
@@ -457,6 +468,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
 
 ## disposable-implementations
 
@@ -617,6 +629,7 @@ Knowledge base artifacts grouped by topic.
 ## events
 
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
+- **[OmniMarket Event Registry](architecture/omnimarket-event-registry.md)** (architecture)
 
 ## evidence
 
@@ -711,6 +724,11 @@ Knowledge base artifacts grouped by topic.
 ## gates
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
+
+## generation
+
+- **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** (architecture)
+- **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture)
 
 ## getting-started
 
@@ -838,6 +856,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr)
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
+- **[OmniMarket Event Registry](architecture/omnimarket-event-registry.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniIntelligence Event Surface](reference/omniintelligence-event-surface.md)** (reference)
@@ -905,6 +924,7 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[LLM Routing Architecture](architecture/llm-routing-architecture.md)** (architecture)
+- **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture)
 
 ## local
 
@@ -989,6 +1009,8 @@ Knowledge base artifacts grouped by topic.
 
 ## migrations
 
+- **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
+- **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** (reference)
 - **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook)
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
 
@@ -1040,6 +1062,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 
 ## non-determinism
@@ -1209,8 +1232,21 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
+- **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
+- **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture)
+- **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture)
+- **[OmniMarket Event Registry](architecture/omnimarket-event-registry.md)** (architecture)
+- **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** (architecture)
+- **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture)
+- **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
+- **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture)
+- **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
+- **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide)
+- **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
+- **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** (reference)
 
 ## omnimemory
 
@@ -1239,7 +1275,13 @@ Knowledge base artifacts grouped by topic.
 
 ## onex-runtime
 
+- **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** (architecture)
+- **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
+- **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
+- **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide)
+- **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
 
 ## operations
 
@@ -1273,11 +1315,17 @@ Knowledge base artifacts grouped by topic.
 
 ## ownership
 
+- **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
 - **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
 
 ## package
 
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
+
+## packaging
+
+- **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture)
+- **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
 
 ## parity
 
@@ -1345,6 +1393,7 @@ Knowledge base artifacts grouped by topic.
 
 ## projection
 
+- **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture)
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
@@ -1779,6 +1828,7 @@ Knowledge base artifacts grouped by topic.
 - **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide)
 - **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide)
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
@@ -1844,6 +1894,7 @@ Knowledge base artifacts grouped by topic.
 ## validation
 
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
+- **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture)
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference)
 
