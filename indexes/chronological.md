@@ -4,6 +4,25 @@ Generated — do not edit manually. Run `uv run python scripts/generate_indexes.
 
 All knowledge base artifacts sorted by date.
 
+## 2026-09
+
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture) — 2026-09-01
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture) — 2026-09-01
+- **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture) — 2026-09-01
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture) — 2026-09-01
+- **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide) — 2026-09-01
+- **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide) — 2026-09-01
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide) — 2026-09-01
+- **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide) — 2026-09-01
+- **[omnibase_spi Memory Protocols Guide](guides/omnibase-spi-memory-protocols-guide.md)** (guide) — 2026-09-01
+- **[omnibase_spi Protocol Composition Patterns](guides/omnibase-spi-protocol-composition-patterns.md)** (guide) — 2026-09-01
+- **[omnibase_spi Protocol Selection Guide](guides/omnibase-spi-protocol-selection-guide.md)** (guide) — 2026-09-01
+- **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide) — 2026-09-01
+- **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide) — 2026-09-01
+- **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide) — 2026-09-01
+- **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference) — 2026-09-01
+- **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference) — 2026-09-01
+- **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference) — 2026-09-01
 ## 2026-08
 
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture) — 2026-08-28

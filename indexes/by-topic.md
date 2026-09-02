@@ -50,6 +50,10 @@ Knowledge base artifacts grouped by topic.
 ## architecture
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture)
+- **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture)
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniIntelligence](architecture/omniintelligence-four-node-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
@@ -397,6 +401,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
 
+## design-patterns
+
+- **[omnibase_spi Protocol Composition Patterns](guides/omnibase-spi-protocol-composition-patterns.md)** (guide)
+- **[omnibase_spi Protocol Selection Guide](guides/omnibase-spi-protocol-selection-guide.md)** (guide)
+
 ## design-system
 
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
@@ -409,6 +418,10 @@ Knowledge base artifacts grouped by topic.
 ## dev-lane
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
+
+## developer-guide
+
+- **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide)
 
 ## development
 
@@ -457,6 +470,7 @@ Knowledge base artifacts grouped by topic.
 
 ## documentation
 
+- **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide)
 - **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
 ## dod
@@ -539,6 +553,7 @@ Knowledge base artifacts grouped by topic.
 ## event-bus
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture)
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
@@ -591,6 +606,10 @@ Knowledge base artifacts grouped by topic.
 ## example
 
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
+
+## examples
+
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
 
 ## failure-handling
 
@@ -660,6 +679,7 @@ Knowledge base artifacts grouped by topic.
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
+- **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide)
 
 ## git
 
@@ -668,6 +688,10 @@ Knowledge base artifacts grouped by topic.
 ## github-actions
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
+
+## glossary
+
+- **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference)
 
 ## golden-chain
 
@@ -688,6 +712,7 @@ Knowledge base artifacts grouped by topic.
 
 ## handler
 
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture)
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 
 ## handlers
@@ -720,6 +745,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 
+## import-graph
+
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
+
 ## infrastructure
 
 - **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture)
@@ -744,6 +773,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
+- **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide)
 
 ## integration-testing
 
@@ -782,6 +812,10 @@ Knowledge base artifacts grouped by topic.
 ## layer
 
 - **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
+
+## layering
+
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
 
 ## layout
 
@@ -863,6 +897,10 @@ Knowledge base artifacts grouped by topic.
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
+
+## memory
+
+- **[omnibase_spi Memory Protocols Guide](guides/omnibase-spi-memory-protocols-guide.md)** (guide)
 
 ## memory-storage
 
@@ -1041,6 +1079,30 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
+
+## omnibase_infra
+
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
+
+## omnibase_spi
+
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture)
+- **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture)
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture)
+- **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide)
+- **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide)
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
+- **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide)
+- **[omnibase_spi Memory Protocols Guide](guides/omnibase-spi-memory-protocols-guide.md)** (guide)
+- **[omnibase_spi Protocol Composition Patterns](guides/omnibase-spi-protocol-composition-patterns.md)** (guide)
+- **[omnibase_spi Protocol Selection Guide](guides/omnibase-spi-protocol-selection-guide.md)** (guide)
+- **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide)
+- **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide)
+- **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
+- **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference)
+- **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference)
+- **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference)
 
 ## omniclaude
 
@@ -1255,6 +1317,18 @@ Knowledge base artifacts grouped by topic.
 ## protocols
 
 - **[ADR-0030: Protocol-Based Dependency Injection Architecture](adrs/ADR-0030-protocol-based-di-architecture.md)** (adr)
+- **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture)
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture)
+- **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide)
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
+- **[omnibase_spi Memory Protocols Guide](guides/omnibase-spi-memory-protocols-guide.md)** (guide)
+- **[omnibase_spi Protocol Composition Patterns](guides/omnibase-spi-protocol-composition-patterns.md)** (guide)
+- **[omnibase_spi Protocol Selection Guide](guides/omnibase-spi-protocol-selection-guide.md)** (guide)
+- **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide)
+- **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide)
+- **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
+- **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference)
+- **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference)
 
 ## publishing
 
@@ -1513,6 +1587,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 
+## sequence-diagrams
+
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture)
+
 ## service
 
 - **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture)
@@ -1568,6 +1646,7 @@ Knowledge base artifacts grouped by topic.
 ## standards
 
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
+- **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 
@@ -1605,6 +1684,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
+## templates
+
+- **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide)
+
 ## tenant-isolation
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
@@ -1612,6 +1695,7 @@ Knowledge base artifacts grouped by topic.
 
 ## terminology
 
+- **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## test
@@ -1621,6 +1705,8 @@ Knowledge base artifacts grouped by topic.
 ## testing
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide)
+- **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
@@ -1687,6 +1773,8 @@ Knowledge base artifacts grouped by topic.
 ## validation
 
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
+- **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
+- **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference)
 
 ## validator
 

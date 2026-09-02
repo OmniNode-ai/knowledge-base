@@ -106,6 +106,10 @@ Knowledge base artifacts grouped by type.
 - **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** — accepted
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** — accepted
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** — accepted
+- **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** — accepted
+- **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** — accepted
+- **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** — accepted
+- **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** — accepted
 
 ## Pivot
 
@@ -133,6 +137,16 @@ Knowledge base artifacts grouped by type.
 - **[OmniDash Development Guide](guides/omnidash-development.md)** — current
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** — current
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** — current
+- **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** — current
+- **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** — current
+- **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** — current
+- **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** — current
+- **[omnibase_spi Memory Protocols Guide](guides/omnibase-spi-memory-protocols-guide.md)** — current
+- **[omnibase_spi Protocol Composition Patterns](guides/omnibase-spi-protocol-composition-patterns.md)** — current
+- **[omnibase_spi Protocol Selection Guide](guides/omnibase-spi-protocol-selection-guide.md)** — current
+- **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** — current
+- **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** — current
+- **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
 
 ## Reference
 
@@ -163,6 +177,9 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** — current
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** — current
+- **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** — current
+- **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** — current
+- **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** — current
 
 ## Runbook
 
