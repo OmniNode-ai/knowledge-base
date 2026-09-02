@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/adapters/cursor/README.md on 2026-09-01 (OMN-16613)
+---
+type: guide
+status: current
+date: "2026-09-02"
+title: "OmniMarket Cursor Adapter"
+topics:
+  - omnimarket
+  - adapters
+  - cursor
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/adapters/cursor/README.md on 2026-09-01 -->
 
 # Cursor Adapter — OmniMarket
 

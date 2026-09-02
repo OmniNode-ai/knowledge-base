@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/adapters/claude_code/README.md on 2026-09-01 (OMN-16613)
+---
+type: guide
+status: current
+date: "2026-09-02"
+title: "OmniMarket Claude Code Adapter"
+topics:
+  - omnimarket
+  - adapters
+  - claude-code
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/adapters/claude_code/README.md on 2026-09-01 -->
 
 # Claude Code Adapter — OmniMarket
 

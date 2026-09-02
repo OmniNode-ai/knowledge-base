@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/nodes/node_build_loop_orchestrator/README.md on 2026-09-01 (OMN-16613)
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "OmniMarket node_build_loop_orchestrator"
+topics:
+  - omnimarket
+  - nodes
+  - onex-runtime
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/nodes/node_build_loop_orchestrator/README.md on 2026-09-01 -->
 
 # Build Loop Orchestrator Node
 

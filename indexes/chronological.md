@@ -10,8 +10,15 @@ All knowledge base artifacts sorted by date.
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture) — 2026-09-02
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture) — 2026-09-02
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide) — 2026-09-02
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide) — 2026-09-02
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide) — 2026-09-02
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide) — 2026-09-02
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide) — 2026-09-02
 - **[DoD Check Types](reference/dod-check-types.md)** (reference) — 2026-09-02
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference) — 2026-09-02
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference) — 2026-09-02
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference) — 2026-09-02
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference) — 2026-09-02
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook) — 2026-09-02

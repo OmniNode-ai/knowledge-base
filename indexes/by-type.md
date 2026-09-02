@@ -162,6 +162,10 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** — current
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** — current
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** — current
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** — current
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** — current
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** — current
 
 ## Reference
 
@@ -200,6 +204,9 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** — current
 - **[DoD Check Types](reference/dod-check-types.md)** — current
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** — current
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** — current
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** — current
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** — current
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** — current
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** — current
 

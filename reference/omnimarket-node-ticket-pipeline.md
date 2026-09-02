@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/nodes/node_ticket_pipeline/README.md on 2026-09-01 (OMN-16613)
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "OmniMarket node_ticket_pipeline"
+topics:
+  - omnimarket
+  - nodes
+  - onex-runtime
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/nodes/node_ticket_pipeline/README.md on 2026-09-01 -->
 
 # Ticket Pipeline Node
 
@@ -23,7 +35,7 @@ Later side-effect phases stop explicitly as `blocked/not_implemented` until they
 ## Key Components
 - `ModelPipelineStartCommand`: Initiates the ticket processing pipeline.
   Fields: `correlation_id` (required), `ticket_id` (required — must match an
-  uppercase Linear key such as `OMN-1234`), `skip_test_iterate`, `dry_run`,
+  uppercase Linear key such as `TEAM-1234`), `skip_test_iterate`, `dry_run`,
   `skip_to`, `requested_at` (required). `model_config` sets `extra="forbid"`
   — unknown fields raise a validation error.
 - `ModelPipelinePhaseEvent`: Emitted during each processing phase
@@ -41,7 +53,7 @@ from omnimarket.nodes.node_ticket_pipeline.models import ModelPipelineStartComma
 # field not declared on the model (e.g. a free-form `payload`).
 command = ModelPipelineStartCommand(
     correlation_id=uuid4(),
-    ticket_id="OMN-1234",
+    ticket_id="TEAM-1234",
     requested_at=datetime.now(UTC),
 )
 # Send command to HandlerTicketPipeline.run_executable_pipeline()

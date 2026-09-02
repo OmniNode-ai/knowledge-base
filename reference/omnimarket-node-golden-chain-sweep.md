@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/nodes/node_golden_chain_sweep/SKILL.md on 2026-09-01 (OMN-16613)
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "OmniMarket node_golden_chain_sweep"
+topics:
+  - omnimarket
+  - nodes
+  - onex-runtime
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/nodes/node_golden_chain_sweep/SKILL.md on 2026-09-01 -->
 
 # golden_chain_sweep
 
@@ -34,7 +46,7 @@ includes it in sweep coverage without touching any Python code.
 | `tail_table` | yes | DB projection table that should receive the event |
 | `expected_fields` | no | Fields that must be present in the projected row |
 | `timestamp_field` | no | Tail-row column holding the row's event/ingest time (default `created_at`). Read only when `max_row_age_seconds` is set. |
-| `max_row_age_seconds` | no | Per-chain recency threshold (OMN-13639). When set, a field-complete row older than this many seconds is downgraded to **STALE** (a distinct non-PASS tri-state) instead of reading green. Omit to disable the freshness check. |
+| `max_row_age_seconds` | no | Per-chain recency threshold. When set, a field-complete row older than this many seconds is downgraded to **STALE** (a distinct non-PASS tri-state) instead of reading green. Omit to disable the freshness check. |
 
 **Example:**
 
@@ -56,7 +68,7 @@ chains:
       - correlation_id
 ```
 
-> **Freshness (OMN-13639).** Field-presence alone reads green on a weeks-old
+> **Freshness.** Field-presence alone reads green on a weeks-old
 > fixture row even when the producer is idle. A chain with `max_row_age_seconds`
 > additionally asserts the latest tail row is recent: a field-complete but
 > stale row is reported as `STALE` (overall sweep status `warn` — non-blocking)
@@ -85,7 +97,7 @@ python -m omnimarket.nodes.node_golden_chain_sweep \
 
 JSON `GoldenChainSweepResult` to stdout. Exit code 0 on overall pass, 1 otherwise.
 
-## CI census gate (OMN-14536)
+## CI census gate
 
 This node is a **validator**, not a collector — it only ever looks at the
 `projected_rows` a caller hands it. The omnimarket CI harness that actually

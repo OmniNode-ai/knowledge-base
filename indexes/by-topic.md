@@ -12,6 +12,13 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
 
+## adapters
+
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide)
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide)
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide)
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide)
+
 ## admission
 
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook)
@@ -199,6 +206,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
 
+## claude-code
+
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide)
+
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -215,6 +226,10 @@ Knowledge base artifacts grouped by topic.
 ## code-standards
 
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
+
+## codex
+
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide)
 
 ## cold
 
@@ -334,6 +349,10 @@ Knowledge base artifacts grouped by topic.
 ## current
 
 - **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
+
+## cursor
+
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide)
 
 ## cutover
 
@@ -725,6 +744,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 
+## gemini
+
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide)
+
 ## generation
 
 - **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** (architecture)
@@ -1061,8 +1084,11 @@ Knowledge base artifacts grouped by topic.
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference)
 - **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference)
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 
 ## non-determinism
@@ -1241,12 +1267,19 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
 - **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture)
 - **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide)
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide)
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide)
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide)
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide)
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference)
 - **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
 - **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** (reference)
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference)
 
 ## omnimemory
 
@@ -1280,8 +1313,11 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide)
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference)
 - **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** (reference)
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference)
 
 ## operations
 

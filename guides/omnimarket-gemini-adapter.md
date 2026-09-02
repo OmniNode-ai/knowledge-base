@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/adapters/gemini/README.md on 2026-09-01 (OMN-16613)
+---
+type: guide
+status: current
+date: "2026-09-02"
+title: "OmniMarket Gemini CLI Adapter"
+topics:
+  - omnimarket
+  - adapters
+  - gemini
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/adapters/gemini/README.md on 2026-09-01 -->
 
 # Gemini CLI Adapter — OmniMarket
 

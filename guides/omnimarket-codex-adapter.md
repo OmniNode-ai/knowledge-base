@@ -1,4 +1,16 @@
-> Migrated from omnimarket:src/omnimarket/adapters/codex/README.md on 2026-09-01 (OMN-16613)
+---
+type: guide
+status: current
+date: "2026-09-02"
+title: "OmniMarket Codex Adapter"
+topics:
+  - omnimarket
+  - adapters
+  - codex
+refs: []
+---
+
+<!-- Migrated from omnimarket:src/omnimarket/adapters/codex/README.md on 2026-09-01 -->
 
 # Codex Adapter - OmniMarket
 
