@@ -7,20 +7,85 @@ All knowledge base artifacts sorted by date.
 ## 2026-09
 
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
+- **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02
+- **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture) — 2026-09-02
+- **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** (architecture) — 2026-09-02
+- **[Correlation ID Tracking](architecture/omnibase-infra-correlation-id-tracking.md)** (architecture) — 2026-09-02
+- **[Environment-Aware Topic Naming Pattern](architecture/omnibase-infra-environment-aware-topic-naming.md)** (architecture) — 2026-09-02
+- **[Kafka Schema Handshake Gate](architecture/omnibase-infra-kafka-schema-handshake-gate.md)** (architecture) — 2026-09-02
+- **[Operation Bindings: Declarative Handler Parameter Resolution](architecture/omnibase-infra-operation-bindings.md)** (architecture) — 2026-09-02
+- **[Operation Routing Pattern](architecture/omnibase-infra-operation-routing.md)** (architecture) — 2026-09-02
+- **[Policy Registry Trust Model](architecture/omnibase-infra-policy-registry-trust-model.md)** (architecture) — 2026-09-02
+- **[Protocol Patterns](architecture/omnibase-infra-protocol-patterns.md)** (architecture) — 2026-09-02
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture) — 2026-09-02
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture) — 2026-09-02
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide) — 2026-09-02
+- **[Chaos Tests](guides/omnibase-infra-chaos-tests.md)** (guide) — 2026-09-02
+- **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide) — 2026-09-02
+- **[Circuit Breaker Implementation Guide](guides/omnibase-infra-circuit-breaker-implementation.md)** (guide) — 2026-09-02
+- **[Consul Integration Patterns](guides/omnibase-infra-consul-integration.md)** (guide) — 2026-09-02
+- **[Contributor Local Setup](guides/omnibase-infra-contributor-local-setup.md)** (guide) — 2026-09-02
+- **[Effect Boundary Testing](guides/omnibase-infra-effect-boundary-testing.md)** (guide) — 2026-09-02
+- **[Handler Integration Tests](guides/omnibase-infra-handler-integration-tests.md)** (guide) — 2026-09-02
+- **[Integration Testing](guides/omnibase-infra-integration-testing.md)** (guide) — 2026-09-02
+- **[Migration Upgrade Guide: 003a to 004](guides/omnibase-infra-migration-upgrade-003a-to-004.md)** (guide) — 2026-09-02
+- **[PluginCompute Unit Tests](guides/omnibase-infra-plugin-compute-unit-tests.md)** (guide) — 2026-09-02
+- **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** (guide) — 2026-09-02
+- **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** (guide) — 2026-09-02
+- **[Replay Tests](guides/omnibase-infra-replay-tests.md)** (guide) — 2026-09-02
+- **[Standalone Quickstart](guides/omnibase-infra-standalone-quickstart.md)** (guide) — 2026-09-02
+- **[Testing Patterns](guides/omnibase-infra-testing-patterns.md)** (guide) — 2026-09-02
+- **[Validation Orchestrator — Activation Guide](guides/omnibase-infra-validation-orchestrator-activation.md)** (guide) — 2026-09-02
 - **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide) — 2026-09-02
 - **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide) — 2026-09-02
 - **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide) — 2026-09-02
 - **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide) — 2026-09-02
 - **[DoD Check Types](reference/dod-check-types.md)** (reference) — 2026-09-02
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference) — 2026-09-02
+- **[ADR: Use of Any Type as Pydantic 2.x JsonType Workaround](reference/omnibase-infra-adr-any-type-pydantic-workaround.md)** (reference) — 2026-09-02
+- **[ADR-010: OmniBase Infra Owns Authoritative Environment Topology](reference/omnibase-infra-adr-authoritative-environment-topology-owner.md)** (reference) — 2026-09-02
+- **[ADR: Canonical Publish Interface Policy](reference/omnibase-infra-adr-canonical-publish-interface-policy.md)** (reference) — 2026-09-02
+- **[ADR: Kafka Consumer Group Naming Convention](reference/omnibase-infra-adr-consumer-group-naming.md)** (reference) — 2026-09-02
+- **[ADR: Cryptography Library Upgrade to v46.0.3](reference/omnibase-infra-adr-cryptography-upgrade-46.md)** (reference) — 2026-09-02
+- **[ADR: Custom `__bool__` for Result Models](reference/omnibase-infra-adr-custom-bool-result-models.md)** (reference) — 2026-09-02
+- **[ADR-005: Denormalize Capability Fields in Registration Projections](reference/omnibase-infra-adr-denormalize-capability-fields-in-registration-projections.md)** (reference) — 2026-09-02
+- **[ADR: Strengthen DSN Validation with urllib.parse](reference/omnibase-infra-adr-dsn-validation-strengthening.md)** (reference) — 2026-09-02
+- **[ADR-002: Separation of EnumMessageCategory and EnumNodeOutputType](reference/omnibase-infra-adr-enum-message-category-node-output-separation.md)** (reference) — 2026-09-02
+- **[ADR: EnumMessageCategory vs EnumNodeOutputType Distinction](reference/omnibase-infra-adr-enum-message-category-vs-node-output-type.md)** (reference) — 2026-09-02
+- **[ADR: Error Context Factory Pattern with `with_correlation`](reference/omnibase-infra-adr-error-context-factory-pattern.md)** (reference) — 2026-09-02
+- **[ADR-001: Graceful Shutdown with Drain Period](reference/omnibase-infra-adr-graceful-shutdown-drain-period.md)** (reference) — 2026-09-02
+- **[ADR: Handler Contract Schema Evolution Strategy](reference/omnibase-infra-adr-handler-contract-schema-evolution.md)** (reference) — 2026-09-02
+- **[ADR: Handler Plugin Loader Security Model](reference/omnibase-infra-adr-handler-plugin-loader-security.md)** (reference) — 2026-09-02
+- **[ADR: EnumHandlerType vs EnumHandlerTypeCategory Distinction](reference/omnibase-infra-adr-handler-type-vs-handler-category.md)** (reference) — 2026-09-02
+- **[ADR: Kafka is Required Infrastructure (Rule #8)](reference/omnibase-infra-adr-kafka-required-infrastructure.md)** (reference) — 2026-09-02
+- **[ADR-009: LLM Cost Tracking at the Infrastructure Layer](reference/omnibase-infra-adr-llm-cost-tracking-spi.md)** (reference) — 2026-09-02
+- **[ADR-006: MessageDispatchEngine as Canonical Consumer Routing Pattern](reference/omnibase-infra-adr-message-dispatch-engine-canonical-routing.md)** (reference) — 2026-09-02
+- **[ADR-004: Performance Baseline Thresholds for E2E Tests](reference/omnibase-infra-adr-performance-baseline-thresholds.md)** (reference) — 2026-09-02
+- **[ADR: Projector Composite Key Upsert Workaround](reference/omnibase-infra-adr-projector-composite-key-upsert-workaround.md)** (reference) — 2026-09-02
+- **[ADR: Protocol Design Guidelines](reference/omnibase-infra-adr-protocol-design-guidelines.md)** (reference) — 2026-09-02
+- **[ADR-003: Remove Health Check Methods from Handlers](reference/omnibase-infra-adr-remove-handler-health-checks.md)** (reference) — 2026-09-02
+- **[ADR: Soft Validation for Environment Variable Parsing](reference/omnibase-infra-adr-soft-validation-env-parsing.md)** (reference) — 2026-09-02
+- **[ADR: Two Handler Systems in omnibase_infra](reference/omnibase-infra-adr-two-handler-systems.md)** (reference) — 2026-09-02
+- **[Contract.yaml Reference](reference/omnibase-infra-contract-yaml-reference.md)** (reference) — 2026-09-02
+- **[DLQ Quarantine Ownership Semantics](reference/omnibase-infra-dlq-quarantine-ownership.md)** (reference) — 2026-09-02
+- **[LLM Endpoint Service Level Objectives](reference/omnibase-infra-llm-endpoint-slo.md)** (reference) — 2026-09-02
+- **[Migration Versioning Convention](reference/omnibase-infra-migration-versioning-convention.md)** (reference) — 2026-09-02
+- **[Naming Conventions](reference/omnibase-infra-naming-conventions.md)** (reference) — 2026-09-02
+- **[Node Registration Orchestrator](reference/omnibase-infra-node-registration-orchestrator.md)** (reference) — 2026-09-02
+- **[Per-Service Database URL Contract](reference/omnibase-infra-per-service-database-url-contract.md)** (reference) — 2026-09-02
+- **[Terminology Guide](reference/omnibase-infra-terminology-guide.md)** (reference) — 2026-09-02
+- **[ONEX Infrastructure Topic Taxonomy](reference/omnibase-infra-topic-taxonomy.md)** (reference) — 2026-09-02
+- **[Utility Directory Structure](reference/omnibase-infra-utility-directory-structure.md)** (reference) — 2026-09-02
+- **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** (reference) — 2026-09-02
 - **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference) — 2026-09-02
 - **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference) — 2026-09-02
 - **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference) — 2026-09-02
+- **[Agent Actions Consumer - Operational Runbook](runbooks/omnibase-infra-agent-actions-consumer.md)** (runbook) — 2026-09-02
+- **[Database Index Monitoring Runbook](runbooks/omnibase-infra-database-index-monitoring.md)** (runbook) — 2026-09-02
+- **[Dead Letter Queue (DLQ) Replay Guide](runbooks/omnibase-infra-dlq-replay.md)** (runbook) — 2026-09-02
+- **[Event Bus Operations Runbook](runbooks/omnibase-infra-event-bus-operations.md)** (runbook) — 2026-09-02
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook) — 2026-09-02
 - **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture) — 2026-09-01
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture) — 2026-09-01
