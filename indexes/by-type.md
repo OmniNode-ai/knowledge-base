@@ -118,6 +118,15 @@ Knowledge base artifacts grouped by type.
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** — accepted
 - **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** — accepted
 - **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** — accepted
+- **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** — accepted
+- **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** — accepted
+- **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** — accepted
+- **[OmniMarket Event Registry](architecture/omnimarket-event-registry.md)** — accepted
+- **[OmniMarket Generation Pipeline Boundary](architecture/omnimarket-generation-pipeline-boundary.md)** — accepted
+- **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** — accepted
+- **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** — accepted
+- **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** — accepted
+- **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** — accepted
 - **[Drift Control System — Design](architecture/drift-control-system.md)** — accepted
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** — accepted
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** — accepted
@@ -160,9 +169,15 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** — current
 - **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** — current
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
+- **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** — current
+- **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** — current
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 - **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** — current
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
+- **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** — current
+- **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** — current
+- **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** — current
+- **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** — current
 
 ## Reference
 
@@ -200,8 +215,13 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** — current
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** — current
 - **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** — current
+- **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** — current
+- **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** — current
 - **[DoD Check Types](reference/dod-check-types.md)** — current
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** — current
+- **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** — current
+- **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** — current
+- **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** — current
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** — current
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** — current
 
