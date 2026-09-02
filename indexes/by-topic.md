@@ -344,6 +344,10 @@ Knowledge base artifacts grouped by topic.
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 
+## data-sources
+
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference)
+
 ## data-topology
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
@@ -745,6 +749,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0036: Context Mutability Design Decision](adrs/ADR-0036-context-mutability-design-decision.md)** (adr)
 
+## implementation-status
+
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference)
+
 ## import-graph
 
 - **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
@@ -1138,6 +1146,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference)
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
 
 ## omniintelligence
@@ -1818,6 +1827,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference)
 
 ## wire-dtos
 
