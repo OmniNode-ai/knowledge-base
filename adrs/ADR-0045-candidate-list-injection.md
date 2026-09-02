@@ -1,3 +1,15 @@
+---
+type: adr
+status: accepted
+date: "2026-02-19"
+title: "ADR-0045: Remove YAML Loading from Synchronous Hook Path"
+adr_id: ADR-0045
+topics: [omniclaude, hooks, performance, agent-routing]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/ADR-002-candidate-list-injection.md on 2026-09-01 -->
 
 # ADR-0045: Remove YAML Loading from Synchronous Hook Path

@@ -1,4 +1,13 @@
-> Migrated from omniclaude:docs/process/spawning-from-spawned-workers.md on 2026-09-01 (OMN-16609).
+---
+type: guide
+status: current
+date: "2026-09-01"
+title: "Spawning Sub-Workers from Orchestrator Workers"
+topics: [omniclaude, orchestration, workers, dispatch]
+refs: []
+---
+
+<!-- Migrated from omniclaude:docs/process/spawning-from-spawned-workers.md on 2026-09-01 -->
 
 # Spawning Sub-Workers from Orchestrator Workers
 

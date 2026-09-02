@@ -1,4 +1,15 @@
-> Migrated from omniclaude:docs/getting-started/FIRST_HOOK.md on 2026-09-01 (OMN-16609). For the general hook-type table and basic module/wiring pattern, see [Adding a Hook Handler](adding-a-hook-handler.md); this page is the deeper end-to-end PostToolUse tutorial (tests, deploy, troubleshooting) that guide does not cover.
+---
+type: guide
+status: current
+date: "2026-09-01"
+title: "Adding a Custom PostToolUse Handler"
+topics: [omniclaude, hooks, posttooluse, tutorial]
+refs: [guides/adding-a-hook-handler.md]
+---
+
+<!-- Migrated from omniclaude:docs/getting-started/FIRST_HOOK.md on 2026-09-01 -->
+
+> For the general hook-type table and basic module/wiring pattern, see [Adding a Hook Handler](adding-a-hook-handler.md); this page is the deeper end-to-end PostToolUse tutorial (tests, deploy, troubleshooting) that guide does not cover.
 
 # Tutorial: Adding a Custom PostToolUse Handler
 
@@ -345,8 +356,8 @@ claude plugin uninstall onex@omninode-tools && claude plugin install onex@omnino
 ```
 
 Do not assume this copies `plugins/onex/` into `~/.claude/plugins/cache/` — for a
-`directory`-source marketplace it does not, and the cache is not the load path
-(OMN-15274). Read back where your hook actually loads from:
+`directory`-source marketplace it does not, and the cache is not the load path.
+Read back where your hook actually loads from:
 
 ```bash
 python3 plugins/onex/hooks/lib/plugin_deploy_readback.py
@@ -421,8 +432,8 @@ Work through this checklist in order:
    `PLUGIN_PYTHON_BIN` to an absolute path to override interpreter resolution.
 
 5. **Confirm the hook is registered and executable at the resolved load path.**
-   Do not `ls` the plugin cache — a hit there proves nothing about what runs
-   (OMN-15274). The readback resolves the load path and EXEC-checks every
+   Do not `ls` the plugin cache — a hit there proves nothing about what runs.
+   The readback resolves the load path and EXEC-checks every
    registered command:
 
    ```bash
@@ -487,5 +498,5 @@ result.
 | Pipeline trace log | `~/.claude/logs/pipeline-trace.log` |
 | Emit daemon log | `~/.claude/hooks.log` (if `LOG_FILE` is set) |
 
-See the omniclaude repo's [CLAUDE.md](https://github.com/OmniNode-ai/omniclaude/blob/dev/CLAUDE.md) "Where to Change Things" section for the complete
+See the omniclaude repo's `CLAUDE.md`, "Where to Change Things" section, for the complete
 reference table.

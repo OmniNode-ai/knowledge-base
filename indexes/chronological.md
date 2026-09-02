@@ -19,6 +19,8 @@ All knowledge base artifacts sorted by date.
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** (architecture) — 2026-09-01
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide) — 2026-09-01
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** (guide) — 2026-09-01
 - **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** (guide) — 2026-09-01
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide) — 2026-09-01
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide) — 2026-09-01
@@ -29,9 +31,13 @@ All knowledge base artifacts sorted by date.
 - **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** (guide) — 2026-09-01
 - **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** (guide) — 2026-09-01
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide) — 2026-09-01
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-01
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide) — 2026-09-01
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference) — 2026-09-01
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference) — 2026-09-01
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference) — 2026-09-01
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** (reference) — 2026-09-01
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** (reference) — 2026-09-01
 ## 2026-08
 
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture) — 2026-08-28
@@ -157,6 +163,7 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr) — 2026-06-18
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr) — 2026-06-18
 - **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr) — 2026-06-18
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference) — 2026-06-12
 ## 2026-05
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture) — 2026-05-31
@@ -192,15 +199,23 @@ All knowledge base artifacts sorted by date.
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr) — 2026-04-23
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr) — 2026-04-23
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr) — 2026-04-23
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** (adr) — 2026-04-23
 ## 2026-03
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr) — 2026-03-25
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr) — 2026-03-02
 ## 2026-02
 
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference) — 2026-02-24
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture) — 2026-02-20
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide) — 2026-02-20
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr) — 2026-02-19
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** (adr) — 2026-02-19
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr) — 2026-02-19
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr) — 2026-02-19
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** (adr) — 2026-02-19
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference) — 2026-02-14
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr) — 2026-02-09
 ## 2026-01
 
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr) — 2026-01-18

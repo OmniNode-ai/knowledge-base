@@ -1,4 +1,15 @@
-> Migrated from omniclaude:docs/proposals/FUZZY_MATCHER_IMPROVEMENTS.md on 2026-09-01 (OMN-16609). Despite its filename, this is the live scoring-semantics contract for `agent_router.py`'s `TriggerMatcher` — cited normatively by `plugins/onex/hooks/lib/agent_router.py` (Determinism Guarantees section, code-review requirement).
+---
+type: reference
+status: current
+date: "2026-09-01"
+title: "Agent Routing Score Semantics"
+topics: [omniclaude, agent-routing, scoring, trigger-matching]
+refs: []
+---
+
+<!-- Migrated from omniclaude:docs/proposals/FUZZY_MATCHER_IMPROVEMENTS.md on 2026-09-01 -->
+
+> Despite its filename, this is the live scoring-semantics contract for `agent_router.py`'s `TriggerMatcher` — cited normatively by `plugins/onex/hooks/lib/agent_router.py` (Determinism Guarantees section, code-review requirement).
 
 # Proposal: Fuzzy Matcher Improvements for Agent Routing
 

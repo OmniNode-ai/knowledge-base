@@ -1,3 +1,15 @@
+---
+type: adr
+status: accepted
+date: "2026-02-19"
+title: "ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose"
+adr_id: ADR-0046
+topics: [omniclaude, agent-routing, fail-fast]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/ADR-003-no-fallback-routing.md on 2026-09-01 -->
 
 # ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose

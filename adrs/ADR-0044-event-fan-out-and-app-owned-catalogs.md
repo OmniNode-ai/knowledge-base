@@ -1,3 +1,15 @@
+---
+type: adr
+status: accepted
+date: "2026-02-09"
+title: "ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs"
+adr_id: ADR-0044
+topics: [omniclaude, events, kafka, event-catalog, fan-out]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/ADR-001-event-fan-out-and-app-owned-catalogs.md on 2026-09-01 -->
 
 # ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs
@@ -14,7 +26,7 @@
 | **Author** | Jonah |
 | **Related Issues** | emit daemon port, realm-agnostic topics, session outcome feedback loop, routing feedback events with guardrails |
 | **Implementation PRs** | omnibase_infra #275 (remove defaults), omniclaude4 branch `jonah/omn-1892-add-feedback-loop-with-guardrails` |
-| **Related ADR** | omnibase_core [ADR-005](https://github.com/OmniNode-ai/omnibase_core/blob/main/docs/decisions/ADR-005-core-infra-dependency-boundary.md) - Core-Infra Dependency Boundary |
+| **Related ADR** | omnibase_core ADR-005 — Core-Infra Dependency Boundary |
 
 ---
 
@@ -325,7 +337,7 @@ Extend infra with `FanOutRule` support. **Rejected** because:
 
 ### Related Documentation
 
-- **[ADR-005 (omnibase_core)](https://github.com/OmniNode-ai/omnibase_core/blob/main/docs/decisions/ADR-005-core-infra-dependency-boundary.md)**: Core-Infra Dependency Boundary — establishes the principle that core/infra provides abstractions, not application content
+- **ADR-005 (omnibase_core)**: Core-Infra Dependency Boundary — establishes the principle that core/infra provides abstractions, not application content
 
 ### Related Code
 

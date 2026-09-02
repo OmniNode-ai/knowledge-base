@@ -1,6 +1,17 @@
+---
+type: reference
+status: current
+date: "2026-09-01"
+title: "omniclaude PR Validation Path"
+topics: [omniclaude, ci, branch-protection, required-checks]
+refs: []
+---
+
 # PR Validation Path
 
-> Migrated from omniclaude:docs/reference/PR_VALIDATION_PATH.md on 2026-09-01 (OMN-16609). Corrected against the live `.github/workflows/ci.yml` and `.github/required-checks.yaml` at migration time — the original table had drifted from the shipped workflow.
+<!-- Migrated from omniclaude:docs/reference/PR_VALIDATION_PATH.md on 2026-09-01 -->
+
+> Corrected against the live `.github/workflows/ci.yml` and `.github/required-checks.yaml` at migration time — the original table had drifted from the shipped workflow.
 
 The complete ordered list of checks a PR in `omniclaude` goes through, local and CI. Every REQUIRED context on the `dev` branch is tracked in `.github/required-checks.yaml`, which fails closed if it and live branch protection diverge.
 
@@ -66,4 +77,4 @@ Aggregated into `Omni Standards Gate`.
 
 ## Branch Protection
 
-All REQUIRED contexts (Quality Gate, Tests Gate, Security Gate, Omni Standards Gate, plus the standalone contexts listed above) must pass before merge. The authoritative, machine-verified list lives in `.github/required-checks.yaml` (v3, OMN-14854), which is reconciled against live GitHub branch protection by a dedicated job and fails closed on divergence.
+All REQUIRED contexts (Quality Gate, Tests Gate, Security Gate, Omni Standards Gate, plus the standalone contexts listed above) must pass before merge. The authoritative, machine-verified list lives in `.github/required-checks.yaml` (v3), which is reconciled against live GitHub branch protection by a dedicated job and fails closed on divergence.

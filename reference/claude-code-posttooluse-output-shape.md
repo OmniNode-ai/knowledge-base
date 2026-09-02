@@ -1,4 +1,15 @@
-> Migrated from omniclaude:docs/research/2026-06-12-updated-tool-output-shape-probe.md on 2026-09-01 (OMN-16609). Dated as a point-in-time probe, but the Verdicts table and Phase 3 Emission Contract below are cited as the live mechanism authority by `plugins/onex/hooks/lib/skill_output_suppressor.py`, `plugins/onex/hooks/lib/post_tool_use_secret_redact_guard.py`, `scripts/post_tool_use_auto_checkpoint.sh`, and `tests/hooks/test_hooks_baseline_omn_13244.py`.
+---
+type: reference
+status: current
+date: "2026-06-12"
+title: "Claude Code PostToolUse updatedToolOutput Shape"
+topics: [claude-code, hooks, posttooluse, output-suppression]
+refs: []
+---
+
+<!-- Migrated from omniclaude:docs/research/2026-06-12-updated-tool-output-shape-probe.md on 2026-09-01 -->
+
+> Dated as a point-in-time probe, but the Verdicts table and Phase 3 Emission Contract below are cited as the live mechanism authority by `plugins/onex/hooks/lib/skill_output_suppressor.py`, `plugins/onex/hooks/lib/post_tool_use_secret_redact_guard.py`, `scripts/post_tool_use_auto_checkpoint.sh`, and `tests/hooks/test_hooks_baseline_omn_13244.py`.
 
 # PostToolUse `updatedToolOutput` Shape Probe — Empirical Resolution of F4
 

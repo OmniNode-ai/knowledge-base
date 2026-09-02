@@ -20,11 +20,22 @@ Knowledge base artifacts grouped by topic.
 
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference)
 
+## agent-routing
+
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr)
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** (adr)
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** (adr)
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference)
+
 ## agents
 
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
+
+## ai-slop
+
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr)
 
 ## api
 
@@ -122,6 +133,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** (reference)
 
 ## bringup
 
@@ -182,6 +194,7 @@ Knowledge base artifacts grouped by topic.
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** (reference)
 
 ## ci-capacity
 
@@ -195,6 +208,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0034: Core-Infra Dependency Boundary](adrs/ADR-0034-core-infra-dependency-boundary.md)** (adr)
 
+## claude-code
+
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
+
 ## client-state
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -207,6 +224,10 @@ Knowledge base artifacts grouped by topic.
 ## code-projection
 
 - **[OmniIntelligence Deterministic Code Projection v2](architecture/omniintelligence-code-projection-v2.md)** (architecture)
+
+## code-quality
+
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr)
 
 ## code-standards
 
@@ -396,10 +417,12 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
 
 ## dependabot
 
@@ -457,6 +480,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide)
 
 ## disposable-implementations
 
@@ -465,6 +489,10 @@ Knowledge base artifacts grouped by topic.
 ## distillation
 
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
+
+## distribution
+
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** (adr)
 
 ## dlq
 
@@ -601,6 +629,10 @@ Knowledge base artifacts grouped by topic.
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** (reference)
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
+## event-catalog
+
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr)
+
 ## event-envelope
 
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** (reference)
@@ -617,6 +649,8 @@ Knowledge base artifacts grouped by topic.
 ## events
 
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr)
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 
 ## evidence
 
@@ -650,10 +684,18 @@ Knowledge base artifacts grouped by topic.
 
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
 
+## fail-fast
+
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** (adr)
+
 ## failure-handling
 
 - **[Degrade Safely](doctrine/degrade-safely.md)** (doctrine)
 - **[Fail Fast and Loud](doctrine/fail-fast-and-loud.md)** (doctrine)
+
+## fan-out
+
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr)
 
 ## fault
 
@@ -770,10 +812,14 @@ Knowledge base artifacts grouped by topic.
 
 ## hooks
 
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr)
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
 - **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture)
 - **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** (architecture)
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide)
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
 
 ## how-to
 
@@ -837,6 +883,7 @@ Knowledge base artifacts grouped by topic.
 ## kafka
 
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** (adr)
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr)
 - **[Emit Daemon Architecture](architecture/emit-daemon-architecture.md)** (architecture)
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
@@ -890,6 +937,7 @@ Knowledge base artifacts grouped by topic.
 ## llm
 
 - **[ADR-0015: Steel Onslaught Live Play Is LLM-Driven and Non-Deterministic](adrs/ADR-0015-steel-live-play-non-deterministic.md)** (adr)
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** (adr)
 - **[LLM Infrastructure Architecture](architecture/llm-infrastructure.md)** (architecture)
 
 ## llm-navigation
@@ -919,6 +967,7 @@ Knowledge base artifacts grouped by topic.
 
 ## local-llm
 
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 
 ## markdown-link-check
@@ -1160,6 +1209,13 @@ Knowledge base artifacts grouped by topic.
 
 ## omniclaude
 
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** (adr)
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr)
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** (adr)
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** (adr)
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** (adr)
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
 - **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture)
@@ -1173,10 +1229,16 @@ Knowledge base artifacts grouped by topic.
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture)
 - **[Service Ownership & Boundaries](architecture/service-boundaries.md)** (architecture)
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide)
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** (guide)
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** (guide)
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide)
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference)
 - **[CI/CD Standards](reference/omniclaude-ci-cd-standards.md)** (reference)
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 
@@ -1246,6 +1308,10 @@ Knowledge base artifacts grouped by topic.
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** (runbook)
 
+## orchestration
+
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide)
+
 ## orchestrator
 
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
@@ -1261,6 +1327,10 @@ Knowledge base artifacts grouped by topic.
 ## org-registry
 
 - **[Repository Registry](reference/repository-registry.md)** (reference)
+
+## output-suppression
+
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
 
 ## overlays
 
@@ -1289,6 +1359,7 @@ Knowledge base artifacts grouped by topic.
 
 ## performance
 
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr)
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 
 ## pii
@@ -1308,15 +1379,28 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
 
+## plugin
+
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
+
 ## plugin-lifecycle
 
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
+
+## plugins
+
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** (adr)
 
 ## postgres
 
 - **[ADR-0026: Two Databases — Tenant-Facing vs Internal/Ops](adrs/ADR-0026-two-databases-tenant-vs-internal.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
+
+## posttooluse
+
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
 
 ## pr
 
@@ -1337,6 +1421,7 @@ Knowledge base artifacts grouped by topic.
 
 ## privacy
 
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
 ## profile
@@ -1421,6 +1506,14 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMemory Data Ownership](reference/omnimemory-memory-data-ownership.md)** (reference)
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
+## quality-gate
+
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
+
+## quickstart
+
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
+
 ## raw-events
 
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
@@ -1461,6 +1554,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+
+## reference
+
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** (guide)
 
 ## refresh
 
@@ -1514,6 +1611,10 @@ Knowledge base artifacts grouped by topic.
 ## repowise
 
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+
+## required-checks
+
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** (reference)
 
 ## required-status-checks
 
@@ -1621,6 +1722,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
 
+## scoring
+
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference)
+
 ## seam-binding
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
@@ -1700,6 +1805,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** (guide)
 
 ## snapshot
 
@@ -1811,6 +1917,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 
+## trigger-matching
+
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference)
+
 ## truth
 
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
@@ -1823,6 +1933,10 @@ Knowledge base artifacts grouped by topic.
 ## truth-verification
 
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine)
+
+## tutorial
+
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
 
 ## two
 
@@ -1859,6 +1973,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr)
 
 ## valkey
 
@@ -1903,6 +2018,10 @@ Knowledge base artifacts grouped by topic.
 ## wire-schema
 
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
+
+## workers
+
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide)
 
 ## workflow
 

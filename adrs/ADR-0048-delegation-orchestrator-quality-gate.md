@@ -1,3 +1,15 @@
+---
+type: adr
+status: accepted
+date: "2026-02-19"
+title: "ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate"
+adr_id: ADR-0048
+topics: [omniclaude, delegation, quality-gate, local-llm]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/ADR-005-delegation-orchestrator.md on 2026-09-01 -->
 
 # ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate

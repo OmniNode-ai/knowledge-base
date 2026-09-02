@@ -1,6 +1,7 @@
 ---
 type: guide
 status: current
+date: "2026-09-01"
 title: "Authoring an ONEX Skill"
 topics: ["omniclaude", "skills", "reference"]
 refs: ["guides/adding-a-skill.md"]
@@ -8,7 +9,9 @@ refs: ["guides/adding-a-skill.md"]
 
 # Authoring an ONEX Skill
 
-> Migrated from omniclaude:docs/reference/SKILL_AUTHORING_GUIDE.md on 2026-09-01 (OMN-16609). Trimmed to the material not already covered by [Adding a Skill](adding-a-skill.md) — see that guide for the directory layout, SKILL.md front matter, and invocation basics. This page holds the deeper reference: dispatch contracts, supporting-script conventions, the output-suppression contract, and the receipt-mode dispatch pattern.
+<!-- Migrated from omniclaude:docs/reference/SKILL_AUTHORING_GUIDE.md on 2026-09-01 -->
+
+> Trimmed to the material not already covered by [Adding a Skill](adding-a-skill.md) — see that guide for the directory layout, SKILL.md front matter, and invocation basics. This page holds the deeper reference: dispatch contracts, supporting-script conventions, the output-suppression contract, and the receipt-mode dispatch pattern.
 
 ## Dispatch Contract Rules
 

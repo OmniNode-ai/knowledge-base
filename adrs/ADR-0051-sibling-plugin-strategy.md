@@ -1,10 +1,22 @@
+---
+type: adr
+status: accepted
+date: "2026-04-23"
+title: "ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)"
+adr_id: ADR-0051
+topics: [omniclaude, plugins, distribution]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/2026-04-23-sibling-plugin-strategy.md on 2026-09-01 -->
 
 # ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)
 
 **Date**: 2026-04-23
 **Status**: Recorded (traceable artifact; formal entry in `decision_store` is a follow-up — see "Pending formalization" below)
-**Plan reference**: https://github.com/OmniNode-ai/omniclaude/blob/main/docs/plans/2026-04-14-standalone-plugin-distribution.md § 10 (historical; file removed from the live tree) (Open Question: Sibling Plugin Strategy)
+**Plan reference**: the omniclaude standalone plugin distribution plan of 2026-04-14, § 10 (historical; the file was removed from the live tree) (Open Question: Sibling Plugin Strategy)
 **Gate**: The standalone marketplace packaging work depends on this decision being recorded in writing before a standalone marketplace install is promoted to users.
 
 ---

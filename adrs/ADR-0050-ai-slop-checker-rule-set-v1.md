@@ -1,3 +1,15 @@
+---
+type: adr
+status: accepted
+date: "2026-03-02"
+title: "ADR-0050: AI-Slop Checker Rule Set v1.0"
+adr_id: ADR-0050
+topics: [code-quality, validators, ai-slop]
+refs: []
+supersedes: []
+superseded_by: []
+---
+
 <!-- Migrated from omniclaude:docs/decisions/2026-02-28-ai-slop-checker-rule-set.md on 2026-09-01 -->
 
 # ADR-0050: AI-Slop Checker Rule Set v1.0
