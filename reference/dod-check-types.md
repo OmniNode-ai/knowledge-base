@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/CHECK_TYPES.md on 2026-09-01 (OMN-16615).
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "DoD Check Types"
+topics: [occ, dod-evidence, checks, receipts]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/CHECK_TYPES.md`. Migrated to the knowledge base 2026-09-02.
 
 # `check_type` reference — what each DoD check actually does
 
@@ -38,7 +47,7 @@ surfaces until the local runner implements them.
 
 Write `test_passes` when the command you are running **is a test run**. It runs
 exactly like `command`; the distinct name records author intent and is what the
-proof-class classifier (OMN-15911) and the substance-floor tier deriver key on.
+proof-class classifier and the substance-floor tier deriver key on.
 
 It does **not** mean "this PR's CI is green". Earlier revisions of the hosted runner
 read it that way — it ignored `check_value` entirely and reported the PR's own
@@ -78,7 +87,7 @@ audience honestly:
 ```yaml
 - id: dod-cross-repo-behaviour
   description: "…"
-  execution_scope: local_done_gate   # OMN-15392 — hosted compliance will not evaluate this
+  execution_scope: local_done_gate   # hosted compliance will not evaluate this
   checks:
     - check_type: test_passes
       check_value: "uv run pytest tests/unit/test_thing.py -q"
@@ -110,7 +119,7 @@ fails with SIGPIPE and the stage exits 141 — and under `bash -o pipefail -c`
 that 141 becomes the whole pipeline's exit status, a **false RED on evidence
 that is actually present**. This is exposed by any unbounded producer piped
 straight into `grep -q` (a decoded file body, `gh pr diff`, a `git log`
-walk, a paginated REST list) — see OMN-15411 Rule E in
+walk, a paginated REST list) — see the unbounded-producer rule in
 `scripts/lint_contract_check_values.py` for the full detector and the
 measured producer list.
 
@@ -125,14 +134,14 @@ body="$(gh api ... --jq .content | base64 -d)" && printf '%s' "$body" | grep -qF
 body="$(gh api ... --jq .content | base64 -d)" && grep -qF 'MARKER' <<< "$body"
 ```
 
-OMN-16916: the `printf '%s' "$body" | grep -qF` form above was, until this
-ticket, the guidance both OMN-15391 Rule D and OMN-15411 Rule E handed out
-as *the* sanctioned buffered-read fix — it is still a pipe into an
-early-exit `grep -q` consumer, and OMN-15772 measured it reproducing this
-exact 141 on its own merged item (10/10 plain-`bash -c` runs exit 0, 10/10
-`bash -o pipefail -c` runs exit 141). Use the here-string form for any new
-check_value; a corpus-wide sweep of existing instances is tracked under
-OMN-16916 AC3.
+A correction worth stating plainly: the `printf '%s' "$body" | grep -qF`
+form above was, for a time, the guidance both the buffered-read rule and the
+unbounded-producer rule handed out as *the* sanctioned fix — it is still a
+pipe into an early-exit `grep -q` consumer, and it was measured reproducing
+this exact 141 on a real merged evidence item (10/10 plain-`bash -c` runs
+exit 0, 10/10 `bash -o pipefail -c` runs exit 141). Use the here-string form
+for any new check_value; a corpus-wide sweep of existing instances is
+tracked internally.
 
 ---
 
@@ -153,8 +162,8 @@ a bigger number.
 
 ## References
 
-* OMN-16824 — one semantic for `test_passes`; `cwd` honoured or declined
-* OMN-15392 — `execution_scope: local_done_gate`
-* OMN-15309 / OMN-14436 — the admissibility predicate and the grandfather ratchet
-* OMN-15911 — the proof-class classifier that reads these checks
+* One semantic for `test_passes`; `cwd` honoured or declined, never rerouted
+* `execution_scope: local_done_gate` for items the hosted gate cannot evaluate
+* The admissibility predicate and the grandfather ratchet
+* The proof-class classifier that reads these checks
 * [Authoring Governance YAML Artifacts](../guides/authoring-governance-yaml-artifacts.md) — the full contract field reference

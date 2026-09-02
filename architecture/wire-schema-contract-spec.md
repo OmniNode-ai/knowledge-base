@@ -1,8 +1,17 @@
-> Migrated from onex_change_control:docs/wire-schema-contract-spec.md on 2026-09-01 (OMN-16615).
+---
+type: architecture
+status: accepted
+date: "2026-09-02"
+title: "Wire Schema Contract Specification"
+topics: [wire-schema, contracts, envelopes, cross-repo]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/wire-schema-contract-spec.md`. Migrated to the knowledge base 2026-09-02.
 
 # Wire Schema Contract Specification
 
-> Ticket: OMN-7357 | Status: Active | Version: 1.0.0
+> Status: Active | Version: 1.0.0
 
 ## Purpose
 
@@ -76,4 +85,5 @@ The contract is validated by `ModelWireSchemaContract` in
 ## Precedent
 
 `omnibase_infra/src/omnibase_infra/services/observability/agent_actions/contracts/routing_decision_v1.yaml`
-was the first wire schema contract, hand-authored for OMN-3425. This spec generalizes that pattern.
+was the first wire schema contract, hand-authored for a single consumer pair. This spec
+generalizes that pattern.

@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/VERSIONING_POLICY.md on 2026-09-01 (OMN-16615).
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "ONEX Change Control — Versioning Policy"
+topics: [occ, versioning, semver, schemas]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/VERSIONING_POLICY.md`. Migrated to the knowledge base 2026-09-02.
 
 # Versioning Policy
 
@@ -97,7 +106,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-onex-change-control = { git = "https://github.com/OmniNode-ai/onex_change_control.git", rev = "<commit-sha>" }
+onex-change-control = { git = "<onex-change-control repository URL>", rev = "<commit-sha>" }
 ```
 
 The `>=0.1.0` in `[project.dependencies]` is a floor for tooling that reads package

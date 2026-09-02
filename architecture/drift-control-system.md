@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/design/DESIGN_DRIFT_CONTROL_SYSTEM.md on 2026-09-01 (OMN-16615).
+---
+type: architecture
+status: accepted
+date: "2026-09-02"
+title: "Drift Control System — Design"
+topics: [occ, drift-control, governance, seam-contracts, enforcement]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/design/DESIGN_DRIFT_CONTROL_SYSTEM.md`. Migrated to the knowledge base 2026-09-02.
 
 ## DESIGN: Daily Drift Control + Contract-Gated PRs
 

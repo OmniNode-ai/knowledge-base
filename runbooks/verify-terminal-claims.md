@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/runbooks/verify-recipes.md on 2026-09-01 (OMN-16615).
+---
+type: runbook
+status: current
+date: "2026-09-02"
+title: "Verifying Terminal Claims"
+topics: [occ, verification, receipts, runbook]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/runbooks/verify-recipes.md`. Migrated to the knowledge base 2026-09-02.
 
 # Verify-on-Terminal-Claim Recipes
 

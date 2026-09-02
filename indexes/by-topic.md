@@ -23,6 +23,7 @@ Knowledge base artifacts grouped by topic.
 ## agents
 
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 
 ## api
@@ -79,6 +80,7 @@ Knowledge base artifacts grouped by topic.
 
 ## authoring
 
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 
 ## authority
@@ -97,6 +99,10 @@ Knowledge base artifacts grouped by topic.
 ## benchmark
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
+
+## benchmarking
+
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
 
 ## benchmarks
 
@@ -157,6 +163,10 @@ Knowledge base artifacts grouped by topic.
 ## check-db-boundary
 
 - **[DB Boundary Policy](reference/db-boundary-policy.md)** (reference)
+
+## checks
+
+- **[DoD Check Types](reference/dod-check-types.md)** (reference)
 
 ## ci
 
@@ -294,6 +304,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
 
 ## control-plane
 
@@ -305,6 +317,7 @@ Knowledge base artifacts grouped by topic.
 
 ## cross-repo
 
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** (reference)
 
 ## cross-repo-standard
@@ -367,6 +380,10 @@ Knowledge base artifacts grouped by topic.
 ## debugging
 
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+
+## decisions
+
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
 ## decomposition
 
@@ -484,6 +501,9 @@ Knowledge base artifacts grouped by topic.
 ## dod-evidence
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
+- **[DoD Check Types](reference/dod-check-types.md)** (reference)
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference)
 
 ## dod-receipts
 
@@ -500,6 +520,11 @@ Knowledge base artifacts grouped by topic.
 ## drift
 
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## drift-control
+
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
 ## economics
 
@@ -521,6 +546,8 @@ Knowledge base artifacts grouped by topic.
 ## enforcement
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference)
 
 ## engine
 
@@ -535,6 +562,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
 
+## envelopes
+
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
+
 ## environment-variables
 
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
@@ -548,6 +579,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
 - **[ADR-0042: Cross-Renderer Typed Empty-State Gate](adrs/ADR-0042-omnidash-cross-renderer-typed-empty-state-gate.md)** (adr)
+
+## evaluation
+
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
 
 ## event
 
@@ -709,6 +744,9 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
 ## graded-eval
 
@@ -1019,8 +1057,16 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
+- **[DoD Check Types](reference/dod-check-types.md)** (reference)
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference)
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 
 ## omnibase-compat
 
@@ -1397,7 +1443,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
+- **[DoD Check Types](reference/dod-check-types.md)** (reference)
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 
 ## reconnect
 
@@ -1532,6 +1581,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 
 ## runner
 
@@ -1567,9 +1617,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** (adr)
 
+## schemas
+
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
+
 ## seam-binding
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
+## seam-contracts
+
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
 
 ## seams
 
@@ -1591,6 +1649,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
+
+## semver
+
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
 
 ## sentinel-pattern
 
@@ -1813,6 +1875,11 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
+
+## versioning
+
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
 
 ## volume
 
@@ -1832,6 +1899,10 @@ Knowledge base artifacts grouped by topic.
 ## wire-dtos
 
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
+
+## wire-schema
+
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
 
 ## workflow
 

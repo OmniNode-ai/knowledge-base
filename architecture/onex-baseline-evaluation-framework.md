@@ -1,8 +1,16 @@
-> Migrated from onex_change_control:docs/EVAL_FRAMEWORK.md on 2026-09-01 (OMN-16615).
+---
+type: architecture
+status: accepted
+date: "2026-09-02"
+title: "ONEX Baseline Evaluation Framework"
+topics: [evaluation, benchmarking, occ, agents]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/EVAL_FRAMEWORK.md`. Migrated to the knowledge base 2026-09-02.
 
 # ONEX Baseline Evaluation Framework
 
-**Ticket**: OMN-6784
 **Status**: Implemented
 **Last Updated**: 2026-04-01
 

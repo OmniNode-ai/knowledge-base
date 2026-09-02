@@ -6,6 +6,15 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture) — 2026-09-02
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture) — 2026-09-02
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide) — 2026-09-02
+- **[DoD Check Types](reference/dod-check-types.md)** (reference) — 2026-09-02
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference) — 2026-09-02
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference) — 2026-09-02
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference) — 2026-09-02
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook) — 2026-09-02
 - **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture) — 2026-09-01
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture) — 2026-09-01
 - **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** (architecture) — 2026-09-01

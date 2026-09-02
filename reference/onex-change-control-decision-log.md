@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/design/DECISION_LOG.md on 2026-09-01 (OMN-16615).
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "ONEX Change Control — Decision Log"
+topics: [occ, decisions, governance, drift-control]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/design/DECISION_LOG.md`. Migrated to the knowledge base 2026-09-02.
 
 ## Decision Log (ONEX Change Control)
 
@@ -260,14 +269,14 @@ Status: Accepted
 Owner: OmniNode / ONEX
 Date: 2026-03-08
 Supersedes: Provisional per-repo decision recorded 2025-12-19
-References: OMN-4039, OMN-4040, OMN-4041, OMN-4042, OMN-4043
+References: the central-enforcement pilot epic and its four implementation records (tracked internally).
 
 Context:
 CI gates run inside each repo, but contracts must be validated against a canonical schema
 that is versioned, auditable, and evolves independently of product repos.
 
 The original provisional decision (per-repo contracts, Option B) was adopted to enable
-rapid prototyping. After completing the enforcement pilot via the OMN-4039 epic, Option A
+rapid prototyping. After completing the enforcement pilot, Option A
 (central contract location in `onex_change_control`) was validated as the correct long-term
 model. This decision supersedes the provisional per-repo approach.
 
@@ -275,7 +284,7 @@ The key drivers for the revision:
 - D-001 already designates `onex_change_control` as the governance and distribution authority.
 - D-006 confirms that canonical schema models live in `onex_change_control`.
 - Per-repo contracts create duplication and make cross-repo seam enforcement fragile.
-- The reusable composite action (OMN-4040) makes central validation cheap to wire into any repo.
+- The reusable composite action makes central validation cheap to wire into any repo.
 
 Options considered:
 - A) Central-only contracts in `onex_change_control` — **chosen**

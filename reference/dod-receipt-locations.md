@@ -1,8 +1,16 @@
-> Migrated from onex_change_control:docs/RECEIPT_LOCATIONS.md on 2026-09-01 (OMN-16615). Trimmed: the expired 2026-06-01 deprecation-transition reconciliation table and migration-path steps were removed as no-longer-applicable; the canonical-location and enforcement sections are preserved unchanged.
+---
+type: reference
+status: current
+date: "2026-09-02"
+title: "DoD Receipt Locations"
+topics: [occ, dod-evidence, receipts, enforcement]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/RECEIPT_LOCATIONS.md`. Migrated to the knowledge base 2026-09-02.
 
 # DoD Receipt Locations
 
-> **Ticket:** OMN-9791 (Wave C, Task 11)
 > **Status:** the legacy shape below is permanently retired — hard cutoff 2026-06-01 has passed.
 
 ---
@@ -20,7 +28,7 @@ drift/dod_receipts/<TICKET>/<ITEM_ID>/<CHECK_TYPE>.yaml
   reads that exact filename, so a receipt under any other name is invisible to
   the gate and the PR fails `missing_receipt` with an empty `receipt_ids`
   list, even though the file is present, PASS, and correctly hash-bound
-  (observed on OCC#7229, OMN-16682). Earlier revisions of this document
+  (observed live on a real change-control PR). Earlier revisions of this document
   specified `<run_timestamp>.yaml`; that shape has never matched the resolver
   and is corrected here. The run timestamp lives in the receipt's own
   `run_timestamp` field.

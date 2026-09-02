@@ -1,4 +1,13 @@
-> Migrated from onex_change_control:docs/TEMPLATE_GUIDE.md on 2026-09-01 (OMN-16615).
+---
+type: guide
+status: current
+date: "2026-09-02"
+title: "Authoring Governance YAML Artifacts"
+topics: [occ, contracts, dod-evidence, governance, authoring]
+refs: []
+---
+
+> **Source**: onex_change_control `docs/TEMPLATE_GUIDE.md`. Migrated to the knowledge base 2026-09-02.
 
 # Template Guide for ONEX Change Control
 
@@ -116,7 +125,7 @@ The Ticket Contract template (`ticket_contract.template.yaml`) is used to create
 #### `ticket_id`
 - **Type**: String
 - **Required**: Yes
-- **Format**: Ticket identifier (e.g., `"OMN-962"`)
+- **Format**: Ticket identifier — the tracker key, e.g. `"<TRACKER>-962"`
 - **Description**: The Linear ticket identifier
 
 #### `summary`
@@ -178,16 +187,16 @@ The Ticket Contract template (`ticket_contract.template.yaml`) is used to create
 #### `dod_evidence`
 - **Type**: List of objects (optional; omit if not needed)
 - **Description**: Executable DoD checks. For `check_type: "command"` and its executed alias `check_type: "test_passes"`, `checks[].check_value` is a shell command run by the hosted `Contract Compliance Check` **in the product checkout under test** — not the `onex_change_control` repo root — under `bash -o pipefail -c`; exit 0 = pass. A check may declare a `cwd`, which is honoured, or declined outright when it cannot be resolved. Other check types use the value shapes listed in [`dod-check-types.md`](../reference/dod-check-types.md).
-- **See [`dod-check-types.md`](../reference/dod-check-types.md)** for what every `check_type` does in each of the two runners, the `cwd` rules, and why `test_passes` is not a "PR CI is green" assertion (OMN-16824).
+- **See [`dod-check-types.md`](../reference/dod-check-types.md)** for what every `check_type` does in each of the two runners, the `cwd` rules, and why `test_passes` is not a "PR CI is green" assertion.
 - **`check_value` must be falsifiable — it must be able to fail if the work is actually wrong.** A command that reads the receipt file the check itself is stamped in and greps that file for `status: PASS` is **not evidence**: the receipt says PASS because the author wrote PASS, and the check confirms the author wrote PASS. It passes identically whether the code is correct or broken.
 
-  > **⚠️ DO NOT DO THIS** (measured OMN-14417 at 2,137/6,915 = 31.3% of the live corpus, and 98.4% of contracts created in the last 7 days — this exact shape, copy-pasted PR to PR):
+  > **⚠️ DO NOT DO THIS** (measured at 2,137/6,915 = 31.3% of the live corpus, and 98.4% of contracts created in the seven days before the measurement — this exact shape, copy-pasted PR to PR):
   > ```yaml
   > checks:
   >   - check_type: "command"
   >     check_value: "grep -q '^status: PASS$' drift/dod_receipts/OMN-XXXX/dod-001/command.yaml"
   > ```
-  > This derives tier **L0** (content-free) under the contract substance floor (`scripts/validation/check_contract_substance_floor.py`, OMN-14409) and cannot satisfy it.
+  > This derives tier **L0** (content-free) under the contract substance floor (`scripts/validation/check_contract_substance_floor.py`) and cannot satisfy it.
 
   Use a command that actually asserts something about the change instead — for evidence bound to a product PR, `gh pr checks <n> --repo <owner>/<repo>` (or the `$PR_NUMBER`/`$REPO` placeholders, auto-injected by the compliance-check runner whenever the command contains `gh `) derives **L1**: it fails when CI fails, and it satisfies the "no cross-repo filesystem paths" execution constraint (below) exactly as well as a self-grep does, without being circular. A test run (`pytest ...`), a static assertion over source (`grep`/`rg` pinning a real symbol in the tree, not in the receipt corpus), or a runtime readback (`psql`/`rpk`/`curl`) are the other substantive families the deriver recognizes.
 
@@ -230,7 +239,7 @@ dod_evidence:
 emergency_bypass:
   enabled: true
   justification: "Production incident requires immediate hotfix. Full contract will be created in follow-up ticket."
-  follow_up_ticket_id: "OMN-999"
+  follow_up_ticket_id: "<TRACKER>-999"
 ```
 
 ## Common Patterns
