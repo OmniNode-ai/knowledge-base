@@ -33,10 +33,18 @@ Knowledge base artifacts grouped by type.
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** — accepted
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** — accepted
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** — accepted
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** — accepted
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** — accepted
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** — accepted
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** — accepted
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** — accepted
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** — accepted
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** — accepted
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** — accepted
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** — accepted
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** — accepted
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** — accepted
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** — accepted
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** — accepted
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** — accepted
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** — accepted
@@ -149,6 +157,8 @@ Knowledge base artifacts grouped by type.
 - **[OmniDash Development Guide](guides/omnidash-development.md)** — current
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** — current
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** — current
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** — current
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** — current
 - **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** — current
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** — current
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** — current
@@ -161,6 +171,8 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** — current
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** — current
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** — current
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
 - **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** — current
 - **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** — current
@@ -172,6 +184,7 @@ Knowledge base artifacts grouped by type.
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** — current
 - **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** — current
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
@@ -197,9 +210,11 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** — current
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** — current
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** — current
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** — current
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** — current
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** — current
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** — current
 - **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** — current
 - **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** — current
 - **[DoD Check Types](reference/dod-check-types.md)** — current
