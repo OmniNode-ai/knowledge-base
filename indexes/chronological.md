@@ -7,6 +7,7 @@ All knowledge base artifacts sorted by date.
 ## 2026-09
 
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
+- **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture) — 2026-09-02
 - **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** (architecture) — 2026-09-02
@@ -17,9 +18,59 @@ All knowledge base artifacts sorted by date.
 - **[Operation Routing Pattern](architecture/omnibase-infra-operation-routing.md)** (architecture) — 2026-09-02
 - **[Policy Registry Trust Model](architecture/omnibase-infra-policy-registry-trust-model.md)** (architecture) — 2026-09-02
 - **[Protocol Patterns](architecture/omnibase-infra-protocol-patterns.md)** (architecture) — 2026-09-02
+- **[ONEX Anti-Patterns Documentation](architecture/onex-anti-patterns.md)** (architecture) — 2026-09-02
+- **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** (architecture) — 2026-09-02
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture) — 2026-09-02
+- **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture) — 2026-09-02
+- **[Circuit Breaker Pattern for External Dependencies](architecture/onex-circuit-breaker-pattern.md)** (architecture) — 2026-09-02
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture) — 2026-09-02
+- **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture) — 2026-09-02
+- **[Container Types in omnibase_core](architecture/onex-container-types.md)** (architecture) — 2026-09-02
+- **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture) — 2026-09-02
+- **[Contract System](architecture/onex-contract-system.md)** (architecture) — 2026-09-02
+- **[Custom `__bool__` Pattern for Result Models](architecture/onex-custom-bool-pattern.md)** (architecture) — 2026-09-02
+- **[Dependency Injection](architecture/onex-dependency-injection.md)** (architecture) — 2026-09-02
+- **[Dependency Inversion in ONEX Architecture](architecture/onex-dependency-inversion.md)** (architecture) — 2026-09-02
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture) — 2026-09-02
+- **[ONEX Ecosystem Directory Structure](architecture/onex-ecosystem-directory-structure.md)** (architecture) — 2026-09-02
+- **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture) — 2026-09-02
+- **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture) — 2026-09-02
+- **[Event-Driven Architecture -- omnibase_core](architecture/onex-event-driven-architecture.md)** (architecture) — 2026-09-02
+- **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture) — 2026-09-02
+- **[ONEX Four-Node Architecture Documentation](architecture/onex-four-node-architecture.md)** (architecture) — 2026-09-02
+- **[Handler Architecture](architecture/onex-handler-architecture.md)** (architecture) — 2026-09-02
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture) — 2026-09-02
+- **[Import Compatibility Matrix](architecture/onex-import-compatibility-matrix.md)** (architecture) — 2026-09-02
+- **[Lease Management Pattern](architecture/onex-lease-management-pattern.md)** (architecture) — 2026-09-02
+- **[Message Category to Topic Mapping](architecture/onex-message-topic-mapping.md)** (architecture) — 2026-09-02
+- **[ONEX Mixin Architecture](architecture/onex-mixin-architecture.md)** (architecture) — 2026-09-02
+- **[Mixin Classification Reference](architecture/onex-mixin-classification.md)** (architecture) — 2026-09-02
+- **[ModelAction Architecture](architecture/onex-model-action-architecture.md)** (architecture) — 2026-09-02
+- **[ModelIntent Architecture](architecture/onex-model-intent-architecture.md)** (architecture) — 2026-09-02
+- **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture) — 2026-09-02
+- **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture) — 2026-09-02
+- **[Node Purity Guarantees](architecture/onex-node-purity-guarantees.md)** (architecture) — 2026-09-02
+- **[Operation Bindings DSL](architecture/onex-operation-bindings-dsl.md)** (architecture) — 2026-09-02
+- **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture) — 2026-09-02
+- **[Protocol Architecture](architecture/onex-protocol-architecture.md)** (architecture) — 2026-09-02
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture) — 2026-09-02
+- **[ONEX Subcontract Package Architecture](architecture/onex-subcontract-architecture.md)** (architecture) — 2026-09-02
+- **[Type System](architecture/onex-type-system.md)** (architecture) — 2026-09-02
+- **[URL Contract Authority](architecture/onex-url-contract-authority.md)** (architecture) — 2026-09-02
+- **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture) — 2026-09-02
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture) — 2026-09-02
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide) — 2026-09-02
+- **[Build Your First Node](guides/omnibase-core-first-node.md)** (guide) — 2026-09-02
+- **[Installation Guide - omnibase_core](guides/omnibase-core-installation.md)** (guide) — 2026-09-02
+- **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide) — 2026-09-02
+- **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide) — 2026-09-02
+- **[Parallel Testing Architecture and Resource Management](guides/omnibase-core-parallel-testing.md)** (guide) — 2026-09-02
+- **[ONEX Performance Testing Suite](guides/omnibase-core-performance-benchmarks.md)** (guide) — 2026-09-02
+- **[Performance Testing Guide](guides/omnibase-core-performance-testing.md)** (guide) — 2026-09-02
+- **[Quick Start Guide](guides/omnibase-core-quick-start.md)** (guide) — 2026-09-02
+- **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide) — 2026-09-02
+- **[Testing Guide - omnibase_core](guides/omnibase-core-testing.md)** (guide) — 2026-09-02
+- **[pytest-testmon Usage Guide](guides/omnibase-core-testmon-usage.md)** (guide) — 2026-09-02
 - **[Chaos Tests](guides/omnibase-infra-chaos-tests.md)** (guide) — 2026-09-02
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide) — 2026-09-02
 - **[Circuit Breaker Implementation Guide](guides/omnibase-infra-circuit-breaker-implementation.md)** (guide) — 2026-09-02
@@ -40,8 +91,62 @@ All knowledge base artifacts sorted by date.
 - **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** (guide) — 2026-09-02
 - **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** (guide) — 2026-09-02
 - **[OmniMarket Gemini CLI Adapter](guides/omnimarket-gemini-adapter.md)** (guide) — 2026-09-02
+- **[COMPUTE Node Template](guides/onex-compute-node-template.md)** (guide) — 2026-09-02
+- **[Contract Patching Guide](guides/onex-contract-patching.md)** (guide) — 2026-09-02
+- **[Contract Profile Guide](guides/onex-contract-profiles.md)** (guide) — 2026-09-02
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide) — 2026-09-02
+- **[Effect Boundary Guide](guides/onex-effect-boundary.md)** (guide) — 2026-09-02
+- **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide) — 2026-09-02
+- **[EFFECT Node Template](guides/onex-effect-node-template.md)** (guide) — 2026-09-02
+- **[Effect Subcontract Guide](guides/onex-effect-subcontracts.md)** (guide) — 2026-09-02
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide) — 2026-09-02
+- **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide) — 2026-09-02
+- **[Execution Corpus Guide](guides/onex-execution-corpus.md)** (guide) — 2026-09-02
+- **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide) — 2026-09-02
+- **[Handler Contract Guide](guides/onex-handler-contracts.md)** (guide) — 2026-09-02
+- **[Introspection Subcontract Guide](guides/onex-introspection-subcontract.md)** (guide) — 2026-09-02
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide) — 2026-09-02
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide) — 2026-09-02
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide) — 2026-09-02
+- **[Mixin Integration Guide](guides/onex-mixin-development-04-mixin-integration.md)** (guide) — 2026-09-02
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide) — 2026-09-02
+- **[Mixin Development Guide](guides/onex-mixin-development-overview.md)** (guide) — 2026-09-02
+- **[Mixin-Subcontract Mapping Guide](guides/onex-mixin-subcontract-mapping.md)** (guide) — 2026-09-02
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide) — 2026-09-02
+- **[Node Types](guides/onex-node-building-02-node-types.md)** (guide) — 2026-09-02
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide) — 2026-09-02
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide) — 2026-09-02
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide) — 2026-09-02
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide) — 2026-09-02
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide) — 2026-09-02
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide) — 2026-09-02
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide) — 2026-09-02
+- **[Node Building Guide](guides/onex-node-building-overview.md)** (guide) — 2026-09-02
+- **[ORCHESTRATOR Node Template](guides/onex-orchestrator-node-template.md)** (guide) — 2026-09-02
+- **[Pipeline Runner and Hook Registry Guide](guides/onex-pipeline-hook-registry.md)** (guide) — 2026-09-02
+- **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide) — 2026-09-02
+- **[Protocol Discovery Guide](guides/onex-protocol-discovery.md)** (guide) — 2026-09-02
+- **[Pydantic Best Practices for ONEX](guides/onex-pydantic-best-practices.md)** (guide) — 2026-09-02
+- **[REDUCER Node Template](guides/onex-reducer-node-template.md)** (guide) — 2026-09-02
+- **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide) — 2026-09-02
+- **[Request Tracing in ONEX](guides/onex-request-tracing.md)** (guide) — 2026-09-02
+- **[Thread Safety in Omnibase Core](guides/onex-threading.md)** (guide) — 2026-09-02
 - **[DoD Check Types](reference/dod-check-types.md)** (reference) — 2026-09-02
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference) — 2026-09-02
+- **[ONEX Core Public API Reference](reference/omnibase-core-api-documentation.md)** (reference) — 2026-09-02
+- **[Enums API Reference - omnibase_core](reference/omnibase-core-api-enums.md)** (reference) — 2026-09-02
+- **[Models API Reference - omnibase_core](reference/omnibase-core-api-models.md)** (reference) — 2026-09-02
+- **[Nodes API Reference - omnibase_core](reference/omnibase-core-api-nodes.md)** (reference) — 2026-09-02
+- **[Utils API Reference - omnibase_core](reference/omnibase-core-api-utils.md)** (reference) — 2026-09-02
+- **[Contract Validator API](reference/omnibase-core-contract-validator-api.md)** (reference) — 2026-09-02
+- **[Contract.yaml Reference](reference/omnibase-core-contracts.md)** (reference) — 2026-09-02
+- **[Example Contracts](reference/omnibase-core-example-contracts.md)** (reference) — 2026-09-02
+- **[NodeEffect Contract Examples](reference/omnibase-core-example-effect-contracts.md)** (reference) — 2026-09-02
+- **[Manifest Models](reference/omnibase-core-manifest-models.md)** (reference) — 2026-09-02
+- **[Mixin Discovery API](reference/omnibase-core-mixin-discovery-api.md)** (reference) — 2026-09-02
+- **[ONEX Service Wrappers - Pre-Composed Production-Ready Node Classes](reference/omnibase-core-service-wrappers.md)** (reference) — 2026-09-02
+- **[Omnibase Core Validation Tools](reference/omnibase-core-validation-framework.md)** (reference) — 2026-09-02
+- **[Validation Ownership](reference/omnibase-core-validation-ownership.md)** (reference) — 2026-09-02
 - **[ADR: Use of Any Type as Pydantic 2.x JsonType Workaround](reference/omnibase-infra-adr-any-type-pydantic-workaround.md)** (reference) — 2026-09-02
 - **[ADR-010: OmniBase Infra Owns Authoritative Environment Topology](reference/omnibase-infra-adr-authoritative-environment-topology-owner.md)** (reference) — 2026-09-02
 - **[ADR: Canonical Publish Interface Policy](reference/omnibase-infra-adr-canonical-publish-interface-policy.md)** (reference) — 2026-09-02
@@ -80,8 +185,16 @@ All knowledge base artifacts sorted by date.
 - **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference) — 2026-09-02
 - **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** (reference) — 2026-09-02
 - **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** (reference) — 2026-09-02
+- **[ONEX Capability Naming Conventions](reference/onex-capability-naming.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference) — 2026-09-02
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference) — 2026-09-02
+- **[ONEX Contract Model Docstring Templates](reference/onex-docstring-templates.md)** (reference) — 2026-09-02
+- **[ONEX Error Code Standards](reference/onex-error-code-standards.md)** (reference) — 2026-09-02
+- **[File Header Conventions](reference/onex-file-headers.md)** (reference) — 2026-09-02
+- **[ONEX Naming Conventions](reference/onex-naming-conventions.md)** (reference) — 2026-09-02
+- **[Node Archetypes Reference](reference/onex-node-archetypes.md)** (reference) — 2026-09-02
+- **[Terminology Guide](reference/onex-terminology-guide.md)** (reference) — 2026-09-02
+- **[Version Field Semantics in ONEX Models](reference/onex-version-semantics.md)** (reference) — 2026-09-02
 - **[Agent Actions Consumer - Operational Runbook](runbooks/omnibase-infra-agent-actions-consumer.md)** (runbook) — 2026-09-02
 - **[Database Index Monitoring Runbook](runbooks/omnibase-infra-database-index-monitoring.md)** (runbook) — 2026-09-02
 - **[Dead Letter Queue (DLQ) Replay Guide](runbooks/omnibase-infra-dlq-replay.md)** (runbook) — 2026-09-02

@@ -16,6 +16,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
 
+## action
+
+- **[ModelAction Architecture](architecture/onex-model-action-architecture.md)** (architecture)
+
 ## actions
 
 - **[Agent Actions Consumer - Operational Runbook](runbooks/omnibase-infra-agent-actions-consumer.md)** (runbook)
@@ -64,6 +68,7 @@ Knowledge base artifacts grouped by topic.
 
 ## agent
 
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide)
 - **[Agent Actions Consumer - Operational Runbook](runbooks/omnibase-infra-agent-actions-consumer.md)** (runbook)
 
 ## agent-md
@@ -87,14 +92,26 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr)
 
+## anti
+
+- **[ONEX Anti-Patterns Documentation](architecture/onex-anti-patterns.md)** (architecture)
+
 ## any
 
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture)
 - **[ADR: Use of Any Type as Pydantic 2.x JsonType Workaround](reference/omnibase-infra-adr-any-type-pydantic-workaround.md)** (reference)
 
 ## api
 
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
+- **[ONEX Core Public API Reference](reference/omnibase-core-api-documentation.md)** (reference)
+- **[Enums API Reference - omnibase_core](reference/omnibase-core-api-enums.md)** (reference)
+- **[Models API Reference - omnibase_core](reference/omnibase-core-api-models.md)** (reference)
+- **[Nodes API Reference - omnibase_core](reference/omnibase-core-api-nodes.md)** (reference)
+- **[Utils API Reference - omnibase_core](reference/omnibase-core-api-utils.md)** (reference)
+- **[Contract Validator API](reference/omnibase-core-contract-validator-api.md)** (reference)
+- **[Mixin Discovery API](reference/omnibase-core-mixin-discovery-api.md)** (reference)
 
 ## append-only
 
@@ -108,10 +125,15 @@ Knowledge base artifacts grouped by topic.
 
 - **[Apply Migrations Runbook](runbooks/apply-migrations.md)** (runbook)
 
+## approved
+
+- **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** (architecture)
+
 ## archetypes
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
+- **[Node Archetypes Reference](reference/onex-node-archetypes.md)** (reference)
 
 ## architecture
 
@@ -124,6 +146,16 @@ Knowledge base artifacts grouped by topic.
 - **[ARCH-002: Kafka Abstraction Rule (OmniMemory)](architecture/omnimemory-arch-002-kafka-abstraction.md)** (architecture)
 - **[ONEX Four-Node Architecture in OmniMemory](architecture/omnimemory-four-node-architecture.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture)
+- **[Event-Driven Architecture -- omnibase_core](architecture/onex-event-driven-architecture.md)** (architecture)
+- **[ONEX Four-Node Architecture Documentation](architecture/onex-four-node-architecture.md)** (architecture)
+- **[Handler Architecture](architecture/onex-handler-architecture.md)** (architecture)
+- **[ONEX Mixin Architecture](architecture/onex-mixin-architecture.md)** (architecture)
+- **[ModelAction Architecture](architecture/onex-model-action-architecture.md)** (architecture)
+- **[ModelIntent Architecture](architecture/onex-model-intent-architecture.md)** (architecture)
+- **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture)
+- **[Protocol Architecture](architecture/onex-protocol-architecture.md)** (architecture)
+- **[ONEX Subcontract Package Architecture](architecture/onex-subcontract-architecture.md)** (architecture)
 
 ## architecture-boundary
 
@@ -158,6 +190,7 @@ Knowledge base artifacts grouped by topic.
 
 ## authority
 
+- **[URL Contract Authority](architecture/onex-url-contract-authority.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 
@@ -177,6 +210,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-004: Performance Baseline Thresholds for E2E Tests](reference/omnibase-infra-adr-performance-baseline-thresholds.md)** (reference)
 
+## behavior
+
+- **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
+
 ## benchmark
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
@@ -187,11 +224,15 @@ Knowledge base artifacts grouped by topic.
 
 ## benchmarks
 
+- **[ONEX Performance Testing Suite](guides/omnibase-core-performance-benchmarks.md)** (guide)
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 
 ## best
 
 - **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** (guide)
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide)
+- **[Pydantic Best Practices for ONEX](guides/onex-pydantic-best-practices.md)** (guide)
 
 ## beta-launch
 
@@ -204,14 +245,17 @@ Knowledge base artifacts grouped by topic.
 ## bindings
 
 - **[Operation Bindings: Declarative Handler Parameter Resolution](architecture/omnibase-infra-operation-bindings.md)** (architecture)
+- **[Operation Bindings DSL](architecture/onex-operation-bindings-dsl.md)** (architecture)
 
 ## bool
 
+- **[Custom `__bool__` Pattern for Result Models](architecture/onex-custom-bool-pattern.md)** (architecture)
 - **[ADR: Custom `__bool__` for Result Models](reference/omnibase-infra-adr-custom-bool-result-models.md)** (reference)
 
 ## boundary
 
 - **[Effect Boundary Testing](guides/omnibase-infra-effect-boundary-testing.md)** (guide)
+- **[Effect Boundary Guide](guides/onex-effect-boundary.md)** (guide)
 
 ## branch-protection
 
@@ -223,6 +267,7 @@ Knowledge base artifacts grouped by topic.
 
 ## breaker
 
+- **[Circuit Breaker Pattern for External Dependencies](architecture/onex-circuit-breaker-pattern.md)** (architecture)
 - **[Circuit Breaker Implementation Guide](guides/omnibase-infra-circuit-breaker-implementation.md)** (guide)
 
 ## bringup
@@ -236,6 +281,19 @@ Knowledge base artifacts grouped by topic.
 ## build-loop
 
 - **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
+
+## building
+
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide)
+- **[Node Types](guides/onex-node-building-02-node-types.md)** (guide)
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide)
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide)
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide)
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide)
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide)
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide)
+- **[Node Building Guide](guides/onex-node-building-overview.md)** (guide)
 
 ## bulk
 
@@ -252,11 +310,13 @@ Knowledge base artifacts grouped by topic.
 
 ## cache
 
+- **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
 - **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
 
 ## canonical
 
+- **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
 - **[ADR: Canonical Publish Interface Policy](reference/omnibase-infra-adr-canonical-publish-interface-policy.md)** (reference)
 
 ## canonical-model
@@ -270,10 +330,16 @@ Knowledge base artifacts grouped by topic.
 ## capability
 
 - **[ADR-005: Denormalize Capability Fields in Registration Projections](reference/omnibase-infra-adr-denormalize-capability-fields-in-registration-projections.md)** (reference)
+- **[ONEX Capability Naming Conventions](reference/onex-capability-naming.md)** (reference)
 
 ## catalog
 
 - **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide)
+
+## chain
+
+- **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide)
 
 ## chaos
 
@@ -318,7 +384,21 @@ Knowledge base artifacts grouped by topic.
 
 ## circuit
 
+- **[Circuit Breaker Pattern for External Dependencies](architecture/onex-circuit-breaker-pattern.md)** (architecture)
 - **[Circuit Breaker Implementation Guide](guides/omnibase-infra-circuit-breaker-implementation.md)** (guide)
+
+## class
+
+- **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture)
+
+## classification
+
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
+- **[Mixin Classification Reference](architecture/onex-mixin-classification.md)** (architecture)
+
+## claude
+
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture)
 
 ## claude-code
 
@@ -333,6 +413,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
+
+## code
+
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture)
+- **[ONEX Error Code Standards](reference/onex-error-code-standards.md)** (reference)
 
 ## code-projection
 
@@ -358,6 +443,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 
+## common
+
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
+
+## compatibility
+
+- **[Import Compatibility Matrix](architecture/onex-import-compatibility-matrix.md)** (architecture)
+
 ## completion
 
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
@@ -369,6 +462,7 @@ Knowledge base artifacts grouped by topic.
 ## compliance
 
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
+- **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
 
 ## component-api
 
@@ -398,6 +492,8 @@ Knowledge base artifacts grouped by topic.
 
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture)
 - **[PluginCompute Unit Tests](guides/omnibase-infra-plugin-compute-unit-tests.md)** (guide)
+- **[COMPUTE Node Template](guides/onex-compute-node-template.md)** (guide)
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide)
 
 ## config
 
@@ -413,6 +509,7 @@ Knowledge base artifacts grouped by topic.
 
 ## configuration
 
+- **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
@@ -436,6 +533,7 @@ Knowledge base artifacts grouped by topic.
 ## container
 
 - **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** (architecture)
+- **[Container Types in omnibase_core](architecture/onex-container-types.md)** (architecture)
 
 ## context
 
@@ -447,6 +545,14 @@ Knowledge base artifacts grouped by topic.
 
 ## contract
 
+- **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture)
+- **[Contract System](architecture/onex-contract-system.md)** (architecture)
+- **[URL Contract Authority](architecture/onex-url-contract-authority.md)** (architecture)
+- **[Contract Patching Guide](guides/onex-contract-patching.md)** (guide)
+- **[Contract Profile Guide](guides/onex-contract-profiles.md)** (guide)
+- **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
+- **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
+- **[Contract Validator API](reference/omnibase-core-contract-validator-api.md)** (reference)
 - **[ADR: Handler Contract Schema Evolution Strategy](reference/omnibase-infra-adr-handler-contract-schema-evolution.md)** (reference)
 - **[Contract.yaml Reference](reference/omnibase-infra-contract-yaml-reference.md)** (reference)
 
@@ -475,6 +581,10 @@ Knowledge base artifacts grouped by topic.
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
+- **[Handler Contract Guide](guides/onex-handler-contracts.md)** (guide)
+- **[Contract.yaml Reference](reference/omnibase-core-contracts.md)** (reference)
+- **[Example Contracts](reference/omnibase-core-example-contracts.md)** (reference)
+- **[NodeEffect Contract Examples](reference/omnibase-core-example-effect-contracts.md)** (reference)
 
 ## contributor
 
@@ -491,6 +601,11 @@ Knowledge base artifacts grouped by topic.
 ## conventions
 
 - **[Naming Conventions](reference/omnibase-infra-naming-conventions.md)** (reference)
+- **[ONEX Naming Conventions](reference/onex-naming-conventions.md)** (reference)
+
+## corpus
+
+- **[Execution Corpus Guide](guides/onex-execution-corpus.md)** (guide)
 
 ## correlation
 
@@ -503,6 +618,14 @@ Knowledge base artifacts grouped by topic.
 ## cost-model
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
+
+## coverage
+
+- **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
+
+## creating
+
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide)
 
 ## cross-repo
 
@@ -530,6 +653,7 @@ Knowledge base artifacts grouped by topic.
 
 ## custom
 
+- **[Custom `__bool__` Pattern for Result Models](architecture/onex-custom-bool-pattern.md)** (architecture)
 - **[ADR: Custom `__bool__` for Result Models](reference/omnibase-infra-adr-custom-bool-result-models.md)** (reference)
 
 ## cutover
@@ -590,6 +714,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
+## declarative
+
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide)
+
 ## decomposition
 
 - **[ADR-0010: Adaptive Recursive Contract Bisection (Bisect-on-Contract-Failure)](adrs/ADR-0010-adaptive-recursive-contract-bisection.md)** (adr)
@@ -609,6 +737,10 @@ Knowledge base artifacts grouped by topic.
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
 
+## demo
+
+- **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide)
+
 ## denormalize
 
 - **[ADR-005: Denormalize Capability Fields in Registration Projections](reference/omnibase-infra-adr-denormalize-capability-fields-in-registration-projections.md)** (reference)
@@ -624,6 +756,8 @@ Knowledge base artifacts grouped by topic.
 ## dependency
 
 - **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** (architecture)
+- **[Dependency Injection](architecture/onex-dependency-injection.md)** (architecture)
+- **[Dependency Inversion in ONEX Architecture](architecture/onex-dependency-inversion.md)** (architecture)
 
 ## dependency-boundary
 
@@ -672,10 +806,26 @@ Knowledge base artifacts grouped by topic.
 ## development
 
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide)
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide)
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide)
+- **[Mixin Integration Guide](guides/onex-mixin-development-04-mixin-integration.md)** (guide)
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide)
+- **[Mixin Development Guide](guides/onex-mixin-development-overview.md)** (guide)
+
+## dict
+
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture)
 
 ## directory
 
+- **[ONEX Ecosystem Directory Structure](architecture/onex-ecosystem-directory-structure.md)** (architecture)
 - **[Utility Directory Structure](reference/omnibase-infra-utility-directory-structure.md)** (reference)
+
+## discovery
+
+- **[Protocol Discovery Guide](guides/onex-protocol-discovery.md)** (guide)
+- **[Mixin Discovery API](reference/omnibase-core-mixin-discovery-api.md)** (reference)
 
 ## disk
 
@@ -722,6 +872,10 @@ Knowledge base artifacts grouped by topic.
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** (runbook)
 
+## docstring
+
+- **[ONEX Contract Model Docstring Templates](reference/onex-docstring-templates.md)** (reference)
+
 ## doctrine
 
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
@@ -730,6 +884,7 @@ Knowledge base artifacts grouped by topic.
 ## documentation
 
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide)
+- **[ONEX Core Public API Reference](reference/omnibase-core-api-documentation.md)** (reference)
 - **[Standard Documentation Layout](reference/standard-doc-layout.md)** (reference)
 
 ## dod
@@ -764,6 +919,14 @@ Knowledge base artifacts grouped by topic.
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
+## driven
+
+- **[Event-Driven Architecture -- omnibase_core](architecture/onex-event-driven-architecture.md)** (architecture)
+
+## dsl
+
+- **[Operation Bindings DSL](architecture/onex-operation-bindings-dsl.md)** (architecture)
+
 ## dsn
 
 - **[ADR: Strengthen DSN Validation with urllib.parse](reference/omnibase-infra-adr-dsn-validation-strengthening.md)** (reference)
@@ -772,9 +935,20 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
 
+## ecosystem
+
+- **[ONEX Ecosystem Directory Structure](architecture/onex-ecosystem-directory-structure.md)** (architecture)
+
 ## effect
 
+- **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
 - **[Effect Boundary Testing](guides/omnibase-infra-effect-boundary-testing.md)** (guide)
+- **[Effect Boundary Guide](guides/onex-effect-boundary.md)** (guide)
+- **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
+- **[EFFECT Node Template](guides/onex-effect-node-template.md)** (guide)
+- **[Effect Subcontract Guide](guides/onex-effect-subcontracts.md)** (guide)
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide)
+- **[NodeEffect Contract Examples](reference/omnibase-core-example-effect-contracts.md)** (reference)
 
 ## egress
 
@@ -813,6 +987,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference)
+- **[Enums API Reference - omnibase_core](reference/omnibase-core-api-enums.md)** (reference)
+
+## envelope
+
+- **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture)
 
 ## envelopes
 
@@ -829,7 +1008,9 @@ Knowledge base artifacts grouped by topic.
 
 ## error
 
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
 - **[ADR: Error Context Factory Pattern with `with_correlation`](reference/omnibase-infra-adr-error-context-factory-pattern.md)** (reference)
+- **[ONEX Error Code Standards](reference/onex-error-code-standards.md)** (reference)
 
 ## error-handling
 
@@ -849,6 +1030,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
 - **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
+- **[Event-Driven Architecture -- omnibase_core](architecture/onex-event-driven-architecture.md)** (architecture)
 - **[Event Bus Operations Runbook](runbooks/omnibase-infra-event-bus-operations.md)** (runbook)
 
 ## event-bus
@@ -913,11 +1095,21 @@ Knowledge base artifacts grouped by topic.
 
 ## example
 
+- **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
 - **[2-Way Registration: A Complete ONEX Example](guides/registration-example.md)** (guide)
+- **[Example Contracts](reference/omnibase-core-example-contracts.md)** (reference)
+- **[NodeEffect Contract Examples](reference/omnibase-core-example-effect-contracts.md)** (reference)
 
 ## examples
 
+- **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture)
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** (guide)
+
+## execution
+
+- **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
+- **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture)
+- **[Execution Corpus Guide](guides/onex-execution-corpus.md)** (guide)
 
 ## fail-fast
 
@@ -936,6 +1128,15 @@ Knowledge base artifacts grouped by topic.
 
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
 
+## file
+
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
+- **[File Header Conventions](reference/onex-file-headers.md)** (reference)
+
+## first
+
+- **[Build Your First Node](guides/omnibase-core-first-node.md)** (guide)
+
 ## fixture
 
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook)
@@ -943,6 +1144,10 @@ Knowledge base artifacts grouped by topic.
 ## fleet
 
 - **[Runner fleet listener liveness (<ticket>)](runbooks/runner-fleet-listener-liveness.md)** (runbook)
+
+## flow
+
+- **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture)
 
 ## format
 
@@ -952,9 +1157,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 
+## four
+
+- **[ONEX Four-Node Architecture Documentation](architecture/onex-four-node-architecture.md)** (architecture)
+
 ## four-node-architecture
 
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
+
+## framework
+
+- **[Omnibase Core Validation Tools](reference/omnibase-core-validation-framework.md)** (reference)
 
 ## freshness
 
@@ -968,6 +1181,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
 
 ## fsm-snapshots
 
@@ -1018,6 +1232,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference)
 
+## golden
+
+- **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide)
+
 ## golden-chain
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
@@ -1046,6 +1264,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR: Kafka Consumer Group Naming Convention](reference/omnibase-infra-adr-consumer-group-naming.md)** (reference)
 
+## guarantees
+
+- **[Node Purity Guarantees](architecture/onex-node-purity-guarantees.md)** (architecture)
+
 ## guide
 
 - **[Terminology Guide](reference/omnibase-infra-terminology-guide.md)** (reference)
@@ -1053,8 +1275,11 @@ Knowledge base artifacts grouped by topic.
 ## handler
 
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** (architecture)
+- **[Handler Architecture](architecture/onex-handler-architecture.md)** (architecture)
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
 - **[Handler Authoring Guide](guides/handler-authoring-guide.md)** (guide)
 - **[Handler Integration Tests](guides/omnibase-infra-handler-integration-tests.md)** (guide)
+- **[Handler Contract Guide](guides/onex-handler-contracts.md)** (guide)
 - **[ADR: Handler Contract Schema Evolution Strategy](reference/omnibase-infra-adr-handler-contract-schema-evolution.md)** (reference)
 - **[ADR: Handler Plugin Loader Security Model](reference/omnibase-infra-adr-handler-plugin-loader-security.md)** (reference)
 - **[ADR: EnumHandlerType vs EnumHandlerTypeCategory Distinction](reference/omnibase-infra-adr-handler-type-vs-handler-category.md)** (reference)
@@ -1067,14 +1292,35 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
+## handling
+
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
+
 ## handshake
 
 - **[Kafka Schema Handshake Gate](architecture/omnibase-infra-kafka-schema-handshake-gate.md)** (architecture)
+
+## harness
+
+- **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide)
+
+## headers
+
+- **[File Header Conventions](reference/onex-file-headers.md)** (reference)
+
+## hierarchy
+
+- **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture)
 
 ## historical
 
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture)
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture)
+
+## hook
+
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture)
+- **[Pipeline Runner and Hook Registry Guide](guides/onex-pipeline-hook-registry.md)** (guide)
 
 ## hooks
 
@@ -1111,6 +1357,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference)
 
+## import
+
+- **[Import Compatibility Matrix](architecture/onex-import-compatibility-matrix.md)** (architecture)
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide)
+
 ## import-graph
 
 - **[omnibase_spi Dependency Direction](architecture/omnibase-spi-dependency-direction.md)** (architecture)
@@ -1138,24 +1389,52 @@ Knowledge base artifacts grouped by topic.
 ## injection
 
 - **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** (architecture)
+- **[Dependency Injection](architecture/onex-dependency-injection.md)** (architecture)
 
 ## install
 
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
 
+## installation
+
+- **[Installation Guide - omnibase_core](guides/omnibase-core-installation.md)** (guide)
+
 ## integration
 
 - **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
+- **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide)
 - **[Consul Integration Patterns](guides/omnibase-infra-consul-integration.md)** (guide)
 - **[Handler Integration Tests](guides/omnibase-infra-handler-integration-tests.md)** (guide)
 - **[Integration Testing](guides/omnibase-infra-integration-testing.md)** (guide)
 - **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** (guide)
 - **[omnibase_spi Integration Testing](guides/omnibase-spi-integration-testing.md)** (guide)
+- **[Mixin Integration Guide](guides/onex-mixin-development-04-mixin-integration.md)** (guide)
+- **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide)
 
 ## integration-testing
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
+## intent
+
+- **[ModelIntent Architecture](architecture/onex-model-intent-architecture.md)** (architecture)
+
+## introspection
+
+- **[Introspection Subcontract Guide](guides/onex-introspection-subcontract.md)** (guide)
+
+## inversion
+
+- **[Dependency Inversion in ONEX Architecture](architecture/onex-dependency-inversion.md)** (architecture)
+
+## io
+
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
+
+## is
+
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide)
 
 ## json-schema
 
@@ -1211,6 +1490,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0017: No Deterministic Champion in Live Play; Learning Loop Repointed at LLM Pilots](adrs/ADR-0017-no-deterministic-champion-llm-pilots.md)** (adr)
 
+## lease
+
+- **[Lease Management Pattern](architecture/onex-lease-management-pattern.md)** (architecture)
+
 ## lifecycle
 
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
@@ -1263,6 +1546,20 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
 
+## management
+
+- **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
+- **[Lease Management Pattern](architecture/onex-lease-management-pattern.md)** (architecture)
+
+## manifest
+
+- **[Manifest Models](reference/omnibase-core-manifest-models.md)** (reference)
+
+## mapping
+
+- **[Message Category to Topic Mapping](architecture/onex-message-topic-mapping.md)** (architecture)
+- **[Mixin-Subcontract Mapping Guide](guides/onex-mixin-subcontract-mapping.md)** (guide)
+
 ## markdown-link-check
 
 - **[CI Documentation Validation Setup](reference/ci-validation-setup.md)** (reference)
@@ -1274,6 +1571,10 @@ Knowledge base artifacts grouped by topic.
 ## materialization
 
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
+
+## matrix
+
+- **[Import Compatibility Matrix](architecture/onex-import-compatibility-matrix.md)** (architecture)
 
 ## mcp
 
@@ -1315,6 +1616,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
 - **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
+- **[Message Category to Topic Mapping](architecture/onex-message-topic-mapping.md)** (architecture)
 - **[ADR-002: Separation of EnumMessageCategory and EnumNodeOutputType](reference/omnibase-infra-adr-enum-message-category-node-output-separation.md)** (reference)
 - **[ADR: EnumMessageCategory vs EnumNodeOutputType Distinction](reference/omnibase-infra-adr-enum-message-category-vs-node-output-type.md)** (reference)
 - **[ADR-006: MessageDispatchEngine as Canonical Consumer Routing Pattern](reference/omnibase-infra-adr-message-dispatch-engine-canonical-routing.md)** (reference)
@@ -1345,9 +1647,43 @@ Knowledge base artifacts grouped by topic.
 
 - **[Git-transport + Actions egress: local mirrors and tool-cache durability — <ticket> C2](runbooks/c2-git-mirror-egress-rollout.md)** (runbook)
 
+## mixin
+
+- **[ONEX Mixin Architecture](architecture/onex-mixin-architecture.md)** (architecture)
+- **[Mixin Classification Reference](architecture/onex-mixin-classification.md)** (architecture)
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide)
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide)
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide)
+- **[Mixin Integration Guide](guides/onex-mixin-development-04-mixin-integration.md)** (guide)
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide)
+- **[Mixin Development Guide](guides/onex-mixin-development-overview.md)** (guide)
+- **[Mixin-Subcontract Mapping Guide](guides/onex-mixin-subcontract-mapping.md)** (guide)
+- **[Mixin Discovery API](reference/omnibase-core-mixin-discovery-api.md)** (reference)
+
+## mixins
+
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide)
+
+## model
+
+- **[ModelAction Architecture](architecture/onex-model-action-architecture.md)** (architecture)
+- **[ModelIntent Architecture](architecture/onex-model-intent-architecture.md)** (architecture)
+- **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide)
+
 ## model-routing
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+
+## modelaction
+
+- **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture)
+
+## models
+
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture)
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide)
+- **[Models API Reference - omnibase_core](reference/omnibase-core-api-models.md)** (reference)
+- **[Manifest Models](reference/omnibase-core-manifest-models.md)** (reference)
 
 ## monitoring
 
@@ -1366,11 +1702,33 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
 - **[Naming Conventions](reference/omnibase-infra-naming-conventions.md)** (reference)
+- **[ONEX Capability Naming Conventions](reference/onex-capability-naming.md)** (reference)
+- **[ONEX Naming Conventions](reference/onex-naming-conventions.md)** (reference)
 
 ## node
 
 - **[ONEX Current Node Architecture](architecture/current-node-architecture.md)** (architecture)
+- **[ONEX Four-Node Architecture Documentation](architecture/onex-four-node-architecture.md)** (architecture)
+- **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture)
+- **[Node Purity Guarantees](architecture/onex-node-purity-guarantees.md)** (architecture)
+- **[Build Your First Node](guides/omnibase-core-first-node.md)** (guide)
+- **[COMPUTE Node Template](guides/onex-compute-node-template.md)** (guide)
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide)
+- **[EFFECT Node Template](guides/onex-effect-node-template.md)** (guide)
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide)
+- **[Node Types](guides/onex-node-building-02-node-types.md)** (guide)
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide)
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide)
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide)
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide)
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide)
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide)
+- **[Node Building Guide](guides/onex-node-building-overview.md)** (guide)
+- **[ORCHESTRATOR Node Template](guides/onex-orchestrator-node-template.md)** (guide)
+- **[REDUCER Node Template](guides/onex-reducer-node-template.md)** (guide)
 - **[Node Registration Orchestrator](reference/omnibase-infra-node-registration-orchestrator.md)** (reference)
+- **[Node Archetypes Reference](reference/onex-node-archetypes.md)** (reference)
 - **[Market Node Deployment Runbook](runbooks/market-node-deployment.md)** (runbook)
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
 - **[Vendored Node Migration Runbook](runbooks/vendored-node-migrations.md)** (runbook)
@@ -1393,6 +1751,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** (guide)
+- **[Nodes API Reference - omnibase_core](reference/omnibase-core-api-nodes.md)** (reference)
 - **[OmniIntelligence Node Inventory](reference/omniintelligence-node-inventory.md)** (reference)
 - **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** (reference)
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference)
@@ -1439,7 +1798,120 @@ Knowledge base artifacts grouped by topic.
 
 ## omnibase-core
 
+- **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture)
+- **[ONEX Anti-Patterns Documentation](architecture/onex-anti-patterns.md)** (architecture)
+- **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** (architecture)
+- **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
+- **[Circuit Breaker Pattern for External Dependencies](architecture/onex-circuit-breaker-pattern.md)** (architecture)
+- **[Claude Code Hooks Architecture](architecture/onex-claude-code-hook-models.md)** (architecture)
+- **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
+- **[Container Types in omnibase_core](architecture/onex-container-types.md)** (architecture)
+- **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture)
+- **[Contract System](architecture/onex-contract-system.md)** (architecture)
+- **[Custom `__bool__` Pattern for Result Models](architecture/onex-custom-bool-pattern.md)** (architecture)
+- **[Dependency Injection](architecture/onex-dependency-injection.md)** (architecture)
+- **[Dependency Inversion in ONEX Architecture](architecture/onex-dependency-inversion.md)** (architecture)
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture)
+- **[ONEX Ecosystem Directory Structure](architecture/onex-ecosystem-directory-structure.md)** (architecture)
+- **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
+- **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture)
+- **[Event-Driven Architecture -- omnibase_core](architecture/onex-event-driven-architecture.md)** (architecture)
+- **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture)
+- **[ONEX Four-Node Architecture Documentation](architecture/onex-four-node-architecture.md)** (architecture)
+- **[Handler Architecture](architecture/onex-handler-architecture.md)** (architecture)
+- **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
+- **[Import Compatibility Matrix](architecture/onex-import-compatibility-matrix.md)** (architecture)
+- **[Lease Management Pattern](architecture/onex-lease-management-pattern.md)** (architecture)
+- **[Message Category to Topic Mapping](architecture/onex-message-topic-mapping.md)** (architecture)
+- **[ONEX Mixin Architecture](architecture/onex-mixin-architecture.md)** (architecture)
+- **[Mixin Classification Reference](architecture/onex-mixin-classification.md)** (architecture)
+- **[ModelAction Architecture](architecture/onex-model-action-architecture.md)** (architecture)
+- **[ModelIntent Architecture](architecture/onex-model-intent-architecture.md)** (architecture)
+- **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture)
+- **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture)
+- **[Node Purity Guarantees](architecture/onex-node-purity-guarantees.md)** (architecture)
+- **[Operation Bindings DSL](architecture/onex-operation-bindings-dsl.md)** (architecture)
+- **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture)
+- **[Protocol Architecture](architecture/onex-protocol-architecture.md)** (architecture)
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
+- **[ONEX Subcontract Package Architecture](architecture/onex-subcontract-architecture.md)** (architecture)
+- **[Type System](architecture/onex-type-system.md)** (architecture)
+- **[URL Contract Authority](architecture/onex-url-contract-authority.md)** (architecture)
+- **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
+- **[Build Your First Node](guides/omnibase-core-first-node.md)** (guide)
+- **[Installation Guide - omnibase_core](guides/omnibase-core-installation.md)** (guide)
+- **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide)
+- **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide)
+- **[Parallel Testing Architecture and Resource Management](guides/omnibase-core-parallel-testing.md)** (guide)
+- **[ONEX Performance Testing Suite](guides/omnibase-core-performance-benchmarks.md)** (guide)
+- **[Performance Testing Guide](guides/omnibase-core-performance-testing.md)** (guide)
+- **[Quick Start Guide](guides/omnibase-core-quick-start.md)** (guide)
+- **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
+- **[Testing Guide - omnibase_core](guides/omnibase-core-testing.md)** (guide)
+- **[pytest-testmon Usage Guide](guides/omnibase-core-testmon-usage.md)** (guide)
+- **[COMPUTE Node Template](guides/onex-compute-node-template.md)** (guide)
+- **[Contract Patching Guide](guides/onex-contract-patching.md)** (guide)
+- **[Contract Profile Guide](guides/onex-contract-profiles.md)** (guide)
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide)
+- **[Effect Boundary Guide](guides/onex-effect-boundary.md)** (guide)
+- **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
+- **[EFFECT Node Template](guides/onex-effect-node-template.md)** (guide)
+- **[Effect Subcontract Guide](guides/onex-effect-subcontracts.md)** (guide)
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
+- **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
+- **[Execution Corpus Guide](guides/onex-execution-corpus.md)** (guide)
+- **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide)
+- **[Handler Contract Guide](guides/onex-handler-contracts.md)** (guide)
+- **[Introspection Subcontract Guide](guides/onex-introspection-subcontract.md)** (guide)
+- **[Creating Mixins - Step-by-Step Guide](guides/onex-mixin-development-01-creating-mixins.md)** (guide)
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide)
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide)
+- **[Mixin Integration Guide](guides/onex-mixin-development-04-mixin-integration.md)** (guide)
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide)
+- **[Mixin Development Guide](guides/onex-mixin-development-overview.md)** (guide)
+- **[Mixin-Subcontract Mapping Guide](guides/onex-mixin-subcontract-mapping.md)** (guide)
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide)
+- **[Node Types](guides/onex-node-building-02-node-types.md)** (guide)
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide)
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide)
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide)
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide)
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide)
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide)
+- **[Node Building Guide](guides/onex-node-building-overview.md)** (guide)
+- **[ORCHESTRATOR Node Template](guides/onex-orchestrator-node-template.md)** (guide)
+- **[Pipeline Runner and Hook Registry Guide](guides/onex-pipeline-hook-registry.md)** (guide)
+- **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
+- **[Protocol Discovery Guide](guides/onex-protocol-discovery.md)** (guide)
+- **[Pydantic Best Practices for ONEX](guides/onex-pydantic-best-practices.md)** (guide)
+- **[REDUCER Node Template](guides/onex-reducer-node-template.md)** (guide)
+- **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide)
+- **[Request Tracing in ONEX](guides/onex-request-tracing.md)** (guide)
+- **[Thread Safety in Omnibase Core](guides/onex-threading.md)** (guide)
+- **[ONEX Core Public API Reference](reference/omnibase-core-api-documentation.md)** (reference)
+- **[Enums API Reference - omnibase_core](reference/omnibase-core-api-enums.md)** (reference)
+- **[Models API Reference - omnibase_core](reference/omnibase-core-api-models.md)** (reference)
+- **[Nodes API Reference - omnibase_core](reference/omnibase-core-api-nodes.md)** (reference)
+- **[Utils API Reference - omnibase_core](reference/omnibase-core-api-utils.md)** (reference)
+- **[Contract Validator API](reference/omnibase-core-contract-validator-api.md)** (reference)
+- **[Contract.yaml Reference](reference/omnibase-core-contracts.md)** (reference)
+- **[Example Contracts](reference/omnibase-core-example-contracts.md)** (reference)
+- **[NodeEffect Contract Examples](reference/omnibase-core-example-effect-contracts.md)** (reference)
+- **[Manifest Models](reference/omnibase-core-manifest-models.md)** (reference)
+- **[Mixin Discovery API](reference/omnibase-core-mixin-discovery-api.md)** (reference)
+- **[ONEX Service Wrappers - Pre-Composed Production-Ready Node Classes](reference/omnibase-core-service-wrappers.md)** (reference)
+- **[Omnibase Core Validation Tools](reference/omnibase-core-validation-framework.md)** (reference)
+- **[Validation Ownership](reference/omnibase-core-validation-ownership.md)** (reference)
+- **[ONEX Capability Naming Conventions](reference/onex-capability-naming.md)** (reference)
+- **[ONEX Contract Model Docstring Templates](reference/onex-docstring-templates.md)** (reference)
+- **[ONEX Error Code Standards](reference/onex-error-code-standards.md)** (reference)
+- **[File Header Conventions](reference/onex-file-headers.md)** (reference)
+- **[ONEX Naming Conventions](reference/onex-naming-conventions.md)** (reference)
+- **[Node Archetypes Reference](reference/onex-node-archetypes.md)** (reference)
+- **[Terminology Guide](reference/onex-terminology-guide.md)** (reference)
+- **[Version Field Semantics in ONEX Models](reference/onex-version-semantics.md)** (reference)
 
 ## omnibase-infra
 
@@ -1715,6 +2187,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Operation Bindings: Declarative Handler Parameter Resolution](architecture/omnibase-infra-operation-bindings.md)** (architecture)
 - **[Operation Routing Pattern](architecture/omnibase-infra-operation-routing.md)** (architecture)
+- **[Operation Bindings DSL](architecture/onex-operation-bindings-dsl.md)** (architecture)
 
 ## operations
 
@@ -1730,6 +2203,8 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0033: Registration Trigger Architecture](adrs/ADR-0033-registration-trigger-architecture.md)** (adr)
 - **[Validation Orchestrator — Activation Guide](guides/omnibase-infra-validation-orchestrator-activation.md)** (guide)
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide)
+- **[ORCHESTRATOR Node Template](guides/onex-orchestrator-node-template.md)** (guide)
 - **[Node Registration Orchestrator](reference/omnibase-infra-node-registration-orchestrator.md)** (reference)
 
 ## orchestrator-nodes
@@ -1754,13 +2229,17 @@ Knowledge base artifacts grouped by topic.
 
 ## overview
 
+- **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
+- **[Mixin Development Guide](guides/onex-mixin-development-overview.md)** (guide)
+- **[Node Building Guide](guides/onex-node-building-overview.md)** (guide)
 
 ## ownership
 
 - **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** (architecture)
 - **[Untitled](architecture/shared-enum-ownership.md)** (architecture)
+- **[Validation Ownership](reference/omnibase-core-validation-ownership.md)** (reference)
 - **[DLQ Quarantine Ownership Semantics](reference/omnibase-infra-dlq-quarantine-ownership.md)** (reference)
 
 ## package
@@ -1772,14 +2251,40 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture)
 - **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
 
+## parallel
+
+- **[Parallel Testing Architecture and Resource Management](guides/omnibase-core-parallel-testing.md)** (guide)
+
 ## parity
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 
+## patching
+
+- **[Contract Patching Guide](guides/onex-contract-patching.md)** (guide)
+
+## pattern
+
+- **[Circuit Breaker Pattern for External Dependencies](architecture/onex-circuit-breaker-pattern.md)** (architecture)
+- **[Custom `__bool__` Pattern for Result Models](architecture/onex-custom-bool-pattern.md)** (architecture)
+- **[Lease Management Pattern](architecture/onex-lease-management-pattern.md)** (architecture)
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
+
 ## patterns
 
 - **[Protocol Patterns](architecture/omnibase-infra-protocol-patterns.md)** (architecture)
+- **[ONEX Anti-Patterns Documentation](architecture/onex-anti-patterns.md)** (architecture)
+- **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** (architecture)
 - **[Testing Patterns](guides/omnibase-infra-testing-patterns.md)** (guide)
+- **[Patterns Catalog -- Common ONEX Node Patterns](guides/onex-node-building-07-patterns-catalog.md)** (guide)
+
+## payload
+
+- **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture)
+
+## payloads
+
+- **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture)
 
 ## per
 
@@ -1792,6 +2297,8 @@ Knowledge base artifacts grouped by topic.
 ## performance
 
 - **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** (adr)
+- **[ONEX Performance Testing Suite](guides/omnibase-core-performance-benchmarks.md)** (guide)
+- **[Performance Testing Guide](guides/omnibase-core-performance-testing.md)** (guide)
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** (guide)
 - **[ADR-004: Performance Baseline Thresholds for E2E Tests](reference/omnibase-infra-adr-performance-baseline-thresholds.md)** (reference)
 - **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** (reference)
@@ -1804,9 +2311,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 
+## pipeline
+
+- **[Pipeline Runner and Hook Registry Guide](guides/onex-pipeline-hook-registry.md)** (guide)
+
 ## pipeline-fill
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
+
+## pitfalls
+
+- **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
 
 ## planning
 
@@ -1850,6 +2365,9 @@ Knowledge base artifacts grouped by topic.
 ## practices
 
 - **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** (guide)
+- **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
+- **[Mixin Development Best Practices](guides/onex-mixin-development-05-best-practices.md)** (guide)
+- **[Pydantic Best Practices for ONEX](guides/onex-pydantic-best-practices.md)** (guide)
 
 ## pre-commit
 
@@ -1860,6 +2378,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 
+## prevention
+
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture)
+
 ## prioritization
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
@@ -1869,9 +2391,17 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
+## production
+
+- **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
+
 ## profile
 
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
+
+## profiles
+
+- **[Contract Profile Guide](guides/onex-contract-profiles.md)** (guide)
 
 ## projection
 
@@ -1907,6 +2437,9 @@ Knowledge base artifacts grouped by topic.
 ## protocol
 
 - **[Protocol Patterns](architecture/omnibase-infra-protocol-patterns.md)** (architecture)
+- **[Protocol Architecture](architecture/onex-protocol-architecture.md)** (architecture)
+- **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
+- **[Protocol Discovery Guide](guides/onex-protocol-discovery.md)** (guide)
 - **[ADR: Protocol Design Guidelines](reference/omnibase-infra-adr-protocol-design-guidelines.md)** (reference)
 
 ## protocols
@@ -1933,6 +2466,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[Snapshot Publishing Architecture](architecture/snapshot-publishing.md)** (architecture)
 
+## pure
+
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
+
+## purity
+
+- **[Node Purity Guarantees](architecture/onex-node-purity-guarantees.md)** (architecture)
+
 ## pydantic
 
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
@@ -1941,6 +2482,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 - **[ADR-0043: Render Pydantic-Generated JSON Schema With Stock @rjsf, No Custom Field](adrs/ADR-0043-omnidash-rjsf-discriminated-union-handling.md)** (adr)
 - **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** (guide)
+- **[Pydantic Models for Mixins](guides/onex-mixin-development-03-pydantic-models.md)** (guide)
+- **[Pydantic Best Practices for ONEX](guides/onex-pydantic-best-practices.md)** (guide)
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
 
 ## pydantic-settings
@@ -1973,6 +2516,10 @@ Knowledge base artifacts grouped by topic.
 ## quarantine
 
 - **[DLQ Quarantine Ownership Semantics](reference/omnibase-infra-dlq-quarantine-ownership.md)** (reference)
+
+## quick
+
+- **[Quick Start Guide](guides/omnibase-core-quick-start.md)** (guide)
 
 ## quickstart
 
@@ -2014,6 +2561,12 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
 
+## reducer
+
+- **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide)
+- **[REDUCER Node Template](guides/onex-reducer-node-template.md)** (guide)
+
 ## reducers
 
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
@@ -2043,6 +2596,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** (adr)
 - **[Policy Registry Trust Model](architecture/omnibase-infra-policy-registry-trust-model.md)** (architecture)
+- **[Pipeline Runner and Hook Registry Guide](guides/onex-pipeline-hook-registry.md)** (guide)
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference)
 
 ## release
@@ -2066,6 +2620,7 @@ Knowledge base artifacts grouped by topic.
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 - **[Replay Tests](guides/omnibase-infra-replay-tests.md)** (guide)
+- **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide)
 - **[Dead Letter Queue (DLQ) Replay Guide](runbooks/omnibase-infra-dlq-replay.md)** (runbook)
 
 ## replay-correctness
@@ -2086,6 +2641,10 @@ Knowledge base artifacts grouped by topic.
 ## repowise
 
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
+
+## request
+
+- **[Request Tracing in ONEX](guides/onex-request-tracing.md)** (guide)
 
 ## required
 
@@ -2158,6 +2717,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0016: One Contract-Configured Pilot (ModelPilot + EnumPilotKind), No Pilot Class Hierarchy](adrs/ADR-0016-one-contract-configured-pilot.md)** (adr)
 
+## rules
+
+- **[Declarative Node Import Rules](guides/onex-declarative-node-import-rules.md)** (guide)
+
 ## runbook
 
 - **[ADR-0024: Merge Stall Root Cause = Merge-Sweep Tooling Miss, Not a Capacity Deadlock](adrs/ADR-0024-merge-stall-tooling-not-capacity.md)** (adr)
@@ -2193,10 +2756,12 @@ Knowledge base artifacts grouped by topic.
 ## safety
 
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture)
+- **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide)
 
 ## schema
 
 - **[Kafka Schema Handshake Gate](architecture/omnibase-infra-kafka-schema-handshake-gate.md)** (architecture)
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide)
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference)
 
 ## schema-consolidation
@@ -2227,6 +2792,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
+## security
+
+- **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
+- **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
+
 ## selective-testing
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
@@ -2239,6 +2809,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
+
+## semantics
+
+- **[Version Field Semantics in ONEX Models](reference/onex-version-semantics.md)** (reference)
 
 ## semver
 
@@ -2255,6 +2829,7 @@ Knowledge base artifacts grouped by topic.
 ## service
 
 - **[MCP Service Architecture](architecture/mcp-service-architecture.md)** (architecture)
+- **[ONEX Service Wrappers - Pre-Composed Production-Ready Node Classes](reference/omnibase-core-service-wrappers.md)** (reference)
 - **[Per-Service Database URL Contract](reference/omnibase-infra-per-service-database-url-contract.md)** (reference)
 
 ## service-boundaries
@@ -2276,6 +2851,14 @@ Knowledge base artifacts grouped by topic.
 ## shadow-mode
 
 - **[ADR-0009: Complexity-Aware Delegation Routing](adrs/ADR-0009-complexity-aware-delegation-routing.md)** (adr)
+
+## shape
+
+- **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture)
+
+## shapes
+
+- **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
 
 ## shared
 
@@ -2313,12 +2896,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR: Soft Validation for Environment Variable Parsing](reference/omnibase-infra-adr-soft-validation-env-parsing.md)** (reference)
 
+## spec
+
+- **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture)
+
 ## sqlite
 
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## stability
 
+- **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture)
 - **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
 
@@ -2332,6 +2920,11 @@ Knowledge base artifacts grouped by topic.
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
+- **[ONEX Error Code Standards](reference/onex-error-code-standards.md)** (reference)
+
+## start
+
+- **[Quick Start Guide](guides/omnibase-core-quick-start.md)** (guide)
 
 ## state
 
@@ -2353,6 +2946,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide)
 
+## str
+
+- **[Dict[str, Any] Prevention Guide](architecture/onex-dict-str-any-prevention.md)** (architecture)
+
 ## strategy
 
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
@@ -2363,12 +2960,28 @@ Knowledge base artifacts grouped by topic.
 
 ## structure
 
+- **[ONEX Ecosystem Directory Structure](architecture/onex-ecosystem-directory-structure.md)** (architecture)
 - **[Utility Directory Structure](reference/omnibase-infra-utility-directory-structure.md)** (reference)
+
+## subcontract
+
+- **[ONEX Subcontract Package Architecture](architecture/onex-subcontract-architecture.md)** (architecture)
+- **[Introspection Subcontract Guide](guides/onex-introspection-subcontract.md)** (guide)
+- **[Mixin-Subcontract Mapping Guide](guides/onex-mixin-subcontract-mapping.md)** (guide)
+
+## subcontracts
+
+- **[Effect Subcontract Guide](guides/onex-effect-subcontracts.md)** (guide)
 
 ## supersession
 
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
+
+## system
+
+- **[Contract System](architecture/onex-contract-system.md)** (architecture)
+- **[Type System](architecture/onex-type-system.md)** (architecture)
 
 ## taxonomy
 
@@ -2379,9 +2992,18 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
+## template
+
+- **[COMPUTE Node Template](guides/onex-compute-node-template.md)** (guide)
+- **[EFFECT Node Template](guides/onex-effect-node-template.md)** (guide)
+- **[ORCHESTRATOR Node Template](guides/onex-orchestrator-node-template.md)** (guide)
+- **[REDUCER Node Template](guides/onex-reducer-node-template.md)** (guide)
+
 ## templates
 
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** (guide)
+- **[Agent Templates for ONEX Node Development](guides/onex-node-building-10-agent-templates.md)** (guide)
+- **[ONEX Contract Model Docstring Templates](reference/onex-docstring-templates.md)** (reference)
 
 ## tenant-isolation
 
@@ -2392,16 +3014,22 @@ Knowledge base artifacts grouped by topic.
 
 - **[Terminology Guide](reference/omnibase-infra-terminology-guide.md)** (reference)
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference)
+- **[Terminology Guide](reference/onex-terminology-guide.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 
 ## test
 
+- **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
 
 ## testing
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide)
+- **[Parallel Testing Architecture and Resource Management](guides/omnibase-core-parallel-testing.md)** (guide)
+- **[Performance Testing Guide](guides/omnibase-core-performance-testing.md)** (guide)
+- **[Testing Guide - omnibase_core](guides/omnibase-core-testing.md)** (guide)
 - **[Effect Boundary Testing](guides/omnibase-infra-effect-boundary-testing.md)** (guide)
 - **[Integration Testing](guides/omnibase-infra-integration-testing.md)** (guide)
 - **[Testing Patterns](guides/omnibase-infra-testing-patterns.md)** (guide)
@@ -2413,6 +3041,10 @@ Knowledge base artifacts grouped by topic.
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** (reference)
 
+## testmon
+
+- **[pytest-testmon Usage Guide](guides/omnibase-core-testmon-usage.md)** (guide)
+
 ## tests
 
 - **[Chaos Tests](guides/omnibase-infra-chaos-tests.md)** (guide)
@@ -2423,6 +3055,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture)
 
+## threading
+
+- **[Thread Safety in Omnibase Core](guides/onex-threading.md)** (guide)
+
 ## throughput
 
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
@@ -2431,9 +3067,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0018: Delegation Ladder Acceptance = Escalating-Complexity Graded Benchmark, Local Floor to Paid-Cloud Ceiling](adrs/ADR-0018-delegation-graded-benchmark-ladder.md)** (adr)
 
+## timeout
+
+- **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
+
 ## topic
 
 - **[Environment-Aware Topic Naming Pattern](architecture/omnibase-infra-environment-aware-topic-naming.md)** (architecture)
+- **[Message Category to Topic Mapping](architecture/onex-message-topic-mapping.md)** (architecture)
 - **[Topic Catalog Architecture](architecture/topic-catalog-architecture.md)** (architecture)
 - **[ONEX Infrastructure Topic Taxonomy](reference/omnibase-infra-topic-taxonomy.md)** (reference)
 
@@ -2444,6 +3085,10 @@ Knowledge base artifacts grouped by topic.
 ## topics
 
 - **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
+
+## tracing
+
+- **[Request Tracing in ONEX](guides/onex-request-tracing.md)** (guide)
 
 ## tracking
 
@@ -2478,9 +3123,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[Truth Must Be Proven, Not Claimed](doctrine/truth-must-be-proven.md)** (doctrine)
 
+## tuning
+
+- **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
+
 ## tutorial
 
 - **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
+- **[COMPUTE Node Tutorial](guides/onex-node-building-03-compute-node-tutorial.md)** (guide)
+- **[EFFECT Node Tutorial: Build a File Backup System](guides/onex-node-building-04-effect-node-tutorial.md)** (guide)
+- **[REDUCER Node Tutorial: Build a Pure FSM Metrics Aggregator](guides/onex-node-building-05-reducer-node-tutorial.md)** (guide)
+- **[ORCHESTRATOR Node Tutorial: Build a Data Processing Pipeline](guides/onex-node-building-06-orchestrator-node-tutorial.md)** (guide)
 
 ## two
 
@@ -2489,6 +3142,8 @@ Knowledge base artifacts grouped by topic.
 
 ## type
 
+- **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture)
+- **[Type System](architecture/onex-type-system.md)** (architecture)
 - **[ADR: Use of Any Type as Pydantic 2.x JsonType Workaround](reference/omnibase-infra-adr-any-type-pydantic-workaround.md)** (reference)
 - **[ADR: EnumHandlerType vs EnumHandlerTypeCategory Distinction](reference/omnibase-infra-adr-handler-type-vs-handler-category.md)** (reference)
 
@@ -2496,14 +3151,27 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 
+## typed
+
+- **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture)
+
 ## typed-metadata
 
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference)
+
+## types
+
+- **[Container Types in omnibase_core](architecture/onex-container-types.md)** (architecture)
+- **[Node Types](guides/onex-node-building-02-node-types.md)** (guide)
 
 ## typography
 
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference)
+
+## union
+
+- **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** (architecture)
 
 ## unit
 
@@ -2514,16 +3182,32 @@ Knowledge base artifacts grouped by topic.
 - **[Migration Upgrade Guide: 003a to 004](guides/omnibase-infra-migration-upgrade-003a-to-004.md)** (guide)
 - **[ADR: Cryptography Library Upgrade to v46.0.3](reference/omnibase-infra-adr-cryptography-upgrade-46.md)** (reference)
 
+## url
+
+- **[URL Contract Authority](architecture/onex-url-contract-authority.md)** (architecture)
+
+## usage
+
+- **[pytest-testmon Usage Guide](guides/omnibase-core-testmon-usage.md)** (guide)
+
 ## utility
 
 - **[Utility Directory Structure](reference/omnibase-infra-utility-directory-structure.md)** (reference)
+
+## utils
+
+- **[Utils API Reference - omnibase_core](reference/omnibase-core-api-utils.md)** (reference)
 
 ## validation
 
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
 - **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture)
+- **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
+- **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide)
 - **[Validation Orchestrator — Activation Guide](guides/omnibase-infra-validation-orchestrator-activation.md)** (guide)
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
+- **[Omnibase Core Validation Tools](reference/omnibase-core-validation-framework.md)** (reference)
+- **[Validation Ownership](reference/omnibase-core-validation-ownership.md)** (reference)
 - **[ADR: Strengthen DSN Validation with urllib.parse](reference/omnibase-infra-adr-dsn-validation-strengthening.md)** (reference)
 - **[ADR: Soft Validation for Environment Variable Parsing](reference/omnibase-infra-adr-soft-validation-env-parsing.md)** (reference)
 - **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** (reference)
@@ -2532,6 +3216,7 @@ Knowledge base artifacts grouped by topic.
 ## validator
 
 - **[ADR-0025: OCC Validator Redesign = Option A (Per-Entry Hashing + Append-Only + Supersession/Tombstones)](adrs/ADR-0025-occ-validator-redesign-option-a.md)** (adr)
+- **[Contract Validator API](reference/omnibase-core-contract-validator-api.md)** (reference)
 
 ## validator-enforcement
 
@@ -2560,6 +3245,10 @@ Knowledge base artifacts grouped by topic.
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 
+## version
+
+- **[Version Field Semantics in ONEX Models](reference/onex-version-semantics.md)** (reference)
+
 ## versioning
 
 - **[Migration Versioning Convention](reference/omnibase-infra-migration-versioning-convention.md)** (reference)
@@ -2568,6 +3257,10 @@ Knowledge base artifacts grouped by topic.
 ## volume
 
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
+
+## what
+
+- **[What is a Node?](guides/onex-node-building-01-what-is-a-node.md)** (guide)
 
 ## widgets
 
@@ -2609,6 +3302,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Merge-Triggered Worktree GC — Two-Layer Model (Event-First + Timer-Backstop)](runbooks/worktree-reaper-two-layer-gc.md)** (runbook)
 
+## wrappers
+
+- **[ONEX Service Wrappers - Pre-Composed Production-Ready Node Classes](reference/omnibase-core-service-wrappers.md)** (reference)
+
 ## ws-b
 
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
@@ -2619,4 +3316,5 @@ Knowledge base artifacts grouped by topic.
 
 ## yaml
 
+- **[Mixin YAML Schema Reference](guides/onex-mixin-development-02-mixin-yaml-schema.md)** (guide)
 - **[Contract.yaml Reference](reference/omnibase-infra-contract-yaml-reference.md)** (reference)

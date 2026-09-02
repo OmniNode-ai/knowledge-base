@@ -54,3 +54,52 @@ Keep a TDD focused on one subsystem or one cross-cutting concern. If background 
 | Date | Title | Status |
 |------|-------|--------|
 | [2026-05-31](omninode-architecture-technical-design.md) | Technical Design: OmniNode Platform Architecture | accepted |
+
+## ONEX kernel architecture (omnibase_core)
+
+The ONEX execution kernel's architecture records, migrated out of the `omnibase_core`
+repository so the platform's architecture is documented in one place rather than inside the
+package that happens to implement it. They describe the four node archetypes, the contract and
+subcontract system, handler and envelope flow, the typed payload and model-action surfaces, and
+the platform pattern catalog.
+
+- [`onex-canonical-execution-shapes.md`](onex-canonical-execution-shapes.md) — ONEX Canonical Execution Shapes
+- [`onex-claude-code-hook-models.md`](onex-claude-code-hook-models.md) — Claude Code Hooks Architecture
+- [`onex-container-types.md`](onex-container-types.md) — Container Types in omnibase_core
+- [`onex-contract-stability-spec.md`](onex-contract-stability-spec.md) — Contract Stability Specification
+- [`onex-contract-system.md`](onex-contract-system.md) — Contract System
+- [`onex-dependency-injection.md`](onex-dependency-injection.md) — Dependency Injection
+- [`onex-dependency-inversion.md`](onex-dependency-inversion.md) — Dependency Inversion in ONEX Architecture
+- [`onex-dict-str-any-prevention.md`](onex-dict-str-any-prevention.md) — Dict[str, Any] Prevention Guide
+- [`onex-ecosystem-directory-structure.md`](onex-ecosystem-directory-structure.md) — ONEX Ecosystem Directory Structure
+- [`onex-effect-timeout-behavior.md`](onex-effect-timeout-behavior.md) — Effect Timeout Behavior
+- [`onex-envelope-flow-architecture.md`](onex-envelope-flow-architecture.md) — Envelope Flow Architecture
+- [`onex-execution-shape-examples.md`](onex-execution-shape-examples.md) — Execution Shape Examples
+- [`onex-handler-architecture.md`](onex-handler-architecture.md) — Handler Architecture
+- [`onex-handler-classification-file-io-services.md`](onex-handler-classification-file-io-services.md) — Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)
+- [`onex-import-compatibility-matrix.md`](onex-import-compatibility-matrix.md) — Import Compatibility Matrix
+- [`onex-message-topic-mapping.md`](onex-message-topic-mapping.md) — Message Category to Topic Mapping
+- [`onex-mixin-architecture.md`](onex-mixin-architecture.md) — ONEX Mixin Architecture
+- [`onex-mixin-classification.md`](onex-mixin-classification.md) — Mixin Classification Reference
+- [`onex-modelaction-typed-payloads.md`](onex-modelaction-typed-payloads.md) — ModelAction Typed Payloads
+- [`onex-model-action-architecture.md`](onex-model-action-architecture.md) — ModelAction Architecture
+- [`onex-model-intent-architecture.md`](onex-model-intent-architecture.md) — ModelIntent Architecture
+- [`onex-node-class-hierarchy.md`](onex-node-class-hierarchy.md) — Node Class Hierarchy Guide
+- [`onex-node-purity-guarantees.md`](onex-node-purity-guarantees.md) — Node Purity Guarantees
+- [`onex-four-node-architecture.md`](onex-four-node-architecture.md) — ONEX Four-Node Architecture Documentation
+- [`onex-payload-type-architecture.md`](onex-payload-type-architecture.md) — Payload Type Architecture
+- [`onex-protocol-architecture.md`](onex-protocol-architecture.md) — Protocol Architecture
+- [`onex-subcontract-architecture.md`](onex-subcontract-architecture.md) — ONEX Subcontract Package Architecture
+- [`onex-type-system.md`](onex-type-system.md) — Type System
+- [`onex-url-contract-authority.md`](onex-url-contract-authority.md) — URL Contract Authority
+- [`onex-validation-protocol-compliance.md`](onex-validation-protocol-compliance.md) — Validation Protocol Compliance
+- [`omnibase-core-overview.md`](omnibase-core-overview.md) — Architecture Overview - omnibase_core
+- [`onex-operation-bindings-dsl.md`](onex-operation-bindings-dsl.md) — Operation Bindings DSL
+- [`onex-anti-patterns.md`](onex-anti-patterns.md) — ONEX Anti-Patterns Documentation
+- [`onex-approved-union-patterns.md`](onex-approved-union-patterns.md) — Approved Union Patterns for ONEX Development
+- [`onex-circuit-breaker-pattern.md`](onex-circuit-breaker-pattern.md) — Circuit Breaker Pattern for External Dependencies
+- [`onex-configuration-management.md`](onex-configuration-management.md) — Environment-Based Configuration Management
+- [`onex-custom-bool-pattern.md`](onex-custom-bool-pattern.md) — Custom `__bool__` Pattern for Result Models
+- [`onex-event-driven-architecture.md`](onex-event-driven-architecture.md) — Event-Driven Architecture -- omnibase_core
+- [`onex-lease-management-pattern.md`](onex-lease-management-pattern.md) — Lease Management Pattern
+- [`onex-pure-fsm-reducer-pattern.md`](onex-pure-fsm-reducer-pattern.md) — Pure FSM Reducer Pattern
