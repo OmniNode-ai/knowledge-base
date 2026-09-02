@@ -110,6 +110,9 @@ Knowledge base artifacts grouped by type.
 - **[ProtocolHandler vs ProtocolEventBus](architecture/omnibase-spi-handler-vs-eventbus.md)** — accepted
 - **[omnibase_spi Architecture Overview](architecture/omnibase-spi-overview.md)** — accepted
 - **[omnibase_spi Protocol Sequence Diagrams](architecture/omnibase-spi-protocol-sequence-diagrams.md)** — accepted
+- **[Drift Control System — Design](architecture/drift-control-system.md)** — accepted
+- **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** — accepted
+- **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** — accepted
 
 ## Pivot
 
@@ -147,6 +150,7 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Quick Start](guides/omnibase-spi-quick-start.md)** — current
 - **[omnibase_spi Protocol Testing](guides/omnibase-spi-testing.md)** — current
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
+- **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
 
 ## Reference
 
@@ -181,6 +185,10 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** — current
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** — current
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** — current
+- **[DoD Check Types](reference/dod-check-types.md)** — current
+- **[DoD Receipt Locations](reference/dod-receipt-locations.md)** — current
+- **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** — current
+- **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** — current
 
 ## Runbook
 
@@ -206,3 +214,4 @@ Knowledge base artifacts grouped by type.
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** — current
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** — current
+- **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** — current
