@@ -105,3 +105,11 @@ Some ADRs build directly on others:
 | [ADR-0036](ADR-0036-context-mutability-design-decision.md) | Context Mutability Design Decision | Implemented | 2025-12-15 | omnibase_core, pydantic, immutability, workflow-state, fsm-snapshots |
 | [ADR-0037](ADR-0037-validator-error-handling-modelonexerror.md) | Validator Error Handling with ModelOnexError | Accepted | 2026-01-18 | omnibase_core, pydantic, error-handling, validators |
 | [ADR-0038](ADR-0038-ci-workflow-modification-risk.md) | CI Workflow Modification Risk (Transport Import Branch Protection) | Mitigated | 2025-12-10 | omnibase_core, ci, transport-imports, dependency-inversion, risk-mitigation |
+| [ADR-0044](ADR-0044-event-fan-out-and-app-owned-catalogs.md) | Event Fan-Out Strategy and App-Owned Event Catalogs | Implemented | 2026-02-19 | omniclaude, eventing, catalogs, fan-out |
+| [ADR-0045](ADR-0045-candidate-list-injection.md) | Candidate List Injection | Accepted | 2026-02-19 | omniclaude, hooks, routing |
+| [ADR-0046](ADR-0046-no-fallback-routing.md) | No-Fallback Routing | Accepted | 2026-02-19 | omniclaude, routing, fail-fast |
+| [ADR-0047](ADR-0047-dual-emission-privacy-split.md) | Dual-Emission Privacy Split | Accepted | 2026-02-19 | omniclaude, eventing, privacy, kafka |
+| [ADR-0048](ADR-0048-delegation-orchestrator-quality-gate.md) | Delegation Orchestrator Quality Gate | Accepted | 2026-02-19 | omniclaude, delegation, quality-gate |
+| [ADR-0049](ADR-0049-three-tier-agent-routing.md) | Three-Tier Agent Routing (LLM, Fuzzy, Explicit) | Accepted | 2026-02-19 | omniclaude, routing, llm |
+| [ADR-0050](ADR-0050-ai-slop-checker-rule-set-v1.md) | AI-Slop Checker Rule Set v1.0 | Accepted | 2026-03-02 | omniclaude, omnibase_core, omnibase_infra, omnibase_spi, omniintelligence, omnimemory, onex_change_control, quality-gate |
+| [ADR-0051](ADR-0051-sibling-plugin-strategy.md) | Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence) | Recorded | 2026-04-23 | omniclaude, plugins, packaging |

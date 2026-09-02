@@ -33,10 +33,18 @@ Knowledge base artifacts grouped by type.
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** — accepted
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** — accepted
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** — accepted
+- **[ADR-0044: Event Fan-Out Strategy and App-Owned Event Catalogs](adrs/ADR-0044-event-fan-out-and-app-owned-catalogs.md)** — accepted
+- **[ADR-0045: Remove YAML Loading from Synchronous Hook Path](adrs/ADR-0045-candidate-list-injection.md)** — accepted
+- **[ADR-0046: Fail-Fast Routing — No Silent Fallback to general-purpose](adrs/ADR-0046-no-fallback-routing.md)** — accepted
+- **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** — accepted
+- **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** — accepted
+- **[ADR-0049: Three-Tier Agent Routing (LLM → Fuzzy → Explicit)](adrs/ADR-0049-three-tier-agent-routing.md)** — accepted
+- **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** — accepted
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** — accepted
 - **[ADR-0002: Data Verification Node Invocation Policy](adrs/ADR-0002-data-verification-invocation.md)** — accepted
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** — accepted
 - **[ADR-0004: Registry-Owned Consumer Surface](adrs/ADR-0004-registry-owned-consumer-surface.md)** — accepted
+- **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** — accepted
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** — accepted
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** — accepted
 - **[ADR-0028: Receipt Type Consolidation onto ModelDodReceipt](adrs/ADR-0028-receipt-type-consolidation.md)** — accepted
@@ -121,6 +129,16 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket Skill, Package, and Node Boundaries](architecture/omnimarket-skill-package-node-boundaries.md)** — accepted
 - **[Drift Control System — Design](architecture/drift-control-system.md)** — accepted
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** — accepted
+- **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** — accepted
+- **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** — accepted
+- **[Container-Based Dependency Injection](architecture/omnibase-infra-container-dependency-injection.md)** — accepted
+- **[Correlation ID Tracking](architecture/omnibase-infra-correlation-id-tracking.md)** — accepted
+- **[Environment-Aware Topic Naming Pattern](architecture/omnibase-infra-environment-aware-topic-naming.md)** — accepted
+- **[Kafka Schema Handshake Gate](architecture/omnibase-infra-kafka-schema-handshake-gate.md)** — accepted
+- **[Operation Bindings: Declarative Handler Parameter Resolution](architecture/omnibase-infra-operation-bindings.md)** — accepted
+- **[Operation Routing Pattern](architecture/omnibase-infra-operation-routing.md)** — accepted
+- **[Policy Registry Trust Model](architecture/omnibase-infra-policy-registry-trust-model.md)** — accepted
+- **[Protocol Patterns](architecture/omnibase-infra-protocol-patterns.md)** — accepted
 - **[ONEX Anti-Patterns Documentation](architecture/onex-anti-patterns.md)** — accepted
 - **[Approved Union Patterns for ONEX Development](architecture/onex-approved-union-patterns.md)** — accepted
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** — accepted
@@ -189,6 +207,8 @@ Knowledge base artifacts grouped by type.
 - **[OmniDash Development Guide](guides/omnidash-development.md)** — current
 - **[OmniMemory Performance Testing](guides/omnimemory-performance-testing.md)** — current
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** — current
+- **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** — current
+- **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** — current
 - **[omnibase_spi Developer Guide](guides/omnibase-spi-developer-guide.md)** — current
 - **[omnibase_spi Documentation Templates](guides/omnibase-spi-documentation-templates.md)** — current
 - **[omnibase_spi Implementation Examples](guides/omnibase-spi-implementation-examples.md)** — current
@@ -201,6 +221,8 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** — current
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** — current
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
+- **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** — current
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
 - **[Build Your First Node](guides/omnibase-core-first-node.md)** — current
 - **[Installation Guide - omnibase_core](guides/omnibase-core-installation.md)** — current
@@ -213,6 +235,22 @@ Knowledge base artifacts grouped by type.
 - **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** — current
 - **[Testing Guide - omnibase_core](guides/omnibase-core-testing.md)** — current
 - **[pytest-testmon Usage Guide](guides/omnibase-core-testmon-usage.md)** — current
+- **[Chaos Tests](guides/omnibase-infra-chaos-tests.md)** — current
+- **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** — current
+- **[Circuit Breaker Implementation Guide](guides/omnibase-infra-circuit-breaker-implementation.md)** — current
+- **[Consul Integration Patterns](guides/omnibase-infra-consul-integration.md)** — current
+- **[Contributor Local Setup](guides/omnibase-infra-contributor-local-setup.md)** — current
+- **[Effect Boundary Testing](guides/omnibase-infra-effect-boundary-testing.md)** — current
+- **[Handler Integration Tests](guides/omnibase-infra-handler-integration-tests.md)** — current
+- **[Integration Testing](guides/omnibase-infra-integration-testing.md)** — current
+- **[Migration Upgrade Guide: 003a to 004](guides/omnibase-infra-migration-upgrade-003a-to-004.md)** — current
+- **[PluginCompute Unit Tests](guides/omnibase-infra-plugin-compute-unit-tests.md)** — current
+- **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** — current
+- **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** — current
+- **[Replay Tests](guides/omnibase-infra-replay-tests.md)** — current
+- **[Standalone Quickstart](guides/omnibase-infra-standalone-quickstart.md)** — current
+- **[Testing Patterns](guides/omnibase-infra-testing-patterns.md)** — current
+- **[Validation Orchestrator — Activation Guide](guides/omnibase-infra-validation-orchestrator-activation.md)** — current
 - **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** — current
 - **[OmniMarket Codex Adapter](guides/omnimarket-codex-adapter.md)** — current
 - **[OmniMarket Cursor Adapter](guides/omnimarket-cursor-adapter.md)** — current
@@ -263,6 +301,7 @@ Knowledge base artifacts grouped by type.
 - **[ONEX Kafka Topic Naming Standard](reference/onex-topic-taxonomy.md)** — current
 - **[CI/CD Standards](reference/ci-cd-standards.md)** — stale
 - **[Cross-Repo Merge Dependency Graph](reference/merge-dependency-graph.md)** — current
+- **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** — current
 - **[Event Envelope Canonical Field Names](reference/event-envelope-field-names.md)** — current
 - **[Test Discipline](reference/omniclaude-test-discipline.md)** — current
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** — current
@@ -288,9 +327,11 @@ Knowledge base artifacts grouped by type.
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** — current
 - **[OmniMemory Handler Reuse Matrix](reference/omnimemory-handler-reuse-matrix.md)** — current
+- **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** — current
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** — current
 - **[omnibase_spi Protocol Design Standards](reference/omnibase-spi-protocol-design-standards.md)** — current
 - **[omnibase_spi Validation Protocols](reference/omnibase-spi-validation-protocols.md)** — current
+- **[omniclaude PR Validation Path](reference/omniclaude-pr-validation-path.md)** — current
 - **[OmniMarket Node Metadata Reference](reference/omnimarket-node-metadata.md)** — current
 - **[OmniMarket node_service_registry Ownership](reference/omnimarket-node-service-registry-ownership.md)** — current
 - **[DoD Check Types](reference/dod-check-types.md)** — current
@@ -309,6 +350,41 @@ Knowledge base artifacts grouped by type.
 - **[ONEX Service Wrappers - Pre-Composed Production-Ready Node Classes](reference/omnibase-core-service-wrappers.md)** — current
 - **[Omnibase Core Validation Tools](reference/omnibase-core-validation-framework.md)** — current
 - **[Validation Ownership](reference/omnibase-core-validation-ownership.md)** — current
+- **[ADR: Use of Any Type as Pydantic 2.x JsonType Workaround](reference/omnibase-infra-adr-any-type-pydantic-workaround.md)** — current
+- **[ADR-010: OmniBase Infra Owns Authoritative Environment Topology](reference/omnibase-infra-adr-authoritative-environment-topology-owner.md)** — current
+- **[ADR: Canonical Publish Interface Policy](reference/omnibase-infra-adr-canonical-publish-interface-policy.md)** — current
+- **[ADR: Kafka Consumer Group Naming Convention](reference/omnibase-infra-adr-consumer-group-naming.md)** — current
+- **[ADR: Cryptography Library Upgrade to v46.0.3](reference/omnibase-infra-adr-cryptography-upgrade-46.md)** — current
+- **[ADR: Custom `__bool__` for Result Models](reference/omnibase-infra-adr-custom-bool-result-models.md)** — current
+- **[ADR-005: Denormalize Capability Fields in Registration Projections](reference/omnibase-infra-adr-denormalize-capability-fields-in-registration-projections.md)** — current
+- **[ADR: Strengthen DSN Validation with urllib.parse](reference/omnibase-infra-adr-dsn-validation-strengthening.md)** — current
+- **[ADR-002: Separation of EnumMessageCategory and EnumNodeOutputType](reference/omnibase-infra-adr-enum-message-category-node-output-separation.md)** — current
+- **[ADR: EnumMessageCategory vs EnumNodeOutputType Distinction](reference/omnibase-infra-adr-enum-message-category-vs-node-output-type.md)** — current
+- **[ADR: Error Context Factory Pattern with `with_correlation`](reference/omnibase-infra-adr-error-context-factory-pattern.md)** — current
+- **[ADR-001: Graceful Shutdown with Drain Period](reference/omnibase-infra-adr-graceful-shutdown-drain-period.md)** — current
+- **[ADR: Handler Contract Schema Evolution Strategy](reference/omnibase-infra-adr-handler-contract-schema-evolution.md)** — current
+- **[ADR: Handler Plugin Loader Security Model](reference/omnibase-infra-adr-handler-plugin-loader-security.md)** — current
+- **[ADR: EnumHandlerType vs EnumHandlerTypeCategory Distinction](reference/omnibase-infra-adr-handler-type-vs-handler-category.md)** — current
+- **[ADR: Kafka is Required Infrastructure (Rule #8)](reference/omnibase-infra-adr-kafka-required-infrastructure.md)** — current
+- **[ADR-009: LLM Cost Tracking at the Infrastructure Layer](reference/omnibase-infra-adr-llm-cost-tracking-spi.md)** — current
+- **[ADR-006: MessageDispatchEngine as Canonical Consumer Routing Pattern](reference/omnibase-infra-adr-message-dispatch-engine-canonical-routing.md)** — current
+- **[ADR-004: Performance Baseline Thresholds for E2E Tests](reference/omnibase-infra-adr-performance-baseline-thresholds.md)** — current
+- **[ADR: Projector Composite Key Upsert Workaround](reference/omnibase-infra-adr-projector-composite-key-upsert-workaround.md)** — current
+- **[ADR: Protocol Design Guidelines](reference/omnibase-infra-adr-protocol-design-guidelines.md)** — current
+- **[ADR-003: Remove Health Check Methods from Handlers](reference/omnibase-infra-adr-remove-handler-health-checks.md)** — current
+- **[ADR: Soft Validation for Environment Variable Parsing](reference/omnibase-infra-adr-soft-validation-env-parsing.md)** — current
+- **[ADR: Two Handler Systems in omnibase_infra](reference/omnibase-infra-adr-two-handler-systems.md)** — current
+- **[Contract.yaml Reference](reference/omnibase-infra-contract-yaml-reference.md)** — current
+- **[DLQ Quarantine Ownership Semantics](reference/omnibase-infra-dlq-quarantine-ownership.md)** — current
+- **[LLM Endpoint Service Level Objectives](reference/omnibase-infra-llm-endpoint-slo.md)** — current
+- **[Migration Versioning Convention](reference/omnibase-infra-migration-versioning-convention.md)** — current
+- **[Naming Conventions](reference/omnibase-infra-naming-conventions.md)** — current
+- **[Node Registration Orchestrator](reference/omnibase-infra-node-registration-orchestrator.md)** — current
+- **[Per-Service Database URL Contract](reference/omnibase-infra-per-service-database-url-contract.md)** — current
+- **[Terminology Guide](reference/omnibase-infra-terminology-guide.md)** — current
+- **[ONEX Infrastructure Topic Taxonomy](reference/omnibase-infra-topic-taxonomy.md)** — current
+- **[Utility Directory Structure](reference/omnibase-infra-utility-directory-structure.md)** — current
+- **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** — current
 - **[OmniMarket node_build_loop_orchestrator](reference/omnimarket-node-build-loop-orchestrator.md)** — current
 - **[OmniMarket node_golden_chain_sweep](reference/omnimarket-node-golden-chain-sweep.md)** — current
 - **[OmniMarket node_ticket_pipeline](reference/omnimarket-node-ticket-pipeline.md)** — current
@@ -347,4 +423,8 @@ Knowledge base artifacts grouped by type.
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
 - **[omnibase_compat Release](runbooks/omnibase-compat-release.md)** — current
 - **[Starting OmniMemory Services](runbooks/omnimemory-starting-memory-services.md)** — current
+- **[Agent Actions Consumer - Operational Runbook](runbooks/omnibase-infra-agent-actions-consumer.md)** — current
+- **[Database Index Monitoring Runbook](runbooks/omnibase-infra-database-index-monitoring.md)** — current
+- **[Dead Letter Queue (DLQ) Replay Guide](runbooks/omnibase-infra-dlq-replay.md)** — current
+- **[Event Bus Operations Runbook](runbooks/omnibase-infra-event-bus-operations.md)** — current
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** — current
