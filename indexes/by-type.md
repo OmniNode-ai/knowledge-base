@@ -173,6 +173,7 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** — current
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** — current
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** — current
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** — current
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** — current
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** — current
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** — current

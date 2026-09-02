@@ -38,6 +38,7 @@ All knowledge base artifacts sorted by date.
 - **[omnibase_compat Structural Inventory](reference/omnibase-compat-structural-inventory.md)** (reference) — 2026-08-26
 - **[OmniDash ComponentManifest Schema](reference/omnidash-component-manifest.md)** (reference) — 2026-08-26
 - **[OmniDash DashboardDefinition Schema](reference/omnidash-dashboard-definition.md)** (reference) — 2026-08-26
+- **[OmniDash Implementation Status](reference/omnidash-implementation-status.md)** (reference) — 2026-08-26
 - **[OmniDash Typography Primitives — Text and Heading](reference/omnidash-typography-primitives.md)** (reference) — 2026-08-26
 - **[OmniMarket Node Catalog](reference/omnimarket-node-catalog.md)** (reference) — 2026-08-26
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference) — 2026-08-26
