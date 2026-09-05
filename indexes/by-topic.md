@@ -393,7 +393,6 @@ Knowledge base artifacts grouped by topic.
 - **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
@@ -550,7 +549,6 @@ Knowledge base artifacts grouped by topic.
 - **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
 - **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
 - **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
@@ -609,10 +607,6 @@ Knowledge base artifacts grouped by topic.
 ## contract-hashing
 
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
-
-## contract-overlay
-
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 
 ## contract-yaml
 
@@ -1728,10 +1722,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[Migration Must Be Staged and Recoverable](doctrine/migration-staged-recoverable.md)** (doctrine)
 
-## migration-validation
-
-- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
-
 ## migrations
 
 - **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
@@ -2515,10 +2505,6 @@ Knowledge base artifacts grouped by topic.
 
 - **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** (plan)
 
-## process-lifecycle
-
-- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
-
 ## production
 
 - **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
@@ -2939,17 +2925,12 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 
-## secret-resolution
-
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
-
 ## secrets
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
 ## security
 
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
 - **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
 
@@ -3184,10 +3165,6 @@ Knowledge base artifacts grouped by topic.
 - **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
-
-## test-infrastructure
-
-- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
 
 ## testing
 

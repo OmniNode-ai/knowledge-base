@@ -212,8 +212,6 @@ Knowledge base artifacts grouped by type.
 - **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** — active
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** — active
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** — active
-- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** — active
-- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** — draft
 
 ## Guide
 
