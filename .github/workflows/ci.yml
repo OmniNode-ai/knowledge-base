@@ -42,6 +42,14 @@ jobs:
       - name: Validate frontmatter, cross-references, and sanitization
         run: uv run python scripts/validate.py
 
+      - name: Assert the customer cloud guide leads with the client
+        # The primary path of guides/connecting-to-the-cloud.md must lead with
+        # `onex cloud`, not hand-written HTTP; the raw-HTTP reference lives
+        # below its `<!-- primary-path-ends -->` appendix marker. The same
+        # checker is vendored in knowledge-base-internal, guarding that repo's
+        # own customer guide.
+        run: uv run python scripts/check_customer_guide_primary_path.py
+
       - name: Verify JSON schema is up to date
         run: |
           uv run python scripts/validate.py --export-schema
