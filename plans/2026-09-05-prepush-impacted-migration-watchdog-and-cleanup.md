@@ -20,6 +20,10 @@ publication is held behind this issue; its reviewed branch was not published. No
 cleanup implementation attempt is authorized until the discriminator traces below amend the
 diagnosis and an independent review records PASS for this amended plan.
 
+The subsequent ACK/reap behavior attempt remains frozen after its repeated graceful-path failure.
+No further behavior correction, failing-seam rerun, timing adjustment, status remapping, or
+cleanup-policy change is authorized until the second discriminator below independently passes.
+
 The plan does not diagnose a migration correctness failure. It addresses a liveness and test
 process-ownership failure in the governed local pre-push path. It prohibits bypassing the gate,
 loosening the selected scope, adding a retry loop, or skipping a migration test.
@@ -102,6 +106,57 @@ synthetic-fixture variance authorizes replacement of the timing assertion with t
 barrier proof; (b) serial multiplexing or correlation/reap evidence authorizes one narrowly
 reviewed protocol fix; or (c) missing/inconclusive proof keeps the prototype frozen. An amended
 plan independent PASS is a precondition of option (a) or (b), not a post-hoc review step.
+
+### Second two-strike evidence gap: ACK/reap boundary discriminator
+
+The one reviewed ACK/reap behavior attempt and its one in-attempt buffered-frame correction both
+left the same graceful-path failures: the trace did not reach the verified S-ACK/direct-S-reap
+transition and the shared-deadline assertion returned `cleanup_uncertain`/125 rather than 124.
+This is a second two-strike stop, not permission for a third behavior correction. The sole next
+step is an instrumentation-only discriminator. It must not change frame ordering, ACK enforcement,
+deadline accounting, result mapping, process signalling, group-empty labeling, payload selection,
+or residual cleanup behavior.
+
+Before another behavior change or a rerun of the failing behavior seam, add a bounded, sanitized,
+loss-detecting trace record at every transition below. Each record retains the approved run token,
+actor, local monotonic offset, barrier name/state, per-emitter sequence, terminal-message
+correlation token, normalized result where available, and logical ownership/reap state only. It
+must never contain a secret, command, environment, endpoint, filesystem path, raw PID, raw PGID,
+raw wait status, payload, MAC value, digest value, or frame bytes. Boolean verification facts and
+the finite fail-branch name are permitted.
+
+| Actor | Required trace points |
+| --- | --- |
+| `G` terminal ACK path | terminal-ACK send attempt and send result; S-ACK-receipt wait start; every frame receive and classification; MAC/correlation/digest verification result for the received S ACK; and the selected fail branch before any fail-closed return |
+| `S` terminal ACK path | terminal-ACK receive; frame parse result; MAC/correlation/digest verification result; ACK-receipt send attempt and send result; and the selected fail branch before any fail-closed return |
+| `G` direct-`S` reap | reap start, each bounded wait entry, wait timeout, and reap completion with the normalized result; no terminal forward may be inferred from a missing reap event |
+
+`G` and `S` must record verification as separate boolean facts for parse, MAC, correlation, and
+canonical-frame digest; a generic “verified” event is insufficient. The finite failure taxonomy is
+`g_terminal_ack_send_failed`, `s_ack_wait_deadline`, `s_ack_frame_parse_failed`,
+`s_ack_mac_failed`, `s_ack_correlation_failed`, `s_ack_digest_failed`,
+`s_ack_receipt_send_failed`, `g_s_ack_frame_failed`, `g_s_ack_mac_failed`,
+`g_s_ack_correlation_failed`, `g_s_ack_digest_failed`, `g_direct_s_reap_timeout`,
+`g_direct_s_reap_nonzero`, or `deadline_exhausted`. An observed failure must end in exactly one of
+these branches and its matching terminal trace record; an absent record, a generic 125 label, or
+multiple selected branches fails the discriminator.
+
+The discriminator requires a paired, barrier-driven test case under the same finite outer
+watchdog and the same test-only synthetic absolute deadline. The graceful member releases every
+named ACK and reap barrier and must produce complete, zero-drop streams from P/G/S, contiguous
+per-emitter sequences, one terminal marker per emitter, true parse/MAC/correlation/digest facts,
+the G direct-S reap start/wait/complete sequence, and its one terminal outcome. The failure member
+holds exactly the named S terminal-ACK delivery barrier; it must produce the exact
+`s_ack_wait_deadline` branch, no terminal forward/124 claim, and the same complete zero-drop trace
+quality plus bounded direct-S and direct-G reaping. No wall-clock sleep, dropped event, incomplete
+stream, aggregate-only trace, or unexplained timeout is acceptable evidence.
+
+The independent pass is limited to this instrumentation evidence: it must show the paired complete
+zero-drop barrier traces and classify the actual recurring failure into one exact finite branch.
+Until that independent pass, the current behavior attempt remains frozen and no correction is
+authorized. The production wrapper continues to compute exactly one launch-time 2700-second
+absolute deadline; this discriminator adds no new timeout and cannot consume a restarted relative
+window.
 
 ## Required target design
 
