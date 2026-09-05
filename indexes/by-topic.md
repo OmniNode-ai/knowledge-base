@@ -1642,6 +1642,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Migration Must Be Staged and Recoverable](doctrine/migration-staged-recoverable.md)** (doctrine)
 
+## migration-validation
+
+- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
+
 ## migrations
 
 - **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
@@ -2397,6 +2401,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
+## process-lifecycle
+
+- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
+
 ## production
 
 - **[Cache Tuning for Production Deployment](guides/onex-production-cache-tuning.md)** (guide)
@@ -3033,6 +3041,10 @@ Knowledge base artifacts grouped by topic.
 - **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
+## test-infrastructure
+
+- **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
 
 ## testing
 
