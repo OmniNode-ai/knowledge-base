@@ -86,6 +86,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Agent Routing Architecture](architecture/agent-routing-architecture.md)** (architecture)
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
+- **[Test-driven ticket-pipeline iteration loop](plans/2026-04-01-test-driven-pipeline-iteration-loop.md)** (plan)
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide)
 
 ## ai-slop
@@ -156,6 +157,7 @@ Knowledge base artifacts grouped by topic.
 - **[Payload Type Architecture](architecture/onex-payload-type-architecture.md)** (architecture)
 - **[Protocol Architecture](architecture/onex-protocol-architecture.md)** (architecture)
 - **[ONEX Subcontract Package Architecture](architecture/onex-subcontract-architecture.md)** (architecture)
+- **[Validation stack architecture — implementation plan](plans/2026-04-11-validation-stack-architecture-plan.md)** (plan)
 
 ## architecture-boundary
 
@@ -174,6 +176,10 @@ Knowledge base artifacts grouped by topic.
 ## asyncio
 
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
+
+## auditing
+
+- **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** (plan)
 
 ## authentication
 
@@ -201,10 +207,15 @@ Knowledge base artifacts grouped by topic.
 ## automation
 
 - **[ADR-0001: Dependabot PR Approval Remains Manual](adrs/ADR-0001-dependabot-approval-manual.md)** (adr)
+- **[Test-driven ticket-pipeline iteration loop](plans/2026-04-01-test-driven-pipeline-iteration-loop.md)** (plan)
 
 ## aware
 
 - **[Environment-Aware Topic Naming Pattern](architecture/omnibase-infra-environment-aware-topic-naming.md)** (architecture)
+
+## backlog
+
+- **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
 
 ## baseline
 
@@ -314,6 +325,10 @@ Knowledge base artifacts grouped by topic.
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** (runbook)
 - **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** (runbook)
 
+## canary
+
+- **[Canary-to-routing feedback loop](plans/2026-05-11-canary-routing-feedback-loop.md)** (plan)
+
 ## canonical
 
 - **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
@@ -341,6 +356,14 @@ Knowledge base artifacts grouped by topic.
 
 - **[Golden-Chain Harness — Authoring Guide](guides/onex-golden-chain-harness.md)** (guide)
 
+## change-control
+
+- **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
+
+## channels
+
+- **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** (plan)
+
 ## chaos
 
 - **[Chaos Tests](guides/omnibase-infra-chaos-tests.md)** (guide)
@@ -363,6 +386,13 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
+- **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
+- **[Validation stack architecture — implementation plan](plans/2026-04-11-validation-stack-architecture-plan.md)** (plan)
+- **[Skills-to-market phase 2: validator gates](plans/2026-04-27-skills-to-market-phase-2-validator-gates.md)** (plan)
+- **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
+- **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
+- **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
 - **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
@@ -396,6 +426,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Handler Classification: omnibase_core File I/O Services (Epic 3 — Ticket 3.4)](architecture/onex-handler-classification-file-io-services.md)** (architecture)
 - **[Mixin Classification Reference](architecture/onex-mixin-classification.md)** (architecture)
+- **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** (plan)
 
 ## claude
 
@@ -405,6 +436,11 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniMarket Claude Code Adapter](guides/omnimarket-claude-code-adapter.md)** (guide)
 - **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
+
+## cli
+
+- **[Package install CLI and channel-adapter scaffold generator](plans/2026-04-01-package-install-cli-and-scaffold-generator.md)** (plan)
+- **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** (plan)
 
 ## client-state
 
@@ -483,6 +519,7 @@ Knowledge base artifacts grouped by topic.
 
 ## compose
 
+- **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
 - **[Judge Compose Profile](runbooks/judge-compose-profile.md)** (runbook)
 
 ## composite
@@ -511,6 +548,8 @@ Knowledge base artifacts grouped by topic.
 ## configuration
 
 - **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
+- **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
+- **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
 - **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
@@ -586,6 +625,9 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Wire Schema Contract Specification](architecture/wire-schema-contract-spec.md)** (architecture)
+- **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** (plan)
+- **[Package install CLI and channel-adapter scaffold generator](plans/2026-04-01-package-install-cli-and-scaffold-generator.md)** (plan)
+- **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** (plan)
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
 - **[Handler Contract Guide](guides/onex-handler-contracts.md)** (guide)
 - **[Contract.yaml Reference](reference/omnibase-core-contracts.md)** (reference)
@@ -670,6 +712,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture)
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
+- **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** (plan)
 
 ## dashboard-definition
 
@@ -740,6 +783,9 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture)
+- **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** (plan)
+- **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** (plan)
+- **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
 
@@ -804,6 +850,12 @@ Knowledge base artifacts grouped by topic.
 ## dev-lane
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
+
+## developer-experience
+
+- **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
+- **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** (plan)
+- **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** (plan)
 
 ## developer-guide
 
@@ -918,6 +970,7 @@ Knowledge base artifacts grouped by topic.
 
 ## drift
 
+- **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** (plan)
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
 
 ## drift-control
@@ -1012,6 +1065,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
+## epics
+
+- **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
+
 ## error
 
 - **[ONEX Error Handling Best Practices](guides/onex-error-handling-best-practices.md)** (guide)
@@ -1023,6 +1080,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 
+## escalation
+
+- **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** (plan)
+
 ## eslint
 
 - **[ADR-0039: Dashboard Typography System — Tokens Plus Typed Primitives](adrs/ADR-0039-omnidash-typography-system.md)** (adr)
@@ -1031,6 +1092,7 @@ Knowledge base artifacts grouped by topic.
 ## evaluation
 
 - **[ONEX Baseline Evaluation Framework](architecture/onex-baseline-evaluation-framework.md)** (architecture)
+- **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** (plan)
 
 ## event
 
@@ -1116,6 +1178,10 @@ Knowledge base artifacts grouped by topic.
 - **[ONEX Canonical Execution Shapes](architecture/onex-canonical-execution-shapes.md)** (architecture)
 - **[Execution Shape Examples](architecture/onex-execution-shape-examples.md)** (architecture)
 - **[Execution Corpus Guide](guides/onex-execution-corpus.md)** (guide)
+
+## fail-closed
+
+- **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
 
 ## fail-fast
 
@@ -1208,6 +1274,9 @@ Knowledge base artifacts grouped by topic.
 ## gates
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
+- **[Validation stack architecture — implementation plan](plans/2026-04-11-validation-stack-architecture-plan.md)** (plan)
+- **[Skills-to-market phase 2: validator gates](plans/2026-04-27-skills-to-market-phase-2-validator-gates.md)** (plan)
+- **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
 
 ## gemini
 
@@ -1255,6 +1324,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[ADR-0035: Status Taxonomy and Categorical Organization](adrs/ADR-0035-status-taxonomy-and-categorical-organization.md)** (adr)
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture)
+- **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
+- **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** (guide)
 - **[ONEX Change Control — Decision Log](reference/onex-change-control-decision-log.md)** (reference)
 
@@ -1314,6 +1385,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[File Header Conventions](reference/onex-file-headers.md)** (reference)
 
+## health-model
+
+- **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** (plan)
+
 ## hierarchy
 
 - **[Node Class Hierarchy Guide](architecture/onex-node-class-hierarchy.md)** (architecture)
@@ -1335,6 +1410,7 @@ Knowledge base artifacts grouped by topic.
 - **[Compliance Enforcement Architecture](architecture/compliance-enforcement-architecture.md)** (architecture)
 - **[Context Enrichment Pipeline Architecture](architecture/context-enrichment-pipeline.md)** (architecture)
 - **[Hook Data Flow Architecture](architecture/hook-data-flow.md)** (architecture)
+- **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** (plan)
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide)
 - **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
 - **[Claude Code PostToolUse updatedToolOutput Shape](reference/claude-code-posttooluse-output-shape.md)** (reference)
@@ -1408,6 +1484,7 @@ Knowledge base artifacts grouped by topic.
 ## integration
 
 - **[Event Bus Integration Guide](architecture/event-bus-integration.md)** (architecture)
+- **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** (plan)
 - **[MCP Integration Guide](guides/mcp-integration-guide.md)** (guide)
 - **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide)
 - **[Consul Integration Patterns](guides/omnibase-infra-consul-integration.md)** (guide)
@@ -1520,6 +1597,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-009: LLM Cost Tracking at the Infrastructure Layer](reference/omnibase-infra-adr-llm-cost-tracking-spi.md)** (reference)
 - **[LLM Endpoint Service Level Objectives](reference/omnibase-infra-llm-endpoint-slo.md)** (reference)
 
+## llm-backends
+
+- **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** (plan)
+
 ## llm-navigation
 
 - **[AGENT.md Template](reference/agent-md-template.md)** (reference)
@@ -1613,6 +1694,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
+- **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
 
 ## merge-sweep
 
@@ -1626,6 +1708,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-002: Separation of EnumMessageCategory and EnumNodeOutputType](reference/omnibase-infra-adr-enum-message-category-node-output-separation.md)** (reference)
 - **[ADR: EnumMessageCategory vs EnumNodeOutputType Distinction](reference/omnibase-infra-adr-enum-message-category-vs-node-output-type.md)** (reference)
 - **[ADR-006: MessageDispatchEngine as Canonical Consumer Routing Pattern](reference/omnibase-infra-adr-message-dispatch-engine-canonical-routing.md)** (reference)
+
+## methodology
+
+- **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** (plan)
 
 ## micro-factories
 
@@ -1683,6 +1769,15 @@ Knowledge base artifacts grouped by topic.
 ## model-routing
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+
+## model-scoring
+
+- **[Canary-to-routing feedback loop](plans/2026-05-11-canary-routing-feedback-loop.md)** (plan)
+
+## model-tiering
+
+- **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** (plan)
+- **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
 
 ## modelaction
 
@@ -1782,6 +1877,11 @@ Knowledge base artifacts grouped by topic.
 ## notes
 
 - **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** (reference)
+
+## observability
+
+- **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** (plan)
+- **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** (plan)
 
 ## occ
 
@@ -2260,6 +2360,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[OmniMarket Dependency Boundary](architecture/omnimarket-dependency-boundary.md)** (architecture)
 - **[OmniMarket Package Model](architecture/omnimarket-package-model.md)** (architecture)
+- **[Package install CLI and channel-adapter scaffold generator](plans/2026-04-01-package-install-cli-and-scaffold-generator.md)** (plan)
 
 ## parallel
 
@@ -2329,6 +2430,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0011: Name the Discipline RSD = Recursive System Design](adrs/ADR-0011-rsd-recursive-system-design-naming.md)** (adr)
 
+## pipelines
+
+- **[Test-driven ticket-pipeline iteration loop](plans/2026-04-01-test-driven-pipeline-iteration-loop.md)** (plan)
+
 ## pitfalls
 
 - **[Common Pitfalls - What to Avoid When Building Nodes](guides/onex-node-building-08-common-pitfalls.md)** (guide)
@@ -2337,6 +2442,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[ADR-0021: Beta Ships First — Priority-Ladder Lock, WS-B Outranks All In-Flight Lanes](adrs/ADR-0021-beta-ships-first-priority-lock.md)** (adr)
+
+## platform-readiness
+
+- **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** (plan)
 
 ## plugin
 
@@ -2352,6 +2461,7 @@ Knowledge base artifacts grouped by topic.
 ## plugins
 
 - **[ADR-0051: Sibling Plugin Strategy (omnigemini, omnimemory, omniintelligence)](adrs/ADR-0051-sibling-plugin-strategy.md)** (adr)
+- **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** (plan)
 
 ## policy
 
@@ -2401,6 +2511,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
 
+## probes
+
+- **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** (plan)
+
 ## process-lifecycle
 
 - **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** (plan)
@@ -2447,6 +2561,10 @@ Knowledge base artifacts grouped by topic.
 ## proof-class
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
+
+## propagation
+
+- **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
 
 ## protocol
 
@@ -2586,6 +2704,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0032: Reducer Output Exception Consistency](adrs/ADR-0032-reducer-output-exception-consistency.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+- **[Canary-to-routing feedback loop](plans/2026-05-11-canary-routing-feedback-loop.md)** (plan)
 
 ## reference
 
@@ -2647,6 +2766,10 @@ Knowledge base artifacts grouped by topic.
 ## repo-boundaries
 
 - **[omniclaude Repo Charter](architecture/omniclaude-repo-charter.md)** (architecture)
+
+## repo-hygiene
+
+- **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
 
 ## repositories
 
@@ -2718,6 +2841,9 @@ Knowledge base artifacts grouped by topic.
 - **[Event-Driven Agent Routing Architecture Proposal](architecture/event-driven-routing-proposal.md)** (architecture)
 - **[Operation Routing Pattern](architecture/omnibase-infra-operation-routing.md)** (architecture)
 - **[Agent Routing Architecture - Visual Comparison](architecture/routing-architecture-comparison.md)** (architecture)
+- **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** (plan)
+- **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** (plan)
+- **[Canary-to-routing feedback loop](plans/2026-05-11-canary-routing-feedback-loop.md)** (plan)
 
 ## rsd
 
@@ -2756,12 +2882,18 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
+- **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** (plan)
+- **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
 - **[ONEX Core Terminology](reference/onex-terminology.md)** (reference)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
+## runtime-health
+
+- **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
 
 ## runtime-isolation
 
@@ -2771,6 +2903,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture)
 - **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** (guide)
+
+## scaffolding
+
+- **[Package install CLI and channel-adapter scaffold generator](plans/2026-04-01-package-install-cli-and-scaffold-generator.md)** (plan)
 
 ## schema
 
@@ -2784,6 +2920,7 @@ Knowledge base artifacts grouped by topic.
 
 ## schemas
 
+- **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
 - **[ONEX Change Control — Versioning Policy](reference/onex-change-control-versioning-policy.md)** (reference)
 
 ## scoring
@@ -2900,6 +3037,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
 - **[ADR-0007: Canonical Skills Migration Plan](adrs/ADR-0007-skills-canonical-plan.md)** (adr)
 - **[Skill Lifecycle: When a Skill Stays in omniclaude vs. Moves to omnimarket](architecture/omniclaude-skill-lifecycle.md)** (architecture)
+- **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
+- **[Skills-to-market phase 2: validator gates](plans/2026-04-27-skills-to-market-phase-2-validator-gates.md)** (plan)
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide)
 - **[Authoring an ONEX Skill](guides/authoring-an-onex-skill.md)** (guide)
 
@@ -2928,6 +3067,10 @@ Knowledge base artifacts grouped by topic.
 - **[Contract Stability Specification](architecture/onex-contract-stability-spec.md)** (architecture)
 - **[Stability-Lane Refresh (<ticket> / <ticket>)](runbooks/stability-lane-refresh.md)** (runbook)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
+## staleness
+
+- **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** (plan)
 
 ## standalone
 
@@ -3049,6 +3192,7 @@ Knowledge base artifacts grouped by topic.
 ## testing
 
 - **[ADR-0040: Storybook Coverage for Every Dashboard Widget](adrs/ADR-0040-omnidash-storybook-widget-coverage.md)** (adr)
+- **[Test-driven ticket-pipeline iteration loop](plans/2026-04-01-test-driven-pipeline-iteration-loop.md)** (plan)
 - **[Integration Testing Guide - omnibase_core](guides/omnibase-core-integration-testing.md)** (guide)
 - **[Parallel Testing Architecture and Resource Management](guides/omnibase-core-parallel-testing.md)** (guide)
 - **[Performance Testing Guide](guides/omnibase-core-performance-testing.md)** (guide)
@@ -3094,6 +3238,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
 
+## tooling
+
+- **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** (plan)
+
 ## topic
 
 - **[Environment-Aware Topic Naming Pattern](architecture/omnibase-infra-environment-aware-topic-naming.md)** (architecture)
@@ -3108,6 +3256,7 @@ Knowledge base artifacts grouped by topic.
 ## topics
 
 - **[ONEX Event Streaming Topics - Specification (v1)](architecture/event-streaming-topics.md)** (architecture)
+- **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** (plan)
 
 ## tracing
 
@@ -3226,6 +3375,8 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0031: Centralized Field Limit Constants](adrs/ADR-0031-centralized-field-limit-constants.md)** (adr)
 - **[OmniMarket Generation Validator Authority](architecture/omnimarket-generation-validator-authority.md)** (architecture)
 - **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
+- **[Validation stack architecture — implementation plan](plans/2026-04-11-validation-stack-architecture-plan.md)** (plan)
+- **[Skills-to-market phase 2: validator gates](plans/2026-04-27-skills-to-market-phase-2-validator-gates.md)** (plan)
 - **[Model Validation Demo: Support Ticket Classification](guides/omnibase-core-model-validation-demo.md)** (guide)
 - **[Validation Orchestrator — Activation Guide](guides/omnibase-infra-validation-orchestrator-activation.md)** (guide)
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide)
@@ -3250,6 +3401,9 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
 - **[ADR-0037: Validator Error Handling with ModelOnexError](adrs/ADR-0037-validator-error-handling-modelonexerror.md)** (adr)
 - **[ADR-0050: AI-Slop Checker Rule Set v1.0](adrs/ADR-0050-ai-slop-checker-rule-set-v1.md)** (adr)
+- **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
+- **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
+- **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
 
 ## valkey
 
@@ -3265,6 +3419,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0019: No Self-Authored Evidence — OCC Companions From Autogen or Independent Verifier Only](adrs/ADR-0019-no-self-authored-evidence.md)** (adr)
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
+- **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** (plan)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 
@@ -3311,6 +3466,8 @@ Knowledge base artifacts grouped by topic.
 ## workflow
 
 - **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
+- **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
+- **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** (plan)
 - **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** (guide)
 
 ## workflow-state
