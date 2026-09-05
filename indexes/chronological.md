@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan) — 2026-09-04
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02

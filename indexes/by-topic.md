@@ -175,6 +175,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 
+## attestation
+
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
+
 ## authentication
 
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
@@ -1674,6 +1678,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
 
+## model-serving
+
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
+
 ## modelaction
 
 - **[ModelAction Typed Payloads](architecture/onex-modelaction-typed-payloads.md)** (architecture)
@@ -1772,6 +1780,10 @@ Knowledge base artifacts grouped by topic.
 ## notes
 
 - **[Validation Performance Notes](reference/omnibase-infra-validation-performance-notes.md)** (reference)
+
+## nvfp4
+
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
 
 ## occ
 
@@ -2642,6 +2654,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Repowise Freshness Receipt](runbooks/repowise-freshness-receipt.md)** (runbook)
 
+## reproducibility
+
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
+
 ## request
 
 - **[Request Tracing in ONEX](guides/onex-request-tracing.md)** (guide)
@@ -2712,6 +2728,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[ADR-0014: Factory Economics — Frontier Fissions, Locals Build, Regenerate-Don't-Debug](adrs/ADR-0014-factory-economics-frontier-fissions-locals-build.md)** (adr)
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
 
 ## rule-7a
 
@@ -2742,6 +2759,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0003: Registration Runtime / Registry Boundary](adrs/ADR-0003-registration-runtime-registry-boundary.md)** (adr)
 - **[ONEX Architecture Overview](architecture/onex-runtime-overview.md)** (architecture)
 - **[Repository Map and Runtime Concepts](architecture/repository-map-and-runtime-concepts.md)** (architecture)
+- **[Qwen3.8 NVFP4 immutable runtime activation and disposable canary](plans/2026-09-04-qwen38-nvfp4-runtime-activation.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
