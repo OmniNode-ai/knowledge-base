@@ -363,6 +363,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0029: Model B — Failing-Rollup Validator Enforcement (pilot: omnibase_core)](adrs/ADR-0029-model-b-failing-rollup-validator-enforcement.md)** (adr)
 - **[ADR-0038: CI Workflow Modification Risk (Transport Import Branch Protection)](adrs/ADR-0038-ci-workflow-modification-risk.md)** (adr)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
@@ -510,6 +511,7 @@ Knowledge base artifacts grouped by topic.
 ## configuration
 
 - **[Environment-Based Configuration Management](architecture/onex-configuration-management.md)** (architecture)
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
@@ -568,6 +570,10 @@ Knowledge base artifacts grouped by topic.
 ## contract-hashing
 
 - **[DoD Receipt Hashing, Append-Only, and Supersession](reference/receipt-hashing-and-supersession.md)** (reference)
+
+## contract-overlay
+
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 
 ## contract-yaml
 
@@ -2796,12 +2802,17 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0012: Seams Are First-Class — Seam-Tests-First, Tree-Shaped PRs, Seam-Scoped Testing](adrs/ADR-0012-seams-first-class.md)** (adr)
 
+## secret-resolution
+
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
+
 ## secrets
 
 - **[ADR-0008: Delegation Config Authority and Budget-Aware Tier Cost](adrs/ADR-0008-delegation-config-authority-and-budget-aware-tier-cost.md)** (adr)
 
 ## security
 
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan)
 - **[Security Considerations for Effect Contracts](guides/onex-effect-contract-security.md)** (guide)
 - **[Security Considerations for Example Contracts](guides/onex-example-contract-security.md)** (guide)
 

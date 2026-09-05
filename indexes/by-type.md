@@ -192,6 +192,7 @@ Knowledge base artifacts grouped by type.
 ## Plan
 
 - **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** — active
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** — draft
 
 ## Guide
 
