@@ -189,6 +189,10 @@ Knowledge base artifacts grouped by type.
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** — accepted
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** — accepted
 
+## Plan
+
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** — draft
+
 ## Guide
 
 - **[Testing Guide](guides/omniclaude-testing-guide.md)** — current

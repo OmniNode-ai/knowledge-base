@@ -1636,6 +1636,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Migration Must Be Staged and Recoverable](doctrine/migration-staged-recoverable.md)** (doctrine)
 
+## migration-validation
+
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** (plan)
+
 ## migrations
 
 - **[OmniMarket Build-Loop Migration Boundary](architecture/omnimarket-build-loop-boundary.md)** (architecture)
@@ -2353,6 +2357,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0027: One Application Database with Contract-Classified Domains](adrs/ADR-0027-one-application-database-domain-separation.md)** (adr)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 
+## postgresql
+
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** (plan)
+
 ## posttooluse
 
 - **[Adding a Custom PostToolUse Handler](guides/adding-a-posttooluse-handler.md)** (guide)
@@ -2390,6 +2398,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0047: Dual-Topic Emission for Prompt Privacy](adrs/ADR-0047-dual-emission-privacy-split.md)** (adr)
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
+
+## process-lifecycle
+
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** (plan)
 
 ## production
 
@@ -3022,6 +3034,10 @@ Knowledge base artifacts grouped by topic.
 - **[Code Coverage Testing](guides/omnibase-core-test-coverage.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** (runbook)
+
+## test-infrastructure
+
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** (plan)
 
 ## testing
 

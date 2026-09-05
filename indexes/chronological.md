@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Pre-push migration bounded database runner replacement](plans/2026-09-05-prepush-migration-bounded-db-runner-replacement.md)** (plan) — 2026-09-05
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02
