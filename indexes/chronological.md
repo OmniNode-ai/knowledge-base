@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** (plan) — 2026-09-05
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02
