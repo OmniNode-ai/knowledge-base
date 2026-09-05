@@ -158,6 +158,35 @@ authorized. The production wrapper continues to compute exactly one launch-time 
 absolute deadline; this discriminator adds no new timeout and cannot consume a restarted relative
 window.
 
+### One authorized unforced graceful-path capture
+
+As the sole exception to the hold on rerunning the failing seam, authorize exactly one bounded,
+instrumentation-only capture of the already failing unforced deterministic/shared-deadline
+graceful path with `collect_trace=True`. This capture changes no behavior and injects no receipt
+hold, ACK withholding, frame mutation, barrier fault, timeout fault, policy change, deadline
+change, status remapping, signalling change, or cleanup change. It uses the existing deterministic
+graceful path under one declared outer `gtimeout 90` bound and must not be repeated automatically
+or manually as a retry loop.
+
+Its P/G/S streams must be complete and zero-drop, with contiguous per-emitter sequences and one
+terminal marker per emitter. The trace must cover, in causal order: G terminal-ACK send and result;
+S terminal-ACK receive, parse, MAC, correlation, and canonical-frame-digest facts; S ACK-receipt
+send and result; G S-ACK frame receive/classification, parse, MAC, correlation, and
+canonical-frame-digest facts; exactly one finite failure branch if the result is non-success; G
+direct-S reap start, bounded wait/timeout where applicable, and completion; and G terminal forward
+or an explicit `no_forward` fact. An omitted transition, aggregate-only event, generic failure
+label, trace drop, or incomplete stream invalidates the capture rather than authorizing a second
+run.
+
+After the one run, assert bounded cleanup: P reaps direct G, no fixture-owned S, payload,
+control-FD holder, or fixture-created disposable service remains, and the unrelated sentinel is
+still live and unsignalled. If the run unexpectedly reaches the graceful success path, record the
+complete trace and that one result; do not rerun it to establish repeatability. If it remains
+fail-closed, record its exact finite failure branch. In either outcome, the failed behavior patch
+stays frozen: no correction is authorized until independent review accepts this one capture and
+its residual-cleanup proof. The production policy remains exactly the existing launch-time
+2700-second absolute deadline.
+
 ## Required target design
 
 ### Policy authority and one common deadline
