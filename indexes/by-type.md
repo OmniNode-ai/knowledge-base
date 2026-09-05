@@ -191,6 +191,27 @@ Knowledge base artifacts grouped by type.
 
 ## Plan
 
+- **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** — active
+- **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** — active
+- **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** — active
+- **[Dashboard health model refinements — not_applicable status and probe semantics](plans/2026-03-16-dashboard-health-model-refinements.md)** — active
+- **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** — active
+- **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** — active
+- **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** — active
+- **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** — active
+- **[Package install CLI and channel-adapter scaffold generator](plans/2026-04-01-package-install-cli-and-scaffold-generator.md)** — active
+- **[Test-driven ticket-pipeline iteration loop](plans/2026-04-01-test-driven-pipeline-iteration-loop.md)** — active
+- **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** — completed
+- **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** — active
+- **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** — active
+- **[Validation stack architecture — implementation plan](plans/2026-04-11-validation-stack-architecture-plan.md)** — active
+- **[Skills-to-market phase 2: validator gates](plans/2026-04-27-skills-to-market-phase-2-validator-gates.md)** — active
+- **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** — completed
+- **[Canary-to-routing feedback loop](plans/2026-05-11-canary-routing-feedback-loop.md)** — active
+- **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** — active
+- **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** — active
+- **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** — active
+- **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** — active
 - **[Pre-push impacted migration watchdog and owned-process cleanup](plans/2026-09-05-prepush-impacted-migration-watchdog-and-cleanup.md)** — active
 - **[Typed Runner-Side Contract Overlay Bootstrap for RSD Hostile Review](plans/2026-09-05-rsd-hostile-review-runner-overlay-bootstrap.md)** — draft
 
