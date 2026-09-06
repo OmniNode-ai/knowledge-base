@@ -298,11 +298,7 @@ def _find_sanitization_targets(root: Path) -> list[Path]:
         platform_dir = root / dir_name
         if platform_dir.is_dir():
             files.extend(
-                sorted(
-                    p
-                    for p in platform_dir.rglob("*")
-                    if p.is_file() and p.suffix in PLATFORM_SANITIZED_SUFFIXES
-                )
+                sorted(p for p in platform_dir.rglob("*") if p.is_file() and p.suffix in PLATFORM_SANITIZED_SUFFIXES)
             )
     for name in sorted(ROOT_SANITIZED_FILES):
         root_file = root / name

@@ -28,7 +28,6 @@ if str(_SCRIPTS_DIR) not in sys.path:
 import validate  # noqa: E402
 from sanitization_patterns import scan_text  # noqa: E402
 
-
 # ---------------------------------------------------------------------------
 # .github is inside the walk
 # ---------------------------------------------------------------------------
@@ -50,10 +49,7 @@ def test_github_is_a_registered_sanitization_scanned_location() -> None:
 def test_workflow_files_are_in_the_sanitization_target_set() -> None:
     """A workflow is a `.yml`; a markdown-only target set would still miss it.
     Extension-scoped scanning is the other half of this failure mode."""
-    targets = {
-        p.relative_to(_REPO_ROOT).as_posix()
-        for p in validate._find_sanitization_targets(_REPO_ROOT)
-    }
+    targets = {p.relative_to(_REPO_ROOT).as_posix() for p in validate._find_sanitization_targets(_REPO_ROOT)}
     assert any(t.startswith(".github/workflows/") and t.endswith(".yml") for t in targets)
 
 

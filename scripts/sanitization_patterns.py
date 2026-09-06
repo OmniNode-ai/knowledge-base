@@ -38,9 +38,7 @@ _PUBLIC_REPO_EXEMPTION = "|".join(re.escape(slug) + _SLUG_BOUNDARY for slug in P
 # vendored in <public-slug>-internal, guarding that repo's own guide" — a bare
 # slug naming a private repository, describing its contents, in a public repo.
 # The URL pattern above could never see it.
-_PRIVATE_SIBLING_SLUGS = "|".join(
-    re.escape(slug) + r"-internal" + _SLUG_BOUNDARY for slug in PUBLIC_REPO_SLUGS
-)
+_PRIVATE_SIBLING_SLUGS = "|".join(re.escape(slug) + r"-internal" + _SLUG_BOUNDARY for slug in PUBLIC_REPO_SLUGS)
 
 SANITIZATION_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"OMN-\d+"), "Internal ticket reference"),
