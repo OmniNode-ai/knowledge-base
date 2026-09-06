@@ -33,11 +33,25 @@ _SLUG_BOUNDARY = r"(?:\.git)?(?![A-Za-z0-9._-])"
 
 _PUBLIC_REPO_EXEMPTION = "|".join(re.escape(slug) + _SLUG_BOUNDARY for slug in PUBLIC_REPO_SLUGS)
 
+# A private sibling slug leaks whether or not it is spelled as a URL. The live
+# finding this closes is a workflow comment reading "the same checker is
+# vendored in <public-slug>-internal, guarding that repo's own guide" — a bare
+# slug naming a private repository, describing its contents, in a public repo.
+# The URL pattern above could never see it.
+_PRIVATE_SIBLING_SLUGS = "|".join(re.escape(slug) + r"-internal" + _SLUG_BOUNDARY for slug in PUBLIC_REPO_SLUGS)
+
 SANITIZATION_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"OMN-\d+"), "Internal ticket reference"),
     (re.compile(r"192\.168\.\d+\.\d+"), "Internal IP address"),
-    (re.compile(r"\.(200|201)\b"), "Internal host reference"),
+    # the dotted form AND the hyphenated host-alias form. Requiring
+    # a literal dot let an alias such as `<name>-201-ts` through, which is how
+    # a live runbook shipped an internal lab SSH alias and an on-host state
+    # path. The hyphenated arm requires a preceding LETTER so it reads a
+    # hostname token rather than a numeric argument (`tail -200`) or a range
+    # ("1-200 characters"), both of which occur in this repo's own prose.
+    (re.compile(r"\.(200|201)\b|(?<=[A-Za-z])-(?:200|201)\b"), "Internal host reference"),
     (re.compile(rf"github\.com/OmniNode-ai/(?!{_PUBLIC_REPO_EXEMPTION})"), "Private repo URL"),
+    (re.compile(rf"\b(?:{_PRIVATE_SIBLING_SLUGS})"), "Private repo name"),
     (re.compile(r"infisical", re.IGNORECASE), "Internal secrets manager reference"),
     (re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"), "Email address pattern"),
 ]
