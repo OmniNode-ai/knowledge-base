@@ -150,7 +150,9 @@ Schema:
 
 `result` is one of `SUCCESS`, `FAILED_ROLLED_BACK`, or `FAILED`.
 
-**Trusting freshness without re-probing**: `ssh omni-201-ts 'cat ~/.omnibase/state/stability_lane_refresh/latest.json'`
+**Trusting freshness without re-probing**: reading the receipt on the lane
+host — `ssh <onex-host> 'cat ~/.omnibase/state/stability_lane_refresh/latest.json'`,
+with `<onex-host>` resolved the same way as everywhere else in this runbook —
 replaces the whole forensic chain (label diffing, `merge-base`, live health
 probe) that prior sessions had to do by hand to answer "is this lane
 current." Read the receipt FIRST; only fall back to live probing if the

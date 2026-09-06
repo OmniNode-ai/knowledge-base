@@ -113,10 +113,27 @@ ROOT_SANITIZED_FILES = {
     ".pre-commit-config.yaml",
 }
 
+# Platform/CI configuration: registered as a sanitization-scanned,
+# frontmatter-exempt location.
+#
+# `.github` used to be pruned from the walk below on the stated premise that CI
+# configuration "could not carry a leak". A workflow comment naming a private
+# repository by slug and describing its contents disproved that premise, and
+# the gate reported green over it because nothing scanned the directory. A gate
+# scoped to part of the tree reports green over the rest, so the directory is
+# scanned rather than assumed harmless. Its files carry no frontmatter and are
+# not indexed, exactly like GENERATED_CONTENT_DIRS.
+PLATFORM_SANITIZED_DIRS = [".github"]
+
+# File suffixes scanned for sanitization inside PLATFORM_SANITIZED_DIRS.
+# Broader than the markdown-only artifact scan: a workflow is a `.yml`, and
+# extension-scoped gates are the other half of this failure mode.
+PLATFORM_SANITIZED_SUFFIXES = (".md", ".yml", ".yaml")
+
 # Directories pruned entirely from the fail-closed repository walk: version
-# control internals and platform/CI configuration, never documentation
-# content that could carry a leak.
-EXCLUDED_WALK_DIRS = {".git", ".github", ".venv", "__pycache__", ".ruff_cache", ".pytest_cache"}
+# control internals and local caches, never documentation content or platform
+# configuration that could carry a leak.
+EXCLUDED_WALK_DIRS = {".git", ".venv", "__pycache__", ".ruff_cache", ".pytest_cache"}
 
 
 # ---------------------------------------------------------------------------
@@ -277,6 +294,16 @@ def _find_sanitization_targets(root: Path) -> list[Path]:
         gen_dir = root / dir_name
         if gen_dir.is_dir():
             files.extend(sorted(gen_dir.rglob("*.md")))
+    for dir_name in PLATFORM_SANITIZED_DIRS:
+        platform_dir = root / dir_name
+        if platform_dir.is_dir():
+            files.extend(
+                sorted(
+                    p
+                    for p in platform_dir.rglob("*")
+                    if p.is_file() and p.suffix in PLATFORM_SANITIZED_SUFFIXES
+                )
+            )
     for name in sorted(ROOT_SANITIZED_FILES):
         root_file = root / name
         if root_file.is_file():
@@ -297,6 +324,8 @@ def _is_registered_location(path: Path, root: Path) -> bool:
     if top in ARTIFACT_DIRS:
         return True
     if top in GENERATED_CONTENT_DIRS:
+        return True
+    if top in PLATFORM_SANITIZED_DIRS:
         return True
     if len(rel.parts) == 1 and rel.name in ROOT_SANITIZED_FILES:
         return True

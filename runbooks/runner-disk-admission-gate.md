@@ -21,7 +21,7 @@ root-reserved-blocks allocation — space `mkfs.ext4` sets aside that only
 non-root processes. On a 3.6TB volume, 5% is ~180GB permanently
 inaccessible to the non-root users that own the runner-fleet Docker writes.
 On 2026-08-22 ~22:1xZ, during the live ENOSPC write-amplification incident
-(see below), incident responder `disk-recovery-201-4` ran:
+(see below), the incident responder on shift ran:
 
 ```bash
 sudo tune2fs -m 1 /dev/nvme2n1p1
