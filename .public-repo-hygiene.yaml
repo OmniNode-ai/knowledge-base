@@ -1,0 +1,51 @@
+# Public-repository hygiene gate — this repo's declaration (OMN-18014).
+#
+# Layer (a) of the gate: the TOP-LEVEL PATH ALLOWLIST. Anything tracked at the
+# repository root that is not named below fails. This is the half that refuses
+# the next junk directory nobody has invented yet — a denylist must anticipate
+# that directory, an allowlist does not.
+#
+# Seeded from OmniNode-ai/knowledge-base@main at adoption time, MINUS the entries that
+# are themselves findings. Adding an entry here is a decision to publish that
+# directory, not a formality.
+#
+# WITHHELD AT ADOPTION, and they must stay withheld:
+#   (none — every root entry in this repo is legitimate)
+#
+# mode: report — the gate records every finding with a per-class count and
+# exits 0. It flips to enforce when the residue is FIXED, never by moving the
+# residue into this file: that is the recurrence mechanism the OMN-17992
+# programme exists to remove.
+
+mode: report
+suppression_registry: ".public-repo-hygiene-suppressions.yaml"
+
+allowed_top_level:
+  - ".editorconfig"
+  - ".github"
+  - ".gitignore"
+  - ".pre-commit-config.yaml"
+  - ".public-repo-hygiene-suppressions.yaml"
+  - ".public-repo-hygiene.yaml"
+  - "CLAUDE.md"
+  - "CONTRIBUTING.md"
+  - "LICENSE"
+  - "README.md"
+  - "adrs"
+  - "architecture"
+  - "docs"
+  - "docs-taxonomy.md"
+  - "doctrine"
+  - "experiments"
+  - "guides"
+  - "indexes"
+  - "migration-manifest.yaml"
+  - "pivots"
+  - "plans"
+  - "pyproject.toml"
+  - "reference"
+  - "runbooks"
+  - "schemas"
+  - "scripts"
+  - "tests"
+  - "uv.lock"
