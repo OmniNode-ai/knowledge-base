@@ -1,4 +1,4 @@
-# Public-repository hygiene gate — this repo's declaration (OMN-18014).
+# Public-repository hygiene gate — this repo's declaration.
 #
 # Layer (a) of the gate: the TOP-LEVEL PATH ALLOWLIST. Anything tracked at the
 # repository root that is not named below fails. This is the half that refuses
@@ -14,8 +14,8 @@
 #
 # mode: report — the gate records every finding with a per-class count and
 # exits 0. It flips to enforce when the residue is FIXED, never by moving the
-# residue into this file: that is the recurrence mechanism the OMN-17992
-# programme exists to remove.
+# residue into this file: that is the recurrence mechanism the public-repo
+# hygiene programme exists to remove.
 
 mode: report
 suppression_registry: ".public-repo-hygiene-suppressions.yaml"

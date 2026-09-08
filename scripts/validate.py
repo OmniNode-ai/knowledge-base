@@ -111,6 +111,7 @@ ROOT_SANITIZED_FILES = {
     "docs-taxonomy.md",
     "migration-manifest.yaml",
     ".pre-commit-config.yaml",
+    ".public-repo-hygiene.yaml",
 }
 
 # Platform/CI configuration: registered as a sanitization-scanned,

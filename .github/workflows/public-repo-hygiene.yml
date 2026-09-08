@@ -1,7 +1,11 @@
 # SPDX-FileCopyrightText: 2025 OmniNode.ai Inc.
 # SPDX-License-Identifier: MIT
 #
-# Public Repo Hygiene -- thin caller. OMN-18016, epic OMN-17992.
+# Public Repo Hygiene -- thin caller.
+#
+# Internal tracking identifiers are deliberately absent from this file: it
+# lives in a PUBLIC repository whose sanitization gate refuses them. The
+# tracking reference lives with the programme, not in the workflow text.
 #
 # This repository is PUBLIC. The gate refuses internal operating detail landing
 # in it: an undeclared top-level directory, an agent-state or evidence tree, a
