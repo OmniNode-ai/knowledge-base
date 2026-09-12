@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
 - **[Async Thread Safety Pattern](architecture/omnibase-infra-async-thread-safety.md)** (architecture) — 2026-09-02
@@ -285,7 +286,6 @@ All knowledge base artifacts sorted by date.
 - **[Typed-Metadata Policy](reference/typed-metadata-policy.md)** (reference) — 2026-08-25
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** (runbook) — 2026-08-24
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** (runbook) — 2026-08-24
-- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-08-22
 - **[Adding a Hook Handler](guides/adding-a-hook-handler.md)** (guide) — 2026-08-19
 - **[Adding a Skill](guides/adding-a-skill.md)** (guide) — 2026-08-19
 - **[Adding an Agent](guides/adding-an-agent.md)** (guide) — 2026-08-19

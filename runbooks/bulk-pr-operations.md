@@ -1,7 +1,7 @@
 ---
 type: runbook
 status: current
-date: "2026-08-22"
+date: "2026-09-12"
 title: "Bulk PR operations — mandatory throttled path (<ticket>)"
 topics: [omnibase-infra, bulk, pr, operations]
 refs: []
@@ -44,8 +44,10 @@ uv run scripts/ci/bulk_pr_throttle.py \
   --operation rerun-failed \
   --dry-run
 
-# Real run — processes in wave-size-10 batches by default, blocking before
-# each wave while repos/<owner>/<repo>/actions/runs?status=queued exceeds 150:
+# Real run — processes in wave-size-10 batches by default. Local runs require
+# RUNNER_FLEET_STATUS_TOKEN with organization-runner read access. The existing
+# CROSS_REPO_PAT is accepted as a fallback in CI-compatible environments:
+export RUNNER_FLEET_STATUS_TOKEN="<org-runner-read-token>"
 uv run scripts/ci/bulk_pr_throttle.py \
   --owner OmniNode-ai --repo onex_change_control \
   --prs 6751,6752,6753,6754,6755 \
@@ -69,10 +71,10 @@ uv run scripts/ci/bulk_pr_throttle.py \
 | `--prs` | **required** | Comma-separated PR numbers. |
 | `--operation` | **required** | One of the four above. |
 | `--wave-size` | 10 | Flag-overridable up to a **hard ceiling of 25** (`MAX_WAVE_SIZE` in the script) — not overridable past that point by any flag. |
-| `--queue-depth-threshold` | 150 | Queued-run count above which the tool blocks before dispatching the next wave. |
+| `--queue-depth-threshold` | 150 | Legacy receipt field retained for wire compatibility. Queue depth is observed before and after each wave; it does not authorize or refuse dispatch. |
 | `--max-total-prs` | 50 | Batches larger than this are **refused** unless you pass `--max-total-prs <n>` explicitly, raising the cap for that invocation. There is no flag that skips this check entirely — only one that raises the number, so oversized batches are always a stated, visible choice. |
-| `--poll-seconds` | 30 | How often to re-poll queue depth while blocked. |
-| `--max-wait-seconds` | 1800 | If the queue never drops below threshold within this window, the tool **raises and stops** — it does not silently proceed into a saturated fleet. |
+| `--poll-seconds` | 30 | How often to re-poll matching runner capacity while blocked. |
+| `--max-wait-seconds` | 1800 | If no matching idle runner appears within this window, the tool **raises and stops** — it does not silently proceed into a saturated fleet. |
 | `--dry-run` | off | Prints the wave plan; makes zero `gh` calls. |
 | `--receipt` | `.onex_state/bulk-pr-throttle/<owner>-<repo>-<ts>.json` | Where the JSON wave receipt is written. |
 
@@ -81,17 +83,29 @@ uv run scripts/ci/bulk_pr_throttle.py \
 Per CLAUDE.md rule 5 ("detection without enforcement gets ignored"), the
 throttle is not advisory prose — it is load-bearing in the tool itself:
 
-- The queue-depth gate (`wait_for_queue_depth` in `bulk_pr_throttle.py`) has
+- The runner-capacity gate (`wait_for_runner_capacity` in
+  `bulk_pr_throttle.py`) has
   **no bypass parameter** anywhere in the module or its CLI — no `--force`,
-  no `--skip-throttle`, no `--ignore-threshold`. A caller cannot opt out of
+  no `--skip-throttle`, no `--ignore-capacity`. A caller cannot opt out of
   throttling short of not using this tool at all.
+- Before every load-creating wave, the tool reuses the shared fleet probe and
+  filters for the `omnibase-ci` runner group. At least one online, non-busy
+  matching runner is capacity; a deep queued-run count alone is not
+  starvation. Queue depth remains visible in logs and receipts as an
+  observation.
+- Local runs must provide `RUNNER_FLEET_STATUS_TOKEN`; the existing
+  `CROSS_REPO_PAT` environment value is the fallback. Missing credentials or
+  an unreadable fleet are not treated as spare capacity. The tool refuses and
+  names the stable probe error: `missing_token`, `bad_api_scheme`,
+  `http_<status>`, `timeout`, `malformed_json`, or `empty_fleet`.
 - `--wave-size` is capped at `MAX_WAVE_SIZE` (25) in code, not just by
   default — passing a larger value is a hard refusal
   (`ValueError`/exit code 1), not a warning.
 - Processing more than `--max-total-prs` PRs without explicitly raising the
   cap is a hard refusal before any `gh` call is made (`TotalPrLimitExceededError`).
-- A queue that never drains within `--max-wait-seconds` is a hard refusal
-  (`QueueDepthTimeoutError`), not a silently-skipped wave.
+- A valid fleet sample with zero matching idle runners is re-polled only until
+  `--max-wait-seconds`, then ends in a hard refusal
+  (`RunnerFleetStarvationTimeoutError`), not a silently-skipped wave.
 
 **What is NOT yet wired (controller follow-up, out of scope for this PR):**
 a CLAUDE.md pointer to this runbook, and/or a pre-flight lint in the sweep
@@ -127,11 +141,11 @@ residual-remediation batch doesn't collide with yours on the same PRs.
 ## Tests
 
 `scripts/ci/tests/test_bulk_pr_throttle.py` covers wave partitioning
-(including the hard ceiling), threshold blocking (mocked queue-depth
-callable, including a mid-batch block on a later wave), dry-run plan output
-(zero `gh` calls), all refusal paths (total-PR cap, unknown operation, empty
-input, missing owner/repo), the `gh` CLI integration seam (mocked
-`_run_gh`, never the real API), and the CLI entrypoint end to end.
+(including the hard ceiling), capacity blocking with mocked fleet samples,
+deep-queue admission when matching idle runners exist, named fail-closed probe
+errors, dry-run plan output (zero `gh` calls), all input refusal paths, the
+`gh` CLI integration seam (mocked `_run_gh`, never the real API), and the CLI
+entrypoint end to end.
 
 ```bash
 uv run pytest scripts/ci/tests/test_bulk_pr_throttle.py -v

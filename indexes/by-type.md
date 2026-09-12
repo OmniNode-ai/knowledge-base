@@ -441,7 +441,6 @@ Knowledge base artifacts grouped by type.
 - **[PyPI pull-through cache (egress) rollout — <ticket> C1](runbooks/pypi-cache-egress-rollout.md)** — current
 - **[Runner-fleet local DNS cache rollout — <ticket>](runbooks/runner-dns-cache-rollout.md)** — current
 - **[Stability-Test Runtime Lane](runbooks/stability-test-runtime-lane.md)** — current
-- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** — current
 - **[Fault-injection fixture — DLQ offset-withholding proof](runbooks/fault-inject-fixture-dlq-offset-withholding.md)** — current
 - **[Runner disk-admission gate (<ticket>)](runbooks/runner-disk-admission-gate.md)** — current
 - **[Kafka/Redpanda Reconnect Tuning and Broker Recovery](runbooks/kafka-reconnect-and-broker-recovery.md)** — current
@@ -452,3 +451,4 @@ Knowledge base artifacts grouped by type.
 - **[Dead Letter Queue (DLQ) Replay Guide](runbooks/omnibase-infra-dlq-replay.md)** — current
 - **[Event Bus Operations Runbook](runbooks/omnibase-infra-event-bus-operations.md)** — current
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** — current
+- **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** — current
