@@ -194,6 +194,10 @@ Knowledge base artifacts grouped by topic.
 - **[Dashboard Authority Collapse](pivots/PIVOT-0002-dashboard-authority-collapse.md)** (pivot)
 - **[Event Streams Are Not Authoritative State](pivots/PIVOT-0005-event-streams-are-not-authoritative-state.md)** (pivot)
 
+## authorization
+
+- **[RSD Delegated Canary Orchestrator Contract](plans/2026-09-04-rsd-delegated-canary-orchestrator-contract.md)** (plan)
+
 ## auto-wiring
 
 - **[OmniIntelligence Contract Package Specification](architecture/omniintelligence-contract-package-spec.md)** (architecture)
@@ -734,6 +738,7 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation Dispatch Architecture](architecture/delegation-dispatch.md)** (architecture)
 - **[Delegation Routing Contract](architecture/delegation-routing-contract.md)** (architecture)
 - **[OmniMarket Delegation Routing Boundary](architecture/omnimarket-delegation-routing-boundary.md)** (architecture)
+- **[RSD Delegated Canary Orchestrator Contract](plans/2026-09-04-rsd-delegated-canary-orchestrator-contract.md)** (plan)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
 
@@ -836,6 +841,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[Message Dispatch Engine Architecture](architecture/message-dispatch-engine.md)** (architecture)
 - **[Technical Design: OmniNode Platform Architecture](architecture/omninode-architecture-technical-design.md)** (architecture)
+- **[RSD Delegated Canary Orchestrator Contract](plans/2026-09-04-rsd-delegated-canary-orchestrator-contract.md)** (plan)
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide)
 - **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide)
 - **[ADR-006: MessageDispatchEngine as Canonical Consumer Routing Pattern](reference/omnibase-infra-adr-message-dispatch-engine-canonical-routing.md)** (reference)
@@ -930,6 +936,10 @@ Knowledge base artifacts grouped by topic.
 ## dsn
 
 - **[ADR: Strengthen DSN Validation with urllib.parse](reference/omnibase-infra-adr-dsn-validation-strengthening.md)** (reference)
+
+## durable-lifecycle
+
+- **[RSD Delegated Canary Orchestrator Contract](plans/2026-09-04-rsd-delegated-canary-orchestrator-contract.md)** (plan)
 
 ## economics
 
