@@ -120,8 +120,8 @@ never a required environment variable:
 ~/.omninode/delegation/bifrost_overrides.yaml
 ```
 
-If the file is missing, or declares no local model, the very first delegation refuses before it
-reaches any model — with a message naming the file and giving you a working line to start from:
+If the file is missing or declares no local model, and you have registered no provider key
+(see the provider example below), the very first delegation refuses before it reaches any model — with a message naming the file and giving you a working line to start from:
 
 ```
 [ONEX_CORE_041_INVALID_CONFIGURATION] No local model is declared on this machine: no local
@@ -153,21 +153,28 @@ single-machine setup. `endpoint_url` and `model_name` are the only two keys you 
 they override just those two fields on OmniNode's own committed defaults for `local-coder` and
 `local-heavy-reasoning`, which is why the file can be this short.
 
-**Provider example — bring your own key (for example OpenRouter).** OmniNode's shipped routing
-already declares an OpenRouter rung as one of the cloud tiers it escalates to when your local
-answer doesn't clear the quality bar; you do not add it to the overlay file yourself. What you
-supply is your own key, as an environment variable, following the convention
-`llm.<provider>.api_key` → `LLM_<PROVIDER>_API_KEY` — for OpenRouter:
+**Provider example — bring your own key, with or without a local model.** OmniNode's shipped
+routing already declares cloud rungs for the providers you can bring a key for (GLM and
+OpenRouter today); you do not add them to the overlay file yourself. What you supply is your own
+key, registered once on this machine with `onex secret set`, which reads the key from stdin and
+never from an argument or an environment variable (this needs omnimarket 0.4.205 or later;
+upgrade with `pipx inject --force omnibase-core 'omnimarket>=0.4.205'`):
 
 ```bash
-export LLM_OPENROUTER_API_KEY="<your own OpenRouter key>"
+read -rs KEY && printf '%s' "$KEY" | onex secret set llm.glm.api_key
+# or, for OpenRouter:
+read -rs KEY && printf '%s' "$KEY" | onex secret set llm.openrouter.api_key
 ```
 
-**A cloud key alone is not enough to delegate.** `onex delegate` refuses with the same
-"no local model is declared" error above until at least one local rung is declared in the
-overlay file — the local tier is checked first regardless of which cloud keys you have set.
-Declare your local model as shown above, then a cloud key you provide is used automatically on
-escalation, on its own tier, never charged to OmniNode.
+The key is stored in this machine's local store (`onex secret list` shows the references it holds,
+never the values). A provider key alone is enough to delegate: with no local model declared,
+`onex delegate` goes straight to your provider on your key, and the run's `receipt.json` names the
+provider's backend and model. If you also declare a local model, it is tried first and your
+provider key is used when the local answer does not clear the quality bar. Either way the call is
+made from your machine to your provider, on your account, never through OmniNode.
+
+Setting `LLM_<PROVIDER>_API_KEY` in your environment does **not** register a key — a delegation
+never reads a provider key from the environment. Use `onex secret set`.
 
 Once the file is in place, delegate for real:
 
@@ -203,7 +210,7 @@ typed refusal, never a fallback to a direct provider call or to Claude answering
 The overlay file documented above (`~/.omninode/delegation/bifrost_overrides.yaml`) is exactly
 this composable mechanism: it adds or overrides backend entries on top of OmniNode's committed
 routing contract, so the same `onex delegate` command reaches a self-hosted model (Tier 1) or,
-by supplying your own provider key as an environment variable, a cloud model you pay for
+by registering your own provider key with `onex secret set`, a cloud model you pay for
 directly (Tier 2) — see [Declare your model](#declare-your-model) above for both. (This section
 previously described a different, older full-ONEX Docker Compose stack — Redpanda +
 omnimemory + omniintelligence — bundled with the `plugins/onex` hooks plugin above. That stack
@@ -220,7 +227,7 @@ than left stale.)
 | `Error: No such command 'delegate'. Did you mean 'gate'?` | Only `omnibase-core` is installed — `omnibase-infra` provides the `delegate` subcommand; both must be in the same environment (see Configure above). |
 | `Error: Unknown node 'node_delegate_skill_orchestrator'` | `omnimarket` is not installed in the same environment as `omnibase-core`; re-run the install command above. |
 | `this install has never minted a tenant identity` | Run `onex local init` once, before your first delegation — see "Run — local" above. |
-| `No local model is declared on this machine` | You have not written `~/.omninode/delegation/bifrost_overrides.yaml` yet, or it declares no endpoint on `local-coder`/`local-heavy-reasoning`. The refusal names the exact file path and a working example line — see [Declare your model](#declare-your-model) above. |
+| `No local model is declared on this machine` | You have declared no local model and registered no provider key. Either write `~/.omninode/delegation/bifrost_overrides.yaml` with an endpoint on `local-coder`/`local-heavy-reasoning`, or register your own provider key with `onex secret set llm.<provider>.api_key` (omnimarket 0.4.205 or later). The refusal names the exact file path and a working example line — see [Declare your model](#declare-your-model) above. |
 | `claude plugin install` can't find `onex@omninode-tools` | Marketplace not registered — re-run the `marketplace add` step above; `claude plugin marketplace list` should show `omninode-tools`. |
 
 ---
