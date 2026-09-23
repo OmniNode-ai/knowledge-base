@@ -1,7 +1,7 @@
 ---
 type: guide
 status: current
-date: "2026-08-26"
+date: "2026-09-23"
 title: "Connecting to the OmniNode Cloud"
 topics: [cloud, api, authentication, workflows, delegation, getting-started]
 refs: []
@@ -16,6 +16,18 @@ This guide is for someone who wants to send work to **the hosted OmniNode servic
 This knowledge base is the self-hoster's book. The first-class way to start with ONEX is to run it yourself in its **zero-external-infrastructure configuration** — the in-process event bus and local file-backed state, no broker, no cluster, no account, no network dependency. That path needs nothing from us, and it is the one to reach for when you are evaluating the platform, developing against it, or running it in your own environment. Scaling that up to the full stack (a real broker, a real database, real projections) is a later chapter, not a prerequisite.
 
 The hosted service exists for people who want the workload run on someone else's machines. That is what this page covers, and only that. Nothing here is required to use ONEX.
+
+## Start local: delegate from your own machine
+
+The same client delegates with no account, no key of ours and no service of ours: to a model on your own machine or network, or to a provider on your own key. Install it (the same line section 3 uses), mint this install's identity once, declare your model in `~/.omninode/delegation/bifrost_overrides.yaml` as the [quickstart](onex-plugin-quickstart.md#declare-your-model) shows, then delegate:
+
+```bash
+uv tool install --python 3.12 --upgrade --with omnimarket omnibase-core
+onex local init
+onex delegate "Write a one-sentence description of what delegation is."
+```
+
+Until a local model is declared, `onex delegate` refuses before it reaches any model, with a message naming that file and a working line to start from. Everything below is the hosted path, for when you want the work run on our machines instead.
 
 ## Use the client, not hand-written HTTP
 
@@ -86,7 +98,7 @@ Treat it like a password. Never type it into a command-line argument, never comm
 uv tool install --python 3.12 --upgrade --with omnimarket omnibase-core
 ```
 
-**Name the interpreter.** `omnimarket` currently declares `requires-python = ">=3.12,<3.13"`, so an unqualified install resolves against whatever default interpreter the machine happens to have and fails outright on 3.13. Passing `--python 3.12` makes `uv` fetch a matching interpreter rather than depending on what is already there.
+**Name the interpreter.** `omnimarket` declares `requires-python = ">=3.12"` with no upper bound, so an unqualified install works on 3.12 and on 3.13. Passing `--python 3.12` pins the interpreter so two machines resolve the same one, and makes `uv` fetch it when the machine does not already have it.
 
 The `omnimarket` package is what contributes the `cloud` command to the `onex` CLI — it is advertised through an entry-point group and discovered over the installed distributions, not hand-wired. Confirm it registered:
 
@@ -206,7 +218,7 @@ The two hashes are the receipt's integrity claim, and they are computed over **d
 | Symptom | Likely cause | What to do |
 |---|---|---|
 | `onex cloud --help` says `No such command 'cloud'` | `omnimarket` is not in the same tool environment as `onex` | Re-run the step 3 install line, including `--with omnimarket`. |
-| The install fails resolving `omnimarket` | The interpreter is out of range | Pass `--python 3.12` as shown; `omnimarket` declares `>=3.12,<3.13`. |
+| The install fails resolving `omnimarket` | The interpreter is older than 3.12 | Pass `--python 3.12` as shown; `omnimarket` declares `>=3.12`. |
 | A refusal naming `onex cloud login` | No credential is configured for this shell | Run `onex cloud login`, or point `--api-key-file` at a `0600` file holding the key. |
 | `onex cloud login` refuses the key | The key must arrive on stdin and start with `onxk_` | Create a fresh key if the old one was lost or revoked. |
 | `401` on every call | Key revoked, or the wrong plane | Confirm the key is listed and active, and that `onex cloud status` names the host that issued it. If the key was handed to you, ask for it to be reissued. |

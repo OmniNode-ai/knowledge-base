@@ -225,7 +225,6 @@ Knowledge base artifacts grouped by type.
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** — current
 - **[OmniMemory → OmniMarket Node Migration Boundary](guides/omnimemory-market-migration-boundary.md)** — current
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** — current
-- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
 - **[Getting Started Locally](guides/getting-started-local.md)** — current
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** — current
 - **[OmniDash Development Guide](guides/omnidash-development.md)** — current
@@ -319,6 +318,7 @@ Knowledge base artifacts grouped by type.
 - **[Request Tracing in ONEX](guides/onex-request-tracing.md)** — current
 - **[Thread Safety in Omnibase Core](guides/onex-threading.md)** — current
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
 
 ## Reference
 

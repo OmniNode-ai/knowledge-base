@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide) — 2026-09-23
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-22
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
@@ -243,7 +244,6 @@ All knowledge base artifacts sorted by date.
 - **[Dashboard Component Truth Boundary](architecture/omnidash-component-truth-boundary.md)** (architecture) — 2026-08-26
 - **[OmniDash Composable Frame Architecture](architecture/omnidash-composable-frame.md)** (architecture) — 2026-08-26
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide) — 2026-08-26
-- **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide) — 2026-08-26
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide) — 2026-08-26
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide) — 2026-08-26
 - **[OmniDash Development Guide](guides/omnidash-development.md)** (guide) — 2026-08-26
