@@ -54,8 +54,8 @@ pipx install 'omnibase-core>=0.46.8' && pipx inject omnibase-core 'omnibase-infr
 subcommand; `omnimarket` provides `node_delegate_skill_orchestrator`, the node the command
 actually dispatches to — all three are required in the same environment. Node
 lookup resolves via `onex.nodes` entry points over installed distributions, so installing the
-package is sufficient — there is **no** `$OMNI_HOME`/local-clone requirement despite what an
-earlier revision of this file said.
+package is sufficient — there is **no** source checkout to clone and no workspace variable to
+export, despite what an earlier revision of this file said.
 
 The `omnimarket>=0.4.203` floor is not cosmetic: below it, a clean install's very first
 `onex delegate` refused at startup, before your prompt was even read, because an internal
