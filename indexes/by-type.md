@@ -245,7 +245,6 @@ Knowledge base artifacts grouped by type.
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** — current
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** — current
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** — current
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 - **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** — current
 - **[Authoring Governance YAML Artifacts](guides/authoring-governance-yaml-artifacts.md)** — current
 - **[Build Your First Node](guides/omnibase-core-first-node.md)** — current
@@ -319,6 +318,7 @@ Knowledge base artifacts grouped by type.
 - **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** — current
 - **[Request Tracing in ONEX](guides/onex-request-tracing.md)** — current
 - **[Thread Safety in Omnibase Core](guides/onex-threading.md)** — current
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 
 ## Reference
 
