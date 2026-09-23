@@ -317,8 +317,8 @@ Knowledge base artifacts grouped by type.
 - **[Replay Safety Integration Guide](guides/onex-replay-safety-integration.md)** — current
 - **[Request Tracing in ONEX](guides/onex-request-tracing.md)** — current
 - **[Thread Safety in Omnibase Core](guides/onex-threading.md)** — current
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 
 ## Reference
 

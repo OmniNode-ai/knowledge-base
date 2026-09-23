@@ -7,7 +7,7 @@ All knowledge base artifacts sorted by date.
 ## 2026-09
 
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide) — 2026-09-23
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-22
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-23
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
