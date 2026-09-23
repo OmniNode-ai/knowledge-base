@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-22
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
@@ -228,7 +229,6 @@ All knowledge base artifacts sorted by date.
 - **[omnibase_spi Validation Protocols Usage](guides/omnibase-spi-validation-protocols-usage.md)** (guide) — 2026-09-01
 - **[OmniMarket Node Testing](guides/omnimarket-node-testing.md)** (guide) — 2026-09-01
 - **[OmniMarket Skill-Backing Node Handler Pattern](guides/omnimarket-skill-backing-node-pattern.md)** (guide) — 2026-09-01
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-01
 - **[Spawning Sub-Workers from Orchestrator Workers](guides/spawning-sub-workers-from-orchestrators.md)** (guide) — 2026-09-01
 - **[Agent Routing Score Semantics](reference/agent-routing-score-semantics.md)** (reference) — 2026-09-01
 - **[omnibase_spi Glossary](reference/omnibase-spi-glossary.md)** (reference) — 2026-09-01

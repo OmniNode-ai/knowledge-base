@@ -1,7 +1,7 @@
 ---
 type: guide
 status: current
-date: "2026-09-01"
+date: "2026-09-22"
 title: "OmniClaude Quickstart"
 topics: [omniclaude, plugin, quickstart, delegation]
 refs: []
@@ -45,9 +45,9 @@ Both skills shell out to the `onex` CLI. The CLI is **not** bundled with the
 plugin and must be installed separately into an environment on `PATH`:
 
 ```bash
-uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.15' 'omnibase-core>=0.46.8'
+uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.203' 'omnibase-core>=0.46.8'
 # or:
-pipx install 'omnibase-core>=0.46.8' && pipx inject omnibase-core 'omnibase-infra>=0.38.4' 'omnimarket>=0.4.15'
+pipx install 'omnibase-core>=0.46.8' && pipx inject omnibase-core 'omnibase-infra>=0.38.4' 'omnimarket>=0.4.203'
 ```
 
 `omnibase-core` provides the `onex` console script; `omnibase-infra` provides the `delegate`
@@ -56,6 +56,12 @@ actually dispatches to — all three are required in the same environment. Node
 lookup resolves via `onex.nodes` entry points over installed distributions, so installing the
 package is sufficient — there is **no** `$OMNI_HOME`/local-clone requirement despite what an
 earlier revision of this file said.
+
+The `omnimarket>=0.4.203` floor is not cosmetic: below it, a clean install's very first
+`onex delegate` refused at startup, before your prompt was even read, because an internal
+routing-config path had nothing packaged to fall back to. At or above it, that path resolves
+to the packaged default with no configuration from you — the only thing left to set up is
+which model you want to use, which is [Declare your model](#declare-your-model) below.
 
 Pins above are the current values from
 `plugins/onex-delegate/plugin-compat.yaml` in the omniclaude repo, the
@@ -67,8 +73,9 @@ command paths are registered in the installed CLI.
 
 **`--help` exiting 0 does not mean the command works.** Click answers `--help` before any
 dispatch happens, so `--help` succeeds even with `omnimarket` missing entirely. The first real
-failure only shows up on an actual invocation (see the known gaps below). The real verification
-step is running a real delegation — `onex delegate "say hello in one word"` — not `--help`.
+failure only shows up on an actual invocation — see Troubleshooting below for what those look
+like. The real verification step is running a real delegation —
+`onex delegate "say hello in one word"` — not `--help`.
 
 **Do not run `uv run onex delegate`.** `uv run` resolves the venv of whatever project the
 current directory belongs to, so it only works by coincidence inside a repo that happens to
@@ -77,7 +84,98 @@ co-install `omnibase-infra`. Install the CLI as a tool (above) and call the bare
 
 ---
 
-## Run — cloud first for a dashboard-only customer
+## Run — local (start here)
+
+Local is the first-class path, not a fallback. It needs no account, no dashboard key, and no
+network service of ours — only a model you can reach, running on your own machine or your own
+network.
+
+```
+/onex:delegate explain what a calendar app needs
+```
+
+which runs `onex delegate "<prompt>"` under the hood. With zero Kafka/Postgres configuration,
+delegation runs the orchestrator in-process against an in-memory event bus, with SQLite as the
+evidence fallback.
+
+### One-time setup: mint this install's identity
+
+Before the first delegation, run once:
+
+```bash
+onex local init
+```
+
+This mints a local tenant identity for this machine (stored under `~/.omninode/`) and every
+subsequent `onex delegate` run is attributed to it. It is safe to run more than once — a repeat
+call reports the identity it already minted rather than making a new one.
+
+### Declare your model
+
+`onex delegate` does not guess which model to use, and it ships with no endpoint of ours wired
+in for you to reach by default — you tell it. That declaration is exactly one file, and it is
+never a required environment variable:
+
+```
+~/.omninode/delegation/bifrost_overrides.yaml
+```
+
+If the file is missing, or declares no local model, the very first delegation refuses before it
+reaches any model — with a message naming the file and giving you a working line to start from:
+
+```
+[ONEX_CORE_041_INVALID_CONFIGURATION] No local model is declared on this machine: no local
+rung (local-coder, local-heavy-reasoning) has an endpoint. Declare yours in
+/home/you/.omninode/delegation/bifrost_overrides.yaml, e.g. 'backends: [{backend_id:
+local-coder, endpoint_url: http://127.0.0.1:8000/v1/chat/completions, model_name: <served
+model id>}]', then retry.
+```
+
+**Minimal example — a local OpenAI-compatible server (llama.cpp, vLLM, or similar) on your own
+machine.** Create the file with exactly this shape, naming the two local rungs `onex delegate`
+tries first (`local-coder` and `local-heavy-reasoning`) and pointing both at your server's
+chat-completions route — the URL must be the *complete* path, including `/v1/chat/completions`,
+not just the host:
+
+```yaml
+# ~/.omninode/delegation/bifrost_overrides.yaml
+backends:
+  - backend_id: local-coder
+    endpoint_url: "http://127.0.0.1:8000/v1/chat/completions"
+    model_name: "<the model id your server reports, e.g. from GET /v1/models>"
+  - backend_id: local-heavy-reasoning
+    endpoint_url: "http://127.0.0.1:8000/v1/chat/completions"
+    model_name: "<the model id your server reports, e.g. from GET /v1/models>"
+```
+
+Both entries can point at the same server and the same model — that is the common case for a
+single-machine setup. `endpoint_url` and `model_name` are the only two keys you need here:
+they override just those two fields on OmniNode's own committed defaults for `local-coder` and
+`local-heavy-reasoning`, which is why the file can be this short.
+
+**Provider example — bring your own key (for example OpenRouter).** OmniNode's shipped routing
+already declares an OpenRouter rung as one of the cloud tiers it escalates to when your local
+answer doesn't clear the quality bar; you do not add it to the overlay file yourself. What you
+supply is your own key, as an environment variable, following the convention
+`llm.<provider>.api_key` → `LLM_<PROVIDER>_API_KEY` — for OpenRouter:
+
+```bash
+export LLM_OPENROUTER_API_KEY="<your own OpenRouter key>"
+```
+
+**A cloud key alone is not enough to delegate.** `onex delegate` refuses with the same
+"no local model is declared" error above until at least one local rung is declared in the
+overlay file — the local tier is checked first regardless of which cloud keys you have set.
+Declare your local model as shown above, then a cloud key you provide is used automatically on
+escalation, on its own tier, never charged to OmniNode.
+
+Once the file is in place, delegate for real:
+
+```
+/onex:delegate explain what a calendar app needs
+```
+
+## Run — cloud, for a dashboard-only customer
 
 Create an `onxk_` key in the dashboard, then give it to the CLI through stdin — never put the
 key in a Claude prompt, command argument, or environment variable:
@@ -98,42 +196,19 @@ The CLI, not the plugin, submits over HTTPS. It prints the result and writes
 Keep and report those paths; they are the run evidence. A missing or rejected dashboard key is a
 typed refusal, never a fallback to a direct provider call or to Claude answering the task.
 
-## Run — customer-local
-
-```
-/onex:delegate explain what a calendar app needs
-```
-
-which runs `onex delegate "<prompt>"` under the hood. This is local-first by default: with
-zero Kafka/Postgres configuration, delegation runs the orchestrator in-process against an
-in-memory event bus, with SQLite as the evidence fallback — no external services required to
-try it.
-
-> **Known local-path gap (open as of 2026-08-18).** Even with all three packages
-> installed, `onex delegate` currently fails at startup with
-> `[ONEX_CORE_041_INVALID_CONFIGURATION] DELEGATION_ROUTING_TIERS_PATH is not bound` — there is
-> no packaged template for this config value and no doc explaining what it should point to.
-> Together with the next gap, this means the delegation route is not yet stranger-usable
-> end-to-end even once the packaging gap above is closed.
-
-> **Delegation model/backend selection.** There is currently no documented, public way to
-> declare which model(s) `onex delegate` routes to — `onex delegate --help` has no
-> `--model`/`--backend` flag, `ModelDelegateSkillRequest.backend_id` exists on the wire model
-> but the CLI never populates it, and backend resolution today comes from a secret-store key
-> with no public self-serve onboarding (the file-based fallback is explicitly dev-only and on
-> its way out — don't treat it as a supported config surface). Treat this as an unimplemented
-> feature, not a missing doc; it is tracked in the OmniNode issue tracker.
-
 ---
 
 ## Tier 1 (self-hosted) / Tier 2 (cloud)
 
-The intended composable architecture lets `onex delegate` point at a self-hosted or cloud
-backend via a contract overlay. **As of this writing there is no public documentation of that
-mechanism**; it is tracked in the OmniNode issue tracker. (This section previously described a different, older
-full-ONEX Docker Compose stack — Redpanda + omnimemory + omniintelligence — bundled with the
-`plugins/onex` hooks plugin above. That stack is unrelated to the plugin this file now
-describes; the old instructions were removed rather than left stale.)
+The overlay file documented above (`~/.omninode/delegation/bifrost_overrides.yaml`) is exactly
+this composable mechanism: it adds or overrides backend entries on top of OmniNode's committed
+routing contract, so the same `onex delegate` command reaches a self-hosted model (Tier 1) or,
+by supplying your own provider key as an environment variable, a cloud model you pay for
+directly (Tier 2) — see [Declare your model](#declare-your-model) above for both. (This section
+previously described a different, older full-ONEX Docker Compose stack — Redpanda +
+omnimemory + omniintelligence — bundled with the `plugins/onex` hooks plugin above. That stack
+is unrelated to the plugin this file now describes; the old instructions were removed rather
+than left stale.)
 
 ---
 
@@ -144,7 +219,8 @@ describes; the old instructions were removed rather than left stale.)
 | `onex: command not found` | The `uv tool install`/`pipx` step above hasn't run, or its install bin dir isn't on `PATH`. |
 | `Error: No such command 'delegate'. Did you mean 'gate'?` | Only `omnibase-core` is installed — `omnibase-infra` provides the `delegate` subcommand; both must be in the same environment (see Configure above). |
 | `Error: Unknown node 'node_delegate_skill_orchestrator'` | `omnimarket` is not installed in the same environment as `omnibase-core`; re-run the install command above. |
-| `[ONEX_CORE_041_INVALID_CONFIGURATION] DELEGATION_ROUTING_TIERS_PATH is not bound` | See Known gap 2 above — no packaged template exists yet. |
+| `this install has never minted a tenant identity` | Run `onex local init` once, before your first delegation — see "Run — local" above. |
+| `No local model is declared on this machine` | You have not written `~/.omninode/delegation/bifrost_overrides.yaml` yet, or it declares no endpoint on `local-coder`/`local-heavy-reasoning`. The refusal names the exact file path and a working example line — see [Declare your model](#declare-your-model) above. |
 | `claude plugin install` can't find `onex@omninode-tools` | Marketplace not registered — re-run the `marketplace add` step above; `claude plugin marketplace list` should show `omninode-tools`. |
 
 ---
