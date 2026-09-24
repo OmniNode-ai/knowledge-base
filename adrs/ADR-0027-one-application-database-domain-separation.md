@@ -85,6 +85,34 @@ types, grants, policies, and adapters before workload cutover. Every relation ne
 declared owner and domain. Unclassified or ambiguous relations fail closed and do not
 move, lose protection, or gain runtime access.
 
+## Amendment (2026-09-24): the Tenant domain's schema is `public`
+
+**Decision.** The Tenant domain lives in the application database's `public` schema,
+permanently. No separate schema for tenant relations will be built. The platform
+catalog domain keeps its own schema, which holds the migration ledger. The platform
+internal domain is unchanged.
+
+**Why.** The decision above defines three contract-declared *domains*; it never
+required each domain to be a distinct physical schema. Tenant relations were declared
+against a dedicated tenant schema that was never created on any environment, so every
+one of them lived in `public` behind a logical-to-physical translation. That
+translation was a second source of truth that each consumer had to apply identically
+(grant derivation, SQL emission, the ownership gate), and a consumer that forgot it
+addressed a schema that does not exist. Declaring `public` directly removes the
+translation; the typed topology already resolves `public` to the Tenant domain.
+
+**What does not change.** The controls this ADR requires still apply to every Tenant
+relation: a canonical tenant identifier, forced row-level security, fail-closed read
+and write policies, and tenant-facing roles denied access to the internal schema. The
+domain is still declared in each relation's contract and resolved through the typed
+topology; `public` is simply the schema that topology names for it. A relation whose
+schema the topology does not declare still fails closed.
+
+**Consequences.** Relation declarations, ownership manifests, and the topology's grant
+declarations name `public` for Tenant relations. Moving tenant relations into a
+separate schema later would be a new decision with its own migration and cutover
+evidence, not a completion of this one.
+
 ## Related Pivots
 
 ## Related Doctrine
