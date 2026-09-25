@@ -38,6 +38,10 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   public-repo-hygiene:
     uses: OmniNode-ai/omniclaude/.github/workflows/public-repo-hygiene-reusable.yml@5003030a79b410a0b08337c9f273b53e0db807e3
