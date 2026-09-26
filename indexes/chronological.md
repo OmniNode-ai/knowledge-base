@@ -6,6 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** (guide) — 2026-09-26
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide) — 2026-09-23
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-23
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
