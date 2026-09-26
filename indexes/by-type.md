@@ -319,6 +319,7 @@ Knowledge base artifacts grouped by type.
 - **[Thread Safety in Omnibase Core](guides/onex-threading.md)** — current
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** — draft
 
 ## Reference
 

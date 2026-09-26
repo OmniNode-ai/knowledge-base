@@ -550,6 +550,7 @@ Knowledge base artifacts grouped by topic.
 - **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
 - **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** (guide)
 - **[OmniMemory Environment Variables](reference/omnimemory-environment-variables.md)** (reference)
 
 ## constants
@@ -1613,6 +1614,7 @@ Knowledge base artifacts grouped by topic.
 ## local
 
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Contributor Local Setup](guides/omnibase-infra-contributor-local-setup.md)** (guide)
 
@@ -2871,6 +2873,7 @@ Knowledge base artifacts grouped by topic.
 - **[Channel runtime foundation — core contracts and routing backbone](plans/2026-04-01-channel-runtime-foundation-prerequisites.md)** (plan)
 - **[Fix onex run-node to publish to contract-declared topics](plans/2026-05-02-run-node-contract-topic-resolution.md)** (plan)
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** (guide)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 - **[OmniMemory Runtime Plugin System](reference/omnimemory-runtime-plugins.md)** (reference)
@@ -2945,6 +2948,7 @@ Knowledge base artifacts grouped by topic.
 ## self-hosting
 
 - **[Combining Deployment Tiers](guides/combining-deployment-tiers.md)** (guide)
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** (guide)
 - **[Getting Started: Self-Hosting the Full Stack](guides/getting-started-self-hosted.md)** (guide)
 
 ## semantics
