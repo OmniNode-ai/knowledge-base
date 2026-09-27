@@ -142,7 +142,7 @@ Key: `(repository, pr_number)`. The row carries:
 | COMPANION_OPEN | companion open, stamp on the product body, companion armed | companion merged, conflicting, or closed unmerged; draft or hold (F3) |
 | CHECKS_PENDING | companion merged or not required; waiting for check results | head check verdict; draft or hold (F3) |
 | READY | every required context green, not held, not draft | arm or enqueue confirmed; draft or hold (F3) |
-| ARMED | auto-merge armed or enqueued | merged, disarmed, hold applied, new head |
+| ARMED | auto-merge armed or enqueued | merged, disarmed, draft or hold (disarms, to PARKED), new head |
 | NEEDS_AGENT | real red, declined companion, budget spent or stalled; one agent-needed event per (head, reason) | new head; ready_for_review or hold lifted re-evaluates (R2c). A draft or hold here disarms without leaving (F3) |
 | MERGED | terminal, final | none |
 | CLOSED | terminal for this episode | reopened or any newer snapshot, back to OBSERVED in a new episode (F10, G5) |
@@ -185,7 +185,8 @@ Rows marked in the last column are new or changed by this revision.
 | CHECKS_PENDING | verdict product_failed, or any budget spent | NEEDS_AGENT | agent_needed(real_red, checks) | |
 | CHECKS_PENDING | verdict pending | CHECKS_PENDING | github.read_head_checks after the state's poll interval | |
 | READY | armed confirmed | ARMED | none | |
-| ARMED | disarmed, or hold applied | PARKED or CHECKS_PENDING | disarm on hold | |
+| ARMED | disarmed | CHECKS_PENDING | none | |
+| ARMED | draft or hold at the row's head, newer by the ordering key | PARKED | disarm | F3 |
 | any non-terminal | merged | MERGED | terminal pr-landing-merged, keyed (PR, episode), carrying `seq` | F9, F10 |
 | any non-terminal | closed, newer by the ordering key | CLOSED | terminal pr-landing-closed, keyed (PR, episode), carrying `seq` | F2, F9, F10 |
 | CLOSED | reopened, or any snapshot newer by the ordering key | OBSERVED, `episode` + 1 | disarm if armed when the snapshot's head differs from `head_sha` (the new-head rule, R4) | F10, G5, R4 |
