@@ -359,6 +359,7 @@ Knowledge base artifacts grouped by topic.
 ## change-control
 
 - **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 
 ## channels
 
@@ -840,6 +841,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture)
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 
 ## dev-lane
 
@@ -1248,6 +1250,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0005: Dispatch Lifecycle Canonical Source](adrs/ADR-0005-dispatch-lifecycle-canonical.md)** (adr)
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 
 ## fsm-snapshots
 
@@ -1675,6 +1678,10 @@ Knowledge base artifacts grouped by topic.
 ## memory-storage
 
 - **[OmniMemory PII Handling](guides/omnimemory-pii-handling.md)** (guide)
+
+## merge
+
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 
 ## merge-gates
 
@@ -2472,6 +2479,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook)
 
+## pr-lifecycle
+
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+
 ## practices
 
 - **[Pydantic Best Practices](guides/omnibase-infra-pydantic-best-practices.md)** (guide)
@@ -2522,6 +2533,7 @@ Knowledge base artifacts grouped by topic.
 - **[OmniMarket Projection API Materialization](architecture/omnimarket-projection-api-materialization.md)** (architecture)
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## projection-authority
@@ -3445,6 +3457,7 @@ Knowledge base artifacts grouped by topic.
 - **[REGISTRATION WORKFLOW](architecture/registration-workflow.md)** (architecture)
 - **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
 - **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** (plan)
+- **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 - **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** (guide)
 
 ## workflow-state
