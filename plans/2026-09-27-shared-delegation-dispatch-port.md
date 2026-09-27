@@ -18,10 +18,89 @@ catches a mismatch between the two repos by reading one repo's live source tree 
 other's commit hook with a provider-local conformance check plus a consumer-side check. Neither
 replacement reads a sibling clone.
 
-The compat model shim's deletion is covered in this plan as Task F. It is an explicit core
-implementation and core release, then consumer pin updates, then the compat deletion and release.
+The protocol and both models are born in the core package, in one core release. No part of this
+plan places them in the shared structural package below core, and there is no shim to delete later.
 
-## Revision note
+## Revision notes
+
+### Revision 3: the protocol is generic; isinstance cannot prove conformance
+
+Revision 2's Task A gave the protocol a fixed signature,
+`async def dispatch(request: ModelDelegationDispatchRequest) -> ModelDelegationDispatchResult`,
+which makes the protocol module itself import both models. That is a new
+`omnibase_core.protocols -> omnibase_core.models` edge. Core's import-layering growth ratchet
+(`scripts/ci/check_import_ratchet.py`) freezes that edge family non-increasing, and the live count
+read on `dev` on 2026-09-27 is 65 of the frozen ceiling `FROZEN_PROTOCOLS_MODELS_MAX = 65`: the set
+may only shrink, and there is zero headroom for a new edge. Task A's protocol as revision 2
+specified it cannot land; it would report 66 and hard-fail CI.
+
+A second, independent finding: the failing-test description for Task A's protocol module
+(revisions 1 and 2) named an `isinstance` check against the `@runtime_checkable` protocol as part
+of the negative control for a keyword-only stub. `isinstance` against a `runtime_checkable`
+`Protocol` checks only that the named methods exist as attributes; it does not inspect parameter
+names, positional-vs-keyword-only-ness, defaults or the return annotation. A keyword-only
+`dispatch(self, *, request)` stub still has an attribute named `dispatch` and passes `isinstance`
+unchanged. That check was never going to reject the case it was written to reject.
+
+What changed:
+
+1. **The protocol is generic.** `ProtocolDelegationDispatchPort` becomes a `Protocol[RequestT,
+   ResultT]` over two `TypeVar`s bound to `pydantic.BaseModel`, with one method
+   `async def dispatch(self, request: RequestT) -> ResultT`. The protocol module imports nothing
+   from `omnibase_core.models`, so it adds no edge to the frozen family at all; the ratchet's count
+   stays at 65 regardless of this change. The layering-exception entry Task A still writes covers
+   only the protocol's own core residency (the existing precedent for a core-resident protocol,
+   unrelated to the ratchet), not a new model dependency.
+2. **The two concrete models bind the generic at each site that declares or checks a port, never
+   inside the protocol module.** A `Protocol` needs no inheritance to be satisfied: giving
+   `dispatch` the exact concrete signature `(request: ModelDelegationDispatchRequest) ->
+   ModelDelegationDispatchResult` already satisfies
+   `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`
+   structurally. Task C's provider and consumer implementations bind it this way. Every annotation
+   that names the port as a type — the injected `dispatch_port` parameter in `handler_wiring.py`,
+   the consumer's `select_delegation_dispatch_port` return type, and the field on
+   `HandlerDelegateSkill` — spells the bound form. Those modules import both the protocol and the
+   models from core already, from infra and omnimarket, outside the ratchet's scope: the ratchet
+   only tracks edges inside `omnibase_core` itself.
+3. **Conformance is proven by `mypy --strict` on a generated module, never `isinstance`.** Task A's
+   and Task D1's tests each generate a small module at test time with two stubs assigned to the
+   bound protocol type: one with the concrete positional signature (must pass `mypy --strict`) and
+   one with the old keyword-only signature (must fail it). Both tests assert on `mypy`'s exit code
+   and error output, not on a runtime `isinstance` result. `isinstance` is not used anywhere in this
+   plan as a conformance proof.
+4. **Task A's acceptance criteria gain a ratchet check.** `check_import_ratchet.py` run on the PR
+   branch must report the same 65 `protocols_to_models` edges as `main`; reverting the protocol to
+   the fixed, model-importing signature is the negative control and must make it report 66 and
+   hard-fail.
+
+### Revision 2: core first
+
+The open premise that blocked Task A in revision 1 is settled: the request and result models are
+born in core, next to the protocol. The reason is structural. The request model must carry a
+`provenance` field typed with core's `ModelDelegationProvenance`, the structural package below core
+is forbidden from importing core, and core has no runtime dependency on that package today. A home
+below core could only type the field by holding a third copy of the provenance model.
+
+What changed:
+
+1. **Task A now creates the protocol and both models in core,** plus the layering-exception entry,
+   in one core release. Revision 1's Task B (the protocol alone) is folded into Task A, and the
+   letter B is retired, so that Tasks C, D and E keep their letters.
+2. **Every compat step is deleted:** the compat module and its retention annotations, core's
+   re-export of it, the new core-to-compat dependency and its upper bound, and all of Task F (the
+   graduation into core, the consumer pin updates for it, the compat deletion release, and the
+   installed-release import matrix).
+3. **The install matrix is dropped rather than rescoped.** Its subject was the compat seam: a core
+   release that re-exports a module a later compat release deletes. Without compat, every remaining
+   cross-release fact already has a test that runs on a real lock. The consumer's provider floor
+   and the provider's request shape are checked by D2 on the consumer's lock. The provider's
+   conformance to the protocol is checked by D1 on the provider's lock. The one mixed-version
+   window that ships (a new provider with the previous consumer) is exercised in the C3 lab step.
+   A matrix over core, provider and consumer releases would re-run those same assertions and test
+   nothing new.
+4. **The release chain is re-checked end to end** below. It is now six steps, down from eleven.
+
+### Revision 1: review findings
 
 A review of the first version of this plan found three gaps, each verified against the live source
 before this revision:
@@ -31,21 +110,16 @@ before this revision:
    arguments today, so a `dispatch(request)` call site breaks the two that were left out with a
    `TypeError`. Task C now migrates all three, including their result conversion, and tests each
    path.
-2. Task F deleted the compat models without ever giving them their permanent home. The design said
-   the bodies move into core. Task F only repointed imports and deleted the compat module, which
-   core's own re-export from Task A still imports. Task F is now a core implementation and release,
-   then consumer pin updates, then the compat deletion. Its acceptance imports from installed
-   release combinations instead of running a grep, and a negative control proves that the check
-   fails when a model is missing.
+2. Task F deleted the compat models without giving them their permanent home. Revision 2 removes
+   the problem at its source: the models never live anywhere but core.
 3. Task D removed the provider-side check and replaced it only with consumer CI, which runs
    against a locked, already-published provider release. A provider regression could therefore
    ship before anything caught it. Task D now keeps a provider-local conformance check against the
    shared protocol alongside the consumer check.
 
-Re-checking the release chain with these changes surfaced two ordering constraints that the first
-version missed. They are recorded under "Release chain and dependency order": the provider's
-parity gate has to be replaced before the consumer deletes its protocol copy, and consumers have to
-import the models from the core path from the start.
+Re-checking the release chain surfaced an ordering constraint that the first version missed: the
+provider's parity gate has to be replaced before the consumer deletes its protocol copy. It is
+recorded under "Release chain and dependency order".
 
 ## Existing-asset inventory
 
@@ -56,7 +130,7 @@ Paths and line numbers were read at the `dev` heads of each repo on 2026-09-27.
 | `ProtocolDelegationDispatchPort` (consumer copy) | omnimarket `src/omnimarket/nodes/node_delegate_skill_orchestrator/handlers/handler_delegate_skill.py` (class at line 83) | keyword-only `dispatch(*, prompt, task_type, ..., no_escalation=False) -> dict[str, object]` | delete (Task C2) |
 | the dispatch call site | same file, `HandlerDelegateSkill`, the call at line 952 | 19 explicit keyword arguments plus `**_no_escalation_dispatch_kwargs(request)` (helper at lines 145-163) | rewrite to build the request model (Task C2) |
 | result conversion | same file, `_response_from_result` (line 620) and the cost/token/attempt helpers (lines 352-600) | read about 40 keys from an untyped `dict[str, object]`, several under two legacy names | retype to the result model (Task C2) |
-| port selection | omnimarket `.../node_delegate_skill_orchestrator/ports/port_selection.py`, `select_delegation_dispatch_port` | `None` or in-memory bus: `LocalDelegationDispatchPort`. Any other bus: omnimarket's own `RuntimeDelegationDispatchPort`. A constructor-injected port bypasses selection | reuse unchanged |
+| port selection | omnimarket `.../node_delegate_skill_orchestrator/ports/port_selection.py`, `select_delegation_dispatch_port` | `None` or in-memory bus: `LocalDelegationDispatchPort`. Any other bus: omnimarket's own `RuntimeDelegationDispatchPort`. A constructor-injected port bypasses selection | logic unchanged; return type retyped to the bound generic (Task C2) |
 | implementation 1, local | omnimarket `.../ports/port_local_delegation_dispatch.py`, `LocalDelegationDispatchPort.dispatch` (line 970) | keyword-only, returns `dict[str, object]` | migrate (Task C2) |
 | implementation 2, market bus | omnimarket `.../ports/port_runtime_delegation_dispatch.py`, `RuntimeDelegationDispatchPort.dispatch` (line 82). Also constructed by `src/omnimarket/adapters/codex/local_runtime_dispatch.py` | keyword-only, returns `dict[str, object]` | migrate (Task C2) |
 | implementation 3, injected infra | omnibase_infra `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`, `RuntimeDelegationDispatchPort.dispatch` (line 255). The runtime injects it into the consumer handler as `dispatch_port` in `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` (line 8743) | keyword-only, carries an extra `output_schema_key` keyword the consumer never sends, returns `dict[str, object]` | migrate (Task C1) |
@@ -65,32 +139,17 @@ Paths and line numbers were read at the `dev` heads of each repo on 2026-09-27.
 | parity test module | omnibase_infra `tests/integration/runtime/test_delegation_dispatch_port_consumer_kwarg_parity.py` | parses the consumer's protocol and call site with `ast`. Marker `cross_repo_consumer` (registered in `pyproject.toml` line 524, deselected in `ci.yml` lines 2447/2478) | delete (Task D1) |
 | parity CI workflow | omnibase_infra `.github/workflows/delegation-consumer-kwarg-parity.yml` | sparse-checks-out the consumer handler from the consumer repo's live `dev` branch on every PR. Context `consumer-kwarg-parity` is required through `scripts/ci/ci_summary_gate.py` (lines 486, 728) and routed in `config/runner_routing_policy.yaml` (line 1063) | delete together with both registrations (Task D1) |
 | handler-compat test | omnibase_infra `tests/integration/runtime/test_delegation_dispatch_port_handler_compat.py` | drives the provider port only, reads no consumer source | keep, retarget to the request shape (Task C1) |
-| provenance model | omnibase_core `src/omnibase_core/models/delegation/wire/model_delegation_provenance.py`, `ModelDelegationProvenance` | typed field of every dispatch today | reuse. See "Open premise" |
-| core's dependency on compat | omnibase_core `pyproject.toml` `[project] dependencies` | **none.** Every `omnibase_compat` mention under `src/omnibase_core` is a comment about an earlier graduation, and core's compat parity tests use `importorskip` on an optional extra | Task A adds the edge and Task F1 removes it |
-| compat retention convention | omnibase_compat `scripts/check_compat_retention.py` | requires `COMPAT_MIGRATION_TARGET` and `COMPAT_REMOVAL_DATE` on class-defining modules | reuse |
-| core-resident protocol precedent | a documented layering exception for a protocol that core's own code must import directly | exists | reuse as the pattern for this protocol's exception entry |
+| provenance model | omnibase_core `src/omnibase_core/models/delegation/wire/model_delegation_provenance.py`, `ModelDelegationProvenance` | typed field of every dispatch today | reuse as the request's `provenance` field type (Task A) |
+| delegation wire package | omnibase_core `src/omnibase_core/models/delegation/wire/` and its `__init__.py` | holds the canonical delegation wire models, including the provenance model | home of the two new models (Task A) |
+| core runtime protocol package | omnibase_core `src/omnibase_core/protocols/runtime/` and its `__init__.py`, tests under `tests/unit/protocols/runtime/` | holds the core-resident runtime protocols | home of the new protocol (Task A) |
+| core's dependency on compat | omnibase_core `pyproject.toml` `[project] dependencies` | **none,** and this plan keeps it that way | unchanged |
+| core-resident protocol precedent | a documented layering exception for a protocol that core's own code must import directly | exists | reuse as the pattern for this protocol's exception entry (Task A) |
 
 ## Out of scope
 
 - Retrying already-failed delegations, and any change to the attempt-ladder or escalation logic.
 - Any change to production delegation behavior. This is a structural and type-sharing fix.
-- The compat package's eventual full retirement, beyond this one shim.
-
-## Open premise (blocks Task A)
-
-The request model has to carry `provenance: ModelDelegationProvenance | None`, and that type lives
-in omnibase_core. omnibase_compat is forbidden from importing core, so a compat-homed request model
-cannot type that field as written. The current ruling places the models in compat, and this plan
-follows it. Task A does not start until an operator ruling settles one of these two options:
-
-- **(a)** The models are born in core next to the protocol. They ship in the same core release
-  Task B already needs. Task A shrinks to core only, and Task F has nothing left to do.
-- **(b)** compat carries its own copy of the provenance model, which must then be kept equal to
-  core's. That is a third copy of exactly the kind of definition this plan exists to remove.
-
-Everything after Task A is written for the ruling as it stands. Under (a), Task F is dropped and
-core's re-export becomes the definition itself. Nothing else in the chain changes, because every
-consumer already imports from core's path.
+- Any change to the shared structural package below core. Nothing in this plan touches it.
 
 ## Design
 
@@ -107,20 +166,18 @@ consumer already imports from core's path.
    - `baseline_model` to `model_cloud_baseline`
    - `quality_passed` to `quality_gate_passed`
    - `prompt_tokens` and `completion_tokens` to `input_tokens` and `output_tokens`
-2. **Model's home, now.** The shared structural package below core, as a declared temporary shim
-   carrying the package's migration-target and removal-date annotations. This depends on the open
-   premise above.
-2a. **Core also gets the permanent import path now.** Core re-exports the two models in the same
-   change as Task A, so one model body has two import paths. Core has no runtime dependency on the
-   compat package today, so this change adds `omnibase-compat` to core's `[project] dependencies`.
-   The pin has an upper bound that excludes the future compat release which deletes the shim
-   (Task F3), so no resolver can ever pair this core release with a compat release that lacks the
-   module it imports. **Every consumer imports the models from the core path from its first
-   adoption (Task C).** No consumer ever imports the compat path, so Task F never has a window in
-   which two repos hold two different classes.
-3. **Protocol's home, now.** The core package, under one documented, named layering exception,
-   because the validators that must use this protocol live in core and core cannot depend on the
-   interface layer above it. The protocol is the single definition that all three implementations
+2. **Models' home: core, from the start.** Both models live in core's delegation wire package,
+   next to the provenance model that the request types its `provenance` field with. There is one
+   definition and one import path. Every consumer imports the models from core from its first
+   adoption (Task C), so no second class ever exists in any repo. Core gains no new dependency.
+3. **Protocol's home: core, in the same release.** The core package, under one documented, named
+   layering exception, because the validators that must use this protocol live in core and core
+   cannot depend on the interface layer above it. The protocol is generic over the request and
+   result types (`Protocol[RequestT, ResultT]`), so its own module carries no edge into
+   `omnibase_core.models` and adds nothing to the import-layering growth ratchet
+   (`scripts/ci/check_import_ratchet.py`, frozen at 65 of 65 `protocols_to_models` edges). Each
+   implementation binds it to the concrete request and result models where it declares or checks a
+   port; the protocol itself is the single generic definition that all three implementations, bound,
    satisfy.
 4. **Validators.** The validation engine and validators live in core. Each repo runs them against
    only its own source tree and its own locked, installed dependencies. None of them reads a
@@ -129,7 +186,7 @@ consumer already imports from core's path.
    - **Provider side.** A conformance check local to the provider repo asserts that the provider's
      implementation satisfies the shared protocol, which it imports from its own locked core
      release. It runs in the provider's ordinary CI test split on every PR, and as a pre-commit hook
-     scoped by `files:` to the implementation, its wiring, the models and the dependency manifests.
+     scoped by `files:` to the implementation, its wiring and the dependency manifests.
      It is never `always_run` and never reads a sibling clone. It catches a provider-side
      regression in the provider's own PR, before that release is published.
    - **Consumer side.** A test in the consumer repo drives the consumer handler with the provider's
@@ -139,92 +196,109 @@ consumer already imports from core's path.
    read a sibling repo's live source tree. A same-repo check gets scoped to the files it protects.
    A cross-repo check moves to a job owned by the repo that introduces the change, running against
    locked dependencies.
-7. **Graduation, as its own follow-on.** Move the model bodies into core, so that core stops
-   importing compat and drops the dependency, and release core. Bump every consumer's core floor to
-   that release, then delete the compat copy and release compat. The order matters because each
-   step is only safe once the one before it is installed everywhere (Task F).
 
 ## Release chain and dependency order
 
 The chain is written as releases, because every seam below crosses a published package boundary.
 R-names are placeholders for the concrete version each release step records.
 
-1. **compat R-compat-1** (Task A1): the two models. Blocked on the open premise.
-2. **core R-core-1** (Tasks A2 and B): the protocol, the model re-export, the new compat dependency
-   (`>=R-compat-1`, upper bound below R-compat-2), and the layering-exception entry.
-3. **infra R-infra-1** (Tasks C1 and D1, one PR or two PRs with D1 merged first). The provider:
-   - pins R-core-1, which brings R-compat-1 transitively
+1. **core R-core-1** (Task A): the protocol, both models and the layering-exception entry. Core's
+   dependencies are unchanged.
+2. **infra R-infra-1** (Tasks C1 and D1, one PR or two PRs with D1 merged first). The provider:
+   - raises its core floor to `>=R-core-1`
    - adds the request path to its implementation, keeping a transition window for the old keyword
      call
    - deletes its own protocol copy
    - replaces the parity hook, test module and workflow with the provider-local conformance check
+
    **D1 must merge in the provider before C2 merges in the consumer.** The parity workflow reads
    the consumer's live `dev` branch and fails closed when the consumer's protocol class is absent.
    C2 deletes that class, so from then on every provider PR would go red on a required context.
-4. **omnimarket R-market-1** (Tasks C2 and D2): the consumer pins provider `>=R-infra-1` and core
-   `>=R-core-1`. The handler and both consumer-side implementations switch to
+3. **omnimarket R-market-1** (Tasks C2 and D2): the consumer raises its floors to provider
+   `>=R-infra-1` and core `>=R-core-1`. The handler and both consumer-side implementations switch to
    `dispatch(request)`, the consumer's protocol copy is deleted, and the consumer-side test is
    added. The `>=R-infra-1` floor guarantees that the injected provider accepts the request shape.
-5. **Lab step** (Task C3): a runtime image carrying R-infra-1 and R-market-1, with all three paths
+4. **Lab step** (Task C3): a runtime image carrying R-infra-1 and R-market-1, with all three paths
    exercised, plus the mixed-version window check.
-6. **infra R-infra-2** (Task C4): the provider's transition window closes. This happens only once
+5. **infra R-infra-2** (Task C4): the provider's transition window closes. This happens only once
    the runtime image's lock resolves the consumer at `>=R-market-1`.
-7. **Task E** starts after D1 and D2 have both run green on real PRs, once each.
-8. **core R-core-2** (Task F1): the bodies move into core, core stops importing compat and drops the
-   dependency.
-9. **infra R-infra-3 and omnimarket R-market-2** (Task F2): core floors are bumped to `>=R-core-2`.
-   These are pin changes only, because the import paths were already core paths from step 3.
-10. **compat R-compat-2** (Task F3): the shim is deleted.
-11. **Install matrix** (Task F4): the acceptance check over the released combinations.
+6. **Task E** starts after D1 and D2 have both run green on real PRs, once each.
 
 Hard edges:
 
-- 1 before 2, because the re-export imports the compat module.
-- 2 before 3 and 4.
+- 1 before 2 and 3, because both import the protocol and models from core's path.
+- 2 before 3, because of the consumer's provider floor.
 - D1 merged before C2 merged.
-- 3 before 4, because of the consumer's provider floor.
-- 4 before 5 before 6.
-- 8 before 9 before 10 before 11.
-- F1 can start once 4 is released, because no consumer imports the compat path. It does not wait
-  for 5-7.
+- 3 before 4 before 5.
+
+Checked end to end, each release installs from the package index against only releases published
+before it. Core depends on nothing new. The provider's core floor names R-core-1, which step 1
+publishes. The consumer's provider floor names R-infra-1, which step 2 publishes, and R-infra-1's
+own core floor is satisfied by the consumer's core floor. No step needs a later release to resolve,
+and the provider and consumer lock files already pin core within a shared range, so raising both
+floors to R-core-1 keeps them co-resolvable.
 
 ## Tasks
 
-### Task A — the shared request/result models, plus the core re-export
-- Blocked on the open premise.
+### Task A — the protocol and the request/result models, in core
+- Repo: omnibase_core, one PR, released as R-core-1.
 - Files:
-  - A1 (compat): a new module under `src/omnibase_compat/contracts/delegation/` carrying the
-    request and result models, each with the `COMPAT_MIGRATION_TARGET` and `COMPAT_REMOVAL_DATE`
-    annotations
-  - A2 (core): a re-export module under `src/omnibase_core/models/delegation/`, plus the
-    `omnibase-compat` dependency line in core's `pyproject.toml` with the bounded range from
-    design step 2a
-- Failing test first: a core test that imports both names from the core path and asserts that they
-  are the same objects as the compat definitions (`is`). It fails until the re-export exists. A
-  compat test constructs a request carrying every field the call site sends today and asserts
-  their defaults. The field list comes from the consumer's dispatch call at line 952 plus the
-  provider's `output_schema_key`.
-- Minimal change: the models and the re-export only. No implementation changes yet.
-- Focused test: compat's unit suite plus `scripts/check_compat_retention.py`, and core's unit suite
-  scoped to the re-export module.
-- Lab step: none. This is a structural change. A release build and an install check stand in for a
-  lab pass.
-- Acceptance -- falsifier: `check_compat_retention.py` exits 0. R-compat-1 and R-core-1 are
-  published. In a fresh venv holding only R-core-1 installed from the package index, importing
-  `ModelDelegationDispatchRequest` and `ModelDelegationDispatchResult` from core's path succeeds,
-  and `uv pip show omnibase-compat` in that venv reports R-compat-1.
-
-### Task B — the protocol in core, plus the layering exception
-- Files: a new protocol module in core. It types `dispatch(request) -> result` against the models
-  from Task A's core path. The change also adds one entry to the layering-exceptions document.
-- Failing test first: a core test that imports the protocol and asserts that a minimal conforming
-  stub satisfies it, while a stub with a keyword-only signature does not. The test uses a mypy
-  structural assignment in a typed test module, so `mypy --strict` enforces it.
-- Minimal change: the protocol only.
-- Focused test: core's unit suite scoped to the new module, plus `mypy --strict` over it.
-- Lab step: none.
-- Acceptance -- falsifier: R-core-1 carries the protocol, and the negative stub makes the typed test
-  module fail `mypy --strict`.
+  - `src/omnibase_core/models/delegation/wire/model_delegation_dispatch_request.py`:
+    `ModelDelegationDispatchRequest`. Its fields are every argument the consumer's dispatch call
+    sends today (the call at line 952 of the consumer handler, including `no_escalation` from the
+    helper at lines 145-163), plus the provider's `output_schema_key`. Every option is a defaulted
+    field. `provenance` is typed `ModelDelegationProvenance | None`, imported from the same
+    package.
+  - `src/omnibase_core/models/delegation/wire/model_delegation_dispatch_result.py`:
+    `ModelDelegationDispatchResult`. Its fields are the union of the keys the consumer handler
+    reads today, with one canonical field per legacy alias pair from design step 1.
+  - `src/omnibase_core/models/delegation/wire/__init__.py`: export both models.
+  - `src/omnibase_core/protocols/runtime/protocol_delegation_dispatch_port.py`:
+    `ProtocolDelegationDispatchPort(Protocol[RequestT, ResultT])`, `@runtime_checkable`, with two
+    `TypeVar`s bound to `pydantic.BaseModel` and one method
+    `async def dispatch(self, request: RequestT) -> ResultT`. It is async because the consumer
+    handler awaits every implementation today, inside `asyncio.wait_for`. The module imports
+    nothing from `omnibase_core.models`: the two concrete models are named only at each bind site
+    (Tasks C1, C2, D1, D2), never here, so this file adds no
+    `omnibase_core.protocols -> omnibase_core.models` edge to the frozen ratchet.
+  - `src/omnibase_core/protocols/runtime/__init__.py`: export the protocol and its two `TypeVar`s.
+  - one new entry in the layering-exceptions document, naming this protocol module and following
+    the existing core-resident runtime protocol precedent
+- Failing tests first:
+  - `tests/unit/models/delegation/wire/test_model_delegation_dispatch_request.py`: constructs a
+    request carrying every field the call site sends today and asserts each default, including
+    `no_escalation` false and `provenance` None. A second case asserts that an unknown field is
+    rejected.
+  - `tests/unit/models/delegation/wire/test_model_delegation_dispatch_result.py`: validates a
+    result from a representative provider payload and asserts the canonical fields.
+  - `tests/unit/protocols/runtime/test_protocol_delegation_dispatch_port.py`: generates a module at
+    test time with two stubs, each assigned to the bound type
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
+    A stub with the concrete positional `dispatch(self, request)` signature must pass
+    `mypy --strict` on the generated module; a stub with the old keyword-only
+    `dispatch(self, *, request)` signature must fail it. The test asserts on `mypy`'s exit code,
+    never on `isinstance`: `isinstance` against a `runtime_checkable` protocol only checks that a
+    `dispatch` attribute exists, not its signature, so it passes the keyword-only stub too and
+    cannot serve as a negative control.
+  All three fail until the modules exist.
+- Minimal change: the two models, the protocol and the exception entry. No implementation changes.
+  Core's `pyproject.toml` dependencies are not touched.
+- Focused test: the three new test modules, plus `mypy --strict` over the three new source modules.
+- Lab step: none. This is a structural change, and core is released on green `dev` CI. A release
+  build and an install check stand in for a lab pass.
+- Release step: cut R-core-1 from core's `dev` through the release train, and record the version in
+  the Task A ticket.
+- Acceptance -- falsifier:
+  - R-core-1 is published.
+  - In a fresh venv holding only R-core-1 installed from the package index, this import succeeds:
+    `from omnibase_core.models.delegation.wire import ModelDelegationDispatchRequest, ModelDelegationDispatchResult`
+    and `from omnibase_core.protocols.runtime import ProtocolDelegationDispatchPort`.
+  - `uv pip show omnibase-core` in that venv lists no `omnibase-compat` requirement.
+  - The negative stub in the protocol test makes the generated module fail `mypy --strict`.
+  - `uv run python scripts/ci/check_import_ratchet.py` on this PR's branch reports 65
+    `protocols_to_models` edges, the same count as `main`. The negative control: reverting the
+    protocol module to import `ModelDelegationDispatchRequest` or `ModelDelegationDispatchResult`
+    directly makes it report 66 and hard-fail.
 
 ### Task C — migrate all three implementations and the call site to `dispatch(request)`
 
@@ -232,13 +306,19 @@ Hard edges:
 - Files:
   - `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`: `dispatch` takes `request` as
     its first positional parameter and returns the result model, normalizing the legacy alias keys
-    from design step 1 into canonical fields.
+    from design step 1 into canonical fields. This concrete signature —
+    `request: ModelDelegationDispatchRequest`, returning `ModelDelegationDispatchResult` — is what
+    binds the class to `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest,
+    ModelDelegationDispatchResult]`; the class writes no explicit generic argument and needs no
+    inheritance from the protocol.
   - Transition window: when `request` is absent, the old keyword-only call is still accepted and
     still returns the old dict, because the deployed consumer is one release behind by
     construction. Passing both a request and keywords, or neither, raises `TypeError`.
   - `src/omnibase_infra/runtime/protocols/protocol_delegation_dispatch_port.py` is deleted, and
     every importer switches to core's protocol.
-  - `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` is unchanged apart from the import.
+  - `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` is unchanged apart from the import
+    and the injected `dispatch_port` parameter's type annotation, which spells the bound generic:
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
   - `tests/integration/runtime/test_delegation_dispatch_port_handler_compat.py` is retargeted to
     the request shape.
   - Every provider test that calls the port's `dispatch` directly moves to the request shape.
@@ -259,10 +339,17 @@ Hard edges:
   - `handlers/handler_delegate_skill.py`: delete the protocol copy (line 83) and the
     `_NoEscalationDispatchKwargs` helper. The call at line 952 builds one request from the incoming
     skill request. `_response_from_result` and its helpers take the result model instead of a dict.
+    The handler's `dispatch_port` field is annotated with the bound generic,
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
   - `ports/port_local_delegation_dispatch.py`: `LocalDelegationDispatchPort.dispatch(request)`
-    returns the result model.
+    returns the result model. Its concrete signature is what binds it to the generic; same for
+    `port_runtime_delegation_dispatch.py` below.
   - `ports/port_runtime_delegation_dispatch.py`: the consumer's own
     `RuntimeDelegationDispatchPort.dispatch(request)` returns the result model.
+  - `ports/port_selection.py`: `select_delegation_dispatch_port`'s return type becomes the bound
+    generic, `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest,
+    ModelDelegationDispatchResult]`, so every caller's static type already names the concrete
+    request and result.
   - Both consumer implementations convert their current dict into the result model inside the
     port. They carry no transition window, because they ship in the same wheel as the handler that
     calls them.
@@ -318,13 +405,18 @@ the runtime image lock names the consumer at `>=R-market-1`.
     that no longer reports wedges the summary gate
   - the `cross_repo_consumer` marker and its two `ci.yml` deselections, if nothing else uses them
 - Add `tests/unit/runtime/test_delegation_dispatch_port_conforms_to_shared_protocol.py`. It imports
-  the shared protocol and models from the provider's locked core release and asserts all of the
-  following:
-  - `RuntimeDelegationDispatchPort` satisfies the protocol under a `mypy --strict` structural
-    assignment
-  - its `dispatch` parameters and return annotation equal the protocol's under `inspect.signature`
+  the shared generic protocol and both concrete models from the provider's locked core release and
+  asserts all of the following against the bound type
+  `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`:
+  - `RuntimeDelegationDispatchPort` is assignable to that bound type, checked by generating a small
+    module at test time and running `mypy --strict` on it — the same mechanism Task A's protocol
+    test uses, never `isinstance`, which only checks that a `dispatch` attribute exists and cannot
+    see its signature
+  - its `dispatch` parameters and return annotation equal the bound type's under
+    `inspect.signature`, as a second, independent signal that does not by itself gate the test
   - a real `dispatch(request)` over the in-memory transport returns the result model
-  - a negative-control stub with a keyword-only `dispatch` fails the same helper
+  - a negative-control stub with the old keyword-only `dispatch` fails the `mypy --strict` check
+    above — this is the check that actually rejects it
 - Add a pre-commit hook `onex-delegation-dispatch-provider-conformance` running that module, with
   `files:` scoped to:
   - `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`
@@ -333,7 +425,7 @@ the runtime image lock names the consumer at `>=R-market-1`.
   - `pyproject.toml`
   - `uv.lock`
 
-  The last two catch a core or compat bump that changes the protocol or the models. The hook has no
+  The last two catch a core bump that changes the protocol or the models. The hook has no
   `always_run` and reads nothing outside the provider's tree and installed environment.
 - The module carries no deselecting marker, so it runs in the provider's ordinary CI split on every
   PR. That is where the unconditional enforcement lives.
@@ -369,58 +461,6 @@ the runtime image lock names the consumer at `>=R-market-1`.
 - Acceptance -- falsifier: every listed hook's entry carries a `files:` pattern and no `always_run`,
   and no hook entry references a sibling-clone path or environment variable.
 
-### Task F — graduate the models into core, then delete the compat copy
-
-Task F cannot start before R-market-1, the first release in which no consumer imports the compat
-path. Under open-premise option (a), Task F is dropped.
-
-**F1 — core implementation and release (R-core-2).** Move the two model bodies into core's module
-from A2, where they are defined in place rather than re-exported. Remove every
-`omnibase_compat` import from core and the `omnibase-compat` line from core's `pyproject.toml`.
-- Failing test first: a core test asserting that
-  `ModelDelegationDispatchRequest.__module__` and `ModelDelegationDispatchResult.__module__` start
-  with `omnibase_core.`, and that importing core's delegation package with `omnibase_compat`
-  blocked from `sys.modules` still succeeds. It fails while the re-export stands.
-- Acceptance -- falsifier: that test passes on R-core-2, and `uv pip show omnibase-core` for R-core-2
-  lists no `omnibase-compat` requirement.
-
-**F2 — consumer pin updates (R-infra-3, R-market-2).** Raise the core floor to `>=R-core-2` in the
-provider and consumer `pyproject.toml` files and locks. Drop the direct compat pin wherever it
-existed only for these models. There are no import-path edits, because C1 and C2 already use the
-core path.
-- Acceptance -- falsifier: each repo's lock resolves core at `>=R-core-2`, and the C2 three-path
-  module and the D1 and D2 conformance modules pass on those locks.
-
-**F3 — compat deletion and release (R-compat-2).** Delete the shim module and record the deletion
-in compat's release notes. R-compat-2 is a minor bump, so R-core-1's upper bound excludes it.
-- Acceptance -- falsifier: R-compat-2 is published, and `check_compat_retention.py` exits 0 with the
-  module gone.
-
-**F4 — installed-release import matrix (acceptance for all of Task F).** A script,
-`scripts/check_delegation_dispatch_install_matrix.py` in core, runs in core CI path-scoped to the
-model module and `pyproject.toml`. For each combination of released versions, it creates a fresh
-venv from the package index:
-
-- core in {R-core-1, R-core-2}
-- compat in {R-compat-1, R-compat-2}
-- provider in {R-infra-1, R-infra-3}
-- consumer in {R-market-1, R-market-2}
-
-Each combination is checked as follows:
-
-- **combinations the resolver accepts:** import both models and the protocol from core's path,
-  construct a request, import the provider's port and the consumer's handler, and assert that the
-  provider's port satisfies the protocol
-- **combinations that must be unresolvable:** assert that the resolver rejects them. Two
-  combinations fall in this class: R-core-1 with R-compat-2, and R-infra-3 or R-market-2 with
-  R-core-1
-- **negative control:** a locally built compat wheel with the models deleted, paired with a locally
-  built core wheel that still re-exports them. The script must exit non-zero on this pair, which
-  proves that a missing model fails the check instead of passing it the way a grep would
-
-- Acceptance -- falsifier: the script exits 0 over the released matrix and non-zero on the negative
-  control, and both runs are recorded in the F3 PR.
-
 ## Doctrine gates
 
 - **Rendered content, no placeholder counts:** each acceptance criterion names an exact test module,
@@ -430,31 +470,33 @@ Each combination is checked as follows:
 - **Model-before-build gate:** not applicable. No new lease, second writer or terminal-emitting
   component is introduced. The provider transition window (C1 to C4) is a bounded, named interval
   with its own closing task.
-- **FAIL-not-WARN degradation:** the D1 and D2 checks and the F4 matrix fail closed, and each has a
-  negative control that proves the non-zero exit.
+- **FAIL-not-WARN degradation:** the D1 and D2 checks fail closed, and each has a negative control
+  that proves the non-zero exit.
 
 ## Adversarial pass (R1-R8)
 
-- **R1 count integrity:** eight design steps (1, 2, 2a, 3-7), six tasks (A-F). Task C has four
-  parts (C1-C4), Task D has two (D1, D2) and Task F has four (F1-F4). The release chain has eleven
+- **R1 count integrity:** six design steps (1-6), four tasks (A, C, D, E; the letter B is retired by
+  revision 2). Task C has four parts (C1-C4) and Task D has two (D1, D2). The release chain has six
   steps.
-- **R2 criteria strength:** Tasks C, D and F moved from grep-based absence checks to behavioral
-  tests with negative controls. Every surviving grep is paired with an executed test.
-- **R3 scope:** each task's files match what its acceptance criterion can verify. Task C names all
-  three implementations and the converter, Task D names both sides, and Task F names core's release
-  as well as the deletion.
-- **R4 integration traps:** three were found and are now handled:
+- **R2 criteria strength:** Tasks C and D use behavioral tests with negative controls rather than
+  grep-based absence checks. Task A's acceptance is an import from a fresh install of the published
+  release plus a typed negative stub. Every surviving grep is paired with an executed test.
+- **R3 scope:** each task's files match what its acceptance criterion can verify. Task A names the
+  exact core modules and tests, Task C names all three implementations and the converter, and
+  Task D names both sides.
+- **R4 integration traps:** three were found and are handled:
   - the provider's parity workflow reads the consumer's live `dev` branch, which is what forces D1
     to merge before C2
-  - core has no compat dependency today, so A2 adds it with an upper bound
-  - the request model needs a core-typed field, which is the open premise
-- **R5 idempotency:** the release and pin steps are idempotent. The hook replacement and the compat
-  deletion are one-time structural changes.
-- **R6 verification grade:** strong for C (per-path tests with a negative control), D (conformance
-  tests with a probe) and F (the install matrix with a negative control). Medium for E (a
-  configuration test per hook).
-- **R7 expansion:** Task B's layering exception, and A2's temporary core-to-compat edge that F1
-  removes, are each deliberate and documented.
+  - the request model needs a core-typed field, which is why the models are born in core
+  - a fixed-signature protocol module would add a new `protocols -> models` edge against a ratchet
+    frozen with zero headroom (65 of 65); the protocol is generic instead, and each implementation
+    binds it at its own site (revision 3)
+- **R5 idempotency:** the release and pin steps are idempotent. The hook replacement is a one-time
+  structural change.
+- **R6 verification grade:** strong for C (per-path tests with a negative control) and D
+  (conformance tests with a probe). Medium for A (unit and typed tests plus an install check) and E
+  (a configuration test per hook).
+- **R7 expansion:** Task A's layering exception is deliberate and documented. No new cross-package
+  dependency edge is introduced.
 - **R8 prerequisites:** the hard edges are listed under "Release chain and dependency order". A
-  skipped step fails loudly: a pin that does not resolve, a required context going red, or a matrix
-  combination that does not import.
+  skipped step fails loudly: a pin that does not resolve, or a required context going red.
