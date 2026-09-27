@@ -213,6 +213,7 @@ Knowledge base artifacts grouped by type.
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** — active
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** — active
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** — active
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** — active
 
 ## Guide
 

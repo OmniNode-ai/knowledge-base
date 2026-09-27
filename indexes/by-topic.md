@@ -360,6 +360,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Future enhancements for ONEX change control](plans/2026-03-03-onex-change-control-future-enhancements.md)** (plan)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 
 ## channels
 
@@ -842,6 +843,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 
 ## dev-lane
 
@@ -1217,6 +1219,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Envelope Flow Architecture](architecture/onex-envelope-flow-architecture.md)** (architecture)
 
+## formal-methods
+
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
+
 ## format
 
 - **[Dead Letter Queue (DLQ) Message Format](architecture/dlq-message-format.md)** (architecture)
@@ -1251,6 +1257,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0013: No Driver Seat — Deterministic FSM Control Plane, LLMs as Gated Candidate Generators](adrs/ADR-0013-deterministic-fsm-control-plane.md)** (adr)
 - **[Pure FSM Reducer Pattern](architecture/onex-pure-fsm-reducer-pattern.md)** (architecture)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 
 ## fsm-snapshots
 
@@ -1682,6 +1689,7 @@ Knowledge base artifacts grouped by topic.
 ## merge
 
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 
 ## merge-gates
 
@@ -2482,6 +2490,7 @@ Knowledge base artifacts grouped by topic.
 ## pr-lifecycle
 
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 
 ## practices
 
@@ -3227,6 +3236,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Effect Timeout Behavior](architecture/onex-effect-timeout-behavior.md)** (architecture)
 
+## tla-plus
+
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
+
 ## tooling
 
 - **[Plugin cache freshness — preventing stale plugin deployments](plans/2026-04-02-plugin-cache-freshness.md)** (plan)
@@ -3458,6 +3471,7 @@ Knowledge base artifacts grouped by topic.
 - **[Insights-driven workflow improvements](plans/2026-02-28-insights-driven-workflow-improvements.md)** (plan)
 - **[Insights action plan](plans/2026-04-07-insights-action-plan.md)** (plan)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
 - **[Registration Workflow Integration Tests](guides/omnibase-infra-registration-workflow-integration-tests.md)** (guide)
 
 ## workflow-state
