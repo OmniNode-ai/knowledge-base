@@ -212,6 +212,7 @@ Knowledge base artifacts grouped by type.
 - **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** — active
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** — active
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** — active
+- **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** — active
 
 ## Guide
 
