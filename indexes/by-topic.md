@@ -781,6 +781,7 @@ Knowledge base artifacts grouped by topic.
 - **[Delegation pipeline end-to-end fix](plans/2026-03-31-delegation-pipeline-end-to-end-fix.md)** (plan)
 - **[Escalation proof corpus — specification](plans/2026-07-02-escalation-proof-corpus-spec.md)** (plan)
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
+- **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** (plan)
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide)
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
 
@@ -2495,6 +2496,10 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0006: Skill Liveness Validator Home](adrs/ADR-0006-skill-liveness-validator-home.md)** (adr)
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
 
+## pre-commit-hooks
+
+- **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** (plan)
+
 ## pre-merge
 
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
@@ -2571,6 +2576,10 @@ Knowledge base artifacts grouped by topic.
 - **[Validation Protocol Compliance](architecture/onex-validation-protocol-compliance.md)** (architecture)
 - **[Protocol Discovery Guide](guides/onex-protocol-discovery.md)** (guide)
 - **[ADR: Protocol Design Guidelines](reference/omnibase-infra-adr-protocol-design-guidelines.md)** (reference)
+
+## protocol-layering
+
+- **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** (plan)
 
 ## protocols
 
@@ -3393,6 +3402,7 @@ Knowledge base artifacts grouped by topic.
 - **[Compose required-env coverage guard](plans/2026-03-18-compose-required-env-coverage-guard.md)** (plan)
 - **[Environment variable lifecycle fix](plans/2026-03-24-env-var-lifecycle-fix.md)** (plan)
 - **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
+- **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** (plan)
 
 ## valkey
 
