@@ -23,6 +23,56 @@ plan places them in the shared structural package below core, and there is no sh
 
 ## Revision notes
 
+### Revision 3: the protocol is generic; isinstance cannot prove conformance
+
+Revision 2's Task A gave the protocol a fixed signature,
+`async def dispatch(request: ModelDelegationDispatchRequest) -> ModelDelegationDispatchResult`,
+which makes the protocol module itself import both models. That is a new
+`omnibase_core.protocols -> omnibase_core.models` edge. Core's import-layering growth ratchet
+(`scripts/ci/check_import_ratchet.py`) freezes that edge family non-increasing, and the live count
+read on `dev` on 2026-09-27 is 65 of the frozen ceiling `FROZEN_PROTOCOLS_MODELS_MAX = 65`: the set
+may only shrink, and there is zero headroom for a new edge. Task A's protocol as revision 2
+specified it cannot land; it would report 66 and hard-fail CI.
+
+A second, independent finding: the failing-test description for Task A's protocol module
+(revisions 1 and 2) named an `isinstance` check against the `@runtime_checkable` protocol as part
+of the negative control for a keyword-only stub. `isinstance` against a `runtime_checkable`
+`Protocol` checks only that the named methods exist as attributes; it does not inspect parameter
+names, positional-vs-keyword-only-ness, defaults or the return annotation. A keyword-only
+`dispatch(self, *, request)` stub still has an attribute named `dispatch` and passes `isinstance`
+unchanged. That check was never going to reject the case it was written to reject.
+
+What changed:
+
+1. **The protocol is generic.** `ProtocolDelegationDispatchPort` becomes a `Protocol[RequestT,
+   ResultT]` over two `TypeVar`s bound to `pydantic.BaseModel`, with one method
+   `async def dispatch(self, request: RequestT) -> ResultT`. The protocol module imports nothing
+   from `omnibase_core.models`, so it adds no edge to the frozen family at all; the ratchet's count
+   stays at 65 regardless of this change. The layering-exception entry Task A still writes covers
+   only the protocol's own core residency (the existing precedent for a core-resident protocol,
+   unrelated to the ratchet), not a new model dependency.
+2. **The two concrete models bind the generic at each site that declares or checks a port, never
+   inside the protocol module.** A `Protocol` needs no inheritance to be satisfied: giving
+   `dispatch` the exact concrete signature `(request: ModelDelegationDispatchRequest) ->
+   ModelDelegationDispatchResult` already satisfies
+   `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`
+   structurally. Task C's provider and consumer implementations bind it this way. Every annotation
+   that names the port as a type — the injected `dispatch_port` parameter in `handler_wiring.py`,
+   the consumer's `select_delegation_dispatch_port` return type, and the field on
+   `HandlerDelegateSkill` — spells the bound form. Those modules import both the protocol and the
+   models from core already, from infra and omnimarket, outside the ratchet's scope: the ratchet
+   only tracks edges inside `omnibase_core` itself.
+3. **Conformance is proven by `mypy --strict` on a generated module, never `isinstance`.** Task A's
+   and Task D1's tests each generate a small module at test time with two stubs assigned to the
+   bound protocol type: one with the concrete positional signature (must pass `mypy --strict`) and
+   one with the old keyword-only signature (must fail it). Both tests assert on `mypy`'s exit code
+   and error output, not on a runtime `isinstance` result. `isinstance` is not used anywhere in this
+   plan as a conformance proof.
+4. **Task A's acceptance criteria gain a ratchet check.** `check_import_ratchet.py` run on the PR
+   branch must report the same 65 `protocols_to_models` edges as `main`; reverting the protocol to
+   the fixed, model-importing signature is the negative control and must make it report 66 and
+   hard-fail.
+
 ### Revision 2: core first
 
 The open premise that blocked Task A in revision 1 is settled: the request and result models are
@@ -80,7 +130,7 @@ Paths and line numbers were read at the `dev` heads of each repo on 2026-09-27.
 | `ProtocolDelegationDispatchPort` (consumer copy) | omnimarket `src/omnimarket/nodes/node_delegate_skill_orchestrator/handlers/handler_delegate_skill.py` (class at line 83) | keyword-only `dispatch(*, prompt, task_type, ..., no_escalation=False) -> dict[str, object]` | delete (Task C2) |
 | the dispatch call site | same file, `HandlerDelegateSkill`, the call at line 952 | 19 explicit keyword arguments plus `**_no_escalation_dispatch_kwargs(request)` (helper at lines 145-163) | rewrite to build the request model (Task C2) |
 | result conversion | same file, `_response_from_result` (line 620) and the cost/token/attempt helpers (lines 352-600) | read about 40 keys from an untyped `dict[str, object]`, several under two legacy names | retype to the result model (Task C2) |
-| port selection | omnimarket `.../node_delegate_skill_orchestrator/ports/port_selection.py`, `select_delegation_dispatch_port` | `None` or in-memory bus: `LocalDelegationDispatchPort`. Any other bus: omnimarket's own `RuntimeDelegationDispatchPort`. A constructor-injected port bypasses selection | reuse unchanged |
+| port selection | omnimarket `.../node_delegate_skill_orchestrator/ports/port_selection.py`, `select_delegation_dispatch_port` | `None` or in-memory bus: `LocalDelegationDispatchPort`. Any other bus: omnimarket's own `RuntimeDelegationDispatchPort`. A constructor-injected port bypasses selection | logic unchanged; return type retyped to the bound generic (Task C2) |
 | implementation 1, local | omnimarket `.../ports/port_local_delegation_dispatch.py`, `LocalDelegationDispatchPort.dispatch` (line 970) | keyword-only, returns `dict[str, object]` | migrate (Task C2) |
 | implementation 2, market bus | omnimarket `.../ports/port_runtime_delegation_dispatch.py`, `RuntimeDelegationDispatchPort.dispatch` (line 82). Also constructed by `src/omnimarket/adapters/codex/local_runtime_dispatch.py` | keyword-only, returns `dict[str, object]` | migrate (Task C2) |
 | implementation 3, injected infra | omnibase_infra `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`, `RuntimeDelegationDispatchPort.dispatch` (line 255). The runtime injects it into the consumer handler as `dispatch_port` in `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` (line 8743) | keyword-only, carries an extra `output_schema_key` keyword the consumer never sends, returns `dict[str, object]` | migrate (Task C1) |
@@ -122,8 +172,13 @@ Paths and line numbers were read at the `dev` heads of each repo on 2026-09-27.
    adoption (Task C), so no second class ever exists in any repo. Core gains no new dependency.
 3. **Protocol's home: core, in the same release.** The core package, under one documented, named
    layering exception, because the validators that must use this protocol live in core and core
-   cannot depend on the interface layer above it. The protocol is the single definition that all
-   three implementations satisfy.
+   cannot depend on the interface layer above it. The protocol is generic over the request and
+   result types (`Protocol[RequestT, ResultT]`), so its own module carries no edge into
+   `omnibase_core.models` and adds nothing to the import-layering growth ratchet
+   (`scripts/ci/check_import_ratchet.py`, frozen at 65 of 65 `protocols_to_models` edges). Each
+   implementation binds it to the concrete request and result models where it declares or checks a
+   port; the protocol itself is the single generic definition that all three implementations, bound,
+   satisfy.
 4. **Validators.** The validation engine and validators live in core. Each repo runs them against
    only its own source tree and its own locked, installed dependencies. None of them reads a
    sibling repo's working copy or another repo's live branch.
@@ -199,11 +254,14 @@ floors to R-core-1 keeps them co-resolvable.
     reads today, with one canonical field per legacy alias pair from design step 1.
   - `src/omnibase_core/models/delegation/wire/__init__.py`: export both models.
   - `src/omnibase_core/protocols/runtime/protocol_delegation_dispatch_port.py`:
-    `ProtocolDelegationDispatchPort`, `@runtime_checkable`, with one method
-    `async def dispatch(request: ModelDelegationDispatchRequest) -> ModelDelegationDispatchResult`.
-    It is async because the consumer handler awaits every implementation today, inside
-    `asyncio.wait_for`.
-  - `src/omnibase_core/protocols/runtime/__init__.py`: export the protocol.
+    `ProtocolDelegationDispatchPort(Protocol[RequestT, ResultT])`, `@runtime_checkable`, with two
+    `TypeVar`s bound to `pydantic.BaseModel` and one method
+    `async def dispatch(self, request: RequestT) -> ResultT`. It is async because the consumer
+    handler awaits every implementation today, inside `asyncio.wait_for`. The module imports
+    nothing from `omnibase_core.models`: the two concrete models are named only at each bind site
+    (Tasks C1, C2, D1, D2), never here, so this file adds no
+    `omnibase_core.protocols -> omnibase_core.models` edge to the frozen ratchet.
+  - `src/omnibase_core/protocols/runtime/__init__.py`: export the protocol and its two `TypeVar`s.
   - one new entry in the layering-exceptions document, naming this protocol module and following
     the existing core-resident runtime protocol precedent
 - Failing tests first:
@@ -213,10 +271,15 @@ floors to R-core-1 keeps them co-resolvable.
     rejected.
   - `tests/unit/models/delegation/wire/test_model_delegation_dispatch_result.py`: validates a
     result from a representative provider payload and asserts the canonical fields.
-  - `tests/unit/protocols/runtime/test_protocol_delegation_dispatch_port.py`: a minimal conforming
-    stub satisfies the protocol, and a stub with the old keyword-only signature does not. The
-    check is a structural assignment in a typed test module, so `mypy --strict` enforces it, plus
-    an `isinstance` check against the runtime-checkable protocol.
+  - `tests/unit/protocols/runtime/test_protocol_delegation_dispatch_port.py`: generates a module at
+    test time with two stubs, each assigned to the bound type
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
+    A stub with the concrete positional `dispatch(self, request)` signature must pass
+    `mypy --strict` on the generated module; a stub with the old keyword-only
+    `dispatch(self, *, request)` signature must fail it. The test asserts on `mypy`'s exit code,
+    never on `isinstance`: `isinstance` against a `runtime_checkable` protocol only checks that a
+    `dispatch` attribute exists, not its signature, so it passes the keyword-only stub too and
+    cannot serve as a negative control.
   All three fail until the modules exist.
 - Minimal change: the two models, the protocol and the exception entry. No implementation changes.
   Core's `pyproject.toml` dependencies are not touched.
@@ -231,7 +294,11 @@ floors to R-core-1 keeps them co-resolvable.
     `from omnibase_core.models.delegation.wire import ModelDelegationDispatchRequest, ModelDelegationDispatchResult`
     and `from omnibase_core.protocols.runtime import ProtocolDelegationDispatchPort`.
   - `uv pip show omnibase-core` in that venv lists no `omnibase-compat` requirement.
-  - The negative stub in the protocol test makes the typed test module fail `mypy --strict`.
+  - The negative stub in the protocol test makes the generated module fail `mypy --strict`.
+  - `uv run python scripts/ci/check_import_ratchet.py` on this PR's branch reports 65
+    `protocols_to_models` edges, the same count as `main`. The negative control: reverting the
+    protocol module to import `ModelDelegationDispatchRequest` or `ModelDelegationDispatchResult`
+    directly makes it report 66 and hard-fail.
 
 ### Task C — migrate all three implementations and the call site to `dispatch(request)`
 
@@ -239,13 +306,19 @@ floors to R-core-1 keeps them co-resolvable.
 - Files:
   - `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`: `dispatch` takes `request` as
     its first positional parameter and returns the result model, normalizing the legacy alias keys
-    from design step 1 into canonical fields.
+    from design step 1 into canonical fields. This concrete signature —
+    `request: ModelDelegationDispatchRequest`, returning `ModelDelegationDispatchResult` — is what
+    binds the class to `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest,
+    ModelDelegationDispatchResult]`; the class writes no explicit generic argument and needs no
+    inheritance from the protocol.
   - Transition window: when `request` is absent, the old keyword-only call is still accepted and
     still returns the old dict, because the deployed consumer is one release behind by
     construction. Passing both a request and keywords, or neither, raises `TypeError`.
   - `src/omnibase_infra/runtime/protocols/protocol_delegation_dispatch_port.py` is deleted, and
     every importer switches to core's protocol.
-  - `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` is unchanged apart from the import.
+  - `src/omnibase_infra/runtime/auto_wiring/handler_wiring.py` is unchanged apart from the import
+    and the injected `dispatch_port` parameter's type annotation, which spells the bound generic:
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
   - `tests/integration/runtime/test_delegation_dispatch_port_handler_compat.py` is retargeted to
     the request shape.
   - Every provider test that calls the port's `dispatch` directly moves to the request shape.
@@ -266,10 +339,17 @@ floors to R-core-1 keeps them co-resolvable.
   - `handlers/handler_delegate_skill.py`: delete the protocol copy (line 83) and the
     `_NoEscalationDispatchKwargs` helper. The call at line 952 builds one request from the incoming
     skill request. `_response_from_result` and its helpers take the result model instead of a dict.
+    The handler's `dispatch_port` field is annotated with the bound generic,
+    `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`.
   - `ports/port_local_delegation_dispatch.py`: `LocalDelegationDispatchPort.dispatch(request)`
-    returns the result model.
+    returns the result model. Its concrete signature is what binds it to the generic; same for
+    `port_runtime_delegation_dispatch.py` below.
   - `ports/port_runtime_delegation_dispatch.py`: the consumer's own
     `RuntimeDelegationDispatchPort.dispatch(request)` returns the result model.
+  - `ports/port_selection.py`: `select_delegation_dispatch_port`'s return type becomes the bound
+    generic, `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest,
+    ModelDelegationDispatchResult]`, so every caller's static type already names the concrete
+    request and result.
   - Both consumer implementations convert their current dict into the result model inside the
     port. They carry no transition window, because they ship in the same wheel as the handler that
     calls them.
@@ -325,13 +405,18 @@ the runtime image lock names the consumer at `>=R-market-1`.
     that no longer reports wedges the summary gate
   - the `cross_repo_consumer` marker and its two `ci.yml` deselections, if nothing else uses them
 - Add `tests/unit/runtime/test_delegation_dispatch_port_conforms_to_shared_protocol.py`. It imports
-  the shared protocol and models from the provider's locked core release and asserts all of the
-  following:
-  - `RuntimeDelegationDispatchPort` satisfies the protocol under a `mypy --strict` structural
-    assignment
-  - its `dispatch` parameters and return annotation equal the protocol's under `inspect.signature`
+  the shared generic protocol and both concrete models from the provider's locked core release and
+  asserts all of the following against the bound type
+  `ProtocolDelegationDispatchPort[ModelDelegationDispatchRequest, ModelDelegationDispatchResult]`:
+  - `RuntimeDelegationDispatchPort` is assignable to that bound type, checked by generating a small
+    module at test time and running `mypy --strict` on it — the same mechanism Task A's protocol
+    test uses, never `isinstance`, which only checks that a `dispatch` attribute exists and cannot
+    see its signature
+  - its `dispatch` parameters and return annotation equal the bound type's under
+    `inspect.signature`, as a second, independent signal that does not by itself gate the test
   - a real `dispatch(request)` over the in-memory transport returns the result model
-  - a negative-control stub with a keyword-only `dispatch` fails the same helper
+  - a negative-control stub with the old keyword-only `dispatch` fails the `mypy --strict` check
+    above — this is the check that actually rejects it
 - Add a pre-commit hook `onex-delegation-dispatch-provider-conformance` running that module, with
   `files:` scoped to:
   - `src/omnibase_infra/runtime/service_delegation_dispatch_port.py`
@@ -399,10 +484,13 @@ the runtime image lock names the consumer at `>=R-market-1`.
 - **R3 scope:** each task's files match what its acceptance criterion can verify. Task A names the
   exact core modules and tests, Task C names all three implementations and the converter, and
   Task D names both sides.
-- **R4 integration traps:** two were found and are handled:
+- **R4 integration traps:** three were found and are handled:
   - the provider's parity workflow reads the consumer's live `dev` branch, which is what forces D1
     to merge before C2
   - the request model needs a core-typed field, which is why the models are born in core
+  - a fixed-signature protocol module would add a new `protocols -> models` edge against a ratchet
+    frozen with zero headroom (65 of 65); the protocol is generic instead, and each implementation
+    binds it at its own site (revision 3)
 - **R5 idempotency:** the release and pin steps are idempotent. The hook replacement is a one-time
   structural change.
 - **R6 verification grade:** strong for C (per-path tests with a negative control) and D
