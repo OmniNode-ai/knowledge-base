@@ -8,7 +8,7 @@ topics: [ci, merge-queue, verification, projection, reconcile, drift, broker-acl
 
 # Verification before and after merge, and declared lab state, as ONEX nodes, events and projections
 
-state_as_of: 2026-09-28T15:10:00Z
+state_as_of: 2026-09-28T14:48:00Z
 
 **Goal.** A pull request from any author merges only after every milestone board check that can run
 without lab hardware has passed on its merge-group commit, and every check that needs lab hardware has
@@ -51,7 +51,7 @@ contracts, but never derived or applied), (b) is a landing path that can leave t
 
 ## 2. Existing assets
 
-Read from the `dev` branch of each named repository on 2026-09-28 between 14:30Z and 15:00Z, unless
+Read from the `dev` branch of each named repository on 2026-09-28 between 14:30Z and 14:48Z, unless
 another source is given.
 
 | Asset | Repo | State | Reuse or replace |
