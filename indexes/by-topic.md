@@ -285,6 +285,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Cold-lane full bring-up (deps + migration one-shots + full `--profile runtime`)](runbooks/cold-lane-full-bringup.md)** (runbook)
 
+## broker-acl
+
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
+
 ## build-efficiency
 
 - **[ADR-0022: Shift Defect-Detection Left + OCC Evidence-Only Fast-Lane (WS-E Build-Efficiency)](adrs/ADR-0022-shift-left-and-occ-evidence-only-fast-lane.md)** (adr)
@@ -395,6 +399,7 @@ Knowledge base artifacts grouped by topic.
 - **[Canonical Python .gitignore baseline and cross-repo enforcement](plans/2026-05-29-gitignore-baseline-enforcement.md)** (plan)
 - **[Delegation to CI integration — design](plans/2026-07-05-delegation-ci-integration-design.md)** (plan)
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 - **[Async Hang Debugging Guide](guides/async-hang-debugging.md)** (guide)
 - **[CI Test Strategy](guides/omnibase-infra-ci-test-strategy.md)** (guide)
 - **[CI/CD Standards](reference/ci-cd-standards.md)** (reference)
@@ -845,6 +850,7 @@ Knowledge base artifacts grouped by topic.
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
 - **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 
 ## dev-lane
 
@@ -970,6 +976,7 @@ Knowledge base artifacts grouped by topic.
 ## drift
 
 - **[Gap investigation series](plans/2026-03-01-gap-investigation-series.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 - **[Volume Config Drift Gate + Re-seed Procedure](runbooks/volume-config-drift-and-reseed.md)** (runbook)
 
 ## drift-control
@@ -1705,6 +1712,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0010: Enforcement and Merge-Policy Parity Ratchet](adrs/ADR-0010-required-context-parity-ratchet.md)** (adr)
 - **[ADR-0023: Remove the onex_change_control Merge Queue](adrs/ADR-0023-remove-occ-merge-queue.md)** (adr)
 - **[Merge-queue governor — conservative fail-closed action-mode (arm-gate)](plans/2026-07-10-merge-queue-governor-arm-gate-design.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 
 ## merge-sweep
 
@@ -2548,6 +2556,7 @@ Knowledge base artifacts grouped by topic.
 - **[Ingestion Is Not Interpretation](pivots/PIVOT-0001-ingestion-is-not-interpretation.md)** (pivot)
 - **[Reducers Own State Progression](pivots/PIVOT-0004-reducers-own-state-progression.md)** (pivot)
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 - **[Getting Started Locally](guides/getting-started-local.md)** (guide)
 
 ## projection-authority
@@ -2700,6 +2709,10 @@ Knowledge base artifacts grouped by topic.
 - **[DoD Receipt Locations](reference/dod-receipt-locations.md)** (reference)
 - **[Application database cutover receipts](runbooks/application-database-cutover-receipts.md)** (runbook)
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
+
+## reconcile
+
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 
 ## reconnect
 
@@ -3432,6 +3445,7 @@ Knowledge base artifacts grouped by topic.
 - **[ADR-0020: Branch-Preview Verification (proof_class=branch-preview)](adrs/ADR-0020-branch-preview-verification.md)** (adr)
 - **[Completion Requires Durable Evidence](pivots/PIVOT-0003-completion-requires-durable-evidence.md)** (pivot)
 - **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** (plan)
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** (plan)
 - **[Verification Doctrine](reference/omniclaude-verification-doctrine.md)** (reference)
 - **[Verifying Terminal Claims](runbooks/verify-terminal-claims.md)** (runbook)
 

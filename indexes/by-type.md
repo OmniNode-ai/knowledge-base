@@ -215,6 +215,7 @@ Knowledge base artifacts grouped by type.
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** — active
 - **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** — active
 - **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** — active
+- **[Verification before and after merge, and declared lab state, as ONEX nodes, events and projections](plans/2026-09-28-verification-before-and-after-merge-and-declared-lab-state.md)** — active
 
 ## Guide
 
