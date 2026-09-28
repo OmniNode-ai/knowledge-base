@@ -6,11 +6,11 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-09
 
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-28
 - **[PR landing workflow, revision 1: the state machine and safety properties after model checking](plans/2026-09-27-pr-landing-state-machine-revision.md)** (plan) — 2026-09-27
 - **[Shared delegation dispatch port: one protocol, one model, validators that read only their own repo](plans/2026-09-27-shared-delegation-dispatch-port.md)** (plan) — 2026-09-27
 - **[PR landing workflow: change-control companions and the mechanical landing rules as one ONEX workflow](plans/2026-09-26-pr-landing-workflow-plan.md)** (plan) — 2026-09-26
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** (guide) — 2026-09-23
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-09-23
 - **[Bulk PR operations — mandatory throttled path (<ticket>)](runbooks/bulk-pr-operations.md)** (runbook) — 2026-09-12
 - **[Drift Control System — Design](architecture/drift-control-system.md)** (architecture) — 2026-09-02
 - **[Architecture Overview - omnibase_core](architecture/omnibase-core-overview.md)** (architecture) — 2026-09-02
