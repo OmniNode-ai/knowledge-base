@@ -1,7 +1,7 @@
 ---
 type: guide
 status: current
-date: "2026-09-23"
+date: "2026-09-28"
 title: "OmniClaude Quickstart"
 topics: [omniclaude, plugin, quickstart, delegation]
 refs: []
@@ -51,7 +51,7 @@ uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.205' 'om
 ```
 
 This downloads about 175 packages and takes a minute or two. It ends with a line starting
-`Installed 20 executables:` that includes `onex`.
+`Installed` and a count of executables, and that list includes `onex`.
 
 **If the output ends with a warning that `~/.local/bin` is not on your PATH** (on a new
 machine it usually does), run this once, then **close the terminal window and open a new one**:
@@ -66,8 +66,8 @@ Check it worked, in the new window:
 onex --version
 ```
 
-It prints `onex version 0.47.x` (or newer). **The first `onex` command takes 10 to 20
-seconds** while Python prepares itself; later ones start faster.
+It prints `onex version 0.47.x` (or newer). **The first `onex` command can take up to a
+minute** while Python prepares itself (36 seconds on a fresh install in our own test); later ones start faster.
 
 What was installed: `omnibase-core` provides the `onex` command, `omnibase-infra` adds its
 `delegate` subcommand, and `omnimarket` provides the node that does the delegating. All three
@@ -206,6 +206,21 @@ newest answer in the terminal:
 ```bash
 cat "$(ls -td ~/.onex_state/runs/*/ | head -1)result.txt"
 ```
+
+### See what your delegations cost and saved
+
+Every run is also recorded on this machine, in the same file that holds your key. The command
+`onex metering` reads those records and prints, for the last 7 days by default, how many runs
+there were, the tokens sent and received, what you spent, what the same calls would have cost on
+a baseline model, and the difference, broken out by model:
+
+```bash
+onex metering
+```
+
+Use `--window today`, `--window 30d` or `--window all` for another period, and `--json` for
+output a script can read. A run whose tokens were not measured is counted as unknown, never as
+zero, and the savings line always names the baseline model and prices it was worked out from.
 
 ---
 
