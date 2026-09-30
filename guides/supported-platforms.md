@@ -53,6 +53,10 @@ the Rust toolchain is the part that is never optional. Verified on a clean macOS
 (GitHub-hosted runner): with both packages installed the install finishes in about three
 minutes.
 
+If you manage Rust with `rustup` instead of Homebrew, skip `brew install rust` and make sure a
+default toolchain is set (`rustup default stable`); a `rustup` with no default toolchain fails
+with `rustup could not choose a version of cargo`.
+
 The first install compiles `cryptography` and takes several minutes longer than on other
 platforms; later installs and upgrades reuse the result. It ends with the same `Installed`
 line described in the [quickstart](onex-plugin-quickstart.md), and `onex --version` works.
