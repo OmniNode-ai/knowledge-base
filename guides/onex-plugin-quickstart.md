@@ -22,8 +22,8 @@ There are two ways to use it, and both use the same `onex` command-line tool:
 
 - **In a terminal**: `onex delegate "<your task>"`. Steps 1 to 5 set this up and prove it works.
 - **Inside Claude Code**: the `onex@omninode-tools` plugin adds `/onex:delegate`, which runs the
-  same command for you. Step 6 adds it. The plugin ships two skills (`/onex:delegate`, and
-  `/onex:cloud_delegate` for the dashboard-key cloud path) and nothing else: no hooks, no agents.
+  same command for you. Step 6 adds it. The plugin ships one skill, `/onex:delegate`, and nothing
+  else: no hooks, no agents.
 
 ---
 
@@ -32,13 +32,23 @@ There are two ways to use it, and both use the same `onex` command-line tool:
 | You need | How to get it |
 |----------|---------------|
 | A terminal | macOS: the **Terminal** app (Applications → Utilities). Linux: any shell. |
-| Python 3.12+ and `uv` | macOS: install [Homebrew](https://brew.sh) if you don't have it (it also installs Apple's command line tools, which the steps below need), then run `brew install uv`. Other systems: see [uv's install page](https://docs.astral.sh/uv/getting-started/installation/). |
+| Python 3.12+ and `uv` | macOS and Linux: run `curl -LsSf https://astral.sh/uv/install.sh \| sh` (see [uv's install page](https://docs.astral.sh/uv/getting-started/installation/) for other systems). If you already use Homebrew, `brew install uv` also works, but on an older macOS it can try to build `uv` from source and stop on outdated Apple command line tools, so the curl installer is the safer first choice. |
 | A model to send work to | **Either** an account with a model provider and an API key from it (OpenRouter is the simplest: [openrouter.ai](https://openrouter.ai), and it has free models), **or** a model server you run yourself that speaks the OpenAI chat-completions API (llama.cpp, vLLM, or similar). |
 | Claude Code (only for step 6) | The [Claude Code CLI](https://claude.com/claude-code), signed in. Steps 1 to 5 do not need it. |
 
 You do not need to install Python yourself. The Python that ships with macOS is too old
 (3.9), but that does not matter: `uv` uses a newer Python if you have one (Homebrew's, for
 example) and downloads one for itself if you don't.
+
+The `uv` installer puts `uv` in `~/.local/bin`, which may not be on your PATH yet. If `uv --version`
+answers `command not found`, run this once, then **close the terminal window and open a new one**:
+
+```bash
+uv tool update-shell
+```
+
+(If that command is not found either, run `export PATH="$HOME/.local/bin:$PATH"` for this window
+and add the same line to your `~/.zshrc` or `~/.bashrc`.)
 
 Check that `uv` is ready: `uv --version` prints a version number.
 
@@ -51,7 +61,8 @@ uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.205' 'om
 ```
 
 This downloads about 175 packages and takes a minute or two. It ends with a line starting
-`Installed` and a count of executables, and that list includes `onex`.
+`Installed` that lists the executables, and that list includes `onex`. The list also carries
+several `check-*` and `validate-*` helper programs; you do not need them.
 
 **If the output ends with a warning that `~/.local/bin` is not on your PATH** (on a new
 machine it usually does), run this once, then **close the terminal window and open a new one**:
@@ -256,26 +267,13 @@ inside the folder Claude Code was started from.
 
 ---
 
-## Run — cloud, for a dashboard-only customer
+## Cloud (not yet available to outside users)
 
-Create an `onxk_` key in the dashboard, then give it to the CLI through stdin — never put the
-key in a Claude prompt, command argument, or environment variable:
-
-```bash
-read -rs ONXK && printf '%s' "$ONXK" | \
-  onex cloud login --base-url https://dev.api.omninode.ai --api-key-stdin
-```
-
-Inside Claude Code, run:
-
-```
-/onex:cloud_delegate --task-type summarization summarize this changelog
-```
-
-The CLI, not the plugin, submits over HTTPS. It prints the result and writes
-`result.txt`, `receipt.json`, and `run.json` under `onex-delegations/<workflow_id>/` by default.
-Keep and report those paths; they are the run evidence. A missing or rejected dashboard key is a
-typed refusal, never a fallback to a direct provider call or to Claude answering the task.
+OmniNode also runs a hosted delegation service that uses a dashboard-issued `onxk_` key. Outside
+users cannot start it from public material yet: there is no public sign-up for the dashboard and
+no public service address. Everything in this guide runs on your own machine on your own key and
+does not need it. When the hosted service opens to outside users, this section will say how to
+get an account.
 
 ---
 
@@ -293,8 +291,7 @@ registering your own provider key with `onex secret set`, a cloud model you pay 
 
 | What you see | What it means and what to do |
 |--------------|------------------------------|
-| `command not found: brew` | Homebrew is not installed. Install it from [brew.sh](https://brew.sh), then open a new terminal window. |
-| `command not found: uv` | Run `brew install uv` (macOS), then open a new terminal window. |
+| `command not found: uv` | Install it with `curl -LsSf https://astral.sh/uv/install.sh \| sh`, then run `uv tool update-shell` and open a new terminal window. |
 | `command not found: onex` | The install folder is not on your PATH yet. Run `uv tool update-shell`, close the terminal window and open a new one. If that does not fix it, re-run the step 1 install command. |
 | The command in step 3 seems to hang | It is waiting for you to paste the key. Nothing shows while you paste; paste once and press Return. |
 | `error_message` contains `credential_rejected` and `Missing Authentication header` or `User not found` | The provider refused the key. The text you pasted was not a whole, current key (an OpenRouter key starts with `sk-or-v1-`). Copy it again from the provider's Keys page and re-run the step 3 command; it replaces the stored key. |
@@ -315,5 +312,4 @@ anything is checked. Step 4 is the real test.
 
 - `CLAUDE.md` (omniclaude repo) — development/architecture reference for OmniNode's internal tooling (insider-oriented; assumes an OmniNode canonical-clone workspace)
 - `plugins/onex-delegate/skills/delegate/SKILL.md` (omniclaude repo) — the delegate skill's full usage reference
-- `plugins/onex-delegate/skills/cloud_delegate/SKILL.md` (omniclaude repo) — dashboard-key cloud delegation and receipt-file reference
 - `plugins/onex-delegate/plugin-compat.yaml` (omniclaude repo) — the plugin's own `onex` version requirements
