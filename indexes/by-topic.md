@@ -1487,6 +1487,7 @@ Knowledge base artifacts grouped by topic.
 
 ## install
 
+- **[Supported Platforms](guides/supported-platforms.md)** (guide)
 - **[Node-skill package co-install (omnimarket) — <ticket>](runbooks/node-skill-package-install.md)** (runbook)
 
 ## installation
@@ -1510,6 +1511,10 @@ Knowledge base artifacts grouped by topic.
 ## integration-testing
 
 - **[Dual-Binding Test Cases — the Harness Convention](reference/dual-binding-cases.md)** (reference)
+
+## intel
+
+- **[Supported Platforms](guides/supported-platforms.md)** (guide)
 
 ## intent
 
@@ -1644,6 +1649,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[ADR-0048: Local LLM Delegation with 2-Clean-Run Quality Gate](adrs/ADR-0048-delegation-orchestrator-quality-gate.md)** (adr)
 - **[Delegation Architecture](architecture/delegation-architecture.md)** (architecture)
+
+## macos
+
+- **[Supported Platforms](guides/supported-platforms.md)** (guide)
 
 ## management
 
@@ -2461,6 +2470,10 @@ Knowledge base artifacts grouped by topic.
 
 - **[Platform readiness gap closure plan](plans/2026-04-07-platform-readiness-gap-closure.md)** (plan)
 
+## platforms
+
+- **[Supported Platforms](guides/supported-platforms.md)** (guide)
+
 ## plugin
 
 - **[Compute Plugin Determinism](architecture/omnibase-infra-compute-plugin-determinism.md)** (architecture)
@@ -2682,6 +2695,7 @@ Knowledge base artifacts grouped by topic.
 
 - **[Standalone Quickstart](guides/omnibase-infra-standalone-quickstart.md)** (guide)
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide)
+- **[Supported Platforms](guides/supported-platforms.md)** (guide)
 
 ## raw-events
 
