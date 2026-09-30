@@ -134,19 +134,25 @@ your key, once, on this machine.
 
 1. Sign in at [openrouter.ai](https://openrouter.ai), open **Settings → Keys**, create a key,
    and copy it. An OpenRouter key starts with `sk-or-v1-`.
-2. Run this command. It reads the key from what you paste, never from the command line or an
-   environment variable:
+2. Run this command. It asks you to paste the key, then to paste it again to confirm. The
+   key is never typed on the command line or read from an environment variable:
 
    ```bash
-   read -rs KEY && printf '%s' "$KEY" | onex secret set llm.openrouter.api_key && unset KEY
+   onex secret set llm.openrouter.api_key
    ```
 
-   **The terminal shows no prompt and nothing appears when you paste. That is on purpose, so
-   the key never shows on screen.** Paste the key once and press Return.
+   **Nothing appears on screen when you paste. That is on purpose, so the key never shows.**
+   The command refuses an empty entry, two entries that differ, and an OpenRouter key that
+   does not start with `sk-or-v1-`, and it never prints what you pasted. To register a key
+   from a script, pipe it in instead:
+   `printf '%s' "$KEY" | onex secret set llm.openrouter.api_key`.
 
 You should see `Stored llm.openrouter.api_key in ...` and
 `Registered it as your openrouter route key: ...`. For GLM, use `llm.glm.api_key` in the same
-command. `onex secret list` shows the names of the keys this machine holds, never the keys.
+command. `onex secret list` shows the names of the keys this machine holds, never the keys. It lists
+two entries for one key: the name you set, and a second one that looks like
+`cred_localinstall_openrouter_<hex>`. The second is the route reference OmniNode derives from
+your key so delegation can use it; it is expected, and you do not need to set or manage it.
 
 A provider key alone is enough: with no model server declared, `onex delegate` goes straight
 to your provider on your key. With only an OpenRouter key, it uses a **free** OpenRouter model;
