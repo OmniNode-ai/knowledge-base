@@ -40,12 +40,18 @@ do not have it, which also installs Apple's command line tools):
 brew install openssl@3 rust uv
 ```
 
-Then point the build at that OpenSSL and install as usual, in the same terminal window:
+Then point the build at that OpenSSL explicitly and install as usual, in the same terminal window:
 
 ```bash
 export OPENSSL_DIR="$(brew --prefix openssl@3)"
 uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.205' 'omnibase-core>=0.46.8'
 ```
+
+`OPENSSL_DIR` pins the build to Homebrew's OpenSSL, which matters if another OpenSSL is also
+installed on the machine. On a default Homebrew setup the build finds `openssl@3` without it, and
+the Rust toolchain is the part that is never optional. Verified on a clean macOS 15 Intel machine
+(GitHub-hosted runner): with both packages installed the install finishes in about three
+minutes.
 
 The first install compiles `cryptography` and takes several minutes longer than on other
 platforms; later installs and upgrades reuse the result. It ends with the same `Installed`
