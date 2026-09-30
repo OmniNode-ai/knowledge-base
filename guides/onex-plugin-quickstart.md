@@ -31,6 +31,7 @@ There are two ways to use it, and both use the same `onex` command-line tool:
 
 | You need | How to get it |
 |----------|---------------|
+| A supported computer | Apple Silicon Mac or Linux (x86_64, arm64) installs from prebuilt wheels. **Intel Mac: supported by building from source**, which needs a few extra steps; read [Supported platforms](supported-platforms.md) before step 1. |
 | A terminal | macOS: the **Terminal** app (Applications → Utilities). Linux: any shell. |
 | Python 3.12+ and `uv` | macOS: install [Homebrew](https://brew.sh) if you don't have it (it also installs Apple's command line tools, which the steps below need), then run `brew install uv`. Other systems: see [uv's install page](https://docs.astral.sh/uv/getting-started/installation/). |
 | A model to send work to | **Either** an account with a model provider and an API key from it (OpenRouter is the simplest: [openrouter.ai](https://openrouter.ai), and it has free models), **or** a model server you run yourself that speaks the OpenAI chat-completions API (llama.cpp, vLLM, or similar). |
@@ -45,6 +46,11 @@ Check that `uv` is ready: `uv --version` prints a version number.
 ---
 
 ## Step 1 — Install the `onex` tool
+
+> **Intel Mac?** Run `uname -m`. If it prints `x86_64`, do the [Intel macOS from-source
+> setup](supported-platforms.md#intel-macos-build-from-source) first (three Homebrew packages
+> and one environment variable), then come back and run the command below. Skipping it makes the
+> install fail while compiling `cryptography`.
 
 ```bash
 uv tool install --with 'omnibase-infra>=0.38.4' --with 'omnimarket>=0.4.205' 'omnibase-core>=0.46.8'
