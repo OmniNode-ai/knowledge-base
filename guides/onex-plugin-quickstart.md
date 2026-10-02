@@ -1,7 +1,7 @@
 ---
 type: guide
 status: current
-date: "2026-09-28"
+date: "2026-10-02"
 title: "OmniClaude Quickstart"
 topics: [omniclaude, plugin, quickstart, delegation]
 refs: []
@@ -204,10 +204,15 @@ cd ~
 onex delegate "say hello in one word"
 ```
 
-It takes from a few seconds to a minute. You will see a few status lines, then one long line
-of JSON, then a last line starting `delegate artifacts:` that lists three files. **It worked if
-the JSON contains `"status":"success"`.** If it contains `"status":"failed"`, the
-`error_message` in it says why; see [Troubleshooting](#troubleshooting).
+It takes from a few seconds to a minute. You will see a few status lines, then the model's
+answer as plain text, then one summary line starting `onex delegate: model <model>, cost
+<cost>, run <run id>, full receipt <path>/receipt.json`, then a last line starting
+`delegate artifacts:` that lists three files. **It worked if the answer printed and the
+command exited 0.** There is no JSON in the default terminal output any more. If the run
+fails, you will see one plain line starting `onex delegate failed:` and the command exits
+non-zero; the `delegate artifacts:` line still lists the three files so you can find the
+receipt. To see the full receipt as JSON, pass `--json`. See
+[Troubleshooting](#troubleshooting).
 
 ---
 
