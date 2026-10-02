@@ -322,8 +322,8 @@ Knowledge base artifacts grouped by type.
 - **[Request Tracing in ONEX](guides/onex-request-tracing.md)** — current
 - **[Thread Safety in Omnibase Core](guides/onex-threading.md)** — current
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 - **[Supported Platforms](guides/supported-platforms.md)** — current
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
 
 ## Reference
 
