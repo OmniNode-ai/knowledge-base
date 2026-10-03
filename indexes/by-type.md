@@ -324,6 +324,7 @@ Knowledge base artifacts grouped by type.
 - **[Connecting to the OmniNode Cloud](guides/connecting-to-the-cloud.md)** — current
 - **[Supported Platforms](guides/supported-platforms.md)** — current
 - **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** — current
+- **[Declaring a Runtime Lane](guides/declaring-a-runtime-lane.md)** — draft
 
 ## Reference
 
