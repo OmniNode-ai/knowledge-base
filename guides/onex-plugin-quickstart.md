@@ -211,7 +211,8 @@ answer as plain text, then one summary line starting `onex delegate: model <mode
 command exited 0.** There is no JSON in the default terminal output any more. If the run
 fails, you will see one plain line starting `onex delegate failed:` and the command exits
 non-zero; the `delegate artifacts:` line still lists the three files so you can find the
-receipt. To see the full receipt as JSON, pass `--json`. See
+receipt. To see the full receipt as JSON, pass `--json`. Without a terminal attached, `onex delegate`
+prints the full JSON result instead. See
 [Troubleshooting](#troubleshooting).
 
 ---
@@ -226,6 +227,7 @@ command from. The last line of step 4's output names the three files:
 | `result.txt` | The model's answer. |
 | `receipt.json` | The proof of who answered: `backend_id` and `endpoint` name the provider or server, and `model` names the model. `status` is `success` or `failed`. |
 | `run.json` | What you asked for: the prompt and the settings the run used. |
+| `workflow_result.json` | The full result of the run as JSON. The run folder also holds this file, though step 4's last line does not list it. |
 
 `.onex_state` is a hidden folder. If you ran step 4 from your home folder, `open ~/.onex_state/runs`
 shows it in Finder on macOS (in Finder, Cmd+Shift+. shows hidden folders anywhere). To read the
@@ -238,7 +240,7 @@ cat "$(ls -td ~/.onex_state/runs/*/ | head -1)result.txt"
 ### See what your delegations cost and saved
 
 Every run is also recorded on this machine, in the same file that holds your key. The command
-`onex metering` reads those records and prints, for the last 7 days by default, how many runs
+`onex metering` reads those records and prints, for all time by default, how many runs
 there were, the tokens sent and received, what you spent, what the same calls would have cost on
 a baseline model, and the difference, broken out by model:
 
@@ -246,7 +248,7 @@ a baseline model, and the difference, broken out by model:
 onex metering
 ```
 
-Use `--window today`, `--window 30d` or `--window all` for another period, and `--json` for
+Use `--window today` for today only, `--day YYYY-MM-DD` for one specific day, and `--json` for
 output a script can read. A run whose tokens were not measured is counted as unknown, never as
 zero, and the savings line always names the baseline model and prices it was worked out from.
 
