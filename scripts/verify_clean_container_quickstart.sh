@@ -22,9 +22,19 @@
 # from the host. If the step needs any of them, this script fails rather than
 # passing on the host's leftovers.
 #
-# Checking that all six pages render their JavaScript needs a browser, and is
-# a separate artifact; this script checks the server side, which is what the
-# quickstart's own text promises.
+#   5. Each of the six pages renders in a headless browser with its JavaScript
+#      actually executed. A 200 from the server proves a file was sent; it does
+#      not prove the page runs. The six are the ones the local dashboard
+#      declares: /overview, /runs, /workflow, /usage, /credentials, /api-keys.
+#
+#   6. A flipped byte in the cached bundle is refused, and nothing is served.
+#      A run that only ever sees a good bundle cannot tell a working check from
+#      an absent one, so the script breaks the cache on purpose at the end.
+#
+# The browser is Chromium driven by Playwright's PYTHON package, installed with
+# `uv`. Playwright downloads its own browser binary and needs no Node, so the
+# no-Node claim survives this step -- which is the reason the browser check
+# belongs in this script rather than beside it.
 #
 # Usage: scripts/verify_clean_container_quickstart.sh [--image python:3.12-slim]
 # Needs: docker (or podman via DOCKER=podman) and a provider key in
@@ -163,6 +173,123 @@ if served < 1:
 print(f"  {served} row(s) served across {len(topics)} exposure(s)")
 PY
 
+echo "== each of the six pages renders, with its JavaScript executed =="
+# Chromium's own runtime libraries; the browser binary itself comes from
+# Playwright, not from apt, so this list does not reintroduce Node.
+apt-get install -y -qq --no-install-recommends \
+  libglib2.0-0 libnss3 libnspr4 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 \
+  libcups2 libdrm2 libatspi2.0-0 libx11-6 libxcomposite1 libxdamage1 \
+  libxext6 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libpango-1.0-0 \
+  libcairo2 libasound2 fonts-liberation >/dev/null
+
+uv tool install playwright >/dev/null
+playwright install chromium >/dev/null 2>&1 \
+  || fail "playwright could not install chromium, so the pages cannot be checked"
+
+uv tool run --from playwright python - <<'BROWSER' || exit 1
+import sys
+from playwright.sync_api import sync_playwright
+
+# The paths src/navigation/page-routes.ts declares for the local dashboard.
+PAGES = ["/overview", "/runs", "/workflow", "/usage", "/credentials", "/api-keys"]
+BASE = "http://127.0.0.1:8765"
+
+failures = []
+with sync_playwright() as play:
+    browser = play.chromium.launch(args=["--no-sandbox"])
+    for path in PAGES:
+        page = browser.new_page()
+        errors = []
+        # A page that throws on load still returns 200 and still renders a
+        # container, so the console and the page errors are the real signal.
+        page.on("pageerror", lambda exc: errors.append(f"uncaught: {exc}"))
+        page.on(
+            "console",
+            lambda msg: errors.append(f"console.error: {msg.text}")
+            if msg.type == "error"
+            else None,
+        )
+        # A request for a script or stylesheet that 404s means the bundle is
+        # incomplete, which is exactly what a hand-built archive gets wrong.
+        page.on(
+            "response",
+            lambda res: errors.append(f"{res.status} for {res.url}")
+            if res.status >= 400 and res.request.resource_type in ("script", "stylesheet")
+            else None,
+        )
+        try:
+            response = page.goto(f"{BASE}{path}", wait_until="networkidle", timeout=30_000)
+            if response is None or response.status != 200:
+                errors.append(f"navigation returned {response and response.status}")
+            # React must have mounted something: an empty root is the blank-page
+            # failure a status check cannot see.
+            body = page.inner_text("body").strip()
+            if len(body) < 20:
+                errors.append(f"rendered only {len(body)} characters of text")
+        except Exception as exc:  # noqa: BLE001 - the reason is for a human
+            errors.append(f"{type(exc).__name__}: {exc}")
+        finally:
+            page.close()
+        if errors:
+            failures.append((path, errors))
+            print(f"  FAIL {path}")
+            for line in errors:
+                print(f"         {line}")
+        else:
+            print(f"  ok   {path}")
+    browser.close()
+
+if failures:
+    sys.exit(f"FAILED: {len(failures)} of {len(PAGES)} pages did not render")
+print(f"  all {len(PAGES)} pages rendered")
+BROWSER
+
+echo "== a flipped byte in the cached bundle must be refused =="
+# The other half of the claim, and the one a passing run cannot show: the
+# verification only matters if a bad bundle actually stops the command. The
+# cache is keyed by digest, so this flips a byte in the archive the previous
+# step verified and starts the command again.
+kill "$DASH" 2>/dev/null || true
+wait "$DASH" 2>/dev/null || true
+
+ARCHIVE="$(find "$HOME/.omninode/dashboard/bundles" -maxdepth 1 -name '*.tar.gz' | head -1)"
+[ -n "$ARCHIVE" ] || fail "no cached bundle was found, so the refusal cannot be checked"
+python3 - "$ARCHIVE" <<'FLIP'
+import sys, pathlib
+p = pathlib.Path(sys.argv[1])
+b = bytearray(p.read_bytes())
+# A byte in the middle of the compressed payload: still a readable file, with
+# different contents. Flipping the first byte would fail as "not a gzip file",
+# which a weaker check could pass for the wrong reason.
+i = len(b) // 2
+b[i] ^= 0xFF
+p.write_bytes(bytes(b))
+print(f"  flipped one byte at offset {i} of {len(b)}")
+FLIP
+
+set +e
+onex dashboard --overlay /tmp/overlay.yaml >/tmp/tampered.log 2>&1
+TAMPER_EXIT=$?
+set -e
+if [ "$TAMPER_EXIT" -eq 0 ]; then
+  cat /tmp/tampered.log >&2
+  fail "the command exited 0 with a tampered bundle, so the pin is decorative"
+fi
+grep -qi "does not match the pin" /tmp/tampered.log || {
+  echo "--- the command's output ---" >&2
+  cat /tmp/tampered.log >&2
+  fail "the command refused, but not for the digest: the message must name the mismatch"
+}
+# And it must not be serving the pages anyway. Written as an `if`, not as
+# `grep -q ... && fail`: under `set -e` that form exits non-zero on the GOOD
+# path, where grep correctly finds no 200.
+STILL="$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 http://127.0.0.1:8765/ || true)"
+if [ "$STILL" = "200" ]; then
+  fail "the tampered bundle is still being served on the port"
+fi
+echo "  refused, naming the digest mismatch, and nothing is served"
+
 echo
-echo "PASSED: a container with no Node and no clone served the dashboard and one run."
+echo "PASSED: a container with no Node and no clone served the dashboard, one run,"
+echo "        and all six pages in a headless browser; a flipped byte was refused."
 IN_CONTAINER
