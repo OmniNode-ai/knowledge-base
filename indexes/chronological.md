@@ -6,7 +6,7 @@ All knowledge base artifacts sorted by date.
 
 ## 2026-10
 
-- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-10-02
+- **[OmniClaude Quickstart](guides/onex-plugin-quickstart.md)** (guide) — 2026-10-06
 ## 2026-09
 
 - **[Supported Platforms](guides/supported-platforms.md)** (guide) — 2026-09-30

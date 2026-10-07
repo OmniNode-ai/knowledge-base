@@ -1,7 +1,7 @@
 ---
 type: guide
 status: current
-date: "2026-10-02"
+date: "2026-10-06"
 title: "OmniClaude Quickstart"
 topics: [omniclaude, plugin, quickstart, delegation]
 refs: []
@@ -22,7 +22,7 @@ There are two ways to use it, and both use the same `onex` command-line tool:
 
 - **In a terminal**: `onex delegate "<your task>"`. Steps 1 to 5 set this up and prove it works.
 - **Inside Claude Code**: the `onex@omninode-tools` plugin adds `/onex:delegate`, which runs the
-  same command for you. Step 6 adds it. The plugin ships one skill, `/onex:delegate`, and nothing
+  same command for you. Step 7 adds it. The plugin ships one skill, `/onex:delegate`, and nothing
   else: no hooks, no agents.
 
 ---
@@ -35,7 +35,7 @@ There are two ways to use it, and both use the same `onex` command-line tool:
 | A terminal | macOS: the **Terminal** app (Applications → Utilities). Linux: any shell. |
 | Python 3.12+ and `uv` | macOS and Linux: run `curl -LsSf https://astral.sh/uv/install.sh \| sh` (see [uv's install page](https://docs.astral.sh/uv/getting-started/installation/) for other systems). If you already use Homebrew, `brew install uv` also works, but on an older macOS it can try to build `uv` from source and stop on outdated Apple command line tools, so the curl installer is the safer first choice. |
 | A model to send work to | **Either** an account with a model provider and an API key from it (OpenRouter is the simplest: [openrouter.ai](https://openrouter.ai), and it has free models), **or** a model server you run yourself that speaks the OpenAI chat-completions API (llama.cpp, vLLM, or similar). |
-| Claude Code (only for step 6) | The [Claude Code CLI](https://claude.com/claude-code), signed in. Steps 1 to 5 do not need it. |
+| Claude Code (only for step 7) | The [Claude Code CLI](https://claude.com/claude-code), signed in. Steps 1 to 6 do not need it. |
 
 You do not need to install Python yourself. The Python that ships with macOS is too old
 (3.9), but that does not matter: `uv` uses a newer Python if you have one (Homebrew's, for
@@ -254,7 +254,45 @@ zero, and the savings line always names the baseline model and prices it was wor
 
 ---
 
-## Step 6 — Use it inside Claude Code (optional)
+## Step 6 — See your runs on the dashboard
+
+`onex metering` prints the totals. The dashboard shows the runs themselves: what you asked,
+which model answered, and the receipt behind each one. It runs on your own machine and reads the
+same records, so nothing leaves it.
+
+```bash
+onex dashboard
+```
+
+The command prints the address it is serving on, for example
+`onex dashboard: http://127.0.0.1:54321`. Open that address in a browser. Leave the command
+running while you use the page, and press Ctrl+C to stop it.
+
+The first run takes a few seconds longer than later ones: it downloads the dashboard's pages
+once and checks them against a checksum this release pins, then keeps them for next time. You
+need no Node and no copy of any OmniNode repository — the `onex` tool from step 1 is enough. If
+the download is damaged or has been altered, the command says so and serves nothing rather than
+serving pages it cannot vouch for.
+
+To choose the address yourself, write an overlay file and pass it. Only a loopback address is
+accepted, because this page is for you and not for your network:
+
+```yaml
+# ~/.omninode/delegation/dashboard.yaml
+dashboard:
+  bind: "127.0.0.1:8765"
+```
+
+```bash
+onex dashboard --overlay ~/.omninode/delegation/dashboard.yaml
+```
+
+The page is empty until something has run. If you have not done step 4 yet, do that first and
+reload.
+
+---
+
+## Step 7 — Use it inside Claude Code (optional)
 
 Open a **new** terminal window first, so Claude Code can find the `onex` command from step 1.
 
@@ -314,7 +352,7 @@ registering your own provider key with `onex secret set`, a cloud model you pay 
 | `Error: No such command 'delegate'. Did you mean 'gate'?` | Only `omnibase-core` is installed. Re-run the step 1 install command exactly as written. |
 | `Error: Unknown node 'node_delegate_skill_orchestrator'` | `omnimarket` is missing from the environment. Re-run the step 1 install command exactly as written. |
 | `claude plugin install` can't find `onex@omninode-tools` | The marketplace is not registered. Re-run `claude plugin marketplace add OmniNode-ai/omniclaude`; `claude plugin marketplace list` should show `omninode-tools`. |
-| A window asks to install "command line developer tools" | macOS needs Apple's developer tools for `git`, which step 6 uses. Click Install, wait for it to finish, and re-run the command. |
+| A window asks to install "command line developer tools" | macOS needs Apple's developer tools for `git`, which step 7 uses. Click Install, wait for it to finish, and re-run the command. |
 
 `onex delegate --help` answering is not proof that a delegation works: it answers before
 anything is checked. Step 4 is the real test.
