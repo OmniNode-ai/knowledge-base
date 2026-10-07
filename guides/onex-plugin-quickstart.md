@@ -208,11 +208,12 @@ It takes from a few seconds to a minute. You will see a few status lines, then t
 answer as plain text, then one summary line starting `onex delegate: model <model>, cost
 <cost>, run <run id>, full receipt <path>/receipt.json`, then a last line starting
 `delegate artifacts:` that lists three files. **It worked if the answer printed and the
-command exited 0.** There is no JSON in the default terminal output any more. If the run
+command exited 0.** There is no JSON in the default output any more. If the run
 fails, you will see one plain line starting `onex delegate failed:` and the command exits
 non-zero; the `delegate artifacts:` line still lists the three files so you can find the
-receipt. To see the full receipt as JSON, pass `--json`. Without a terminal attached, `onex delegate`
-prints the full JSON result instead. See
+receipt. To see the full receipt as JSON, pass `--json`. When the output goes to a file or a pipe
+instead of a terminal, the default is the same: standard output carries the answer and the
+`delegate artifacts:` line, and the status and summary lines go to standard error. See
 [Troubleshooting](#troubleshooting).
 
 ---
