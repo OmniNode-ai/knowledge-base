@@ -22,9 +22,19 @@
 # from the host. If the step needs any of them, this script fails rather than
 # passing on the host's leftovers.
 #
-# Checking that all six pages render their JavaScript needs a browser, and is
-# a separate artifact; this script checks the server side, which is what the
-# quickstart's own text promises.
+#   5. Each of the six pages renders in a headless browser with its JavaScript
+#      actually executed. A 200 from the server proves a file was sent; it does
+#      not prove the page runs. The six are the ones the local dashboard
+#      declares: /overview, /runs, /workflow, /usage, /credentials, /api-keys.
+#
+#   6. A flipped byte in the cached bundle is refused, and nothing is served.
+#      A run that only ever sees a good bundle cannot tell a working check from
+#      an absent one, so the script breaks the cache on purpose at the end.
+#
+# The browser is Chromium driven by Playwright's PYTHON package, installed with
+# `uv`. Playwright downloads its own browser binary and needs no Node, so the
+# no-Node claim survives this step -- which is the reason the browser check
+# belongs in this script rather than beside it.
 #
 # Usage: scripts/verify_clean_container_quickstart.sh [--image python:3.12-slim]
 # Needs: docker (or podman via DOCKER=podman) and a provider key in
@@ -78,9 +88,12 @@ echo "== the container has nothing =="
 # Proving the premise before relying on it: a check that silently ran with
 # Node present would prove the opposite of what it claims.
 command -v node >/dev/null 2>&1 && fail "this image ships node, so it cannot prove the no-Node claim"
-command -v git  >/dev/null 2>&1 && echo "note: git is present but nothing below clones anything"
 [ -z "${OMNI_HOME:-}" ] || fail "OMNI_HOME is set to '${OMNI_HOME}'"
-echo "  no node, OMNI_HOME unset"
+# Recorded, not inferred: the criterion asks this run to state that it saw no
+# source checkout, so the count is printed even when it is zero.
+GIT_DIRS="$(find / -xdev -type d -name .git -not -path '*/site-packages/*' 2>/dev/null | wc -l | tr -d ' ')"
+echo "  git_dirs=${GIT_DIRS} OMNI_HOME=unset node=absent"
+[ "$GIT_DIRS" = "0" ] || fail "found ${GIT_DIRS} git checkout(s); this run cannot prove the no-checkout claim"
 
 echo "== curl, for the checks themselves =="
 apt-get update -qq >/dev/null
@@ -98,9 +111,27 @@ onex local init || fail "onex local init failed on a clean machine"
 
 echo "== one delegation, so the dashboard has something true to show =="
 onex delegate --task-type code_generation \
-  "reply with the single word ok" >/dev/null \
-  || fail "the delegation failed, so there is no row for the dashboard to serve"
-echo "  one run recorded"
+  "reply with the single word ok" >/tmp/delegate.log 2>&1 \
+  || { cat /tmp/delegate.log >&2; fail "the delegation failed, so there is no row to serve"; }
+# The run's own receipt names the correlation_id the served row must carry.
+# Matching on "a row exists" would pass on somebody else's run, or on a stale
+# store, which is the whole point of binding to this id.
+CORRELATION="$(python3 - <<'RECEIPT'
+import json, pathlib, sys
+runs = sorted(
+    pathlib.Path.home().joinpath(".onex_state/runs").glob("*/receipt.json"),
+    key=lambda p: p.stat().st_mtime,
+)
+if not runs:
+    sys.exit("FAILED: the delegation wrote no receipt.json")
+receipt = json.loads(runs[-1].read_text(encoding="utf-8"))
+cid = receipt.get("correlation_id") or receipt.get("correlationId")
+if not cid:
+    sys.exit(f"FAILED: {runs[-1]} carries no correlation_id")
+print(cid)
+RECEIPT
+)" || exit 1
+echo "  one run recorded, correlation_id=${CORRELATION}"
 
 echo "== onex dashboard: / must answer 200 within ${BUDGET_SECONDS}s =="
 # The bind is an overlay key, not a flag: left to itself the command takes a
@@ -138,31 +169,157 @@ grep -qi '<script' /tmp/root.html \
   || fail "/ answered 200 but the body loads no JavaScript, so the page is a shell"
 echo "  200 in ${ELAPSED}s, and the body loads its JavaScript"
 
-echo "== the page's data route serves that run =="
+echo "== the delegation exposure serves THIS run =="
 curl -fsS http://127.0.0.1:8765/projections >/tmp/projections.json \
   || fail "/projections did not answer, so the page would render empty"
-python3 - <<'PY' || exit 1
-import json, sys, urllib.request
+CORRELATION="$CORRELATION" python3 - <<'PY' || exit 1
+import json, os, sys, urllib.request
+
+TOPIC = "onex.snapshot.projection.delegation.decisions.v1"
+cid = os.environ["CORRELATION"]
 
 catalogue = json.load(open("/tmp/projections.json"))
 topics = [row["topic"] for row in catalogue.get("topics", [])]
-if not topics:
-    sys.exit("FAILED: the catalogue is empty, so the dashboard has nothing to read")
-
-served = 0
-for topic in topics:
-    with urllib.request.urlopen(
-        f"http://127.0.0.1:8765/projection/{topic}", timeout=10
-    ) as response:
-        served += len(json.load(response).get("rows", []))
-if served < 1:
+if TOPIC not in topics:
     sys.exit(
-        "FAILED: every exposure served zero rows, so the delegation above is "
-        "not reaching the store the dashboard reads"
+        f"FAILED: the catalogue does not declare {TOPIC}; it has {len(topics)} "
+        f"exposure(s): {', '.join(topics) or '(none)'}"
     )
-print(f"  {served} row(s) served across {len(topics)} exposure(s)")
+
+with urllib.request.urlopen(
+    f"http://127.0.0.1:8765/projection/{TOPIC}", timeout=15
+) as response:
+    rows = json.load(response).get("rows", [])
+if not rows:
+    sys.exit(f"FAILED: {TOPIC} served zero rows, so the delegation did not reach the store")
+
+# Bound to this run's id. "Some row exists" would pass on a stale store.
+matched = [r for r in rows if cid in json.dumps(r)]
+if not matched:
+    sys.exit(
+        f"FAILED: {len(rows)} row(s) served but none carries correlation_id {cid}, "
+        "so the page is not showing the run this script just made"
+    )
+print(f"  {len(rows)} row(s) served; {len(matched)} carries correlation_id {cid}")
 PY
 
+echo "== each of the six pages renders, with its JavaScript executed =="
+# Chromium's own runtime libraries; the browser binary itself comes from
+# Playwright, not from apt, so this list does not reintroduce Node.
+apt-get install -y -qq --no-install-recommends \
+  libglib2.0-0 libnss3 libnspr4 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 \
+  libcups2 libdrm2 libatspi2.0-0 libx11-6 libxcomposite1 libxdamage1 \
+  libxext6 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libpango-1.0-0 \
+  libcairo2 libasound2 fonts-liberation >/dev/null
+
+uv tool install playwright >/dev/null
+playwright install chromium >/dev/null 2>&1 \
+  || fail "playwright could not install chromium, so the pages cannot be checked"
+
+uv tool run --from playwright python - <<'BROWSER' || exit 1
+import sys
+from playwright.sync_api import sync_playwright
+
+# The paths src/navigation/page-routes.ts declares for the local dashboard.
+PAGES = ["/overview", "/runs", "/workflow", "/usage", "/credentials", "/api-keys"]
+BASE = "http://127.0.0.1:8765"
+
+failures = []
+with sync_playwright() as play:
+    browser = play.chromium.launch(args=["--no-sandbox"])
+    for path in PAGES:
+        page = browser.new_page()
+        errors = []
+        # A page that throws on load still returns 200 and still renders a
+        # container, so the console and the page errors are the real signal.
+        page.on("pageerror", lambda exc: errors.append(f"uncaught: {exc}"))
+        page.on(
+            "console",
+            lambda msg: errors.append(f"console.error: {msg.text}")
+            if msg.type == "error"
+            else None,
+        )
+        # A request for a script or stylesheet that 404s means the bundle is
+        # incomplete, which is exactly what a hand-built archive gets wrong.
+        page.on(
+            "response",
+            lambda res: errors.append(f"{res.status} for {res.url}")
+            if res.status >= 400 and res.request.resource_type in ("script", "stylesheet")
+            else None,
+        )
+        try:
+            response = page.goto(f"{BASE}{path}", wait_until="networkidle", timeout=30_000)
+            if response is None or response.status != 200:
+                errors.append(f"navigation returned {response and response.status}")
+            # React must have mounted something: an empty root is the blank-page
+            # failure a status check cannot see.
+            body = page.inner_text("body").strip()
+            if len(body) < 20:
+                errors.append(f"rendered only {len(body)} characters of text")
+        except Exception as exc:  # noqa: BLE001 - the reason is for a human
+            errors.append(f"{type(exc).__name__}: {exc}")
+        finally:
+            page.close()
+        if errors:
+            failures.append((path, errors))
+            print(f"  FAIL {path}")
+            for line in errors:
+                print(f"         {line}")
+        else:
+            print(f"  ok   {path}")
+    browser.close()
+
+if failures:
+    sys.exit(f"FAILED: {len(failures)} of {len(PAGES)} pages did not render")
+print(f"  all {len(PAGES)} pages rendered")
+BROWSER
+
+echo "== a flipped byte in the cached bundle must be refused =="
+# The other half of the claim, and the one a passing run cannot show: the
+# verification only matters if a bad bundle actually stops the command. The
+# cache is keyed by digest, so this flips a byte in the archive the previous
+# step verified and starts the command again.
+kill "$DASH" 2>/dev/null || true
+wait "$DASH" 2>/dev/null || true
+
+ARCHIVE="$(find "$HOME/.omninode/dashboard/bundles" -maxdepth 1 -name '*.tar.gz' | head -1)"
+[ -n "$ARCHIVE" ] || fail "no cached bundle was found, so the refusal cannot be checked"
+python3 - "$ARCHIVE" <<'FLIP'
+import sys, pathlib
+p = pathlib.Path(sys.argv[1])
+b = bytearray(p.read_bytes())
+# A byte in the middle of the compressed payload: still a readable file, with
+# different contents. Flipping the first byte would fail as "not a gzip file",
+# which a weaker check could pass for the wrong reason.
+i = len(b) // 2
+b[i] ^= 0xFF
+p.write_bytes(bytes(b))
+print(f"  flipped one byte at offset {i} of {len(b)}")
+FLIP
+
+set +e
+onex dashboard --overlay /tmp/overlay.yaml >/tmp/tampered.log 2>&1
+TAMPER_EXIT=$?
+set -e
+if [ "$TAMPER_EXIT" -eq 0 ]; then
+  cat /tmp/tampered.log >&2
+  fail "the command exited 0 with a tampered bundle, so the pin is decorative"
+fi
+grep -qi "does not match the pin" /tmp/tampered.log || {
+  echo "--- the command's output ---" >&2
+  cat /tmp/tampered.log >&2
+  fail "the command refused, but not for the digest: the message must name the mismatch"
+}
+# And it must not be serving the pages anyway. Written as an `if`, not as
+# `grep -q ... && fail`: under `set -e` that form exits non-zero on the GOOD
+# path, where grep correctly finds no 200.
+STILL="$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 http://127.0.0.1:8765/ || true)"
+if [ "$STILL" = "200" ]; then
+  fail "the tampered bundle is still being served on the port"
+fi
+echo "  refused, naming the digest mismatch, and nothing is served"
+
 echo
-echo "PASSED: a container with no Node and no clone served the dashboard and one run."
+echo "PASSED: a container with no Node and no clone served the dashboard, one run,"
+echo "        and all six pages in a headless browser; a flipped byte was refused."
 IN_CONTAINER
