@@ -88,9 +88,12 @@ echo "== the container has nothing =="
 # Proving the premise before relying on it: a check that silently ran with
 # Node present would prove the opposite of what it claims.
 command -v node >/dev/null 2>&1 && fail "this image ships node, so it cannot prove the no-Node claim"
-command -v git  >/dev/null 2>&1 && echo "note: git is present but nothing below clones anything"
 [ -z "${OMNI_HOME:-}" ] || fail "OMNI_HOME is set to '${OMNI_HOME}'"
-echo "  no node, OMNI_HOME unset"
+# Recorded, not inferred: the criterion asks this run to state that it saw no
+# source checkout, so the count is printed even when it is zero.
+GIT_DIRS="$(find / -xdev -type d -name .git -not -path '*/site-packages/*' 2>/dev/null | wc -l | tr -d ' ')"
+echo "  git_dirs=${GIT_DIRS} OMNI_HOME=unset node=absent"
+[ "$GIT_DIRS" = "0" ] || fail "found ${GIT_DIRS} git checkout(s); this run cannot prove the no-checkout claim"
 
 echo "== curl, for the checks themselves =="
 apt-get update -qq >/dev/null
@@ -108,9 +111,27 @@ onex local init || fail "onex local init failed on a clean machine"
 
 echo "== one delegation, so the dashboard has something true to show =="
 onex delegate --task-type code_generation \
-  "reply with the single word ok" >/dev/null \
-  || fail "the delegation failed, so there is no row for the dashboard to serve"
-echo "  one run recorded"
+  "reply with the single word ok" >/tmp/delegate.log 2>&1 \
+  || { cat /tmp/delegate.log >&2; fail "the delegation failed, so there is no row to serve"; }
+# The run's own receipt names the correlation_id the served row must carry.
+# Matching on "a row exists" would pass on somebody else's run, or on a stale
+# store, which is the whole point of binding to this id.
+CORRELATION="$(python3 - <<'RECEIPT'
+import json, pathlib, sys
+runs = sorted(
+    pathlib.Path.home().joinpath(".onex_state/runs").glob("*/receipt.json"),
+    key=lambda p: p.stat().st_mtime,
+)
+if not runs:
+    sys.exit("FAILED: the delegation wrote no receipt.json")
+receipt = json.loads(runs[-1].read_text(encoding="utf-8"))
+cid = receipt.get("correlation_id") or receipt.get("correlationId")
+if not cid:
+    sys.exit(f"FAILED: {runs[-1]} carries no correlation_id")
+print(cid)
+RECEIPT
+)" || exit 1
+echo "  one run recorded, correlation_id=${CORRELATION}"
 
 echo "== onex dashboard: / must answer 200 within ${BUDGET_SECONDS}s =="
 # The bind is an overlay key, not a flag: left to itself the command takes a
@@ -148,29 +169,38 @@ grep -qi '<script' /tmp/root.html \
   || fail "/ answered 200 but the body loads no JavaScript, so the page is a shell"
 echo "  200 in ${ELAPSED}s, and the body loads its JavaScript"
 
-echo "== the page's data route serves that run =="
+echo "== the delegation exposure serves THIS run =="
 curl -fsS http://127.0.0.1:8765/projections >/tmp/projections.json \
   || fail "/projections did not answer, so the page would render empty"
-python3 - <<'PY' || exit 1
-import json, sys, urllib.request
+CORRELATION="$CORRELATION" python3 - <<'PY' || exit 1
+import json, os, sys, urllib.request
+
+TOPIC = "onex.snapshot.projection.delegation.decisions.v1"
+cid = os.environ["CORRELATION"]
 
 catalogue = json.load(open("/tmp/projections.json"))
 topics = [row["topic"] for row in catalogue.get("topics", [])]
-if not topics:
-    sys.exit("FAILED: the catalogue is empty, so the dashboard has nothing to read")
-
-served = 0
-for topic in topics:
-    with urllib.request.urlopen(
-        f"http://127.0.0.1:8765/projection/{topic}", timeout=10
-    ) as response:
-        served += len(json.load(response).get("rows", []))
-if served < 1:
+if TOPIC not in topics:
     sys.exit(
-        "FAILED: every exposure served zero rows, so the delegation above is "
-        "not reaching the store the dashboard reads"
+        f"FAILED: the catalogue does not declare {TOPIC}; it has {len(topics)} "
+        f"exposure(s): {', '.join(topics) or '(none)'}"
     )
-print(f"  {served} row(s) served across {len(topics)} exposure(s)")
+
+with urllib.request.urlopen(
+    f"http://127.0.0.1:8765/projection/{TOPIC}", timeout=15
+) as response:
+    rows = json.load(response).get("rows", [])
+if not rows:
+    sys.exit(f"FAILED: {TOPIC} served zero rows, so the delegation did not reach the store")
+
+# Bound to this run's id. "Some row exists" would pass on a stale store.
+matched = [r for r in rows if cid in json.dumps(r)]
+if not matched:
+    sys.exit(
+        f"FAILED: {len(rows)} row(s) served but none carries correlation_id {cid}, "
+        "so the page is not showing the run this script just made"
+    )
+print(f"  {len(rows)} row(s) served; {len(matched)} carries correlation_id {cid}")
 PY
 
 echo "== each of the six pages renders, with its JavaScript executed =="
