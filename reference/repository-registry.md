@@ -50,7 +50,7 @@ installer itself, the documentation home, and adjacent products.
 | Repository | Description |
 |---|---|
 | `omnibase` | The flagship installer — one command to clone, build, and run the full platform. This table's canonical `repos.yaml` lives here. |
-| `knowledge-base` | This repository — canonical home for OmniNode's external documentation: architecture, guides, reference, runbooks, and provenance |
+| `knowledge_base` | This repository — canonical home for OmniNode's external documentation: architecture, guides, reference, runbooks, and provenance |
 | `omnigemini` | Gemini-native ONEX skill execution runtime — whole-project grounding via Gemini's long context window |
 
 ## Private Repositories

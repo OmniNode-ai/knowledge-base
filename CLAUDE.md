@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-## Repository: OmniNode-ai/knowledge-base
+## Repository: OmniNode-ai/knowledge_base
 
 Canonical home for OmniNode's external documentation, and the public architectural provenance system.
 

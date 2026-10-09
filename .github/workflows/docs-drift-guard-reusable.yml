@@ -4,7 +4,7 @@ name: Docs Drift Guard (reusable)
 #
 #   jobs:
 #     docs-drift-guard:
-#       uses: OmniNode-ai/knowledge-base/.github/workflows/docs-drift-guard-reusable.yml@main
+#       uses: OmniNode-ai/knowledge_base/.github/workflows/docs-drift-guard-reusable.yml@main
 #       with:
 #         repo_name: <repo key as it appears in migration-manifest.yaml repos[].repo>
 #
@@ -41,7 +41,7 @@ jobs:
       - name: Checkout knowledge-base guard + manifest (main only, never a PR branch)
         uses: actions/checkout@v4
         with:
-          repository: OmniNode-ai/knowledge-base
+          repository: OmniNode-ai/knowledge_base
           ref: main
           path: .docs-drift-guard-kb
 

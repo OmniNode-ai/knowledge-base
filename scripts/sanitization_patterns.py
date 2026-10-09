@@ -17,12 +17,13 @@ import re
 # naming any other slug is a private-repo leak. This is an explicit allowlist,
 # not a prefix rule: every entry must be an exact repository name.
 #
-# The public repository's own name is an open question in the workspace plan
-# (Q1) — an underscore spelling is among the candidates. Renaming the repo
-# means adding the new slug here DELIBERATELY; ``tests/test_sanitization_patterns.py``
-# pins the current verdict for the underscore spellings so a rename cannot
-# silently change what this gate exempts.
-PUBLIC_REPO_SLUGS: tuple[str, ...] = ("knowledge-base",)
+# The public repository was renamed from ``knowledge-base`` to ``knowledge_base``
+# (operator instruction 2026-10-09). The old hyphen spelling stays exempt
+# because GitHub redirects it and published pointer stubs still carry it.
+# ``tests/test_sanitization_patterns.py`` pins the verdict for every other
+# underscore spelling so a further rename cannot silently change what this
+# gate exempts.
+PUBLIC_REPO_SLUGS: tuple[str, ...] = ("knowledge_base", "knowledge-base")
 
 # A GitHub repository name may contain letters, digits, ``.``, ``_`` and ``-``.
 # Requiring the character following an exempt slug to be OUTSIDE that set is

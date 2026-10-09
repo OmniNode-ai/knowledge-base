@@ -63,7 +63,7 @@ def test_private_repo_named_without_a_url_is_caught() -> None:
 
 
 def test_public_slug_alone_is_still_exempt() -> None:
-    assert scan_text("OmniNode-ai/knowledge-base is public\n", label="probe") == []
+    assert scan_text("OmniNode-ai/knowledge_base is public\n", label="probe") == []
 
 
 # ---------------------------------------------------------------------------
