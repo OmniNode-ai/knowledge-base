@@ -1429,7 +1429,7 @@ repos:
           diagram entry with the live `node_navigation_history_reducer`).
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-four-node-architecture.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/architecture/omnimemory-four-node-architecture.md
         cutover_state: pointer-live
       - source_path: docs/architecture/ARCH_002_KAFKA_ABSTRACTION.md
         bucket: A
@@ -1448,7 +1448,7 @@ repos:
           enforcement are unaffected.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omnimemory-arch-002-kafka-abstraction.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/architecture/omnimemory-arch-002-kafka-abstraction.md
         cutover_state: pointer-live
       - source_path: docs/runtime/RUNTIME_PLUGINS.md
         bucket: A
@@ -1472,7 +1472,7 @@ repos:
           copy.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-runtime-plugins.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omnimemory-runtime-plugins.md
         cutover_state: pointer-live
       - source_path: docs/architecture/MEMORY_DATA_OWNERSHIP.md
         bucket: A
@@ -1491,7 +1491,7 @@ repos:
           and future-only framing corrected in this migration.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-memory-data-ownership.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omnimemory-memory-data-ownership.md
         cutover_state: pointer-live
       - source_path: docs/migrations/MARKET_MIGRATION_BOUNDARY.md
         bucket: A
@@ -1518,7 +1518,7 @@ repos:
           asserted either way.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-market-migration-boundary.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/guides/omnimemory-market-migration-boundary.md
         cutover_state: pointer-live
       # --- full-sweep pass: rows below come from the exhaustive per-file triage,
       # --- not from the earlier curated catalog. Each carries a triage_verdict.
@@ -1546,7 +1546,7 @@ repos:
           forms — which changes no behavioural claim.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-pii-handling.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/guides/omnimemory-pii-handling.md
         cutover_state: pointer-live
       - source_path: docs/environment_variables.md
         bucket: A
@@ -1569,7 +1569,7 @@ repos:
           module's own docstring, so the error was not unique to this doc.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-environment-variables.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omnimemory-environment-variables.md
         cutover_state: pointer-live
       - source_path: docs/handler_reuse_matrix.md
         bucket: A
@@ -1603,7 +1603,7 @@ repos:
           Poetry install convention the repository no longer uses.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omnimemory-handler-reuse-matrix.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omnimemory-handler-reuse-matrix.md
         cutover_state: pointer-live
       - source_path: docs/PERFORMANCE_TESTING.md
         bucket: A
@@ -1631,7 +1631,7 @@ repos:
           repository's real CI installs with setup-uv.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/guides/omnimemory-performance-testing.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/guides/omnimemory-performance-testing.md
         cutover_state: pointer-live
       - source_path: docs/runbooks/STARTING_MEMORY_SERVICES.md
         bucket: A
@@ -1668,7 +1668,7 @@ repos:
           connection URL) named, rather than assumed.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/runbooks/omnimemory-starting-memory-services.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/runbooks/omnimemory-starting-memory-services.md
         cutover_state: pointer-live
       - source_path: .serena/memories/project_overview.md
         bucket: A
@@ -2096,7 +2096,7 @@ repos:
           flagged as unverified rather than rewritten from a guess.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omniintelligence-event-surface.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omniintelligence-event-surface.md
         cutover_state: pointer-live
       - source_path: docs/reference/DASH_INTEGRATION_TRUTH_BOUNDARY.md
         bucket: A
@@ -2146,7 +2146,7 @@ repos:
           links repointed to their new KB paths.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/reference/omniintelligence-node-inventory.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/reference/omniintelligence-node-inventory.md
         cutover_state: pointer-live
       - source_path: docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md
         bucket: A
@@ -2162,7 +2162,7 @@ repos:
           internal cross-reference links repointed to their new KB paths.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-four-node-architecture.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/architecture/omniintelligence-four-node-architecture.md
         cutover_state: pointer-live
       - source_path: docs/architecture/CODE_PROJECTION_V2.md
         bucket: A
@@ -2178,7 +2178,7 @@ repos:
           otherwise unchanged.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-code-projection-v2.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/architecture/omniintelligence-code-projection-v2.md
         cutover_state: pointer-live
       - source_path: docs/architecture/contract-package-spec.md
         bucket: A
@@ -2198,7 +2198,7 @@ repos:
           this migration.
         pointer_redirect: >-
           Migrated to the OmniNode knowledge base:
-          https://github.com/OmniNode-ai/knowledge-base/blob/main/architecture/omniintelligence-contract-package-spec.md
+          https://github.com/OmniNode-ai/knowledge_base/blob/main/architecture/omniintelligence-contract-package-spec.md
         cutover_state: pointer-live
       - source_path: docs/standards/STANDARD_DOC_LAYOUT.md
         bucket: A

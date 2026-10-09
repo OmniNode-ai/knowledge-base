@@ -254,7 +254,7 @@ machinery, hard to debug when injection fails, adds "magic" behavior.
 
 ### Related Documentation
 
-- [ONEX Four-Node Architecture](https://github.com/OmniNode-ai/knowledge-base) (omnibase_core `docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md`)
+- [ONEX Four-Node Architecture](https://github.com/OmniNode-ai/knowledge_base) (omnibase_core `docs/architecture/ONEX_FOUR_NODE_ARCHITECTURE.md`)
 - Protocol Architecture, Dependency Injection docs (omnibase_core `docs/architecture/`)
 
 ### Code References

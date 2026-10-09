@@ -40,6 +40,9 @@ class TestPublicRepoUrlsPass:
     @pytest.mark.parametrize(
         "url",
         [
+            f"https://{_ORG}/knowledge_base",
+            f"https://{_ORG}/knowledge_base/blob/main/README.md",
+            f"https://{_ORG}/knowledge_base.git",
             f"https://{_ORG}/knowledge-base",
             f"https://{_ORG}/knowledge-base/blob/main/README.md",
             f"https://{_ORG}/knowledge-base/actions/workflows/ci.yml/badge.svg",
@@ -108,34 +111,26 @@ class TestPrivateRepoUrlsBlock:
 
 
 class TestUnderscoreSpellingVerdictsArePinned:
-    """Pin the underscore candidate spellings against a silent rename.
+    """Pin the other underscore spellings against a silent rename.
 
-    Workspace-plan Q1 leaves the public repository's eventual name open, with
-    an underscore spelling among the candidates. These assertions record the
-    CURRENT verdict for those spellings — they are private/unknown slugs and
-    are blocked — so that renaming the public repo cannot quietly flip gate
-    behaviour without a test failure forcing the exemption list to be updated
-    deliberately. If the public repo is ever renamed to an underscore
-    spelling, add it to ``PUBLIC_REPO_SLUGS`` and move that case into
-    ``TestPublicRepoUrlsPass`` as an explicit decision, never as a side effect.
+    The public repository is ``knowledge_base``, and ``knowledge-base`` still
+    redirects to it. Every other underscore spelling is a private or unknown
+    slug and must stay blocked, so that a further rename cannot quietly flip
+    gate behaviour without a test failure forcing the exemption list to be
+    updated deliberately.
     """
 
     @pytest.mark.parametrize(
         "slug",
-        ["knowledge_base", "knowledge_base_internal", "knowledge_base_jonah"],
+        ["knowledge_base_internal", "knowledge_base_jonah", "knowledge_basement"],
     )
-    def test_underscore_spellings_are_currently_blocked(self, slug: str) -> None:
+    def test_other_underscore_spellings_are_blocked(self, slug: str) -> None:
         assert _blocks(f"https://{_ORG}/{slug}/blob/main/README.md"), (
-            f"{slug!r} is not a declared public slug, so it must block; see "
-            "workspace-plan Q1 — this verdict is pinned deliberately"
+            f"{slug!r} is not a declared public slug, so it must block"
         )
 
-    def test_underscore_spellings_are_not_in_the_public_allowlist(self) -> None:
-        for slug in ("knowledge_base", "knowledge_base_internal", "knowledge_base_jonah"):
-            assert slug not in PUBLIC_REPO_SLUGS, (
-                f"{slug!r} appearing in PUBLIC_REPO_SLUGS would be a rename "
-                "landing without the workspace-plan Q1 decision being made"
-            )
+    def test_only_the_two_public_spellings_are_in_the_allowlist(self) -> None:
+        assert set(PUBLIC_REPO_SLUGS) == {"knowledge_base", "knowledge-base"}
 
 
 class TestGateEntrypointReportsThePrivateRepoRule:

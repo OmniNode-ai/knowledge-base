@@ -5,7 +5,7 @@
 # the next junk directory nobody has invented yet — a denylist must anticipate
 # that directory, an allowlist does not.
 #
-# Seeded from OmniNode-ai/knowledge-base@main at adoption time, MINUS the entries that
+# Seeded from OmniNode-ai/knowledge_base@main at adoption time, MINUS the entries that
 # are themselves findings. Adding an entry here is a decision to publish that
 # directory, not a formality.
 #

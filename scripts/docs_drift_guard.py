@@ -39,7 +39,7 @@ from typing import Any
 
 import yaml
 
-DEFAULT_MANIFEST_URL = "https://raw.githubusercontent.com/OmniNode-ai/knowledge-base/main/migration-manifest.yaml"
+DEFAULT_MANIFEST_URL = "https://raw.githubusercontent.com/OmniNode-ai/knowledge_base/main/migration-manifest.yaml"
 
 # Matched verbatim — see docs-taxonomy.md, "Bucket B" section, which states
 # this exact string and warns that a reworded variant reads as a missing
