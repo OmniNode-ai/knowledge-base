@@ -196,19 +196,18 @@ model id>}]', or register your own provider key on this machine, then retry.
 
 ## Step 4 — Run your first delegation
 
-Run it from a folder you will remember, because that is where the results are written (see
-step 5). Your home folder is fine:
+The results are written under `~/.onex_state` in your home folder, whichever folder you run
+it from (see step 5):
 
 ```bash
-cd ~
 onex delegate "say hello in one word"
 ```
 
 It takes from a few seconds to a minute. You will see a few status lines, then the model's
 answer as plain text, then one summary line starting `onex delegate: model <model>, cost
 <cost>, run <run id>, full receipt <path>/receipt.json`, then a last line starting
-`delegate artifacts:` that lists three files. **It worked if the answer printed and the
-command exited 0.** There is no JSON in the default output any more. If the run
+`delegate artifacts:` that lists three files and ends with `state_root=<folder>`. **It worked
+if the answer printed and the command exited 0.** There is no JSON in the default output any more. If the run
 fails, you will see one plain line starting `onex delegate failed:` and the command exits
 non-zero; the `delegate artifacts:` line still lists the three files so you can find the
 receipt. To see the full receipt as JSON, pass `--json`. When the output goes to a file or a pipe
@@ -220,8 +219,8 @@ instead of a terminal, the default is the same: standard output carries the answ
 
 ## Step 5 — Find the answer and the receipt
 
-Each run writes its own folder, `.onex_state/runs/<run id>/`, inside the folder you ran the
-command from. The last line of step 4's output names the three files:
+Each run writes its own folder, `~/.onex_state/runs/<run id>/`, in your home folder, whichever
+folder you ran the command from. The last line of step 4's output names the three files:
 
 | File | What it holds |
 |------|---------------|
@@ -230,7 +229,7 @@ command from. The last line of step 4's output names the three files:
 | `run.json` | What you asked for: the prompt and the settings the run used. |
 | `workflow_result.json` | The full result of the run as JSON. The run folder also holds this file, though step 4's last line does not list it. |
 
-`.onex_state` is a hidden folder. If you ran step 4 from your home folder, `open ~/.onex_state/runs`
+`.onex_state` is a hidden folder. `open ~/.onex_state/runs`
 shows it in Finder on macOS (in Finder, Cmd+Shift+. shows hidden folders anywhere). To read the
 newest answer in the terminal:
 
@@ -315,7 +314,7 @@ it was already open, and type:
 
 Claude asks for permission to run the `onex delegate` command; allow it. It then shows the
 answer and the model that produced it. The result files are written exactly as in step 5,
-inside the folder Claude Code was started from.
+under `~/.onex_state`, whichever folder Claude Code was started from.
 
 ---
 
